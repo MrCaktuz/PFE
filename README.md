@@ -47,7 +47,7 @@ Le projet est basé sur la réalisation du site internet de mon club de basketba
 **Page "Équipe" :**
 
 - Liste des joueurs & entraineurs de l'équipe
-- Horaire d'entrainements 
+- Horaire d'entrainements
 - Calendrier des match à venir
 - Résultats des matches
 - Photos liè à l'équipe
@@ -65,6 +65,7 @@ Le projet est basé sur la réalisation du site internet de mon club de basketba
 - Adresse de la salle
 - Carte d'accès (google map)
 - Lien vers l'itinéraire
+- Tarif de location de la salle et buvette
 
 **Page "Contact" :**
 
@@ -95,13 +96,11 @@ Le projet est basé sur la réalisation du site internet de mon club de basketba
 
 - liste des sponsors et partenaires
 
-**Page "Coaching"** (réservé aux coaches)**:**
+**Page "Coaching" :** (réservé aux coaches)
 
 - Liste des fichiers/liens partagé par les coaches du club
 
-**Page "Louez-nous" :**
 
-- Tarif de location de la salle et buvette
 
 ###Plan du site
 
@@ -115,10 +114,14 @@ Le projet est basé sur la réalisation du site internet de mon club de basketba
 - Matches
 - Photos
 	- Album
-- Informations pratiques
-	- Louez-nous
-	- Téléchargements
-- Sponsors & partenaires
+- Téléchargements
+- Partenaires
 - Coaching
 - Salle
 - Contact
+
+###Couleurs
+
+\#105885
+\#FFFFFF
+\#6295D9
