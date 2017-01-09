@@ -83,7 +83,7 @@ Le projet est basé sur la réalisation du site internet de mon club de basketba
 
 - Liste de tous les matches
 
-**Page "Notre mentalité" :**
+**Page "Règlements" :**
 
 - Règlement d'ordre intérieur
 - Autres informations
@@ -106,15 +106,16 @@ Le projet est basé sur la réalisation du site internet de mon club de basketba
 
 - Accueil
 - Notre Club
+    - Comité
 	- Équipes
 		- Équipe
-	- Comité
 	- Entraineurs
-	- Notre mentalité
+	- Règlements
 - Matches
-- Photos
-	- Album
-- Téléchargements
+- Multimédia
+    - Photos
+    	- Album
+    - Téléchargements
 - Partenaires
 - Coaching
 - Salle
@@ -123,5 +124,7 @@ Le projet est basé sur la réalisation du site internet de mon club de basketba
 ###Couleurs
 
 \#105885
+
 \#FFFFFF
+
 \#6295D9
