@@ -8,12 +8,12 @@
 		<span class="icon-bar"></span>
 	</div>
 	<ul class="mainNav__list">
-		<li class="mainNav__elt">
+		<li class="mainNav__elt{{ Request::is('/') ? ' active' : '' }}">
 			<a class="mainNav__link" href="/" title="Retour à l'accueil">
 				Accueil
 			</a>
 		</li>
-		<li class="mainNav__elt mainNav__dropdown">
+		<li class="mainNav__elt mainNav__dropdown{{ Request::is('/conseil') || Request::is('/trainer') || Request::is('/team') || Request::is('/rules') ? ' active' : '' }}">
 				<span class="mainNav__dropdownButton">Club</span>
 				<ul class="mainNav__subList mainNav__subList--club">
 					<li class="mainNav__elt">
@@ -38,16 +38,16 @@
 					</li>
 				</ul>
 		</li>
-		<li class="mainNav__elt">
+		<li class="mainNav__elt{{ Request::is('/calendar') ? ' active' : '' }}">
 			<a class="mainNav__link " href="/calendar" title="Voir notre calendrier">
 				Calendrier
 			</a>
 		</li>
-		<li class="mainNav__elt mainNav__dropdown">
+		<li class="mainNav__elt mainNav__dropdown{{ Request::is('/album') || Request::is('/download') ? ' active' : '' }}">
 			<span class="mainNav__dropdownButton">Multimédia</span>
 			<ul class="mainNav__subList mainNav__subList--multimedia">
 				<li class="mainNav__elt">
-					<a href="/albums" title="Voir nos albums photo" class="mainNav__link mainNav__link--album">
+					<a href="/album" title="Voir nos albums photo" class="mainNav__link mainNav__link--album">
 						Albums&nbsp;photo
 					</a>
 				</li>
@@ -58,7 +58,7 @@
 				</li>
 			</ul>
 		</li>
-		<li class="mainNav__elt">
+		<li class="mainNav__elt{{ Request::is('/calendar') ? ' active' : '' }}">
 			<a class="mainNav__link " href="/complexe" title="Voir notre complexe sportif">
 				Complexe
 			</a>
@@ -66,7 +66,7 @@
 		@if (Auth::check())
 			@foreach( Auth::user()->roles as $role )
 				@if( $role->title == "Entraineur" )
-					<li class="mainNav__elt">
+					<li class="mainNav__elt{{ Request::is('/coach') ? ' active' : '' }}">
 						<a class="mainNav__link " href="/coach" title="Voir la page réservé au coach">
 							Coaching
 						</a>
@@ -74,7 +74,7 @@
 				@endif
 			@endforeach
 		@endif
-		<li class="mainNav__elt">
+		<li class="mainNav__elt{{ Request::is('/contact') ? ' active' : '' }}">
 			<a class="mainNav__link " href="/contact" title="Nous contacter">
 				Contact
 			</a>
