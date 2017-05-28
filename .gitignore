@@ -1,7 +1,13 @@
-node-modules
+/assets/fonts
+/assets/db
 
-assets/fonts
-assets/db
+/design/desktopDesign.sketch
+/design/old
 
-design/desktopDesign.sketch
-design/old
+/node_modules
+/laravel/public
+/public/storage
+/storage/*.key
+/laravel/vendor
+npm-debug.log
+.env
