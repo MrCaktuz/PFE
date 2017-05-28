@@ -1,0 +1,105 @@
+/*
+ *	Description:    Footer stylesheet
+ *	File:    		_footer.scss
+ *	Version:        1.0 - 09/05/2017
+ *	Author :        Mucht - claessens.mathieu@gmail.com
+*/
+
+.footer{
+	@include font-size( 1.8 )
+	position: relative;
+	padding: 2rem;
+	color: $white;
+	background-color: $primary;
+	z-index: -1;
+	&::before{
+		content: "";
+		position: absolute;
+		top: -0.2rem;
+		left: 0;
+		display: block;
+		width: 100%;
+		height: 0.2rem;
+		background-color: $primaryDark;
+	}
+	&__contact{
+		display: block;
+		width: 11.36em;
+		margin: 0 auto 12rem;
+		a{
+			color: $white;
+		}
+	}
+	&__bloc{
+		display: block;
+		
+	}
+	&__info{
+		position: relative;
+		margin-bottom: 1rem;
+		padding-left: 3rem;
+		&::before{
+			content: "";
+			position: absolute;
+			top: .2rem;
+			left: 0;
+			display: block;
+			width: 2rem;
+			height: 2rem;
+			background-position: center;
+			background-size: contain;
+			background-repeat: no-repeat;
+		}
+		&--address{
+			min-width: 11.35em;
+			&::before{
+				background-image: url("/img/icons/location-icon-white.png");
+			}
+		}
+		&--mail{
+			margin-bottom: 1rem !important;
+			&::before{
+				background-image: url("/img/icons/mail-icon-white.png");
+			}
+		}
+		&--facebook{
+			&::before{
+				background-image: url("/img/icons/fb-icon-white.png");
+			}
+		}
+		&--line{
+			margin-bottom: 0;
+		}
+	}
+	&__logo{
+		@include font-size( 0 );
+		position: absolute;
+	    bottom: 7.5rem;
+	    left: 50%;
+	    transform: translateX( -50% );
+		display: block;
+		width: 10rem;
+		height: 8rem;
+		background-image: url($logoLightPath);
+		background-position: center;
+		background-size: contain;
+		background-repeat: no-repeat;
+	}
+	&__copy{
+		@include font-size( 1.2 );
+		display: block;
+		width: 100%;
+		margin-top: 2rem;
+		text-align: center;
+	}
+}
+
+// ******** Signature ********
+.signature{
+	display: block;
+	margin-top: 1em;
+	&__link{
+		font-weight: bold;
+		color: $white;
+	}
+}

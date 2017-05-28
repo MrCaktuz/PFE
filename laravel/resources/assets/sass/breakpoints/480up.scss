@@ -1,0 +1,55 @@
+/*
+ *  Description:    Stylesheet for 480px and up screen
+ *  File:           480up.scss
+ *  Version:        1.0 - ***
+ *  Author :        Mucht - claessens.mathieu@gmail.com
+*/
+
+// ******** Buttons ********
+.button{
+	display: inline-block;
+	width: auto;
+	margin-left: 2rem;
+	&:first-child{
+		margin-left: 0;
+	}
+}
+
+// ******** Footer ********
+.footer{
+	&__wrap{
+		position: relative;
+		max-width: 45rem;
+		margin: 0 auto;
+	}
+	&__contact{
+		width: 100%;
+		margin-bottom: 10rem;
+	}
+	&__bloc{
+		display: inline-block;
+		width: auto;
+		&:last-of-type{
+			float: right;
+		}
+	}
+	&__logo{
+		bottom: 5.5rem;
+	}
+	.signature{
+		position: relative;
+		display: inline-block;
+		margin-top: 0;
+		margin-left: 2rem;
+		&::before{
+			content: "";
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: -1rem;
+			display: block;
+			width: .1rem;
+			background-color: $white;
+		}
+	}
+}

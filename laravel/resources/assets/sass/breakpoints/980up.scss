@@ -1,0 +1,124 @@
+/*
+ *	Description:    Stylesheet for 980px and up screen
+ *	File:    		980up.scss
+ *	Version:        1.0 - 06/05/2017
+ *	Author :        Mucht - claessens.mathieu@gmail.com
+*/
+
+// ******** Main Navigation ********
+.mainNav{
+	position: sticky;
+	top: 0;
+	height: 8rem;
+	&__burgerButton{
+		display: none;
+	}
+	&__list{
+		position: relative;
+		top: auto;
+		display: flex;
+		width: 100%;
+		padding-left: 11rem;
+		box-shadow: none;
+		background-color: $transparent;
+		transform: none;
+		opacity: 1;
+	}
+	&__subList{
+		top: 6.5rem;
+		width: auto;
+    	.mainNav__elt{
+    		display: block;
+    		padding-right: 2rem;
+    	}
+	}
+	&__elt{
+		// display: inline-block;
+		width: auto;
+		&.active::before{
+			right: 0;
+			left: 0;
+			bottom: auto;
+			width: auto;
+			height: .5rem;
+			transform: scaleY( 1 );
+		}
+		&::before{
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			display: block;
+			width: 100%;
+			height: .5rem;
+			background-color: $primaryDark;
+			transform: scaleY( 0 );
+			transition: $mainTrans;
+			transform-origin: top;
+		}
+		&--auth{
+			position: absolute;
+			right: 0;
+			&::before{
+				height: 0;
+			}
+			&::after{
+				top: 38%;
+			}
+			.mainNav__link{
+				padding: 1rem;
+				transition: $mainTrans;
+			}
+			.mainNav__dropdownButton{
+				padding: 3.1rem 6rem 3.1rem 2rem;
+			}
+			.mainNav__subList{
+				right: 0;
+				&::before{
+					right: 10rem;
+					left: auto;
+				}
+			}
+		}
+		&--login{
+			.mainNav__link{
+				padding: 3.1rem 6rem 3.1rem 2rem;
+			}
+		}
+	}
+	&__link{
+		padding: 3.1rem 1rem;
+		&--logo{
+			top: 1rem;
+			left: 2rem;
+			width: 7.5rem;
+			height: 6rem;
+			z-index: 1;
+			&Center{
+				left: 50%;
+				transform: translateX( -50% );
+			}
+		}
+	}
+	&__dropdownButton{
+		padding: 3.1rem 4rem 3.1rem 1rem;
+		&::after{
+			right: 1.5rem;
+			top: 40%;
+		}
+	}
+	&__subList{
+		overflowX: hidden;
+		.mainNav__elt{
+			&::before{
+				left: -1rem;
+				bottom: 0;
+				width: .5rem;
+				height: auto;
+				transform: scale(0, 1);
+				transform-origin: left;
+				transition: $mainTrans;
+			}
+		}
+	}
+}

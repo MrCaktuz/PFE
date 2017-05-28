@@ -1,0 +1,61 @@
+/*
+ *	Description:    Main stylesheet
+ *	File:    		styles.scss
+ *	Version:        1.0 - 06/05/2017
+ *	Author :        Mucht - claessens.mathieu@gmail.com
+*/
+
+// ******** Global variables ********
+@import "settings/variables";
+
+// 2. Tools - Mixins globaux, functions & outils
+@import "tools/utils";
+
+// 3. Generic - Style de remise à zéro (reset, normalize…)
+@import "generic/meyerReset";
+@import "generic/boxSizing";
+@import "generic/screenReader";
+
+// 4. Base - Éléments bruts
+@import "base/root";
+
+// 5. Objects - Éléments de design
+@import "objects/buttons";
+@import "objects/boxes";
+@import "objects/feedback";
+// @import "objects/gameCard";
+// @import "objects/scoreCard";
+// @import "objects/eventCard";
+
+// 6. Components - Design des composants
+@import "components/mainNav";
+// @import "components/innerNav";
+// @import "components/header";
+// @import "components/sections";
+@import "components/footer";
+
+// 7. Responsive design (Taille en px / 16 = em)
+@media screen and (min-width: 30em){
+	@import "breakpoints/480up";
+}
+@media screen and (min-width: 40em){
+	@import "breakpoints/640up";
+}
+@media screen and (min-width: 48em){
+	@import "breakpoints/768up";
+}
+@media screen and (min-width: 61.25em){
+	@import "breakpoints/980up";
+}
+@media screen and (min-width: 80em){
+	@import "breakpoints/1280up";
+}
+@media screen and (min-width: 92.5em){
+	@import "breakpoints/1480up";
+}
+@media screen and (min-width: 105em){
+	@import "breakpoints/1680up";
+}
+@media screen and (min-width: 120em){
+	@import "breakpoints/1920up";
+}

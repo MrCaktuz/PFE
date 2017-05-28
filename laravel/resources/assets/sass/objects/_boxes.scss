@@ -1,0 +1,17 @@
+/*
+ *	Description:    Stylesheet for box objects
+ *	File:    		_boxes.scss
+ *	Version:        1.0 - 09/05/2017
+ *	Author :        Mucht - claessens.mathieu@gmail.com
+*/
+
+.box{
+	@include font-size( 1.8 )
+	display: block;
+	width: 90%;
+	max-width: 30em;
+	margin: 4rem auto;
+	padding: 2rem 3rem 2.5rem 3rem;
+	background-color: $blue;
+	border: .1rem solid $blueDark;
+}

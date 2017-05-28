@@ -1,0 +1,275 @@
+/*
+ *	Description:    Main navigation stylesheet
+ *	File:    		_mainNav.scss
+ *	Version:        1.0 - 06/05/2017
+ *	Author :        Mucht - claessens.mathieu@gmail.com
+*/
+
+.mainNav{
+	position: relative;
+	@include font-size(1.8);
+	height: 5rem;
+	background-color: $white;
+	box-shadow:  $mainShadow;
+	line-height: 1;
+	&__burgerButton{
+		overflow: hidden;
+		@include font-size(0);
+		position: absolute;
+		top: 1.25rem;
+		right: 1.25rem;
+		width: 3rem;
+		height: 2.5rem;
+		padding-top: .5rem;
+		text-align: right;
+		color: $primaryDark;
+		transform: rotate(0deg);
+		transition: $transBurgerButton;
+		cursor: pointer;
+		.icon-bar{
+			display: block;
+			position: absolute;
+			height: .4rem;
+			width: 100%;
+			background: $primary;
+			border-radius: .2rem;
+			opacity: 1;
+			left: 0rem;
+			transform: rotate(0deg);
+			transition: $transBurgerSpan;
+			&:nth-child(1) {
+				top: 0;
+			}
+			&:nth-child(2), &:nth-child(3) {
+				top: 1rem;
+			}
+			&:nth-child(4) {
+				top: 2rem;
+			}
+		}
+		&.open{
+			.icon-bar{
+				&:nth-child(1) {
+					top: 18px;
+					width: 0%;
+					left: 50%;
+				}
+				&:nth-child(2) {
+					transform: rotate(45deg);
+				}
+				&:nth-child(3) {
+					transform: rotate(-45deg);
+				}
+				&:nth-child(4) {
+					top: 18px;
+					width: 0%;
+					left: 50%;
+				}
+			}
+		}
+	}
+	&__list{		
+		position: absolute;
+		top: 5rem;
+		right: 0;
+		display: inline-block;
+		background-color: $white;
+		box-shadow: $navShadow;
+		transition: $transNavList;
+		transform-origin: right;
+		transform: scaleX( 0 );
+		opacity: 0;
+		&.open{
+			transition: $transNavListOpen;
+			transform: scaleX( 1 );
+			opacity: 1;
+		}
+	}
+	&__elt{
+		position: relative;
+		width: auto;
+		color: $primaryDark;
+		&.active::before{
+			content: "";
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			display: block;
+			width: .5rem;
+			background-color: $secondary;
+		}
+		&--auth{			
+			position: relative;
+			text-align: center;
+			color: $white;
+			background-color: $primary;
+			.mainNav__link{
+				padding: 1rem 6rem 1rem 2rem;
+				color: $white;
+			}
+			.mainNav__dropdownButton::after{
+				background-image: url(/img/icons/arrowDropDown-white.png);
+			}
+		}
+		&--login{
+			&::after{
+				content: "";
+				position: absolute;
+				left: 75%;
+				top: 30%;
+				display: block;
+				width: 2rem;
+				height: 2rem;
+				margin-right: .5rem;
+				background-image: url(/img/icons/login-icon-white.png);
+				background-position: center;
+				background-size: contain;
+				background-repeat: no-repeat;
+			}
+		}
+		&--logout{
+			transition: $mainTrans;
+			&:hover{
+				background-color: $secondary;
+			}
+			&::after{
+				content: "";
+				position: absolute;
+				left: 75%;
+				top: 30%;
+				display: block;
+				width: 2rem;
+				height: 2rem;
+				margin-right: .5rem;
+				background-image: url(/img/icons/logout-icon-white.png);
+				background-position: center;
+				background-size: contain;
+				background-repeat: no-repeat;
+			}
+			& a.mainNav__link--logout{
+				padding: 3.1rem 6rem 3.1rem 2rem;
+			}
+		}
+	}
+	&__link{
+		display: block;
+		padding: 1rem 4rem 1rem 2rem;
+		color: $primaryDark;
+		&--logo{
+			@include font-size( 0 );
+			position: absolute;
+			top: .5rem;
+			left: 0;
+			display: block;
+			width: 5.1rem;
+			height: 4rem;
+			background-image: url($logoDarkPath);
+			background-position: center;
+			background-size: contain;
+			background-repeat: no-repeat;
+			&Center{
+				left: 50%;
+				transform: translateX( -50% );
+			}
+		}
+	}
+	&__dropdownButton{
+		position: relative;
+		display: block;
+		padding: 2rem 8rem 2rem 2rem;
+		transition: $transBurgerButton;
+		cursor: pointer;
+		&::after{
+			content: "";
+			position: absolute;
+			right: 15%;
+			top: 35%;
+			display: block;
+			width: 1.5rem;
+			height: 1.8rem;
+			margin-left: .5rem;
+			background-image: url(/img/icons/arrowDropDown-blue.png);
+			background-position: center;
+			background-size: contain;
+			background-repeat: no-repeat;
+			transition: $transBurgerButton;
+		}
+		&.open::after{
+			transform-origin: center;
+			transform: rotateX( 180deg );
+		}
+	}
+	&__subList{
+		position: absolute;
+		top: 5.5rem;
+		display: block;
+		width: 100%;
+		padding: 1rem 3rem 1rem 1rem;
+		text-align: left;
+		background-color: $blue;
+		z-index: 1;
+		transition: $transBurgerButton;
+		transform: scaleY( 0 );
+		transform-origin: top;
+		opacity: 0;
+		&::before{
+			content: "";
+			position: absolute;
+			top: -1.6rem;
+			left: 2rem;
+			display: block;
+			width: 0;
+			height: 0;
+			border: .8rem solid transparent;
+			border-bottom-color: $blue;
+		}
+		&.open{
+			transform: scaleY( 1 );
+			opacity: 1;
+		}
+		.mainNav__link{
+			padding: 1rem;
+			@include font-size( 1.6 );
+			color: $greyDark;
+			&::after{
+				content: "";
+				position: absolute;
+				left: 95%;
+				top: 20%;
+				display: block;
+				width: 2rem;
+				height: 1.8rem;
+				margin-right: .5rem;
+				background-position: center;
+				background-size: contain;
+				background-repeat: no-repeat;
+			}
+			&--admin::after{
+				background-image: url(/img/icons/admin-icon-grey.png);
+			}
+			&--trainer::after{
+				background-image: url(/img/icons/trainer-icon-grey.png);
+			}
+			&--team::after{
+				background-image: url(/img/icons/team-icon-grey.png);
+			}
+			&--rule::after{
+				background-image: url(/img/icons/rules-icon-grey.png);
+			}
+			&--album::after{
+				background-image: url(/img/icons/galery-icon-grey.png);
+			}
+			&--download::after{
+				background-image: url(/img/icons/download-icon-grey.png);
+			}
+			&--profil::after{
+				background-image: url(/img/icons/profil-icon-grey.png);
+			}
+			&--logout::after{
+				top: 25%;
+				background-image: url(/img/icons/logout-icon-grey.png);
+			}
+		}
+	}
+}

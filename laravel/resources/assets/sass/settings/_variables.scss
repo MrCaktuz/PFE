@@ -1,0 +1,41 @@
+/*
+ *	Description:    Global variables
+ *	File:    		_variables.scss
+ *	Version:        1.0 - 06/05/2017
+ *	Author :        Mucht - claessens.mathieu@gmail.com
+*/
+
+// ******** Colors ********
+$primary: #36769E;
+$primaryDark: #105885;
+$secondary: #F58020;
+$secondaryDark: #DC6C11;
+$black: #323335;
+$white: #FFFFFF;
+$grey: #F4F4F4;
+$greyDark: #6D6D6D;
+$blue: #F5F8FA;
+$blueDark: #DCE5EB;
+$transparent: rgba( 0, 0, 0, 0 );
+
+// ******** Backgrounds ********
+
+// ******** Shadows ********
+$mainShadow: .1rem .1rem .1rem 0 rgba( 155, 155, 155, .3 );
+$navShadow: -.1rem .1rem .1rem 0 rgba( 155, 155, 155, .3 );
+$dropdownShadow: 0 0 .1rem 0 rgba( 155, 155, 155, .3 ) inset;
+// ******** Transitions ********
+$mainTrans: all .25s ease-in-out;
+$transBurgerButton: all .3s ease-in-out;
+$transNavList: transform .4s ease .25s, opacity .4s ease 0s;
+$transNavListOpen: transform .4s ease, opacity .4s ease .25s;
+$transBurgerSpan: all .25s ease-in-out;
+// ******** Fonts ********
+$fontStack: 'Source Sans Pro', sans-serif;
+
+// ******** Paths ********
+$imgPath: "../img/";
+$fontPath: "../fonts/";
+$logoDarkPath: "/img/LogoDark_RBC.png";
+$logoLightPath: "/img/Logolight_RBC.png";
+$markerPath: "/img/gmap-icon-light.png";

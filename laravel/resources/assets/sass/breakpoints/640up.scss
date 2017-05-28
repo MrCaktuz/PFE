@@ -1,0 +1,36 @@
+/*
+ *  Description:    Stylesheet for 640px and up screen
+ *  File:           640up.scss
+ *  Version:        1.0 - ***
+ *  Author :        Mucht - claessens.mathieu@gmail.com
+*/
+
+// ******** Footer ********
+.footer{
+	text-align: center;
+	&__wrap{
+		display: inline-block;
+		max-width: 100%;
+		text-align: left;
+	}
+	&__contact{
+		display: flex;
+		align-items: center;
+		width: auto;
+		margin-bottom: 2rem;
+	}
+	&__logo{
+		position: inherit;
+		bottom: auto;
+	    left: auto;
+	    transform: translateX( 0 );
+	}
+	&__bloc{
+		margin: 0 3rem 0 0;
+		&:last-of-type{
+			float: none;
+			margin-right: 0;
+			margin-left: 4rem;
+		}
+	}
+}
