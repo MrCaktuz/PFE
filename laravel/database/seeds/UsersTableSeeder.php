@@ -12,77 +12,7 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         DB::table('users')->insert([
-        	// user 1
-        	'id' => 1,
-            'civility' => 'Monsieur',
-            'first_name' => 'Yohan',
-            'last_name' => 'Balthazar',
-            'birth_date' => '1972-05-30',
-            'birth_location' => '',
-            'email' => 'yohan.balthazar@gmail.com',
-            'password' => bcrypt('password'),
-            'phone' => '0495/167788',
-            'national_id' => NULL,
-            'photo' => '',
-            'job' => 'Médecin',
-            'address' => 'Chaussée de namur, 73',
-            'postal_code' => '5360',
-            'city' => 'Natoye',
-            'family_name' => 'Yohan Balthazar',
-            'family_chef' => 1,
-            'created_at' => date_create(),
-            'updated_at' => date_create(),
-        ]);
-
-        DB::table('users')->insert([
-        	// user 2
-            'id' => 2,
-            'civility' => 'Monsieur',
-            'first_name' => 'Antoine',
-            'last_name' => 'Balthazar',
-            'birth_date' => '2000-09-08',
-            'birth_location' => 'Namur',
-            'email' => 'tonio.balthazar@gmail.com',
-            'password' => bcrypt('password'),
-            'phone' => '0491/122217',
-            'national_id' => NULL,
-            'photo' => '',
-            'job' => 'Étudiant',
-            'address' => 'Chaussée de namur, 73',
-            'postal_code' => '5360',
-            'city' => 'Natoye',
-            'family_name' => 'Yohan Balthazar',
-            'family_chef' => 0,
-            'created_at' => date_create(),
-            'updated_at' => date_create(),
-        ]);
-
-        DB::table('users')->insert([
-			// user 3
-            'id' => 3,
-            'civility' => 'Madame',
-            'first_name' => 'Pauline',
-            'last_name' => 'Balthazar',
-            'birth_date' => '1998-12-16',
-            'birth_location' => 'Namur',
-            'email' => 'pauline.balthazar@gmail.com',
-            'password' => bcrypt('password'),
-            'phone' => '0496/512311',
-            'national_id' => NULL,
-            'photo' => '',
-            'job' => 'Étudiant',
-            'address' => 'Chaussée de namur, 73',
-            'postal_code' => '5360',
-            'city' => 'Natoye',
-            'family_name' => 'Yohan Balthazar',
-            'family_chef' => 0,
-            'created_at' => date_create(),
-            'updated_at' => date_create(),
-        ]);
-
-        DB::table('users')->insert([
-        	// user 4
-            'id' => 4,
+            // user 1
             'civility' => 'Monsieur',
             'first_name' => 'Mathieu',
             'last_name' => 'Claessens',
@@ -97,15 +27,83 @@ class UsersTableSeeder extends Seeder
             'address' => 'Rue gailaipont, 23',
             'postal_code' => '5520',
             'city' => 'Onhaye',
-            'family_name' => 'Mathieu Claessens',
+            'family_name' => 'Claessens Mathieu',
+            'family_slug' => 'claessensmathieu',
+            'family_chef' => 1,
+            'created_at' => date_create(),
+            'updated_at' => date_create(),
+        ]);
+        DB::table('users')->insert([
+        	// user 2
+            'civility' => 'Monsieur',
+            'first_name' => 'Yohan',
+            'last_name' => 'Balthazar',
+            'birth_date' => '1972-05-30',
+            'birth_location' => '',
+            'email' => 'yohan.balthazar@gmail.com',
+            'password' => bcrypt('password'),
+            'phone' => '0495/167788',
+            'national_id' => NULL,
+            'photo' => '',
+            'job' => 'Médecin',
+            'address' => 'Chaussée de namur, 73',
+            'postal_code' => '5360',
+            'city' => 'Natoye',
+            'family_name' => 'Balthazar Yohan',
+            'family_slug' => 'balthazaryohan',
             'family_chef' => 1,
             'created_at' => date_create(),
             'updated_at' => date_create(),
         ]);
 
         DB::table('users')->insert([
+        	// user 3
+            'civility' => 'Monsieur',
+            'first_name' => 'Antoine',
+            'last_name' => 'Balthazar',
+            'birth_date' => '2000-09-08',
+            'birth_location' => 'Namur',
+            'email' => 'tonio.balthazar@gmail.com',
+            'password' => bcrypt('password'),
+            'phone' => '0491/122217',
+            'national_id' => NULL,
+            'photo' => '',
+            'job' => 'Étudiant',
+            'address' => 'Chaussée de namur, 73',
+            'postal_code' => '5360',
+            'city' => 'Natoye',
+            'family_name' => 'Balthazar Yohan',
+            'family_slug' => 'balthazaryohan',
+            'family_chef' => 0,
+            'created_at' => date_create(),
+            'updated_at' => date_create(),
+        ]);
+
+        DB::table('users')->insert([
+			// user 4
+            'civility' => 'Madame',
+            'first_name' => 'Pauline',
+            'last_name' => 'Balthazar',
+            'birth_date' => '1998-12-16',
+            'birth_location' => 'Namur',
+            'email' => 'pauline.balthazar@gmail.com',
+            'password' => bcrypt('password'),
+            'phone' => '0496/512311',
+            'national_id' => NULL,
+            'photo' => '',
+            'job' => 'Étudiant',
+            'address' => 'Chaussée de namur, 73',
+            'postal_code' => '5360',
+            'city' => 'Natoye',
+            'family_name' => 'Balthazar Yohan',
+            'family_slug' => 'balthazaryohan',
+            'family_chef' => 0,
+            'created_at' => date_create(),
+            'updated_at' => date_create(),
+        ]);
+
+        DB::table('users')->insert([
         	// user 5
-            'id' => 5,
             'civility' => 'Monsieur',
             'first_name' => 'Jean-Luc',
             'last_name' => 'Pirlot',
@@ -120,7 +118,8 @@ class UsersTableSeeder extends Seeder
             'address' => 'Rue courtejoie, 53B',
             'postal_code' => '5590',
             'city' => 'Ciney',
-            'family_name' => 'Jean-Luc Pirlot',
+            'family_name' => 'Pirlot Jean-Luc',
+            'family_slug' => 'pirlotjean-luc',
             'family_chef' => 1,
             'created_at' => date_create(),
             'updated_at' => date_create(),

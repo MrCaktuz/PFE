@@ -29,8 +29,9 @@ class CreateUsersTable extends Migration
             $table->string('address')->nullable();
             $table->string('postal_code')->nullable();
             $table->string('city')->nullable();
-            $table->string('family_name')->nullable();
             $table->boolean('family_chef')->default( 0 );
+            $table->string('family_name')->nullable();
+            $table->string('family_slug')->nullable();
             $table->rememberToken();
             // created_at & updated_at
             $table->timestamps();
