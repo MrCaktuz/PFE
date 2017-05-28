@@ -3,11 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use DB;
 
 class Role extends Model
 {
-        public function user()
+        public function users()
     {
-        return $this -> belongsToMany( Role::class );
+        return $this -> belongsToMany('App\Users', 'role_user');
     }
 }

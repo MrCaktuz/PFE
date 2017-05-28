@@ -2,14 +2,26 @@
 
 namespace App;
 
+use App\User;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    public function role()
+    public function roles()
     {
-        return $this -> belongsToMany( User::class );
+        return $this -> belongsToMany('App\Role', 'role_user');
+    }
+
+    public static function isAdmin( $userID )
+    {
+        $user = DB::Table( 'users' )->where( 'id', '=', '$userID' )->get();
+        foreach( $user->roles as $role ){
+            if( $role->title == "AdminAll" ){
+                $validated = 1;
+            }
+        }
+        return $validated;
     }
 
     use Notifiable;

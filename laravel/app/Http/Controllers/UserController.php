@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Role;
+use DB;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -14,6 +16,6 @@ class UserController extends Controller
 	}
     public function show( User $user )
     {
-        return view('user.show', compact( 'user' ));
+        return view('user.show', compact('user'));
     }
 }
