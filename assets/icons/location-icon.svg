@@ -2,16 +2,16 @@
 <!-- Generator: Adobe Illustrator 17.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1"
-	 id="Calque_1" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:svg="http://www.w3.org/2000/svg" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="68.67px" height="102px"
-	 viewBox="-7.11 1 68.67 102" enable-background="new -7.11 1 68.67 102" xml:space="preserve">
+	 id="Calque_1" xmlns:svg="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="62.362px"
+	 height="90.709px" viewBox="3.154 5.646 62.362 90.709" enable-background="new 3.154 5.646 62.362 90.709" xml:space="preserve">
 <g>
-	<path d="M60.557,35.333c0,4.731-0.716,8.617-2.149,11.654L34.71,97.378c-0.694,1.431-1.725,2.559-3.092,3.384
-		c-1.367,0.824-2.832,1.237-4.394,1.237c-1.563,0-3.028-0.413-4.395-1.237c-1.367-0.825-2.377-1.953-3.027-3.384L-3.961,46.987
-		C-5.394,43.95-6.11,40.064-6.11,35.333c0-9.201,3.255-17.057,9.765-23.568C10.166,5.255,18.021,2,27.224,2
-		c9.201,0,17.056,3.255,23.567,9.765C57.302,18.276,60.557,26.133,60.557,35.333z M39.007,47.117
-		c3.256-3.255,4.883-7.183,4.883-11.784c0-4.6-1.627-8.529-4.883-11.784s-7.184-4.883-11.783-4.883
-		c-4.601,0-8.53,1.628-11.785,4.883s-4.882,7.184-4.882,11.784c0,4.601,1.627,8.529,4.882,11.784S22.623,52,27.224,52
-		C31.824,52,35.751,50.372,39.007,47.117z"/>
+	<path fill="#105885" d="M62.682,36.827c0,4.023-0.609,7.328-1.828,9.911L40.702,89.59c-0.59,1.217-1.467,2.176-2.629,2.878
+		c-1.163,0.701-2.408,1.052-3.737,1.052c-1.329,0-2.575-0.351-3.738-1.052c-1.163-0.702-2.021-1.661-2.574-2.878L7.816,46.737
+		c-1.219-2.583-1.828-5.887-1.828-9.911c0-7.825,2.768-14.505,8.304-20.042c5.537-5.536,12.217-8.304,20.043-8.304
+		c7.825,0,14.504,2.768,20.041,8.304C59.914,22.321,62.682,29.003,62.682,36.827z M44.356,46.848
+		c2.769-2.768,4.153-6.108,4.153-10.021c0-3.912-1.384-7.253-4.153-10.021s-6.109-4.153-10.02-4.153
+		c-3.913,0-7.254,1.384-10.022,4.153s-4.152,6.109-4.152,10.021c0,3.913,1.384,7.253,4.152,10.021S30.423,51,34.335,51
+		C38.247,51,41.587,49.616,44.356,46.848z"/>
 </g>
 </svg>
