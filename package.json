@@ -29,9 +29,10 @@
     "gulp-sass": "^2.3.2",
     "gulp-size": "^2.1.0",
     "gulp-uglify": "^2.0.0",
-    "pump": "^1.0.1"
+    "pump": "^1.0.1",
+    "gulp-autoprefixer": "latest"
   },
   "dependencies": {
-    "gulp-imagemin": "^3.1.1"
+    "gulp-imagemin": "latest"
   }
 }

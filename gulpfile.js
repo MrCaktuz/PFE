@@ -19,9 +19,10 @@ var
     pkg = require( './package.json' ),
     htmlClean = require( 'gulp-htmlclean' ),
     browserSync = require( 'browser-sync' ),
-    del = require( 'del' );
-    pump = require( 'pump' );
-    uglify = require( 'gulp-uglify' );
+    del = require( 'del' ),
+    pump = require( 'pump' ),
+    uglify = require( 'gulp-uglify' ),
+    autoprefixer = require('gulp-autoprefixer');
 
 // Définition de quelques variables générales pour notre gulpfile.
 var
@@ -33,9 +34,9 @@ var
 var
     oImagesOpts = {
         // *.* => "expression régulière quelque chose . quelque chose"
-        in: sSource + 'img/*.*',
+        in: sSource + 'img//**/*.*',
         out: sDest + 'img/',
-        watch: sSource + 'img/*.*'
+        watch: sSource + 'img/**'
     },
     oImageUriOpts = {
         in: sSource + 'img/inline/*.*',
@@ -119,7 +120,9 @@ gulp.task( 'browsersync', function(){
 
 gulp.task( 'sass', function(){
     return gulp.src( oCss.in )
-        .pipe(sass( oCss.oSassOpts ))
+        .pipe(sass().on('error', sass.logError))
+        // .pipe(sass( oCss.oSassOpts ))
+        .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 7', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
         .pipe( gulp.dest(oCss.out) )
         .pipe( browserSync.reload( {stream: true} ) );
 } )
@@ -135,7 +138,7 @@ gulp.task('js', function (cb) {
 });
 
 // Tache par défault exécuté lorsqu'on tape juste gulp dans le terminal.
-gulp.task('default', ['images', 'sass', 'js', 'browsersync'], function(){
+gulp.task('default', ['images', 'sass', 'js'], function(){
     gulp.watch( oHtml.watch, ['html', browserSync.reload] );
     gulp.watch( oImagesOpts.watch, ['images'] );
     gulp.watch( oCss.watch, ['sass'] );
