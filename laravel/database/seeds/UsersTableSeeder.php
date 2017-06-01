@@ -29,7 +29,7 @@ class UsersTableSeeder extends Seeder
             'city' => 'Onhaye',
             'family_name' => 'Claessens Mathieu',
             'family_slug' => 'claessensmathieu',
-            'family_chef' => 1,
+            'family_chief' => 1,
             'created_at' => date_create(),
             'updated_at' => date_create(),
         ]);
@@ -51,7 +51,7 @@ class UsersTableSeeder extends Seeder
             'city' => 'Natoye',
             'family_name' => 'Balthazar Yohan',
             'family_slug' => 'balthazaryohan',
-            'family_chef' => 1,
+            'family_chief' => 1,
             'created_at' => date_create(),
             'updated_at' => date_create(),
         ]);
@@ -74,7 +74,7 @@ class UsersTableSeeder extends Seeder
             'city' => 'Natoye',
             'family_name' => 'Balthazar Yohan',
             'family_slug' => 'balthazaryohan',
-            'family_chef' => 0,
+            'family_chief' => 0,
             'created_at' => date_create(),
             'updated_at' => date_create(),
         ]);
@@ -97,7 +97,7 @@ class UsersTableSeeder extends Seeder
             'city' => 'Natoye',
             'family_name' => 'Balthazar Yohan',
             'family_slug' => 'balthazaryohan',
-            'family_chef' => 0,
+            'family_chief' => 0,
             'created_at' => date_create(),
             'updated_at' => date_create(),
         ]);
@@ -120,7 +120,7 @@ class UsersTableSeeder extends Seeder
             'city' => 'Ciney',
             'family_name' => 'Pirlot Jean-Luc',
             'family_slug' => 'pirlotjean-luc',
-            'family_chef' => 1,
+            'family_chief' => 1,
             'created_at' => date_create(),
             'updated_at' => date_create(),
         ]);
