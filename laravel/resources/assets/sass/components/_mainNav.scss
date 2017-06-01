@@ -12,6 +12,7 @@
 	background-color: $white;
 	box-shadow:  $mainShadow;
 	line-height: 1;
+	z-index: 10;
 	&__burgerButton{
 		overflow: hidden;
 		@include font-size(0);
@@ -168,10 +169,10 @@
 			background-position: center;
 			background-size: contain;
 			background-repeat: no-repeat;
-			&Center{
-				left: 50%;
-				transform: translateX( -50% );
-			}
+		}
+		&--logoCenter{
+			left: 50%;
+			transform: translateX( -50% );
 		}
 	}
 	&__dropdownButton{

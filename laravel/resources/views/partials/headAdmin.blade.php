@@ -15,8 +15,8 @@
   	<meta name="csrf-token" content="{{ csrf_token() }}">
 	<!-- Styles -->
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
-    <link href="{{ URL::asset('css/styles.css') }}" rel="stylesheet" type="text/css" >
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ URL::asset('css/styles.css') }}" rel="stylesheet" type="text/css" >
   	<!-- Favicon -->
 	<link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">

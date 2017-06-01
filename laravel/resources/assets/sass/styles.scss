@@ -15,19 +15,23 @@
 @import "generic/meyerReset";
 @import "generic/boxSizing";
 @import "generic/screenReader";
+@import "generic/flexbox";
 
 // 4. Base - Éléments bruts
 @import "base/root";
 
 // 5. Objects - Éléments de design
-@import "objects/buttons";
+@import "objects/form";
 @import "objects/boxes";
 @import "objects/feedback";
+@import "objects/buttons";
+@import "objects/idCard";
 // @import "objects/gameCard";
 // @import "objects/scoreCard";
 // @import "objects/eventCard";
 
 // 6. Components - Design des composants
+@import "components/admin";
 @import "components/mainNav";
 // @import "components/innerNav";
 // @import "components/header";

@@ -7,11 +7,19 @@
 
 // ******** Buttons ********
 .button{
-	display: inline-block;
-	width: auto;
-	margin-left: 2rem;
-	&:first-child{
-		margin-left: 0;
+	@include font-size( 1.6 )
+}
+
+// ******** idCard ********
+.idCard{
+	&__title{
+		@include font-size( 2 );
+	}
+	&__subTitle{
+		@include font-size( 1.8 );
+	}
+	&__mail, &__phone{
+		@include font-size( 1.6 );
 	}
 }
 

@@ -22,14 +22,22 @@ p{
 strong{
     font-weight: bold;
 }
-a:hover{
-    color: inherit;
+a{
     text-decoration: none;
+    :hover{
+        color: inherit;
+        text-decoration: none;
+    }
 }
-// // ******** Global class container ********
-// .container{
-//     padding: 4rem;
-// }
+
+// ******** Global class center content ********
+.center{
+    text-align: center;
+}
+// ******** Global class container ********
+.pageWrap{
+    padding: 0 2rem 2rem;
+}
 
 // ******** Box sizing ********
 html {

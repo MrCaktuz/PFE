@@ -59,6 +59,7 @@
 		&--auth{
 			position: absolute;
 			right: 0;
+			transition: $mainTrans;
 			&::before{
 				height: 0;
 			}
@@ -67,7 +68,6 @@
 			}
 			.mainNav__link{
 				padding: 1rem;
-				transition: $mainTrans;
 			}
 			.mainNav__dropdownButton{
 				padding: 3.1rem 6rem 3.1rem 2rem;
@@ -120,5 +120,12 @@
 				transition: $mainTrans;
 			}
 		}
+	}
+}
+
+// ******** idCard ********
+.idCard{
+	&__wrap{
+		@include grid( 2, 3% );
 	}
 }

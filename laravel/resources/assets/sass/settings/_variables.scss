@@ -17,8 +17,15 @@ $greyDark: #6D6D6D;
 $blue: #F5F8FA;
 $blueDark: #DCE5EB;
 $transparent: rgba( 0, 0, 0, 0 );
+$errors: #D0011B;
+$success: #43ac6a;
 
 // ******** Backgrounds ********
+$whiteTrans: rgba( 255, 255, 255, 0.9 );
+
+// ******** Borders ********
+$errorsBorder: #b1240c;
+$successBorder: #3c9a5f;
 
 // ******** Shadows ********
 $mainShadow: .1rem .1rem .1rem 0 rgba( 155, 155, 155, .3 );
@@ -32,6 +39,10 @@ $transNavListOpen: transform .4s ease, opacity .4s ease .25s;
 $transBurgerSpan: all .25s ease-in-out;
 // ******** Fonts ********
 $fontStack: 'Source Sans Pro', sans-serif;
+$bold: 700;
+$semiBold: 600;
+$regular: 400;
+$light: 300;
 
 // ******** Paths ********
 $imgPath: "../img/";

@@ -5,3 +5,21 @@
  *	Author :        Mucht - claessens.mathieu@gmail.com
 */
 
+// ******** Admin ********
+.adminAside{
+	display: block;
+}
+
+// ******** Buttons ********
+.button{
+	display: inline-block;
+	width: auto;
+	&:last-child{
+		margin-right: 0;
+	}
+}
+
+// ******** diCard ********
+.idCard{
+	margin-left: 0;
+}

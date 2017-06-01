@@ -1,0 +1,75 @@
+/*
+ *	Description:    Main Style for 
+ *	File:    		_form.scss
+ *	Version:        1.0 - 28/05/2017
+ *	Author :        Mucht - claessens.mathieu@gmail.com
+*/
+
+.form{
+	@include font-size( 1.6 );
+	display: block;
+	width: 100%;
+	max-width: 55rem;
+	padding: 0 0 4rem;
+	color: $black;
+	&--center{
+		margin: 0 auto;
+	}
+	&__fieldset{
+		margin-bottom: 2rem;
+	}
+	&__label{
+		@include font-size( 1.6 );
+		cursor: pointer;
+	}
+	&__input{
+		@include font-size( 1.6 );
+		display: block;
+		width: 100%;
+		padding: 1rem 2rem;
+		border: .1rem solid $transparent;
+		border-left-color: $blueDark;
+		border-bottom-color: $blueDark;
+		outline: none;
+		transition: $mainTrans;
+		&:focus{
+			border-color: $blueDark;
+			background-color: $blue;
+		}
+		&--submit{
+			padding: 1rem 2rem;
+			&:focus{
+				background-color: $primary;
+				border-color: $primaryDark;
+			}
+		}
+		&--error{
+			border-color: $errors;
+			&:focus{
+				border-color: $errors;
+			}
+		}
+	}
+	& .form__input--check{
+		display: inline-block;
+		margin-right: 1rem;
+	}
+	&__reset{
+		display: block;
+		margin-top: 1rem;
+		text-align: center;
+		color: $primary;
+	}
+	&__feedback{
+	    font-family: $fontStack;
+	    margin-bottom: 2rem;
+		&--errors{
+			padding: 1rem;
+			border: .1rem solid $errors;
+			color: $errors;
+		}
+		&--success{
+
+		}
+	}
+}

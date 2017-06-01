@@ -1,0 +1,14 @@
+/*
+ *	Description:    Element style for flexbox display
+ *	File:    		flexbox.scss
+ *	Version:        1.0 - 01/06/2017
+ *	Author :        Mucht - claessens.mathieu@gmail.com
+*/
+
+.d-flex{
+    display: flex;
+    align-items: center;
+}
+.justify-between{
+	justify-content: space-between;
+}

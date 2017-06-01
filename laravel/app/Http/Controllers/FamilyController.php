@@ -24,7 +24,8 @@ class FamilyController extends Controller
 		$familyMembers = DB::Table( 'users' )->where( 'family_slug', '=', $slug )->get();
 		$oFamilyName = DB::Table( 'users' )->select( 'family_name' )->where( 'family_slug', '=', $slug )->first();
 		$familyName = $oFamilyName->family_name;
+		$familySlug = $slug;
 
-		return view('family.show', compact( 'familyMembers', 'familyName' ));
+		return view('family.show', compact( 'familyMembers', 'familyName', 'familySlug' ));
 	}
 }

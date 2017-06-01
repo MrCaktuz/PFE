@@ -8,10 +8,13 @@
 .box{
 	@include font-size( 1.8 )
 	display: block;
-	width: 90%;
-	max-width: 30em;
+	width: 100%;
+	max-width: 55rem;
 	margin: 4rem auto;
 	padding: 2rem 3rem 2.5rem 3rem;
 	background-color: $blue;
 	border: .1rem solid $blueDark;
+	&--light{
+		background-color: $transparent;
+	}
 }
