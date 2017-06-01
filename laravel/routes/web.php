@@ -20,6 +20,8 @@ Route::get( '/', 'PageController@home' );
 // ******** Authentication ********
 Auth::routes();
 Route::get('/connected', 'PageController@connected')->name('connected');
+Route::get('/reseted', 'PageController@reseted')->name('reseted');
+Route::get('/mailsent', 'PageController@mailsent')->name('mailsent');
 
 // Route::get( 'conseil-administration', 'RoleController@ca' );
 // Route::get( 'entraineurs', 'RoleController@trainer' );
@@ -34,7 +36,7 @@ Route::get('/connected', 'PageController@connected')->name('connected');
 // Route::get( 'coaching' );
 // Route::get( 'evenements/{evenement}', 'EventController@show' );
 // Route::get( 'identification' );
-Route::get( 'users/{user}', 'UserController@show' )->name('profil');
+Route::get( 'user/{user}', 'UserController@show' )->name('profil');
 Route::get( '/contact', 'PageController@contact' )->name('contact');
 
 // ******** Import from excel ********

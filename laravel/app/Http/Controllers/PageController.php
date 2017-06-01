@@ -15,4 +15,12 @@ class PageController extends Controller
     {
     	return view( 'connected' );
     }
+    public function reseted( User $user )
+    {
+        return view( 'reseted' );
+    }
+    public function mailsent( User $user )
+    {
+        return view( 'mailsent' );
+    }
 }

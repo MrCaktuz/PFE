@@ -2,67 +2,42 @@
 
 @section('content')
 <div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Login</div>
-                <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ route('login') }}">
-                        {{ csrf_field() }}
-
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-8 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Login
-                                </button>
-
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    Forgot Your Password?
-                                </a>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+    <div class="box box--light">
+        <p>Entrez votre adresse e-mail et votre mot de passe dans le formulaire ci-dessous pour vous connecter.</p>
     </div>
+    <form class="form form--center" role="form" method="POST" action="{{ route('login') }}">
+        {{ csrf_field() }}
+        @if (count($errors) > 0)
+            <ul class="form__feedback form__feedback--errors">
+                @foreach ($errors->all() as $error)
+                    <li>{!! $error !!}</li>
+                @endforeach
+            </ul>
+        @endif
+        <fieldset class="form__fieldset">
+            <label for="email" class="sr-only form__label">Adresse e-Mail</label>
+            <input id="email" type="email" class="form__input{{-- {{ $errors->has('email') ? ' form__input--error' : '' }} --}}" placeholder="Adresse e-mail" name="email" value="{{ old('email') }}" required autofocus>            
+        </fieldset>
+
+        <fieldset class="form__fieldset">
+            <label for="password" class="sr-only form__label">Mot de passe</label>
+            <input id="password" type="password" class="form__input" placeholder="Mot de passe" name="password" required>
+        </fieldset>
+
+        <fieldset class="form__fieldset">
+            <label class="form__label">
+                <input class="form__input--check" type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Se souvenir de moi
+            </label>
+        </fieldset>
+
+        <fieldset class="form__fieldset button__wrap--center">
+            <button type="submit" class="form__input form__input--submit button button--primary">
+                Connection
+            </button>
+            <a class="form__reset" href="{{ route('password.request') }}">
+                Oublié votre mot de passe?
+            </a>
+        </fieldset>
+    </form>
 </div>
 @endsection
