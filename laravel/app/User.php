@@ -2,44 +2,90 @@
 
 namespace App;
 
-use App\User;
+use Backpack\CRUD\CrudTrait;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Backpack\Base\app\Notifications\ResetPasswordNotification as ResetPasswordNotification;
 
 class User extends Authenticatable
 {
-    public function roles()
-    {
-        return $this -> belongsToMany('App\Role', 'role_user');
-    }
 
-    public static function isAdmin( $userID )
-    {
-        $user = DB::Table( 'users' )->where( 'id', '=', '$userID' )->get();
-        foreach( $user->roles as $role ){
-            if( $role->title == "AdminAll" ){
-                $validated = 1;
-            }
-        }
-        return $validated;
-    }
-
+	use CrudTrait;
     use Notifiable;
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'civility', 'first_name', 'last_name', 'birth_date', 'birth_location', 'email', 'password', 'phone', 'national_id', 'photo', 'job', 'address', 'postal_code', 'city', 'family_name', 'family_chef',
-    ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $hidden = [
+
+    /*
+	|--------------------------------------------------------------------------
+	| GLOBAL VARIABLES
+	|--------------------------------------------------------------------------
+	*/
+
+	protected $table = 'users';
+	// protected $primaryKey = 'id';
+	// protected $guarded = [];
+	protected $hidden = [
         'password', 'remember_token',
     ];
+	protected $fillable = [
+		'civility', 'name', 'birth_date', 'birth_location', 'email', 'password', 'phone', 'national_id', 'photo', 'job', 'address', 'postal_code', 'city', 'family_id',
+	];
+	public $timestamps = true;
+	
+	/*
+	|--------------------------------------------------------------------------
+	| RELATIONS
+	|--------------------------------------------------------------------------
+	*/
+	public function roles()
+    {
+        return $this -> belongsToMany('App\Models\Role', 'role_user');
+    }
+    public function family()
+    {
+        return $this -> belongsTo('App\Models\Family', 'family_id');
+    }
+
+	/*
+	|--------------------------------------------------------------------------
+	| FUNCTIONS
+	|--------------------------------------------------------------------------
+	*/
+	public function getUserLink()
+    {
+        return url( '/admin/user/' . $this->id );
+    }
+
+    public function getShowButton()
+    {
+        return '<a class="btn btn-default btn-xs" href="'.$this->getUserLink().'" target="_blank"><i class="fa fa-eye"></i> Aperçu</a>';
+    }
+
+	/*
+	|--------------------------------------------------------------------------
+	| SCOPES
+	|--------------------------------------------------------------------------
+	*/
+
+	/*
+	|--------------------------------------------------------------------------
+	| ACCESORS
+	|--------------------------------------------------------------------------
+	*/
+
+	/*
+	|--------------------------------------------------------------------------
+	| MUTATORS
+	|--------------------------------------------------------------------------
+	*/
+
+	/**
+     * Send the password reset notification.
+     *
+     * @param  string  $token
+     * @return void
+     */
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new ResetPasswordNotification($token));
+    }
 }

@@ -87,18 +87,18 @@
 			</li>
 		@else
 			<li class="mainNav__elt mainNav__elt--auth  mainNav__dropdown">
-				<span class="mainNav__dropdownButton">{{ Auth::user()->first_name }}</span>
+				<span class="mainNav__dropdownButton">{{ Auth::user()->name }}</span>
 				<ul class="mainNav__subList mainNav__subList--auth mainNav__subList--multimedia">
 					<li class="mainNav__elt">
-						<a href="/users/{{ Auth::user()->id }}" title="Voir mon profil" class="mainNav__link mainNav__link--profil">
+						<a href="/user/{{ Auth::user()->id }}" title="Voir mon profil" class="mainNav__link mainNav__link--profil">
 							Mon&nbsp;profil
 						</a>
 					</li>
 					<li class="mainNav__elt">
-						<a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();" title="Se déconnecter" class="mainNav__link mainNav__link--logout">
+						<a href="/logout" onclick="event.preventDefault();document.getElementById('logout-form').submit();" title="Se déconnecter" class="mainNav__link mainNav__link--logout">
 							Se&nbsp;déconnecter
 						</a>
-						<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+						<form id="logout-form" action="/logout" method="POST" style="display: none;">
                         	{{ csrf_field() }}
                         </form>
 					</li>

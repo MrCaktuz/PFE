@@ -57,7 +57,7 @@ var
     oJs = {
         in: sSource + 'js/*',
         watch: [sSource + 'js/*'],
-        out: sDest + 'scripts/'
+        out: sDest + 'js/'
     },
     oHtml = {
         in: sSource + '*.html',

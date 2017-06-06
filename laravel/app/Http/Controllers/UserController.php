@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
-use App\Role;
 use DB;
+use App\User;
+use App\Models\Role;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
