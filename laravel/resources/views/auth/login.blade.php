@@ -5,7 +5,7 @@
     <div class="box box--light">
         <p>Entrez votre adresse e-mail et votre mot de passe dans le formulaire ci-dessous pour vous connecter.</p>
     </div>
-    <form class="form form--center" role="form" method="POST" action="{{ route('login') }}">
+    <form class="form form--center" role="form" method="POST" action="/login">
         {{ csrf_field() }}
         @if (count($errors) > 0)
             <ul class="form__feedback form__feedback--errors">

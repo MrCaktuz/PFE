@@ -20,4 +20,4 @@ Route::get( 'role/{role}', 'RoleController@show' );
 
 // ******** Auth ********
 Auth::routes();
-Route::get('/connected', 'PageController@connected')->name('connected');
+Route::get('/home', 'HomeController@index')->name('home');
