@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration {
 			$table->string('address')->nullable();
 			$table->mediumInteger('postal_code')->nullable();
 			$table->string('city')->nullable();
-			$table->integer('family_id')->unsigned();
+			$table->integer('family_id')->unsigned()->nullable();
 			$table->timestamps();
 			$table->string('remember_token', 100)->nullable();
 		});

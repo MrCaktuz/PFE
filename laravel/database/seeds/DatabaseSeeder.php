@@ -13,20 +13,17 @@ class DatabaseSeeder extends Seeder
     {
         // ******** Famillies ********
         DB::table('families')->insert([
-            'family_name' => 'Claessens Mathieu',
-            'family_slug' => 'claessensmathieu',
+            'name' => 'Claessens Mathieu',
             'created_at' => date_create(),
             'updated_at' => date_create(),
         ]);
         DB::table('families')->insert([
-            'family_name' => 'Balthazar Yohan',
-            'family_slug' => 'balthazaryohan',
+            'name' => 'Balthazar Yohan',
             'created_at' => date_create(),
             'updated_at' => date_create(),
         ]);
         DB::table('families')->insert([
-            'family_name' => 'Pirlot Jean-Luc',
-            'family_slug' => 'pirlotjean-Luc',
+            'name' => 'Pirlot Jean-Luc',
             'created_at' => date_create(),
             'updated_at' => date_create(),
         ]);

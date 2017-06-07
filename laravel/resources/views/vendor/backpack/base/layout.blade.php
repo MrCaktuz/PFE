@@ -20,6 +20,18 @@
     </title>
 
     @yield('before_styles')
+    <style>
+      .select2-selection{
+        border: .1rem solid #D2D6DE;
+      }
+      .select2-results__option:focus, .select2-results__option:hover{
+          background-color: #F5F8FA;
+      }
+      .select2-selection__choice__remove{
+        margin-right: 0.5rem;
+        color: red;
+      }
+    </style>
 
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
@@ -36,6 +48,7 @@
 
     <!-- BackPack Base CSS -->
     <link rel="stylesheet" href="{{ asset('vendor/backpack/backpack.base.css') }}">
+
 
     @yield('after_styles')
 

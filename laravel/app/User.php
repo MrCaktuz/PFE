@@ -4,6 +4,7 @@ namespace App;
 
 use Backpack\CRUD\CrudTrait;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Backpack\Base\app\Notifications\ResetPasswordNotification as ResetPasswordNotification;
 
@@ -12,6 +13,8 @@ class User extends Authenticatable
 
 	use CrudTrait;
     use Notifiable;
+
+
 
 
     /*
@@ -42,7 +45,7 @@ class User extends Authenticatable
     }
     public function family()
     {
-        return $this -> belongsTo('App\Models\Family', 'family_id');
+        return $this -> belongsTo('App\Models\Family', 'family_id', 'id');
     }
 
 	/*
@@ -65,6 +68,30 @@ class User extends Authenticatable
 	| SCOPES
 	|--------------------------------------------------------------------------
 	*/
+	/**
+     * The "booting" method of the model.
+     *
+     * @return void
+     */
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::addGlobalScope( 'ordered', function( Builder $builder ) {
+            $builder->orderBy( 'name' );
+        } );
+    }
+
+    /**
+     * Send the password reset notification.
+     *
+     * @param  string  $token
+     * @return void
+     */
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new ResetPasswordNotification($token));
+    }
 
 	/*
 	|--------------------------------------------------------------------------
@@ -78,14 +105,5 @@ class User extends Authenticatable
 	|--------------------------------------------------------------------------
 	*/
 
-	/**
-     * Send the password reset notification.
-     *
-     * @param  string  $token
-     * @return void
-     */
-    public function sendPasswordResetNotification($token)
-    {
-        $this->notify(new ResetPasswordNotification($token));
-    }
+	
 }

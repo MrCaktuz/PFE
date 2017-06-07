@@ -85,7 +85,7 @@ class UserCrudController extends CrudController {
 		        'type'             => 'select',
 		        'name'             => 'family_id', // the method that defines the relationship in your Model
 		        'entity'           => 'family', // the method that defines the relationship in your Model
-		        'attribute'        => 'family_name', // foreign key attribute that is shown to user
+		        'attribute'        => 'name', // foreign key attribute that is shown to user
 		        'model'            => "App\Models\Family", // foreign key model
 		        'number_columns'   => 4, //can be 1,2,3,4,6
             ],
@@ -127,7 +127,7 @@ class UserCrudController extends CrudController {
 	           'type'      => 'select',
 	           'name'      => 'family', // the method that defines the relationship in your Model
 	           'entity'    => 'family', // the method that defines the relationship in your Model
-	           'attribute' => 'family_name', // foreign key attribute that is shown to user
+	           'attribute' => 'name', // foreign key attribute that is shown to user
 	           'model'     => "App\Models\Family", // foreign key model
 	        ],
         	[ // n-n relationship (with pivot table)

@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers\Admin;
 
+use DB;
+use App\User;
+use Carbon\Carbon;
+use App\Models\Family;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
-
 // VALIDATION: change the requests to match your own file names if you need form validation
-use App\Http\Requests\FamilyRequest as StoreRequest;
-use App\Http\Requests\FamilyRequest as UpdateRequest;
+use Illuminate\Http\Request;
+use App\Http\Requests\CreateFamilyRequest as StoreRequest;
+use App\Http\Requests\UpdateFamilyRequest as UpdateRequest;
 
 class FamilyCrudController extends CrudController
 {
@@ -33,18 +37,21 @@ class FamilyCrudController extends CrudController
         // ------ CRUD FIELDS
         $this->crud->addFields([
             [
-                'name' => 'family_name',
-                'label' => 'Nom de la famille',
+                'name' => 'name',
+                'label' => 'Nom de la famille *',
             ],
             // [
-            //     'label'            => 'Membre de la famille',
-            //     'name'             => 'family_id', // the method that defines the relationship in your Model
-            //     'type'              => 'select_multiple',
-            //     'entity'           => 'family', // the method that defines the relationship in your Model
-            //     'attribute'        => 'name', // foreign key attribute that is shown to user
-            //     'model'            => "App\User", // foreign key model
-            //     'number_columns'   => 4, //can be 1,2,3,4,6
+            //     'name' => 'family_slug',
+            //     'label' => 'Famille slug',
             // ],
+            [
+                'label'            => 'Membre de la famille',
+                'type'             => 'select2_multiple',
+                'name'             => 'users', // the method that defines the relationship in your Model
+                'entity'           => 'users', // the method that defines the relationship in your Model
+                'attribute'        => 'name', // foreign key attribute that is shown to user
+                'model'            => 'App\User', // foreign key model
+            ],
         ]);
         // $this->crud->addField($options, 'update/create/both');
         // $this->crud->addFields($array_of_arrays, 'update/create/both');
@@ -54,10 +61,10 @@ class FamilyCrudController extends CrudController
         // ------ CRUD COLUMNS
         $this->crud->addColumns( [
             [
-                'name' => 'family_name',
+                'name' => 'name',
                 'label' => 'Famille ',
             ],
-            [ // n-n relationship (with pivot table)
+            [
                'label'     => 'Membres de la famille', // Table column heading
                'type'      => 'select_multiple',
                'name'      => 'users', // the method that defines the relationship in your Model
@@ -74,6 +81,7 @@ class FamilyCrudController extends CrudController
         // $this->crud->setColumnsDetails(['column_1', 'column_2'], ['attribute' => 'value']);
 
         // ------ CRUD BUTTONS
+        $this->crud->addButtonFromModelFunction('line', 'Email', 'getSendMailButton', 'beginning');
         // possible positions: 'beginning' and 'end'; defaults to 'beginning' for the 'line' stack, 'end' for the others;
         // $this->crud->addButton($stack, $name, $type, $content, $position); // add a button; possible types are: view, model_function
         // $this->crud->addButtonFromModelFunction($stack, $name, $model_function_name, $position); // add a button whose HTML is returned by a method in the CRUD model
@@ -128,21 +136,38 @@ class FamilyCrudController extends CrudController
         // $this->crud->limit();
     }
 
-    public function store(StoreRequest $request)
+    public function store( StoreRequest $request, Family $family )
     {
-        // your additional operations before save here
+        // 1. Save Family name
         $redirect_location = parent::storeCrud();
-        // your additional operations after save here
-        // use $this->data['entry'] or $this->crud->entry
+        // 2. Get the ID of the new family
+        $id = DB::getPdo()->lastInsertId();
+        // 3. Update family_id of selected users
+        if ( $request -> users ) {
+            foreach ($request -> users as $userSelected ) {
+                DB::Table( 'users' ) -> where( 'id', $userSelected ) -> update( [ 'family_id' => $id ] );
+            }
+        }
+        // 4. Redirection
         return $redirect_location;
     }
 
     public function update(UpdateRequest $request)
     {
         // your additional operations before save here
+        // 1. Save Updates
         $redirect_location = parent::updateCrud();
-        // your additional operations after save here
-        // use $this->data['entry'] or $this->crud->entry
+        // 2. Get the ID of the new family
+        $id = $request -> id;
+        // 3. Remove family_id from unselected users
+        DB::Table( 'users' ) -> where( 'family_id', $id ) -> update( [ 'family_id' => NULL ] );
+        // 4. Set family_id for selected users
+        if ( $request -> users ) {
+            foreach ($request -> users as $userSelected ) {
+                DB::Table( 'users' ) -> where( 'id', $userSelected ) -> update( [ 'family_id' => $id ] );
+            }
+        }
+        // 5. Rediection
         return $redirect_location;
     }
 }
