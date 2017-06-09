@@ -89,16 +89,16 @@ class UserCrudController extends CrudController {
 		        'model'            => "App\Models\Family", // foreign key model
 		        'number_columns'   => 4, //can be 1,2,3,4,6
             ],
-          //   [
-		        // 'label'            => 'Fait partie des équipes',
-		        // 'name'             => 'teams', // the method that defines the relationship in your Model
-		        // 'type'              => 'checklist',
-		        // 'entity'           => 'teams', // the method that defines the relationship in your Model
-		        // 'attribute'        => 'division', // foreign key attribute that is shown to user
-		        // 'model'            => "App\Models\Team", // foreign key model
-		        // 'pivot'            => true, // on create&update, do you need to add/delete pivot table entries?]
-		        // 'number_columns'   => 4, //can be 1,2,3,4,6
-          //   ],
+            [
+		        'label'            => 'Fait partie des équipes',
+		        'name'             => 'teams', // the method that defines the relationship in your Model
+		        'type'              => 'checklist',
+		        'entity'           => 'teams', // the method that defines the relationship in your Model
+		        'attribute'        => 'division', // foreign key attribute that is shown to user
+		        'model'            => "App\Models\Team", // foreign key model
+		        'pivot'            => true, // on create&update, do you need to add/delete pivot table entries?]
+		        'number_columns'   => 4, //can be 1,2,3,4,6
+            ],
 			[
 		        'label'            => 'Roles',
 		        'name'             => 'roles', // the method that defines the relationship in your Model
@@ -140,11 +140,11 @@ class UserCrudController extends CrudController {
 	        ],
 	        [
 	           'label'     => 'Équipes', // Table column heading
-	           // 'type'      => 'select_multiple',
+	           'type'      => 'select_multiple',
 	           'name'      => 'teams', // the method that defines the relationship in your Model
-	           // 'entity'    => 'teams', // the method that defines the relationship in your Model
-	           // 'attribute' => 'division', // foreign key attribute that is shown to user
-	           // 'model'     => "App\Models\Team", // foreign key model
+	           'entity'    => 'teams', // the method that defines the relationship in your Model
+	           'attribute' => 'division', // foreign key attribute that is shown to user
+	           'model'     => "App\Models\Team", // foreign key model
 	        ],
         	[
         		'name' => 'email',

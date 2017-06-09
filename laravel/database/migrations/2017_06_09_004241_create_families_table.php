@@ -9,7 +9,7 @@ class CreateFamiliesTable extends Migration {
 	{
 		Schema::create('families', function(Blueprint $table) {
 			$table->increments('id');
-			$table->string('name')->unique();
+			$table->string('name')->index();
 			$table->timestamps();
 		});
 	}

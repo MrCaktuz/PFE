@@ -10,8 +10,8 @@ class CreateForeignKeys extends Migration {
 	{
 		Schema::table('users', function(Blueprint $table) {
 			$table->foreign('family_id')->references('id')->on('families')
-						->onDelete('SET NULL')
-						->onUpdate('SET NULL');
+						->onDelete('set null')
+						->onUpdate('set null');
 		});
 		Schema::table('role_user', function(Blueprint $table) {
 			$table->foreign('user_id')->references('id')->on('users')
@@ -22,6 +22,16 @@ class CreateForeignKeys extends Migration {
 			$table->foreign('role_id')->references('id')->on('roles')
 						->onDelete('restrict')
 						->onUpdate('restrict');
+		});
+		Schema::table('teams', function(Blueprint $table) {
+			$table->foreign('coach_id')->references('id')->on('users')
+						->onDelete('set null')
+						->onUpdate('set null');
+		});
+		Schema::table('teams', function(Blueprint $table) {
+			$table->foreign('assistant_id')->references('id')->on('users')
+						->onDelete('set null')
+						->onUpdate('set null');
 		});
 		Schema::table('team_user', function(Blueprint $table) {
 			$table->foreign('user_id')->references('id')->on('users')
@@ -60,6 +70,12 @@ class CreateForeignKeys extends Migration {
 		});
 		Schema::table('role_user', function(Blueprint $table) {
 			$table->dropForeign('role_user_role_id_foreign');
+		});
+		Schema::table('teams', function(Blueprint $table) {
+			$table->dropForeign('teams_coach_id_foreign');
+		});
+		Schema::table('teams', function(Blueprint $table) {
+			$table->dropForeign('teams_assistant_id_foreign');
 		});
 		Schema::table('team_user', function(Blueprint $table) {
 			$table->dropForeign('team_user_user_id_foreign');

@@ -10,6 +10,8 @@ class CreateTeamsTable extends Migration {
 		Schema::create('teams', function(Blueprint $table) {
 			$table->increments('id');
 			$table->string('division');
+			$table->integer('coach_id')->unsigned()->nullable();
+			$table->integer('assistant_id')->unsigned()->nullable();
 			$table->string('season');
 			$table->string('photo')->nullable();
 			$table->timestamps();

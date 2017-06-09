@@ -47,6 +47,10 @@ class User extends Authenticatable
     {
         return $this -> belongsTo('App\Models\Family', 'family_id', 'id');
     }
+    public function Teams()
+    {
+        return $this->belongsToMany('App\Models\Team', 'team_user');
+    }
 
 	/*
 	|--------------------------------------------------------------------------
