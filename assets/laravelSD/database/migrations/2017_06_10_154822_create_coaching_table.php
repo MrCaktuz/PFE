@@ -11,7 +11,7 @@ class CreateCoachingTable extends Migration {
 			$table->increments('id');
 			$table->string('title');
 			$table->text('description');
-			$table->string('author');
+			$table->integer('user_id')->unsigned()->nullable();
 			$table->string('site')->nullable();
 			$table->string('file')->nullable();
 			$table->timestamps();

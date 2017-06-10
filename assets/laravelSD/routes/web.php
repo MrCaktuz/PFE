@@ -28,3 +28,4 @@ Route::resource('event', 'EventController');
 Route::resource('family', 'FamilyController');
 Route::resource('coaching', 'coachingController');
 Route::resource('download', 'DownloadController');
+Route::resource('setting', 'SettingController');
