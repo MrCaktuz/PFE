@@ -1,6 +1,10 @@
 {!! Form::open(array('route' => 'route.name', 'method' => 'POST')) !!}
 	<ul>
 		<li>
+			{!! Form::label('key', 'Key:') !!}
+			{!! Form::text('key') !!}
+		</li>
+		<li>
 			{!! Form::label('name', 'Name:') !!}
 			{!! Form::text('name') !!}
 		</li>

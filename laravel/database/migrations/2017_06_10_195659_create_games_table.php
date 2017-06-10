@@ -9,14 +9,17 @@ class CreateGamesTable extends Migration {
 	{
 		Schema::create('games', function(Blueprint $table) {
 			$table->increments('id');
-			$table->integer('team_id')->unsigned();
+			$table->integer('division')->unsigned()->nullable();
 			$table->string('game_id');
 			$table->date('date');
+			$table->string('time');
 			$table->time('appointment')->nullable();
 			$table->string('host');
 			$table->string('visitor');
 			$table->string('score')->nullable();
 			$table->string('duty')->nullable();
+			$table->integer('day_id')->nullable();
+			$table->string('location')->nullable();
 			$table->timestamps();
 		});
 	}

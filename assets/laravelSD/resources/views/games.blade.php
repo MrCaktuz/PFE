@@ -1,8 +1,8 @@
 {!! Form::open(array('route' => 'route.name', 'method' => 'POST')) !!}
 	<ul>
 		<li>
-			{!! Form::label('team_id', 'Team_id:') !!}
-			{!! Form::text('team_id') !!}
+			{!! Form::label('division', 'Division:') !!}
+			{!! Form::text('division') !!}
 		</li>
 		<li>
 			{!! Form::label('game_id', 'Game_id:') !!}
@@ -11,6 +11,10 @@
 		<li>
 			{!! Form::label('date', 'Date:') !!}
 			{!! Form::text('date') !!}
+		</li>
+		<li>
+			{!! Form::label('time', 'Time:') !!}
+			{!! Form::text('time') !!}
 		</li>
 		<li>
 			{!! Form::label('appointment', 'Appointment:') !!}
@@ -31,6 +35,14 @@
 		<li>
 			{!! Form::label('duty', 'Duty:') !!}
 			{!! Form::text('duty') !!}
+		</li>
+		<li>
+			{!! Form::label('day_id', 'Day_id:') !!}
+			{!! Form::text('day_id') !!}
+		</li>
+		<li>
+			{!! Form::label('location', 'Location:') !!}
+			{!! Form::text('location') !!}
 		</li>
 		<li>
 			{!! Form::submit() !!}
