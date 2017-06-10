@@ -30,7 +30,7 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 	protected $fillable = [
-		'civility', 'name', 'birth_date', 'birth_location', 'email', 'password', 'phone', 'national_id', 'photo', 'job', 'address', 'postal_code', 'city', 'family_id',
+		'civility', 'name', 'birth_date', 'birth_location', 'email', 'password', 'phone', 'national_id', 'photo', 'job', 'address', 'postal_code', 'city', 'family_id', 'jersey_nbr',
 	];
 	public $timestamps = true;
 	
