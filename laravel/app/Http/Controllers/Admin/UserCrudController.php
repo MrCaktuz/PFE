@@ -94,7 +94,7 @@ class UserCrudController extends CrudController {
 		        'name'             => 'teams', // the method that defines the relationship in your Model
 		        'type'              => 'checklist',
 		        'entity'           => 'teams', // the method that defines the relationship in your Model
-		        'attribute'        => 'division', // foreign key attribute that is shown to user
+		        'attribute'        => 'name', // foreign key attribute that is shown to user
 		        'model'            => "App\Models\Team", // foreign key model
 		        'pivot'            => true, // on create&update, do you need to add/delete pivot table entries?]
 		        'number_columns'   => 4, //can be 1,2,3,4,6
@@ -143,7 +143,7 @@ class UserCrudController extends CrudController {
 	           'type'      => 'select_multiple',
 	           'name'      => 'teams', // the method that defines the relationship in your Model
 	           'entity'    => 'teams', // the method that defines the relationship in your Model
-	           'attribute' => 'division', // foreign key attribute that is shown to user
+	           'attribute' => 'name', // foreign key attribute that is shown to user
 	           'model'     => "App\Models\Team", // foreign key model
 	        ],
         	[

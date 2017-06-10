@@ -34,7 +34,7 @@ class TeamCrudController extends CrudController
         $this->crud->addFields([
             [
                 'label' => 'Nom de l\'équipe *',
-                'name' => 'division',
+                'name' => 'name',
             ],
             [
                 'label' => 'Saison *',
@@ -86,7 +86,7 @@ class TeamCrudController extends CrudController
             ],
             [
                 'label' => 'Équipe',
-                'name' => 'division',
+                'name' => 'name',
             ],
             [
                'label'     => 'Entraineur', // Table column heading
@@ -185,14 +185,14 @@ class TeamCrudController extends CrudController
         $redirect_location = parent::storeCrud();
         // your additional operations after save here
         // 1. Get the team name & season
-        $teamName = $request -> division;
+        $teamName = $request -> name;
         $teamSeason = $request -> season;
         // 2. Get the ID of the coach selected
         $coachID = $request -> coach_id;
         // 3. Get the ID of the Assistant selected
         $assistantID = $request -> assistant_id;
         // 4. Update data
-        DB::Table( 'teams' ) -> where( 'division', $teamName ) -> where( 'season', $teamSeason ) -> update( [ 'coach_id' => $coachID, 'assistant_id' => $assistantID ] );
+        DB::Table( 'teams' ) -> where( 'name', $teamName ) -> where( 'season', $teamSeason ) -> update( [ 'coach_id' => $coachID, 'assistant_id' => $assistantID ] );
         // use $this->data['entry'] or $this->crud->entry
         return $redirect_location;
     }
