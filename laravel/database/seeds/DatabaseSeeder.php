@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
         $this->call(EventsTableSeeder::class);
         $this->call(TeamsTableSeeder::class);
         $this->call(UsersTeamsTableSeeder::class);
+        $this->call(SettingsTableSeeder::class);
 
    //      // ******** Roles ********
    //      DB::table('roles')->insert([
