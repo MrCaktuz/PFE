@@ -31,7 +31,8 @@
           </li>
           <li><a href="{{ url('admin/team') }}"><i class="fa fa-group"></i> <span>Équipes</span></a></li>
           <li><a href="{{ url('admin/event') }}"><i class="fa fa-newspaper-o"></i> <span>Événements</span></a></li>
-          <li><a href="{{ url(config('backpack.base.route_prefix', 'admin') . '/elfinder') }}"><i class="fa fa-files-o"></i> <span>File manager</span></a></li>
+          <li><a href="{{ url('admin/download') }}"><i class="fa fa-files-o"></i> <span>Fichiers à télécharger</span></a></li>
+          <li><a href="{{ url(config('backpack.base.route_prefix', 'admin') . '/elfinder') }}"><i class="fa fa-upload"></i> <span>File manager</span></a></li>
 
           <li class="treeview">
             <a href="#"><i class="fa fa-gear"></i> <span>Dev Admin</span> <i class="fa fa-angle-left pull-right"></i></a>

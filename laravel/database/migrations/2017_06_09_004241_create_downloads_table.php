@@ -9,7 +9,7 @@ class CreateDownloadsTable extends Migration {
 	{
 		Schema::create('downloads', function(Blueprint $table) {
 			$table->increments('id');
-			$table->string('description');
+			$table->string('title');
 			$table->string('url');
 			$table->timestamps();
 		});
