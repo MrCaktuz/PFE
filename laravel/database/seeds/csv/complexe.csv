@@ -1,6 +1,6 @@
 id;key;name;value;description
-1;intro;Introduction;"<p>Vous organisez un anniversaire, un souper, un stage de sport ? Nous mettons nos infrastructures à votre disposition.</p>";Texte d’introduction de la page du complexe sportif du site du Royal Basket Club de Ciney.
-2;details;Détails;"<p>La location est à payer afin de confirmer la réservations.</p><p>La consommation d’énergie est facturée au pris du jour/KW (pour la location à la journée)</p><p>Caution de 200€ à payer lors de la confirmation de la réservation.</p><p>Le nettoyage est à charge du locataire. Si le nettoyage est mal fait, il y aura une amende de 150€</p>";Texte explicatif pour la location du complexe sportif du Royal Basket Club de Ciney.
+1;intro;Introduction;Vous organisez un anniversaire, un souper, un stage de sport ? Nous mettons nos infrastructures à votre disposition.;Texte d’introduction de la page du complexe sportif du site du Royal Basket Club de Ciney.
+2;details;Détails;La location est à payer afin de confirmer la réservations. La consommation d’énergie est facturée au pris du jour/KW (pour la location à la journée). Caution de 200€ à payer lors de la confirmation de la réservation. Le nettoyage est à charge du locataire. Si le nettoyage est mal fait, il y aura une amende de 150€;Texte explicatif pour la location du complexe sportif du Royal Basket Club de Ciney.
 3;hr_small;Petite salle;15;Prisn (en €) de la location à l’heure de la petite salle.
 4;hr_big;Grande salle;20;Pris (en €) de la location à l’heure de la grande salle.
 5;hr_bar;Cafétaria;25;Pris (en €) de la location à l’heure de la cafétéria.

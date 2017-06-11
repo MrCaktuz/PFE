@@ -7,6 +7,7 @@
 	CRUD::resource('event', 'EventCrudController');
 	CRUD::resource('download', 'DownloadCrudController');
 	CRUD::resource('team', 'TeamCrudController');
+	CRUD::resource('sponsor', 'SponsorCrudController');
 	
 	CRUD::resource('setting', 'SettingCrudController');
 	CRUD::resource('rule', 'RuleCrudController');

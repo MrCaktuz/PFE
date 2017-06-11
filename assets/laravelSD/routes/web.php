@@ -37,3 +37,4 @@ Route::resource('comity', 'ComityController');
 Route::resource('rule', 'RuleController');
 Route::resource('downloadpage', 'DownloadPageController');
 Route::resource('coachingpage', 'CoachingPageController');
+Route::resource('sponsor', 'SponsorController');
