@@ -91,7 +91,6 @@ class UserCrudController extends CrudController {
 		        'entity'           => 'family', // the method that defines the relationship in your Model
 		        'attribute'        => 'name', // foreign key attribute that is shown to user
 		        'model'            => "App\Models\Family", // foreign key model
-		        'number_columns'   => 4, //can be 1,2,3,4,6
             ],
             [
 		        'label'            => 'Fait partie des équipes',

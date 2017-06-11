@@ -32,6 +32,7 @@
           <li><a href="{{ url('admin/team') }}"><i class="fa fa-group"></i> <span>Équipes</span></a></li>
           <li><a href="{{ url('admin/event') }}"><i class="fa fa-newspaper-o"></i> <span>Événements</span></a></li>
           <li><a href="{{ url('admin/sponsor') }}"><i class="fa fa-bookmark"></i> <span>Partenaires</span></a></li>
+          <li><a href="{{ url('admin/coaching') }}"><i class="fa fa-inbox"></i> <span>Coaching</span></a></li>
           <li><a href="{{ url('admin/download') }}"><i class="fa fa-download"></i> <span>Téléchargements</span></a></li>
           {{-- <li class="header">OPTIONS GÉNÉRALES</li> --}}
           <li class="treeview">
