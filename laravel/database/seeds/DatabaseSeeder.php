@@ -20,6 +20,14 @@ class DatabaseSeeder extends Seeder
         $this->call(TeamsTableSeeder::class);
         $this->call(UsersTeamsTableSeeder::class);
         $this->call(SettingsTableSeeder::class);
+        $this->call(HomeTableSeeder::class);
+        $this->call(ContactTableSeeder::class);
+        $this->call(ComityTableSeeder::class);
+        $this->call(ComplexeTableSeeder::class);
+        $this->call(TrainerTableSeeder::class);
+        $this->call(CoachingPageTableSeeder::class);
+        $this->call(DownloadPageTableSeeder::class);
+        $this->call(RulesTableSeeder::class);
 
    //      // ******** Roles ********
    //      DB::table('roles')->insert([

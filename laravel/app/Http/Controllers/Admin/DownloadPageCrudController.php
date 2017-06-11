@@ -5,10 +5,10 @@ namespace App\Http\Controllers\Admin;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 
 // VALIDATION: change the requests to match your own file names if you need form validation
-use App\Http\Requests\DownloadRequest as StoreRequest;
-use App\Http\Requests\DownloadRequest as UpdateRequest;
+use App\Http\Requests\DownloadPageRequest as StoreRequest;
+use App\Http\Requests\DownloadPageRequest as UpdateRequest;
 
-class DownloadCrudController extends CrudController
+class DownloadPageCrudController extends CrudController
 {
     public function setup()
     {
@@ -18,9 +18,9 @@ class DownloadCrudController extends CrudController
         | BASIC CRUD INFORMATION
         |--------------------------------------------------------------------------
         */
-        $this->crud->setModel('App\Models\Download');
-        $this->crud->setRoute(config('backpack.base.route_prefix') . '/download');
-        $this->crud->setEntityNameStrings('download', 'downloads');
+        $this->crud->setModel('App\Models\DownloadPage');
+        $this->crud->setRoute(config('backpack.base.route_prefix') . '/downloadpage');
+        $this->crud->setEntityNameStrings('downloadpage', 'downloadpage');
         $this->crud->denyAccess(['create', 'delete']);
 
         /*
@@ -29,36 +29,46 @@ class DownloadCrudController extends CrudController
         |--------------------------------------------------------------------------
         */
 
-        // $this->crud->setFromDb();
-
         // ------ CRUD FIELDS
-        $this->crud->addFields([
+        $this->crud->addFields( [
             [
-                'label' => 'Titre du document *',
-                'name' => 'title',
+                'label'      => 'Nom',
+                'name'       => 'name',
+                'attributes' => [
+                    'disabled' => 'disabled',
+                ],
             ],
-            [   // Browse
-                'label' => 'Fichier à télécharger',
-                'name' => 'url',
-                'type' => 'browse'
+            [
+                'label' => 'Valeur',
+                'name' => 'value',
+                'type' => 'textarea',
             ],
-        ]);
+            [
+                'label'      => 'Description',
+                'name'       => 'description',
+                'attributes' => [
+                    'disabled' => 'disabled',
+                ],
+            ],
+        ] );
 
         // ------ CRUD COLUMNS
         $this->crud->addColumns( [
             [
-                'label' => 'Fichiers',
-                'name' => 'title',
+                'label' => 'Nom',
+                'name' => 'name',
             ],
             [
-                'label' => 'Liens',
-                'name' => 'url',
+                'label' => 'Valeur',
+                'name' => 'value',
+            ],
+            [
+                'label' => 'Description',
+                'name' => 'description',
             ],
         ] );
 
         // ------ CRUD BUTTONS
-        $this->crud->addButtonFromModelFunction('line', 'Aperçu', 'getShowButton', 'beginning');
-
         // possible positions: 'beginning' and 'end'; defaults to 'beginning' for the 'line' stack, 'end' for the others;
         // $this->crud->addButton($stack, $name, $type, $content, $position); // add a button; possible types are: view, model_function
         // $this->crud->addButtonFromModelFunction($stack, $name, $model_function_name, $position); // add a button whose HTML is returned by a method in the CRUD model

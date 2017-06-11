@@ -33,16 +33,25 @@
           <li><a href="{{ url('admin/event') }}"><i class="fa fa-newspaper-o"></i> <span>Événements</span></a></li>
           <li><a href="{{ url('admin/download') }}"><i class="fa fa-files-o"></i> <span>Fichiers à télécharger</span></a></li>
           {{-- <li class="header">OPTIONS GÉNÉRALES</li> --}}
+          <li class="treeview">
+            <a href="#"><i class="fa fa-file"></i> <span>Pages</span> <i class="fa fa-angle-left pull-right"></i></a>
+            <ul class="treeview-menu">
+              <li><a href="{{ url('admin/home') }}"><i class="fa fa-file"></i> <span>Accueil</span></a></li>
+              <li><a href="{{ url('admin/coachingpage') }}"><i class="fa fa-file"></i> <span>Coaching</span></a></li>
+              <li><a href="{{ url('admin/complexe') }}"><i class="fa fa-file"></i> <span>Complexe</span></a></li>
+              <li><a href="{{ url('admin/comity') }}"><i class="fa fa-file"></i> <span>Conseil d'administration</span></a></li>
+              <li><a href="{{ url('admin/contact') }}"><i class="fa fa-file"></i> <span>Contact</span></a></li>
+              <li><a href="{{ url('admin/trainer') }}"><i class="fa fa-file"></i> <span>Entraineurs</span></a></li>
+              <li><a href="{{ url('admin/rule') }}"><i class="fa fa-file"></i> <span>Règlement</span></a></li>
+              <li><a href="{{ url('admin/downloadpage') }}"><i class="fa fa-file"></i> <span>Téléchargements</span></a></li>
+            </ul>
+          </li>
           <li><a href="{{ url(config('backpack.base.route_prefix', 'admin') . '/elfinder') }}"><i class="fa fa-upload"></i> <span>File manager</span></a></li>
           <li><a href="{{ url('admin/setting') }}"><i class="fa fa-info"></i> <span>Informations générales</span></a></li>
 
-          <li class="treeview">
-            <a href="#"><i class="fa fa-gear"></i> <span>Dev Admin</span> <i class="fa fa-angle-left pull-right"></i></a>
-            <ul class="treeview-menu">
-              <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/backup') }}"><i class="fa fa-hdd-o"></i> <span>Backups</span></a></li>
-              <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/log') }}"><i class="fa fa-terminal"></i> <span>Logs</span></a></li>
-            </ul>
-          </li>
+          <li class="header">OPTIONS AVANCÉES</li>
+          <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/backup') }}"><i class="fa fa-hdd-o"></i> <span>Backups</span></a></li>
+          <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/log') }}"><i class="fa fa-terminal"></i> <span>Logs</span></a></li>
           
           <!-- ======================================= -->
           <li class="header">{{ trans('backpack::base.user') }}</li>
