@@ -53,6 +53,11 @@ class CreateForeignKeys extends Migration {
 						->onDelete('restrict')
 						->onUpdate('restrict');
 		});
+		Schema::table('games', function(Blueprint $table) {
+			$table->foreign('team_id')->references('id')->on('teams')
+						->onDelete('set null')
+						->onUpdate('set null');
+		});
 		Schema::table('coaching', function(Blueprint $table) {
 			$table->foreign('user_id')->references('id')->on('users')
 						->onDelete('set null')
@@ -88,6 +93,9 @@ class CreateForeignKeys extends Migration {
 		});
 		Schema::table('photo_team', function(Blueprint $table) {
 			$table->dropForeign('photo_team_team_id_foreign');
+		});
+		Schema::table('games', function(Blueprint $table) {
+			$table->dropForeign('games_team_id_foreign');
 		});
 		Schema::table('coaching', function(Blueprint $table) {
 			$table->dropForeign('coaching_user_id_foreign');
