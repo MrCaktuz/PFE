@@ -7,11 +7,6 @@
 	CRUD::resource('event', 'EventCrudController');
 	CRUD::resource('download', 'DownloadCrudController');
 	CRUD::resource('team', 'TeamCrudController');
-<<<<<<< HEAD
-	CRUD::resource('sponsor', 'SponsorCrudController');
-	CRUD::resource('coaching', 'CoachingCrudController');
-=======
->>>>>>> fc5e39cc87640efd7080f0635c51abdedeba7533
 	
 	CRUD::resource('setting', 'SettingCrudController');
 	CRUD::resource('rule', 'RuleCrudController');
