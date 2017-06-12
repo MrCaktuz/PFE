@@ -48,7 +48,11 @@
               <li><a href="{{ url('admin/downloadpage') }}"><i class="fa fa-file"></i> <span>Téléchargements</span></a></li>
             </ul>
           </li>
+<<<<<<< HEAD
           <li><a href="{{ url(config('backpack.base.route_prefix', 'admin') . '/elfinder') }}"><i class="fa fa-upload"></i> <span>Gestion de fichiers</span></a></li>
+=======
+          <li><a href="{{ url(config('backpack.base.route_prefix', 'admin') . '/elfinder') }}"><i class="fa fa-upload"></i> <span>File manager</span></a></li>
+>>>>>>> fc5e39cc87640efd7080f0635c51abdedeba7533
           <li><a href="{{ url('admin/setting') }}"><i class="fa fa-info"></i> <span>Informations générales</span></a></li>
 
           <li class="header">OPTIONS AVANCÉES</li>
