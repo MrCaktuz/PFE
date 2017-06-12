@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Request;
 use Backpack\CRUD\CrudTrait;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Builder;
@@ -84,6 +85,9 @@ class User extends Authenticatable
         static::addGlobalScope( 'ordered', function( Builder $builder ) {
             $builder->orderBy( 'name' );
         } );
+        static::deleting(function($obj) {
+            \Storage::disk('public_folder')->delete($obj->image);
+        });
     }
 
     /**
@@ -108,6 +112,42 @@ class User extends Authenticatable
 	| MUTATORS
 	|--------------------------------------------------------------------------
 	*/
+	public function setPhotoAttribute( $value ) {
+        $attribute_name = "photo";
+        $disk = "public_folder";
+        $destination_path = "uploads/users";
 
-	
+        // if the image was erased
+        if ( $value == null ) {
+            // delete the image from disk
+            \Storage::disk( $disk ) -> delete( $this -> photo );
+
+            // set null in the database column
+            $this -> attributes[ $attribute_name ] = null;
+    	}
+
+        // if a base64 was sent, store it in the db
+        if ( starts_with( $value, 'data:image' ) ) {
+        	// 0. Make the original image size & others
+            $image = \Image::make( $value );
+            $image250x250 = \Image::make( $value )->fit( 250, 250 );
+            $image125x125 = \Image::make( $value )->fit( 125, 125 );
+            $image50x50 = \Image::make( $value )->fit( 50, 50 );
+            $image25x25 = \Image::make( $value )->fit( 25, 25 );
+
+            // 1. Generate a filename.
+            $filename = md5( $value.time() );
+
+            // 2. Store the image original on disk.
+            \Storage::disk( $disk )->put( $destination_path . '/' . $filename . '.jpg', $image -> stream() );
+            \Storage::disk( $disk )->put( $destination_path . '/' . $filename . '_250x250.jpg', $image250x250 -> stream() );
+            \Storage::disk( $disk )->put( $destination_path . '/' . $filename . '_125x125.jpg', $image125x125 -> stream() );
+            \Storage::disk( $disk )->put( $destination_path . '/' . $filename . '_50x50.jpg', $image50x50 -> stream() );
+            \Storage::disk( $disk )->put( $destination_path . '/' . $filename . '_25x25.jpg', $image25x25 -> stream() );
+
+            // 3. Save the path to the database
+            $this -> attributes[ $attribute_name ] = $destination_path . '/' . $filename;
+
+        }
+    }
 }

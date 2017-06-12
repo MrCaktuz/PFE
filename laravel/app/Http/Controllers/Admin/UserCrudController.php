@@ -79,10 +79,14 @@ class UserCrudController extends CrudController {
 				'name' => 'jersey_nbr',
 				'label' => 'N° de maillot',
 			],
-			[   // Browse
-		    	'name' => 'photo',
-		    	'label' => 'Photo de profil',
-		    	'type' => 'browse'
+			[
+		    	'label' => "Photo de profil",
+			    'name' => "photo",
+			    'type' => 'image',
+			    'upload' => true,
+			    'crop' => true, // set to true to allow cropping, false to disable
+			    'aspect_ratio' => 1, // ommit or set to 0 to allow any aspect ratio
+			    // 'prefix' => 'uploads/images/profile_pictures/' // in case you only store the filename in the database, this text will be prepended to the database value
 			],
 			[
 		        'label'            => 'Fait partie de la famille',

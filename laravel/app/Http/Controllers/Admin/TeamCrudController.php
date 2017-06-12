@@ -67,10 +67,14 @@ class TeamCrudController extends CrudController
                 'model'            => 'App\User', // foreign key model
                 'pivot'            => true, // on create&update, do you need to add/delete pivot table entries?]
             ],
-            [   // Browse
-                'name' => 'photo',
-                'label' => 'Photo de profil',
-                'type' => 'browse'
+            [
+                'label' => "Photo d'équipe",
+                'name' => "photo",
+                'type' => 'image',
+                'upload' => true,
+                'crop' => false, // set to true to allow cropping, false to disable
+                'aspect_ratio' => 1, // ommit or set to 0 to allow any aspect ratio
+                // 'prefix' => 'uploads/images/profile_pictures/' // in case you only store the filename in the database, this text will be prepended to the database value
             ],
         ]);
 

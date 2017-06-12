@@ -77,4 +77,42 @@ class Team extends Model
     | MUTATORS
     |--------------------------------------------------------------------------
     */
+    public function setPhotoAttribute( $value ) {
+        $attribute_name = "photo";
+        $disk = "public_folder";
+        $destination_path = "uploads/teams";
+
+        // if the image was erased
+        if ( $value == null ) {
+            // delete the image from disk
+            \Storage::disk( $disk ) -> delete( $this -> photo );
+
+            // set null in the database column
+            $this -> attributes[ $attribute_name ] = null;
+        }
+
+        // if a base64 was sent, store it in the db
+        if ( starts_with( $value, 'data:image' ) ) {
+            // 0. Make the original image size & others
+            $image = \Image::make( $value );
+            $image1280 = \Image::make( $value )->widen( 1280 );
+            $image980 = \Image::make( $value )->widen( 980 );
+            $image768 = \Image::make( $value )->widen( 768 );
+            $image480 = \Image::make( $value )->widen( 480 );
+
+            // 1. Generate a filename.
+            $filename = md5( $value.time() );
+
+            // 2. Store the image original on disk.
+            \Storage::disk( $disk )->put( $destination_path . '/' . $filename . '.jpg', $image -> stream() );
+            \Storage::disk( $disk )->put( $destination_path . '/' . $filename . '_1280.jpg', $image1280 -> stream() );
+            \Storage::disk( $disk )->put( $destination_path . '/' . $filename . '_980.jpg', $image980 -> stream() );
+            \Storage::disk( $disk )->put( $destination_path . '/' . $filename . '_768.jpg', $image768 -> stream() );
+            \Storage::disk( $disk )->put( $destination_path . '/' . $filename . '_480.jpg', $image480 -> stream() );
+
+            // 3. Save the path to the database
+            $this -> attributes[ $attribute_name ] = $destination_path . '/' . $filename;
+
+        }
+    }
 }

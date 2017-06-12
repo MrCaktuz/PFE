@@ -49,10 +49,14 @@ class EventCrudController extends CrudController
             'both'
         );
         $this->crud->addField(
-            [   // Browse
-                'name' => 'photo',
-                'label' => 'Photo de l\'événement',
-                'type' => 'browse'
+            [
+                'label' => "Photo de l'événement",
+                'name' => "photo",
+                'type' => 'image',
+                'upload' => true,
+                'crop' => false, // set to true to allow cropping, false to disable
+                'aspect_ratio' => 1, // ommit or set to 0 to allow any aspect ratio
+                // 'prefix' => 'uploads/images/profile_pictures/' // in case you only store the filename in the database, this text will be prepended to the database value
             ],
             'both'
         );
