@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\CrudTrait;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 
 class Team extends Model
 {
@@ -65,6 +66,14 @@ class Team extends Model
     | SCOPES
     |--------------------------------------------------------------------------
     */
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::addGlobalScope( 'ordered', function( Builder $builder ) {
+            $builder->orderBy( 'season', 'desc' );
+        } );
+    }
 
     /*
     |--------------------------------------------------------------------------
