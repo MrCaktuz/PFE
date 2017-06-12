@@ -30,6 +30,7 @@
             </ul>
           </li>
           <li><a href="{{ url('admin/team') }}"><i class="fa fa-group"></i> <span>Équipes</span></a></li>
+          <li><a href="{{ url('admin/game') }}"><i class="fa fa-list-alt"></i> <span>Matches</span></a></li>
           <li><a href="{{ url('admin/event') }}"><i class="fa fa-newspaper-o"></i> <span>Événements</span></a></li>
           <li><a href="{{ url('admin/sponsor') }}"><i class="fa fa-bookmark"></i> <span>Partenaires</span></a></li>
           <li><a href="{{ url('admin/coaching') }}"><i class="fa fa-inbox"></i> <span>Coaching</span></a></li>
@@ -49,8 +50,6 @@
             </ul>
           </li>
           <li><a href="{{ url(config('backpack.base.route_prefix', 'admin') . '/elfinder') }}"><i class="fa fa-upload"></i> <span>Gestion de fichiers</span></a></li>
-          <li><a href="{{ url(config('backpack.base.route_prefix', 'admin') . '/elfinder') }}"><i class="fa fa-upload"></i> <span>File manager</span></a></li>
-          <li><a href="{{ url(config('backpack.base.route_prefix', 'admin') . '/elfinder') }}"><i class="fa fa-upload"></i> <span>File manager</span></a></li>
           <li><a href="{{ url('admin/setting') }}"><i class="fa fa-info"></i> <span>Informations générales</span></a></li>
 
           <li class="header">OPTIONS AVANCÉES</li>

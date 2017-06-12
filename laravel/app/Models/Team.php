@@ -41,6 +41,7 @@ class Team extends Model
     {
         return $this->belongsToMany('App\User', 'team_user');
     }
+    
     public function coach()
     {
         return $this->hasOne('App\User', 'id', 'coach_id');
@@ -49,6 +50,11 @@ class Team extends Model
     public function assistant()
     {
         return $this->hasOne('App\User', 'id', 'assistant_id');
+    }
+
+    public function games()
+    {
+        return $this->hasMany( 'App\Models\Game', 'team_id', 'id' );
     }
 
     // public function photos()

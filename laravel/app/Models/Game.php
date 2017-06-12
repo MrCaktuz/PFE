@@ -2,13 +2,11 @@
 
 namespace App\Models;
 
-use DB;
-use App\User;
 use Backpack\CRUD\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 
-class Family extends Model
+class Game extends Model
 {
     use CrudTrait;
 
@@ -18,11 +16,13 @@ class Family extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'families';
+    protected $table = 'games';
     protected $primaryKey = 'id';
     public $timestamps = true;
     // protected $guarded = ['id'];
-    protected $fillable = [ 'name' ];
+    protected $fillable = [
+        'team_id', 'division', 'game_id', 'date', 'time', 'appointment', 'host', 'visitor', 'score', 'duty', 'day_id', 'location',
+    ];
     // protected $hidden = [];
     // protected $dates = [];
 
@@ -31,32 +31,15 @@ class Family extends Model
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
-    public function getFamilyMails()
-    {
-        $mails = 'mailto:';
-        $usersNbr = $this->users->count();
-        for ($i=0; $i < $usersNbr; $i++) { 
-            $mail = $this->users[$i]['attributes']['email'];
-            $mails = $mails . $mail . ';';
-        }
-
-        return $mails;
-    }
-
-    public function getSendMailButton()
-    {
-        $link = $this->getFamilyMails();
-        $htmlCode = '<a class="btn btn-default btn-xs" href="' . $link . '"><i class="fa fa-envelope-o"></i> Envoyer un mail</a>';
-        return $htmlCode;
-    }
 
     /*
     |--------------------------------------------------------------------------
     | RELATIONS
     |--------------------------------------------------------------------------
     */
-    public function users(){
-        return $this->hasMany( 'App\User', 'family_id', 'id' );
+    public function team()
+    {
+        return $this->hasOne('App\Models\Team', 'id', 'team_id');
     }
 
     /*
@@ -74,7 +57,7 @@ class Family extends Model
         parent::boot();
 
         static::addGlobalScope( 'ordered', function( Builder $builder ) {
-            $builder->orderBy( 'name' );
+            $builder->orderBy( 'date' );
         } );
     }
 
