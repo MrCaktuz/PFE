@@ -3,20 +3,19 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreatePhotosTable extends Migration {
+class CreateAlbumsTable extends Migration {
 
 	public function up()
 	{
-		Schema::create('photos', function(Blueprint $table) {
+		Schema::create('albums', function(Blueprint $table) {
 			$table->increments('id');
-			$table->string('url');
-			$table->string('album');
 			$table->timestamps();
+			$table->string('name');
 		});
 	}
 
 	public function down()
 	{
-		Schema::drop('photos');
+		Schema::drop('albums');
 	}
 }

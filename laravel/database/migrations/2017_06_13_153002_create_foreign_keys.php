@@ -15,13 +15,18 @@ class CreateForeignKeys extends Migration {
 		});
 		Schema::table('role_user', function(Blueprint $table) {
 			$table->foreign('user_id')->references('id')->on('users')
-						->onDelete('restrict')
-						->onUpdate('restrict');
+						->onDelete('cascade')
+						->onUpdate('cascade');
 		});
 		Schema::table('role_user', function(Blueprint $table) {
 			$table->foreign('role_id')->references('id')->on('roles')
-						->onDelete('restrict')
-						->onUpdate('restrict');
+						->onDelete('cascade')
+						->onUpdate('cascade');
+		});
+		Schema::table('photos', function(Blueprint $table) {
+			$table->foreign('album_id')->references('id')->on('albums')
+						->onDelete('set null')
+						->onUpdate('set null');
 		});
 		Schema::table('teams', function(Blueprint $table) {
 			$table->foreign('coach_id')->references('id')->on('users')
@@ -35,23 +40,23 @@ class CreateForeignKeys extends Migration {
 		});
 		Schema::table('team_user', function(Blueprint $table) {
 			$table->foreign('user_id')->references('id')->on('users')
-						->onDelete('restrict')
-						->onUpdate('restrict');
+						->onDelete('cascade')
+						->onUpdate('cascade');
 		});
 		Schema::table('team_user', function(Blueprint $table) {
 			$table->foreign('team_id')->references('id')->on('teams')
-						->onDelete('restrict')
-						->onUpdate('restrict');
+						->onDelete('cascade')
+						->onUpdate('cascade');
 		});
-		Schema::table('photo_team', function(Blueprint $table) {
-			$table->foreign('photo_id')->references('id')->on('photos')
-						->onDelete('restrict')
-						->onUpdate('restrict');
+		Schema::table('album_team', function(Blueprint $table) {
+			$table->foreign('album_id')->references('id')->on('albums')
+						->onDelete('cascade')
+						->onUpdate('cascade');
 		});
-		Schema::table('photo_team', function(Blueprint $table) {
+		Schema::table('album_team', function(Blueprint $table) {
 			$table->foreign('team_id')->references('id')->on('teams')
-						->onDelete('restrict')
-						->onUpdate('restrict');
+						->onDelete('cascade')
+						->onUpdate('cascade');
 		});
 		Schema::table('games', function(Blueprint $table) {
 			$table->foreign('team_id')->references('id')->on('teams')
@@ -76,6 +81,9 @@ class CreateForeignKeys extends Migration {
 		Schema::table('role_user', function(Blueprint $table) {
 			$table->dropForeign('role_user_role_id_foreign');
 		});
+		Schema::table('photos', function(Blueprint $table) {
+			$table->dropForeign('photos_album_id_foreign');
+		});
 		Schema::table('teams', function(Blueprint $table) {
 			$table->dropForeign('teams_coach_id_foreign');
 		});
@@ -88,11 +96,11 @@ class CreateForeignKeys extends Migration {
 		Schema::table('team_user', function(Blueprint $table) {
 			$table->dropForeign('team_user_team_id_foreign');
 		});
-		Schema::table('photo_team', function(Blueprint $table) {
-			$table->dropForeign('photo_team_photo_id_foreign');
+		Schema::table('album_team', function(Blueprint $table) {
+			$table->dropForeign('album_team_album_id_foreign');
 		});
-		Schema::table('photo_team', function(Blueprint $table) {
-			$table->dropForeign('photo_team_team_id_foreign');
+		Schema::table('album_team', function(Blueprint $table) {
+			$table->dropForeign('album_team_team_id_foreign');
 		});
 		Schema::table('games', function(Blueprint $table) {
 			$table->dropForeign('games_team_id_foreign');
