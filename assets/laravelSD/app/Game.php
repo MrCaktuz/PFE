@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,7 +12,7 @@ class Game extends Model
 
     public function team()
     {
-        return $this->hasOne('App\Team', 'team_id');
+        return $this->hasOne('App\Models\Team', 'team_id');
     }
 
 }

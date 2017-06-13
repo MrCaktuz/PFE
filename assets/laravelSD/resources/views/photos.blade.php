@@ -5,8 +5,8 @@
 			{!! Form::text('url') !!}
 		</li>
 		<li>
-			{!! Form::label('album', 'Album:') !!}
-			{!! Form::text('album') !!}
+			{!! Form::label('album_id', 'Album_id:') !!}
+			{!! Form::text('album_id') !!}
 		</li>
 		<li>
 			{!! Form::submit() !!}

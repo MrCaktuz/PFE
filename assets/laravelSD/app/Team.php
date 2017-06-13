@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -16,14 +16,14 @@ class Team extends Model
         return $this->belongsToMany('App\User', 'team_user');
     }
 
-    public function photos()
+    public function Albums()
     {
-        return $this->belongsToMany('App\Photo', 'photo_team');
+        return $this->belongsToMany('App/Models\Album', 'album_team');
     }
 
     public function games()
     {
-        return $this->hasMany('App\Game', 'team_id');
+        return $this->hasMany('App\Models\Game', 'team_id');
     }
 
     public function coach()

@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -10,9 +10,9 @@ class Photo extends Model
     protected $table = 'photos';
     public $timestamps = true;
 
-    public function teams()
+    public function album()
     {
-        return $this->belongsToMany('App\Team', 'team_user');
+        return $this->hasOne('App/Models\Album', 'album_id');
     }
 
 }

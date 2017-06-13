@@ -13,17 +13,17 @@ class User extends Model
 
     public function roles()
     {
-        return $this->belongsToMany('App\Role', 'role_user');
+        return $this->belongsToMany('App\Models\Role', 'role_user');
     }
 
     public function Teams()
     {
-        return $this->belongsToMany('App\Team', 'team_user');
+        return $this->belongsToMany('App\Models\Team', 'team_user');
     }
 
     public function family()
     {
-        return $this->belongsTo('App\Family');
+        return $this->belongsTo('App\Models\Family');
     }
 
 }

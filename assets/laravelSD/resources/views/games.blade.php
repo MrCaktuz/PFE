@@ -1,8 +1,8 @@
 {!! Form::open(array('route' => 'route.name', 'method' => 'POST')) !!}
 	<ul>
 		<li>
-			{!! Form::label('division', 'Division:') !!}
-			{!! Form::text('division') !!}
+			{!! Form::label('team_id', 'Team_id:') !!}
+			{!! Form::text('team_id') !!}
 		</li>
 		<li>
 			{!! Form::label('game_id', 'Game_id:') !!}
