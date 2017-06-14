@@ -56,6 +56,10 @@ class Team extends Model
     {
         return $this->hasMany( 'App\Models\Game', 'team_id', 'id' );
     }
+    public function albums()
+    {
+        return $this -> belongsToMany('App\Models\Album', 'album_team');
+    }
 
     // public function photos()
     // {

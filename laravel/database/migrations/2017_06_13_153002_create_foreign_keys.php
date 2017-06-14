@@ -23,11 +23,6 @@ class CreateForeignKeys extends Migration {
 						->onDelete('cascade')
 						->onUpdate('cascade');
 		});
-		Schema::table('photos', function(Blueprint $table) {
-			$table->foreign('album_id')->references('id')->on('albums')
-						->onDelete('set null')
-						->onUpdate('set null');
-		});
 		Schema::table('teams', function(Blueprint $table) {
 			$table->foreign('coach_id')->references('id')->on('users')
 						->onDelete('set null')
@@ -80,9 +75,6 @@ class CreateForeignKeys extends Migration {
 		});
 		Schema::table('role_user', function(Blueprint $table) {
 			$table->dropForeign('role_user_role_id_foreign');
-		});
-		Schema::table('photos', function(Blueprint $table) {
-			$table->dropForeign('photos_album_id_foreign');
 		});
 		Schema::table('teams', function(Blueprint $table) {
 			$table->dropForeign('teams_coach_id_foreign');
