@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use DB;
 use Input;
 use Excel;
+use Alert;
 use App\Models\Import;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 
@@ -68,8 +69,15 @@ class ImportCrudController extends CrudController
                 }
                 if(!empty($insert)){
                     DB::table('games')->insert($insert);
+                    Alert::success("Les matches sont importé avec succès.")->flash();
                     return redirect()->to('admin/game');
+                } else{
+                    Alert::error("L'import n'as pas fonctionné. Vérifiez que vous avez soumis le bon fichier.")->flash();
+                    return view('backpack/importExport');
                 }
+            } else {
+                Alert::error("Le contenu du fichier n'as as été trouvé. Vérifiez que vous avez soumis le bon fichier.")->flash();
+                return view('backpack/importExport');
             }
         }
         return back();
