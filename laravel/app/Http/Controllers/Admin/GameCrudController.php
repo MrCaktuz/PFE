@@ -7,6 +7,7 @@ use Backpack\CRUD\app\Http\Controllers\CrudController;
 // VALIDATION: change the requests to match your own file names if you need form validation
 use App\Http\Requests\GameRequest as StoreRequest;
 use App\Http\Requests\GameRequest as UpdateRequest;
+use App\Http\Requests\GameRequest as UploadRequest;
 
 class GameCrudController extends CrudController
 {
@@ -86,12 +87,12 @@ class GameCrudController extends CrudController
         // ------ CRUD COLUMNS
         $this->crud->addColumns( [
             [
-               'label'     => 'Équipe', // Table column heading
-               'type'      => 'select',
-               'name'      => 'team_id', // the method that defines the relationship in your Model
-               'entity'    => 'team', // the method that defines the relationship in your Model
-               'attribute' => 'division', // foreign key attribute that is shown to user
-               'model'     => "App\Models\Team", // foreign key model
+                'label'     => 'Équipe', // Table column heading
+                'type'      => 'select',
+                'name'      => 'team_id', // the method that defines the relationship in your Model
+                'entity'    => 'team', // the method that defines the relationship in your Model
+                'attribute' => 'division', // foreign key attribute that is shown to user
+                'model'     => "App\Models\Team", // foreign key model
             ],
             [
                 'label' => 'N° du match',
@@ -138,6 +139,9 @@ class GameCrudController extends CrudController
             ],
         ] );
 
+        // ------ CRUD BUTTONS
+        $this->crud->addButtonFromView('top', 'upload', 'uploads', 'end'); // add a button whose HTML is in a view placed at resources\views\vendor\backpack\crud\buttons
+
         // ------ DATATABLE EXPORT BUTTONS
         // Show export to PDF, CSV, XLS and Print buttons on the table view.
         // Does not work well with AJAX datatables.
@@ -160,5 +164,17 @@ class GameCrudController extends CrudController
         // your additional operations after save here
         // use $this->data['entry'] or $this->crud->entry
         return $redirect_location;
+    }
+
+    public function upload(UploadRequest $request)
+    {
+        // get the info for that entry
+        // $this->data['entry'] = $this->crud->getEntry($id);
+        $this->data['crud'] = $this->crud;
+        $this->data['title'] = 'Ajouter depuis un fichier';
+        $this->view = 'upload';
+
+        // load the view from /resources/views/vendor/backpack/crud/ if it exists, otherwise load the one in the package
+        return view($this->view, $this->data);
     }
 }

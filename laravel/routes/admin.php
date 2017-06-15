@@ -1,5 +1,10 @@
 <?php
 
+	// ******** Custom admin routes ********
+	Route::get('/importExport', 'ImportCrudController@importExport');
+	// Route::get('downloadExcel/{type}', 'MaatwebsiteDemoController@downloadExcel');
+	Route::post('importExcel', 'ImportCrudController@importExcel');
+
 	// Backpack\CRUD: Define the resources for the entities you want to CRUD.
 	CRUD::resource('user', 'UserCrudController');
 	CRUD::resource('family', 'FamilyCrudController');

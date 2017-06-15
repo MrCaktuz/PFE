@@ -198,9 +198,6 @@ class UserCrudController extends CrudController {
         		'label' => 'Ville',
         	],
         ] );
-
-        // ------ CRUD BUTTONS
-		
 		
 		// ------ DATATABLE EXPORT BUTTONS
         // Show export to PDF, CSV, XLS and Print buttons on the table view.
