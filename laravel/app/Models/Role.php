@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\CrudTrait;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 
 class Role extends Model
 {
@@ -44,6 +45,19 @@ class Role extends Model
     | SCOPES
     |--------------------------------------------------------------------------
     */
+    /**
+     * The "booting" method of the model.
+     *
+     * @return void
+     */
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::addGlobalScope( 'ordered', function( Builder $builder ) {
+            $builder->orderBy( 'id' );
+        } );
+    }
 
     /*
     |--------------------------------------------------------------------------

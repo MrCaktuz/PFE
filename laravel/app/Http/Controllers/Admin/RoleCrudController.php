@@ -34,16 +34,36 @@ class RoleCrudController extends CrudController
                 'label' => 'Titre *',
                 'name' => 'title',
             ],
-            'both',
+            'both'
+        );
+        $this->crud->addField(
+            [
+                'label'            => 'Membres',
+                'type'             => 'select2_multiple',
+                'name'             => 'users', // the method that defines the relationship in your Model
+                'entity'           => 'users', // the method that defines the relationship in your Model
+                'attribute'        => 'name', // foreign key attribute that is shown to user
+                'model'            => 'App\User', // foreign key model
+                'pivot'            => true, // on create&update, do you need to add/delete pivot table entries?]
+            ],
+            'both'
         );
 
         // ------ CRUD COLUMNS
-        $this->crud->addColumn(
+        $this->crud->addColumns( [
             [
                 'label' => 'Titre',
                 'name' => 'title',
             ],
-        );
+            [ // n-n relationship (with pivot table)
+               'label'     => 'Membres', // Table column heading
+               'type'      => 'select_multiple',
+               'name'      => 'users', // the method that defines the relationship in your Model
+               'entity'    => 'users', // the method that defines the relationship in your Model
+               'attribute' => 'name', // foreign key attribute that is shown to user
+               'model'     => "App\User", // foreign key model
+            ],
+        ] );
     }
 
     public function store(StoreRequest $request)

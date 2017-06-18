@@ -16,6 +16,8 @@ class DatabaseSeeder extends Seeder
         DB::statement('SET FOREIGN_KEY_CHECKS = 0'); // disable foreign key constraints
         $this->call(FamiliesTableSeeder::class);
         $this->call(UsersTableSeeder::class);
+        $this->call(RolesTableSeeder::class);
+        $this->call(RoleUserTableSeeder::class);
         $this->call(EventsTableSeeder::class);
         $this->call(TeamsTableSeeder::class);
         $this->call(UsersTeamsTableSeeder::class);

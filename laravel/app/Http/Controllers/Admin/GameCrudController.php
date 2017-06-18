@@ -112,6 +112,7 @@ class GameCrudController extends CrudController
                 'label' => 'Lieu du match',
                 'name' => 'location',
             ],
+            'both'
         );
 
         // ------ CRUD COLUMNS
