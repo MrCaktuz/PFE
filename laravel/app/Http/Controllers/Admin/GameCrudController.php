@@ -30,59 +30,89 @@ class GameCrudController extends CrudController
         */
 
         // ------ CRUD FIELDS
-        $this->crud->addFields([
+        $this->crud->addField(
             [
-                'label'            => 'Équipe',
+                'label'            => 'Équipe *',
                 'type'             => 'select',
                 'name'             => 'team_id', // the method that defines the relationship in your Model
                 'entity'           => 'team', // the method that defines the relationship in your Model
                 'attribute'        => 'division', // foreign key attribute that is shown to user
                 'model'            => "App\Models\Team", // foreign key model
             ],
+            'both'
+        );
+        $this->crud->addField(
             [
-                'label' => 'N° du match',
+                'label' => 'N° du match *',
                 'name' => 'game_id',
             ],
+            'both'
+        );
+        $this->crud->addField(
             [
-                'label' => 'Date du match',
+                'label' => 'Date du match *',
                 'name' => 'date',
                 'type' => 'date',
             ],
+            'both'
+        );
+        $this->crud->addField(
             [
-                'label' => 'Heure du match',
+                'label' => 'Heure du match *',
                 'name' => 'time',
                 'type' => 'time',
             ],
+            'both'
+        );
+        $this->crud->addField(
             [
                 'label' => 'Heure de rendez-vous',
                 'name' => 'appointment',
                 'type' => 'time',
             ],
+            'both'
+        );
+        $this->crud->addField(
             [
-                'label' => 'Visité',
+                'label' => 'Visité *',
                 'name' => 'host',
             ],
+            'both'
+        );
+        $this->crud->addField(
             [
-                'label' => 'Visiteur',
+                'label' => 'Visiteur *',
                 'name' => 'visitor',
             ],
+            'both'
+        );
+        $this->crud->addField(
             [
                 'label' => 'Score final',
                 'name' => 'score',
             ],
+            'both'
+        );
+        $this->crud->addField(
             [
                 'label' => 'Service',
                 'name' => 'duty',
             ],
+            'both'
+        );
+        $this->crud->addField(
             [
                 'label' => 'N° de journée',
                 'name' => 'day_id',
             ],
+            'both'
+        );
+        $this->crud->addField(
             [
                 'label' => 'Lieu du match',
                 'name' => 'location',
             ],
-        ]);
+        );
 
         // ------ CRUD COLUMNS
         $this->crud->addColumns( [
@@ -164,17 +194,5 @@ class GameCrudController extends CrudController
         // your additional operations after save here
         // use $this->data['entry'] or $this->crud->entry
         return $redirect_location;
-    }
-
-    public function upload(UploadRequest $request)
-    {
-        // get the info for that entry
-        // $this->data['entry'] = $this->crud->getEntry($id);
-        $this->data['crud'] = $this->crud;
-        $this->data['title'] = 'Ajouter depuis un fichier';
-        $this->view = 'upload';
-
-        // load the view from /resources/views/vendor/backpack/crud/ if it exists, otherwise load the one in the package
-        return view($this->view, $this->data);
     }
 }

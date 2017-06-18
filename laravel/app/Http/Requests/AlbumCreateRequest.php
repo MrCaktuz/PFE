@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 
-class CreateFamilyRequest extends \Backpack\CRUD\app\Http\Requests\CrudRequest
+class AlbumCreateRequest extends \Backpack\CRUD\app\Http\Requests\CrudRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,7 +25,8 @@ class CreateFamilyRequest extends \Backpack\CRUD\app\Http\Requests\CrudRequest
     public function rules()
     {
         return [
-            'name' => 'unique:families|required|min:5|max:255'
+            'name' => 'Required|min:5|max:255|Unique:albums',
+            'photos' => 'Required',
         ];
     }
 

@@ -33,7 +33,7 @@ class ImportCrudController extends CrudController
         */
         $this->crud->addfield(
             [
-                'label' => 'Fichier CSV',
+                'label' => 'Fichier CSV *',
                 'name' => 'file',
                 'type' => 'upload',
                 'upload' => true,

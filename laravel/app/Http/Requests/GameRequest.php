@@ -25,7 +25,17 @@ class GameRequest extends \Backpack\CRUD\app\Http\Requests\CrudRequest
     public function rules()
     {
         return [
-            // 'name' => 'required|min:5|max:255'
+            'team_id' => 'Required',
+            'game_id' => 'Required',
+            'date' => 'Required',
+            'time' => 'Required',
+            'Appointment' => '',
+            'host' => 'Required',
+            'visitor' => 'Required',
+            'score' => '',
+            'duty' => '',
+            'day_id' => '',
+            'location' => '',
         ];
     }
 

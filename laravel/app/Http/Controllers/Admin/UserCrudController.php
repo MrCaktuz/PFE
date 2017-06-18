@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Carbon\Carbon;
+use Illuminate\Http\Request;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
-
 // VALIDATION: change the requests to match your own file names if you need form validation
-use App\Http\Requests\UserCrudRequest as ShowRequest;
-use App\Http\Requests\UserCrudRequest as StoreRequest;
-use App\Http\Requests\UserCrudRequest as UpdateRequest;
+use App\Http\Requests\UserCreateRequest as StoreRequest;
+use App\Http\Requests\UserUpdateRequest as UpdateRequest;
 
 class UserCrudController extends CrudController {
 
@@ -30,64 +30,122 @@ class UserCrudController extends CrudController {
         // $this->crud->setFromDb();
 
         // ------ CRUD FIELDS
-		$this->crud->addFields([
+		$this->crud->addField(
 			[   // Select form array
-			    'name' => 'civility',
 			    'label' => 'Titre',
-			    'type' => 'select_from_array',
-			    'options' => ['Mr.' => 'Monsieur', 'Mme.' => 'Madame', 'Mlle.' => 'Mademoiselle'],
-			    'allows_null' => true,
+			    'name' => 'civility',
+			    'placeholder' => 'Monsieur',
 			],
+			'both'
+		);
+		$this->crud->addField(
 			[
+			    'label' => 'Nom *',
 			    'name' => 'name',
-			    'label' => 'Nom',
+			    'placeholder' => 'Claessens Mathieu',
 			],
+			'both'
+		);
+		$this->crud->addField(
 			[
+				'label' => 'Adresse e-mail *',
 				'name' => 'email',
-				'label' => 'Adresse e-mail',
+			    'placeholder' => 'exemple@rbcciney.be',
 			],
+			'both'
+		);
+		$this->crud->addField(
+			[
+				'label' => 'Mot de passe *',
+				'type' => 'password',
+				'name' => 'password',
+			],
+			'create'
+		);
+		$this->crud->addField(
+			[
+				'label' => 'Confirmation du mot de passe *',
+				'type' => 'password',
+				'name' => 'password_confirmation',
+			],
+			'create'
+		);
+		$this->crud->addField(
 			[   // Date
-				'name' => 'birthday',
 				'label' => 'Date de naissance',
 				'type' => 'date',
+				'name' => 'birthday',
 			],
+			'both'
+		);
+		$this->crud->addField(
 			[
-				'name' => 'birth_location',
 				'label' => 'Lieu de naissance',
+				'name' => 'birth_location',
+			    'placeholder' => 'Namur',
 			],
+			'both'
+		);
+		$this->crud->addField(
 			[
-				'name' => 'national_id',
 				'label' => 'N° de registre national',
+				'name' => 'national_id',
+			    'placeholder' => '00.00.00-000-00',
 			],
+			'both'
+		);
+		$this->crud->addField(
 			[
-				'name' => 'address',
 				'label' => 'Adresse',
+				'name' => 'address',
+			    'placeholder' => 'Rue Saint-Quentin, 10b',
 			],
+			'both'
+		);
+		$this->crud->addField(
 			[
-				'name' => 'postal_code',
 				'label' => 'Code postal',
+				'name' => 'postal_code',
+			    'placeholder' => '5590',
 			],
+			'both'
+		);
+		$this->crud->addField(
 			[
-				'name' => 'city',
 				'label' => 'Ville',
+				'name' => 'city',
+			    'placeholder' => 'Ciney',
 			],
+			'both'
+		);
+		$this->crud->addField(
 			[
-				'name' => 'phone',
 				'label' => 'Téléphone',
+				'name' => 'phone',
 			],
+			'both'
+		);
+		$this->crud->addField(
 			[
-				'name' => 'jersey_nbr',
 				'label' => 'N° de maillot',
+				'name' => 'jersey_nbr',
+			    'default' => '0',
 			],
+			'both'
+		);
+		$this->crud->addField(
 			[
 		    	'label' => "Photo de profil",
-			    'name' => "photo",
 			    'type' => 'image',
+			    'name' => "photo",
 			    'upload' => true,
 			    'crop' => true, // set to true to allow cropping, false to disable
 			    'aspect_ratio' => 1, // ommit or set to 0 to allow any aspect ratio
 			    // 'prefix' => 'uploads/images/profile_pictures/' // in case you only store the filename in the database, this text will be prepended to the database value
 			],
+			'both'
+		);
+		$this->crud->addField(
 			[
 		        'label'            => 'Fait partie de la famille',
 		        'type'             => 'select',
@@ -96,39 +154,51 @@ class UserCrudController extends CrudController {
 		        'attribute'        => 'name', // foreign key attribute that is shown to user
 		        'model'            => "App\Models\Family", // foreign key model
             ],
+			'both'
+		);
+		$this->crud->addField(
             [
 		        'label'            => 'Fait partie des équipes',
+		        'type'              => 'select2_multiple',
 		        'name'             => 'teams', // the method that defines the relationship in your Model
-		        'type'              => 'checklist',
 		        'entity'           => 'teams', // the method that defines the relationship in your Model
 		        'attribute'        => 'division', // foreign key attribute that is shown to user
 		        'model'            => "App\Models\Team", // foreign key model
 		        'pivot'            => true, // on create&update, do you need to add/delete pivot table entries?]
-		        'number_columns'   => 4, //can be 1,2,3,4,6
             ],
+			'both'
+		);
+		$this->crud->addField(
 			[
 		        'label'            => 'Roles',
-		        'name'             => 'roles', // the method that defines the relationship in your Model
 		        'type'              => 'checklist',
+		        'name'             => 'roles', // the method that defines the relationship in your Model
 		        'entity'           => 'roles', // the method that defines the relationship in your Model
 		        'attribute'        => 'title', // foreign key attribute that is shown to user
 		        'model'            => "App\Models\Role", // foreign key model
 		        'pivot'            => true, // on create&update, do you need to add/delete pivot table entries?]
 		        'number_columns'   => 4, //can be 1,2,3,4,6
             ],
-		]);
+			'both'
+		);
 
         // ------ CRUD COLUMNS
 		// $this->crud->removeColumn('action');
-        $this->crud->addColumns( [
+        $this->crud->addColumn(
         	[
-        		'name' => 'civility',
         		'label' => 'Titre',
+        		'name' => 'civility',
         	],
+        	'both'
+        );
+        $this->crud->addColumn(
         	[
         		'name' => 'name',
         		'label' => 'Nom',
         	],
+        	'both'
+        );
+        $this->crud->addColumn(
         	[
 	           'label'     => 'Famille', // Table column heading
 	           'type'      => 'select',
@@ -137,6 +207,9 @@ class UserCrudController extends CrudController {
 	           'attribute' => 'name', // foreign key attribute that is shown to user
 	           'model'     => "App\Models\Family", // foreign key model
 	        ],
+        	'both'
+        );
+        $this->crud->addColumn(
         	[ // n-n relationship (with pivot table)
 	           'label'     => 'Roles', // Table column heading
 	           'type'      => 'select_multiple',
@@ -145,6 +218,9 @@ class UserCrudController extends CrudController {
 	           'attribute' => 'title', // foreign key attribute that is shown to user
 	           'model'     => "App\Models\Roles", // foreign key model
 	        ],
+        	'both'
+        );
+        $this->crud->addColumn(
 	        [
 	           'label'     => 'Équipes', // Table column heading
 	           'type'      => 'select_multiple',
@@ -153,51 +229,85 @@ class UserCrudController extends CrudController {
 	           'attribute' => 'division', // foreign key attribute that is shown to user
 	           'model'     => "App\Models\Team", // foreign key model
 	        ],
+        	'both'
+        );
+        $this->crud->addColumn(
 	        [
-        		'name' => 'jersey_nbr',
         		'label' => 'N° de maillot',
+        		'name' => 'jersey_nbr',
         	],
+        	'both'
+        );
+        $this->crud->addColumn(
         	[
-        		'name' => 'email',
         		'label' => 'Adresse e-mail',
+        		'name' => 'email',
         	],
+        	'both'
+        );
+        $this->crud->addColumn(
         	[
-        		'name' => 'phone',
         		'label' => 'Téléphone',
+        		'name' => 'phone',
         	],
+        	'both'
+        );
+        $this->crud->addColumn(
         	[
-        		'name' => 'birthday',
         		'label' => 'Date de naissance',
+        		'name' => 'birthday',
         	],
+        	'both'
+        );
+        $this->crud->addColumn(
         	[
-        		'name' => 'birth_location',
         		'label' => 'Lieu de naissance',
+        		'name' => 'birth_location',
         	],
+        	'both'
+        );
+        $this->crud->addColumn(
         	[
-        		'name' => 'national_id',
         		'label' => 'N° de registre national',
+        		'name' => 'national_id',
         	],
+        	'both'
+        );
+        $this->crud->addColumn(
         	[
-        		'name' => 'photo',
         		'label' => 'Photo de profil',
+        		'name' => 'photo',
         	],
+        	'both'
+        );
+        $this->crud->addColumn(
         	[
-        		'name' => 'job',
         		'label' => 'Métier',
+        		'name' => 'job',
         	],
+        	'both'
+        );
+        $this->crud->addColumn(
         	[
-        		'name' => 'address',
         		'label' => 'Adresse',
+        		'name' => 'address',
         	],
+        	'both'
+        );
+        $this->crud->addColumn(
         	[
-        		'name' => 'postal_code',
         		'label' => 'Code postal',
+        		'name' => 'postal_code',
         	],
+        	'both'
+        );
+        $this->crud->addColumn(
         	[
-        		'name' => 'city',
         		'label' => 'Ville',
+        		'name' => 'city',
         	],
-        ] );
+        	'both'
+        );
 		
 		// ------ DATATABLE EXPORT BUTTONS
         // Show export to PDF, CSV, XLS and Print buttons on the table view.

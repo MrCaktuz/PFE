@@ -5,8 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 
 // VALIDATION: change the requests to match your own file names if you need form validation
-use App\Http\Requests\ContactRequest as StoreRequest;
-use App\Http\Requests\ContactRequest as UpdateRequest;
+use App\Http\Requests\PagesRequest as UpdateRequest;
 
 class ContactCrudController extends CrudController
 {
@@ -30,7 +29,7 @@ class ContactCrudController extends CrudController
         */
 
         // ------ CRUD FIELDS
-        $this->crud->addFields( [
+        $this->crud->addField(
             [
                 'label'      => 'Nom',
                 'name'       => 'name',
@@ -38,11 +37,17 @@ class ContactCrudController extends CrudController
                     'disabled' => 'disabled',
                 ],
             ],
+            'both'
+        );
+        $this->crud->addField(
             [
-                'label' => 'Valeur',
+                'label' => 'Valeur *',
                 'name' => 'value',
                 'type' => 'textarea',
             ],
+            'both'
+        );
+        $this->crud->addField(
             [
                 'label'      => 'Description',
                 'name'       => 'description',
@@ -50,7 +55,8 @@ class ContactCrudController extends CrudController
                     'disabled' => 'disabled',
                 ],
             ],
-        ] );
+            'both'
+        );
 
         // ------ CRUD COLUMNS
         $this->crud->addColumns( [

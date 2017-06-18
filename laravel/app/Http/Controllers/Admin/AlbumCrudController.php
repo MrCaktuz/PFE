@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Admin;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 
 // VALIDATION: change the requests to match your own file names if you need form validation
-use App\Http\Requests\AlbumRequest as StoreRequest;
-use App\Http\Requests\AlbumRequest as UpdateRequest;
+use App\Http\Requests\AlbumCreateRequest as StoreRequest;
+use App\Http\Requests\AlbumUpdateRequest as UpdateRequest;
 
 class AlbumCrudController extends CrudController
 {
@@ -29,11 +29,13 @@ class AlbumCrudController extends CrudController
         */
 
         // ------ CRUD FIELDS
-        $this->crud->addFields( [
+        $this->crud->addField(
             [
-                'label' => 'Nom',
+                'label' => "Nom de l'album *",
                 'name' => 'name',
             ],
+        );
+        $this->crud->addField(
             [
                'label'            => 'Équipe liés à l\'album',
                 'type'             => 'select2_multiple',
@@ -43,10 +45,10 @@ class AlbumCrudController extends CrudController
                 'model'            => 'App\Models\Team', // foreign key model
                 'pivot'            => true, // on create&update, do you need to add/delete pivot table entries?]
             ],
-        ] );
+        );
         $this->crud->addField(
             [
-                'label' => 'Photos',
+                'label' => 'Photos *',
                 'name' => 'photos',
                 'type' => 'upload_multiple',
                 'upload' => true,

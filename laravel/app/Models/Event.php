@@ -82,7 +82,7 @@ class Event extends Model
             \Storage::disk( $disk )->put( $destination_path . '/' . $filename . '_250x250.jpg', $image250 -> stream() );
 
             // 3. Save the path to the database
-            $this -> attributes[ $attribute_name ] = $destination_path . '/' . $filename;
+            $this -> attributes[ $attribute_name ] = $destination_path . '/' . $filename . '.jpg';
 
         }
     }

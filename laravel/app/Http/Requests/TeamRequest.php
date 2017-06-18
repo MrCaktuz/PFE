@@ -25,9 +25,10 @@ class TeamRequest extends \Backpack\CRUD\app\Http\Requests\CrudRequest
     public function rules()
     {
         return [
-            'division' => 'required',
-            'season' => 'required',
-            'coach_id' => 'required'
+            'division' => 'Required|min:5|max:255',
+            'season' => 'Required',
+            'coach_id' => 'Required',
+            'users' => 'Required'
         ];
     }
 

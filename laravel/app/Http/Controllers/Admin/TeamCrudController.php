@@ -31,15 +31,21 @@ class TeamCrudController extends CrudController
         // $this->crud->setFromDb();
 
         // ------ CRUD FIELDS
-        $this->crud->addFields([
+        $this->crud->addField(
             [
                 'label' => 'Nom de l\'équipe *',
                 'name' => 'division',
             ],
+            'both'
+        );
+        $this->crud->addField(
             [
                 'label' => 'Saison *',
                 'name' => 'season',
             ],
+            'both'
+        );
+        $this->crud->addField(
             [
                 'label'            => 'Entraineur *',
                 'type'             => 'select',
@@ -49,6 +55,9 @@ class TeamCrudController extends CrudController
                 'model'            => "App\User", // foreign key model
                 // 'pivot'            => true, // on create&update, do you need to add/delete pivot table entries?]
             ],
+            'both'
+        );
+        $this->crud->addField(
             [
                 'label'            => 'Assistant',
                 'type'             => 'select',
@@ -58,8 +67,11 @@ class TeamCrudController extends CrudController
                 'model'            => "App\User", // foreign key model
                 // 'pivot'            => true, // on create&update, do you need to add/delete pivot table entries?]
             ],
+            'both'
+        );
+        $this->crud->addField(
             [
-                'label'            => 'Joueurs',
+                'label'            => 'Joueurs *',
                 'type'             => 'select2_multiple',
                 'name'             => 'users', // the method that defines the relationship in your Model
                 'entity'           => 'users', // the method that defines the relationship in your Model
@@ -67,6 +79,9 @@ class TeamCrudController extends CrudController
                 'model'            => 'App\User', // foreign key model
                 'pivot'            => true, // on create&update, do you need to add/delete pivot table entries?]
             ],
+            'both'
+        );
+        $this->crud->addField(
             [
                 'label' => "Photo d'équipe",
                 'name' => "photo",
@@ -76,7 +91,8 @@ class TeamCrudController extends CrudController
                 'aspect_ratio' => 1, // ommit or set to 0 to allow any aspect ratio
                 // 'prefix' => 'uploads/images/profile_pictures/' // in case you only store the filename in the database, this text will be prepended to the database value
             ],
-        ]);
+            'both'
+        );
 
         // ------ CRUD COLUMNS
         $this->crud->addColumns( [

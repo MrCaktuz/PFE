@@ -25,7 +25,9 @@ class EventRequest extends \Backpack\CRUD\app\Http\Requests\CrudRequest
     public function rules()
     {
         return [
-            // 'name' => 'required|min:5|max:255'
+            'title' => 'Required|min:5|max:255|NotIn:php,ruby',
+            'description' => 'Required|NotIn:php,ruby',
+            'photo' => 'Mimes:jpg',
         ];
     }
 
