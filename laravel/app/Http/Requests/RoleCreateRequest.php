@@ -13,8 +13,15 @@ class RoleCreateRequest extends \Backpack\CRUD\app\Http\Requests\CrudRequest
      */
     public function authorize()
     {
-        // only allow updates if the user is logged in
-        return \Auth::check();
+        // only allow access if the user logged in is web master or developer
+        if( Auth::user()->hasRole( 'Web Communication' ) ) {
+            $authorised = true;
+        } elseif ( Auth::user()->hasRole( 'Web Master' ) ) {
+            $authorised = true;
+        } else {
+            $authorised = false;
+        }
+        return $authorised;
     }
 
     /**

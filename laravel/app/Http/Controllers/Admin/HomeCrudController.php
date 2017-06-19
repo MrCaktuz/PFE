@@ -73,6 +73,7 @@ class HomeCrudController extends CrudController
                 'name' => 'description',
             ],
         ] );
+    }
 
     public function update(UpdateRequest $request)
     {

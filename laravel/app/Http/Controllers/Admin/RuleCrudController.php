@@ -34,15 +34,15 @@ class RuleCrudController extends CrudController
                 'label'      => 'Titre *',
                 'name'       => 'title',
             ],
-            'both',
+            'both'
         );
         $this->crud->addfield(
             [
                 'label' => 'Contenu *',
-                'type' => 'ckeditor'
+                'type' => 'ckeditor',
                 'name' => 'body',
             ],
-            'both',
+            'both'
         );
 
         // ------ CRUD COLUMNS

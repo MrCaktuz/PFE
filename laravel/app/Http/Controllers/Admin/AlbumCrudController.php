@@ -34,6 +34,7 @@ class AlbumCrudController extends CrudController
                 'label' => "Nom de l'album *",
                 'name' => 'name',
             ],
+            'both'
         );
         $this->crud->addField(
             [
@@ -45,6 +46,7 @@ class AlbumCrudController extends CrudController
                 'model'            => 'App\Models\Team', // foreign key model
                 'pivot'            => true, // on create&update, do you need to add/delete pivot table entries?]
             ],
+            'both'
         );
         $this->crud->addField(
             [

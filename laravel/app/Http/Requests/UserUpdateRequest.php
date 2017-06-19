@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use Auth;
 use App\Http\Requests\Request;
 
 class UserUpdateRequest extends \Backpack\CRUD\app\Http\Requests\CrudRequest {
@@ -11,11 +12,17 @@ class UserUpdateRequest extends \Backpack\CRUD\app\Http\Requests\CrudRequest {
      *
      * @return bool
      */
-    public function authorize()
+    public function authorize( Auth $auth )
     {
-        // only allow updates if the user is logged in
-        // return $auth->user()->hasRole('Web Master');
-        return \Auth::check();
+        // only allow access if the user logged in is web master or developer
+        if( Auth::user()->hasRole( 'Web Developer' ) ) {
+            $authorised = true;
+        } elseif ( Auth::user()->hasRole( 'Web Master' ) ) {
+            $authorised = true;
+        } else {
+            $authorised = false;
+        }
+        return $authorised;
     }
 
     /**

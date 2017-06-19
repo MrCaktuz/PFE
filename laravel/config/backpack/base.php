@@ -12,11 +12,11 @@ return [
     */
 
     // Project name. Shown in the breadcrumbs and a few other places.
-    'project_name' => 'Royal Basket Club de Ciney',
+    'project_name' => 'RBC Ciney',
 
     // Menu logos
-    'logo_lg'   => 'Royal Basket Club de Ciney',
-    'logo_mini' => 'RBC Ciney',
+    'logo_lg'   => 'RBC Ciney',
+    'logo_mini' => 'RBCC',
 
     // Developer or company name. Shown in footer.
     'developer_name' => 'Mathieu Claessens',

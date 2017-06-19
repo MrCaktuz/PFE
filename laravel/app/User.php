@@ -58,6 +58,16 @@ class User extends Authenticatable
 	| FUNCTIONS
 	|--------------------------------------------------------------------------
 	*/
+    public function hasRole( $roleTitle )
+    {
+        foreach ( $this->roles()->get() as $role ) {
+            if ( $role->title == $roleTitle ) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 	public function getUserLink()
     {
         return url( '/admin/user/' . $this->id );

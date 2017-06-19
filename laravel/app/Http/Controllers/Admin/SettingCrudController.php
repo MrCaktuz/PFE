@@ -73,7 +73,7 @@ class SettingCrudController extends CrudController
                 'name' => 'description',
             ],
         ] );
-
+    }
     public function update(UpdateRequest $request)
     {
         // your additional operations before save here
