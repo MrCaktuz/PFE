@@ -35,6 +35,9 @@ class TeamCrudController extends CrudController
             [
                 'label' => 'Nom de l\'équipe *',
                 'name' => 'division',
+                'attributes' => [
+                    'placeholder' => 'P1 Hommes',
+                 ],
             ],
             'both'
         );
@@ -42,6 +45,9 @@ class TeamCrudController extends CrudController
             [
                 'label' => 'Saison *',
                 'name' => 'season',
+                'attributes' => [
+                    'placeholder' => '2017 - 2018',
+                 ],
             ],
             'both'
         );

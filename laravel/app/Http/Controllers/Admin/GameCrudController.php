@@ -45,6 +45,9 @@ class GameCrudController extends CrudController
             [
                 'label' => 'N° du match *',
                 'name' => 'game_id',
+                'attributes' => [
+                    'placeholder' => 'A 0851617',
+                 ],
             ],
             'both'
         );
@@ -76,6 +79,7 @@ class GameCrudController extends CrudController
             [
                 'label' => 'Visité *',
                 'name' => 'host',
+                'default' => 'RBC Ciney',
             ],
             'both'
         );
@@ -83,6 +87,7 @@ class GameCrudController extends CrudController
             [
                 'label' => 'Visiteur *',
                 'name' => 'visitor',
+                'default' => 'RBC Ciney',
             ],
             'both'
         );
@@ -90,6 +95,9 @@ class GameCrudController extends CrudController
             [
                 'label' => 'Score final',
                 'name' => 'score',
+                'attributes' => [
+                    'placeholder' => '100 - 98',
+                 ],
             ],
             'both'
         );
@@ -97,6 +105,9 @@ class GameCrudController extends CrudController
             [
                 'label' => 'Service',
                 'name' => 'duty',
+                'attributes' => [
+                    'placeholder' => 'Houart, Mérelle, Beguin',
+                 ],
             ],
             'both'
         );
@@ -104,6 +115,9 @@ class GameCrudController extends CrudController
             [
                 'label' => 'N° de journée',
                 'name' => 'day_id',
+                'attributes' => [
+                    'placeholder' => '1',
+                 ],
             ],
             'both'
         );
@@ -111,6 +125,9 @@ class GameCrudController extends CrudController
             [
                 'label' => 'Lieu du match',
                 'name' => 'location',
+                'attributes' => [
+                    'placeholder' => 'RBC Ciney',
+                 ],
             ],
             'both'
         );

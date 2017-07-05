@@ -21,7 +21,6 @@ class DownloadCrudController extends CrudController
         $this->crud->setModel('App\Models\Download');
         $this->crud->setRoute(config('backpack.base.route_prefix') . '/download');
         $this->crud->setEntityNameStrings('download', 'downloads');
-        $this->crud->denyAccess(['create', 'delete']);
 
         /*
         |--------------------------------------------------------------------------
@@ -34,6 +33,9 @@ class DownloadCrudController extends CrudController
             [
                 'label' => 'Titre du document *',
                 'name' => 'title',
+                'attributes' => [
+                    'placeholder' => "Déclaration d'accident 2017 - 2018",
+                 ],
             ],
             'both'
         );

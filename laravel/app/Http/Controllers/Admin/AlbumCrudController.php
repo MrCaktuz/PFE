@@ -33,6 +33,9 @@ class AlbumCrudController extends CrudController
             [
                 'label' => "Nom de l'album *",
                 'name' => 'name',
+                'attributes' => [
+                    'placeholder' => 'Présentation des équipes 2017',
+                 ],
             ],
             'both'
         );

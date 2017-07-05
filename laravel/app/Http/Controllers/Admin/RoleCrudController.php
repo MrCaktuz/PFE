@@ -33,6 +33,9 @@ class RoleCrudController extends CrudController
             [
                 'label' => 'Titre *',
                 'name' => 'title',
+                'attributes' => [
+                    'placeholder' => 'Joueur',
+                 ],
             ],
             'both'
         );

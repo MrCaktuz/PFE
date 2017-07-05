@@ -39,6 +39,9 @@ class FamilyCrudController extends CrudController
             [
                 'label' => 'Nom de la famille *',
                 'name' => 'name',
+                'attributes' => [
+                    'placeholder' => 'Pirlot Jean-Luc',
+                 ],
             ],
             'both'
         );

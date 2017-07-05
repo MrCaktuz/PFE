@@ -44,6 +44,9 @@ class DownloadPageCrudController extends CrudController
                 'label' => 'Valeur *',
                 'name' => 'value',
                 'type' => 'textarea',
+                'attributes' => [
+                    'placeholder' => 'Vote contenu ici',
+                 ],
             ],
             'both'
         );

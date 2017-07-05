@@ -44,6 +44,9 @@ class ComityCrudController extends CrudController
                 'label' => 'Valeur *',
                 'name' => 'value',
                 'type' => 'textarea',
+                'attributes' => [
+                    'placeholder' => 'Votre contenu ici',
+                 ],
             ],
             'both'
         );

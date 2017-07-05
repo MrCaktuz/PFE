@@ -30,8 +30,11 @@ class EventCrudController extends CrudController
         // ------ CRUD FIELDS
         $this->crud->addField(
             [   // Select form array
-                'label' => 'Titre',
+                'label' => 'Titre *',
                 'name' => 'title',
+                'attributes' => [
+                    'placeholder' => 'Présentation des équipes',
+                 ],
             ],
             'both'
         );

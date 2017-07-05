@@ -33,6 +33,9 @@ class RuleCrudController extends CrudController
             [
                 'label'      => 'Titre *',
                 'name'       => 'title',
+                'attributes' => [
+                    'placeholder' => "Règlement interne",
+                 ],
             ],
             'both'
         );

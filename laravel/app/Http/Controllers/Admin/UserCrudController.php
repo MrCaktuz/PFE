@@ -166,7 +166,7 @@ class UserCrudController extends CrudController {
 		);
 		$this->crud->addField(
 			[
-		        'label'            => 'Fait partie de la famille',
+		        'label'            => 'Fait partie de la famille *',
 		        'type'             => 'select',
 		        'name'             => 'family_id', // the method that defines the relationship in your Model
 		        'entity'           => 'family', // the method that defines the relationship in your Model

@@ -33,6 +33,9 @@ class SponsorCrudController extends CrudController
             [
                 'label' => 'Nom du partenaire *',
                 'name' => 'name',
+                'attributes' => [
+                    'placeholder' => 'Nike',
+                 ],
             ],
             'both'
         );
@@ -40,6 +43,9 @@ class SponsorCrudController extends CrudController
             [
                 'label' => 'URL du partenaire *',
                 'name' => 'url',
+                'attributes' => [
+                    'placeholder' => 'http://www.nike.com',
+                 ],
             ],
             'both'
         );
