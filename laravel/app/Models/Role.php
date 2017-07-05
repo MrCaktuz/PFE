@@ -18,7 +18,7 @@ class Role extends Model
 
     protected $table = 'roles';
     protected $primaryKey = 'id';
-    // public $timestamps = false;
+    public $timestamps = false;
     // protected $guarded = ['id'];
     protected $fillable = [ 'title' ];
     // protected $hidden = [];

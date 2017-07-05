@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use Auth;
 use App\Http\Requests\Request;
 
 class EventRequest extends \Backpack\CRUD\app\Http\Requests\CrudRequest
@@ -14,7 +15,7 @@ class EventRequest extends \Backpack\CRUD\app\Http\Requests\CrudRequest
     public function authorize()
     {
         // only allow access if the user logged in is web master, developer or communication
-        if( Auth::user()->hasRole( 'Web Communication' ) ) {
+        if( Auth::user()->hasRole( 'Web Developer' ) ) {
             $authorised = true;
         } elseif ( Auth::user()->hasRole( 'Web Master' ) ) {
             $authorised = true;

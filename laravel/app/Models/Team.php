@@ -61,6 +61,7 @@ class Team extends Model
         return $this -> belongsToMany('App\Models\Album', 'album_team');
     }
 
+
     // public function photos()
     // {
     //     return $this->belongsToMany('App\Photo', 'photo_team');

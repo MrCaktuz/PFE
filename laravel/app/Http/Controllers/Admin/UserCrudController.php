@@ -19,7 +19,7 @@ class UserCrudController extends CrudController {
         */
         $this->crud->setModel("App\User");
         $this->crud->setRoute("admin/user");
-        $this->crud->setEntityNameStrings('user', 'users');
+        $this->crud->setEntityNameStrings('membre', 'Membres');
 
          /*
         |--------------------------------------------------------------------------
@@ -34,7 +34,9 @@ class UserCrudController extends CrudController {
 			[   // Select form array
 			    'label' => 'Titre',
 			    'name' => 'civility',
-			    'placeholder' => 'Monsieur',
+			    'attributes' => [
+			    	'placeholder' => 'Monsieur, Madame, Mademoiselle',
+			     ],
 			],
 			'both'
 		);
@@ -42,7 +44,9 @@ class UserCrudController extends CrudController {
 			[
 			    'label' => 'Nom *',
 			    'name' => 'name',
-			    'placeholder' => 'Claessens Mathieu',
+			    'attributes' => [
+			    	'placeholder' => 'Pirlot Jean-Luc',
+			     ],
 			],
 			'both'
 		);
@@ -50,7 +54,9 @@ class UserCrudController extends CrudController {
 			[
 				'label' => 'Adresse e-mail *',
 				'name' => 'email',
-			    'placeholder' => 'exemple@rbcciney.be',
+				'attributes' => [
+			    	'placeholder' => 'exemple@rbcciney.be',
+			     ],
 			],
 			'both'
 		);
@@ -82,7 +88,9 @@ class UserCrudController extends CrudController {
 			[
 				'label' => 'Lieu de naissance',
 				'name' => 'birth_location',
-			    'placeholder' => 'Namur',
+				'attributes' => [
+			    	'placeholder' => 'Namur',
+			     ],
 			],
 			'both'
 		);
@@ -90,7 +98,9 @@ class UserCrudController extends CrudController {
 			[
 				'label' => 'N° de registre national',
 				'name' => 'national_id',
-			    'placeholder' => '00.00.00-000-00',
+				'attributes' => [
+			    	'placeholder' => '00.00.00-000-00',
+			     ],
 			],
 			'both'
 		);
@@ -98,7 +108,9 @@ class UserCrudController extends CrudController {
 			[
 				'label' => 'Adresse',
 				'name' => 'address',
-			    'placeholder' => 'Rue Saint-Quentin, 10b',
+				'attributes' => [
+			    	'placeholder' => 'Rue Saint-Quentin, 10b',
+			     ],
 			],
 			'both'
 		);
@@ -106,7 +118,9 @@ class UserCrudController extends CrudController {
 			[
 				'label' => 'Code postal',
 				'name' => 'postal_code',
-			    'placeholder' => '5590',
+				'attributes' => [
+			    	'placeholder' => '5590',
+			     ],
 			],
 			'both'
 		);
@@ -114,7 +128,9 @@ class UserCrudController extends CrudController {
 			[
 				'label' => 'Ville',
 				'name' => 'city',
-			    'placeholder' => 'Ciney',
+				'attributes' => [
+			    	'placeholder' => 'Ciney',
+			     ],
 			],
 			'both'
 		);
@@ -122,6 +138,9 @@ class UserCrudController extends CrudController {
 			[
 				'label' => 'Téléphone',
 				'name' => 'phone',
+				'attributes' => [
+			    	'placeholder' => '0495214550',
+			     ],
 			],
 			'both'
 		);

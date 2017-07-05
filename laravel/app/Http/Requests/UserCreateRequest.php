@@ -20,6 +20,8 @@ class UserCreateRequest extends \Backpack\CRUD\app\Http\Requests\CrudRequest
             $authorised = true;
         } elseif ( Auth::user()->hasRole( 'Web Master' ) ) {
             $authorised = true;
+        } elseif ( Auth::user()->hasRole( 'Web Communication' ) ) {
+            $authorised = false;
         } else {
             $authorised = false;
         }

@@ -12,13 +12,15 @@ class UserUpdateRequest extends \Backpack\CRUD\app\Http\Requests\CrudRequest {
      *
      * @return bool
      */
-    public function authorize( Auth $auth )
+    public function authorize()
     {
         // only allow access if the user logged in is web master or developer
         if( Auth::user()->hasRole( 'Web Developer' ) ) {
             $authorised = true;
         } elseif ( Auth::user()->hasRole( 'Web Master' ) ) {
             $authorised = true;
+        } elseif ( Auth::user()->hasRole( 'Web Communication' ) ) {
+            $authorised = false;
         } else {
             $authorised = false;
         }

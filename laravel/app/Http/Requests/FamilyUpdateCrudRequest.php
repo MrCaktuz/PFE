@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use Auth;
 use App\Http\Requests\Request;
 
 class FamilyUpdateCrudRequest extends \Backpack\CRUD\app\Http\Requests\CrudRequest
@@ -14,10 +15,12 @@ class FamilyUpdateCrudRequest extends \Backpack\CRUD\app\Http\Requests\CrudReque
     public function authorize()
     {
         // only allow access if the user logged in is web master or developer
-        if( Auth::user()->hasRole( 'Web Communication' ) ) {
+        if( Auth::user()->hasRole( 'Web Developer' ) ) {
             $authorised = true;
         } elseif ( Auth::user()->hasRole( 'Web Master' ) ) {
             $authorised = true;
+        } elseif ( Auth::user()->hasRole( 'Web Communication' ) ) {
+            $authorised = false;
         } else {
             $authorised = false;
         }
