@@ -19,7 +19,7 @@ class ComplexeCrudController extends CrudController
         */
         $this->crud->setModel('App\Models\Complexe');
         $this->crud->setRoute(config('backpack.base.route_prefix') . '/complexe');
-        $this->crud->setEntityNameStrings('complexe', 'complexe');
+        $this->crud->setEntityNameStrings('le contenu de la page complexe', 'contenus de la page complexe');
         $this->crud->denyAccess(['create', 'delete']);
 
         /*

@@ -19,7 +19,7 @@ class ComityCrudController extends CrudController
         */
         $this->crud->setModel('App\Models\Comity');
         $this->crud->setRoute(config('backpack.base.route_prefix') . '/comity');
-        $this->crud->setEntityNameStrings('comity', 'comity');
+        $this->crud->setEntityNameStrings('le contenu de la page C.A.', 'contenus de la page C.A.');
         $this->crud->denyAccess(['create', 'delete']);
 
         /*

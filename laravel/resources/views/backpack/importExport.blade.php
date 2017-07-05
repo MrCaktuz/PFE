@@ -3,11 +3,11 @@
 @section('header')
 	<section class="content-header">
 	  <h1>
-	    Import de plusieurs matches
+	    Import de plusieurs matchs
 	  </h1>
 	  <ol class="breadcrumb">
 	    <li><a href="{{ url(config('backpack.base.route_prefix'), 'dashboard') }}">{{ trans('backpack::crud.admin') }}</a></li>
-	    <li><a href="http://rbcciney.dev/admin/game" class="text-capitalize">games</a></li>
+	    <li><a href="http://rbcciney.dev/admin/game" class="text-capitalize">Matchs</a></li>
 	    <li class="active">Import</li>
 	  </ol>
 	</section>
@@ -21,13 +21,13 @@
 	<!-- Default box -->
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
-			<a href="http://rbcciney.dev/admin/game"><i class="fa fa-angle-double-left"></i> Retour à la liste  <span>games</span></a><br>
+			<a href="http://rbcciney.dev/admin/game"><i class="fa fa-angle-double-left"></i> Retour à la liste <span>matchs</span></a><br>
 			<form action="{{ URL::to('admin/importExcel') }}" method="post" enctype="multipart/form-data">
 				{{ csrf_field() }}
 				<div class="box">
 				    <div class="box-header with-border">
 				    	<h3 class="box-title">
-			            	Import des matches via un fichier Excel
+			            	Import des matchs via un fichier Excel
 			        	</h3>
 				    </div>
 				    <div class="box-body">

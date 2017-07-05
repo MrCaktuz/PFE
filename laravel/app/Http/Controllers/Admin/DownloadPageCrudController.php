@@ -19,7 +19,7 @@ class DownloadPageCrudController extends CrudController
         */
         $this->crud->setModel('App\Models\DownloadPage');
         $this->crud->setRoute(config('backpack.base.route_prefix') . '/downloadpage');
-        $this->crud->setEntityNameStrings('downloadpage', 'downloadpage');
+        $this->crud->setEntityNameStrings('le contenu de la page téléchargements', 'contenus de la page téléchargements');
         $this->crud->denyAccess(['create', 'delete']);
 
         /*

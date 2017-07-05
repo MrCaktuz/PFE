@@ -31,7 +31,7 @@
               </ul>
             </li>
             <li><a href="{{ url('admin/team') }}"><i class="fa fa-group"></i> <span>Équipes</span></a></li>
-            <li><a href="{{ url('admin/game') }}"><i class="fa fa-calendar"></i> <span>Matches</span></a></li>
+            <li><a href="{{ url('admin/game') }}"><i class="fa fa-calendar"></i> <span>Matchs</span></a></li>
           @endif
           @if ( Auth::user()->hasRole('Web Developer') || Auth::user()->hasRole('Web Master') || Auth::user()->hasRole('Web Communication') )
             <li><a href="{{ url('admin/event') }}"><i class="fa fa-newspaper-o"></i> <span>Événements</span></a></li>

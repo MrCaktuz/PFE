@@ -19,7 +19,7 @@ class HomeCrudController extends CrudController
         */
         $this->crud->setModel('App\Models\Home');
         $this->crud->setRoute(config('backpack.base.route_prefix') . '/home');
-        $this->crud->setEntityNameStrings('home', 'home');
+        $this->crud->setEntityNameStrings("le contenu de la page d'accueil", "contenus de la page d'accueil");
         $this->crud->denyAccess(['create', 'delete']);
 
         /*

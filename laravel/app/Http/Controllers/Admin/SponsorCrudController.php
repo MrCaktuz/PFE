@@ -20,7 +20,7 @@ class SponsorCrudController extends CrudController
         */
         $this->crud->setModel('App\Models\Sponsor');
         $this->crud->setRoute(config('backpack.base.route_prefix') . '/sponsor');
-        $this->crud->setEntityNameStrings('sponsor', 'sponsors');
+        $this->crud->setEntityNameStrings('un partenaire', 'partenaires');
 
         /*
         |--------------------------------------------------------------------------

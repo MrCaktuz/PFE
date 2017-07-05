@@ -19,7 +19,7 @@ class SettingCrudController extends CrudController
         */
         $this->crud->setModel('App\Models\Setting');
         $this->crud->setRoute(config('backpack.base.route_prefix') . '/setting');
-        $this->crud->setEntityNameStrings('setting', 'settings');
+        $this->crud->setEntityNameStrings("l'information générale", 'informations générales');
         $this->crud->denyAccess(['create', 'delete']);
 
         /*

@@ -20,7 +20,7 @@ class TeamCrudController extends CrudController
         */
         $this->crud->setModel('App\Models\Team');
         $this->crud->setRoute(config('backpack.base.route_prefix') . '/team');
-        $this->crud->setEntityNameStrings('team', 'teams');
+        $this->crud->setEntityNameStrings('une équipe', 'équipes');
 
         /*
         |--------------------------------------------------------------------------

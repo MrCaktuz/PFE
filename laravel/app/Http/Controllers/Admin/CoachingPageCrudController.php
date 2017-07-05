@@ -19,7 +19,7 @@ class CoachingPageCrudController extends CrudController
         */
         $this->crud->setModel('App\Models\CoachingPage');
         $this->crud->setRoute(config('backpack.base.route_prefix') . '/coachingpage');
-        $this->crud->setEntityNameStrings('coachingPage', 'coachingPage');
+        $this->crud->setEntityNameStrings('le contenu de la page coaching', 'contenus de la page coaching');
         $this->crud->denyAccess(['create', 'delete']);
 
         /*

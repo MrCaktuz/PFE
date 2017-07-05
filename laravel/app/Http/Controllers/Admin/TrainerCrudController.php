@@ -19,7 +19,7 @@ class TrainerCrudController extends CrudController
         */
         $this->crud->setModel('App\Models\Trainer');
         $this->crud->setRoute(config('backpack.base.route_prefix') . '/trainer');
-        $this->crud->setEntityNameStrings('trainer', 'trainer');
+        $this->crud->setEntityNameStrings('le contenu de la page entraineurs', 'contenus de la page entraineurs');
         $this->crud->denyAccess(['create', 'delete']);
 
         /*

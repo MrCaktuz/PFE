@@ -24,7 +24,7 @@ class FamilyCrudController extends CrudController
         */
         $this->crud->setModel('App\Models\Family');
         $this->crud->setRoute(config('backpack.base.route_prefix') . '/family');
-        $this->crud->setEntityNameStrings('family', 'families');
+        $this->crud->setEntityNameStrings('une famille', 'familles');
 
         /*
         |--------------------------------------------------------------------------

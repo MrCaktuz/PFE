@@ -20,7 +20,7 @@ class DownloadCrudController extends CrudController
         */
         $this->crud->setModel('App\Models\Download');
         $this->crud->setRoute(config('backpack.base.route_prefix') . '/download');
-        $this->crud->setEntityNameStrings('download', 'downloads');
+        $this->crud->setEntityNameStrings('un fichier à télécharger', 'fichiers à télécharger');
 
         /*
         |--------------------------------------------------------------------------

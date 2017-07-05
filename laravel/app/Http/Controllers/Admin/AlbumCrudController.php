@@ -20,7 +20,7 @@ class AlbumCrudController extends CrudController
         */
         $this->crud->setModel('App\Models\Album');
         $this->crud->setRoute(config('backpack.base.route_prefix') . '/album');
-        $this->crud->setEntityNameStrings('album', 'albums');
+        $this->crud->setEntityNameStrings('un album', 'albums');
 
         /*
         |--------------------------------------------------------------------------

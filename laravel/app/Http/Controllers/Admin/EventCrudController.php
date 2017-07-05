@@ -20,7 +20,7 @@ class EventCrudController extends CrudController
         */
         $this->crud->setModel('App\Models\Event');
         $this->crud->setRoute(config('backpack.base.route_prefix') . '/event');
-        $this->crud->setEntityNameStrings('event', 'events');
+        $this->crud->setEntityNameStrings('un événement', 'événements');
 
         /*
         |--------------------------------------------------------------------------

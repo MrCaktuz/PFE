@@ -21,7 +21,7 @@ class GameCrudController extends CrudController
         */
         $this->crud->setModel('App\Models\Game');
         $this->crud->setRoute(config('backpack.base.route_prefix') . '/game');
-        $this->crud->setEntityNameStrings('game', 'games');
+        $this->crud->setEntityNameStrings('un match', 'matchs');
 
         /*
         |--------------------------------------------------------------------------

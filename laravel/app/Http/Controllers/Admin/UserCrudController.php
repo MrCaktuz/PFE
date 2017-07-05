@@ -19,7 +19,7 @@ class UserCrudController extends CrudController {
         */
         $this->crud->setModel("App\User");
         $this->crud->setRoute("admin/user");
-        $this->crud->setEntityNameStrings('membre', 'Membres');
+        $this->crud->setEntityNameStrings('un membre', 'membres');
 
          /*
         |--------------------------------------------------------------------------

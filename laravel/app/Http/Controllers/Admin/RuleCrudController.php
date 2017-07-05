@@ -20,7 +20,7 @@ class RuleCrudController extends CrudController
         */
         $this->crud->setModel('App\Models\Rule');
         $this->crud->setRoute(config('backpack.base.route_prefix') . '/rule');
-        $this->crud->setEntityNameStrings('rule', 'rules');
+        $this->crud->setEntityNameStrings('le contenu de la page règlements', 'contenus de la page règlements');
 
         /*
         |--------------------------------------------------------------------------

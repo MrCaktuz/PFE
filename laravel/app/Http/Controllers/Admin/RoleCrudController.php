@@ -20,7 +20,7 @@ class RoleCrudController extends CrudController
         */
         $this->crud->setModel('App\Models\Role');
         $this->crud->setRoute(config('backpack.base.route_prefix') . '/role');
-        $this->crud->setEntityNameStrings('role', 'roles');
+        $this->crud->setEntityNameStrings('un role', 'roles');
 
         /*
         |--------------------------------------------------------------------------

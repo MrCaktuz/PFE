@@ -19,7 +19,7 @@ class ContactCrudController extends CrudController
         */
         $this->crud->setModel('App\Models\Contact');
         $this->crud->setRoute(config('backpack.base.route_prefix') . '/contact');
-        $this->crud->setEntityNameStrings('contact', 'contact');
+        $this->crud->setEntityNameStrings('le contenu de la page contact', 'contenus de la page contact');
         $this->crud->denyAccess(['create', 'delete']);
 
         /*
