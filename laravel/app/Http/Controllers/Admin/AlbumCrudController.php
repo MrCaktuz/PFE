@@ -45,7 +45,7 @@ class AlbumCrudController extends CrudController
                 'type'             => 'select2_multiple',
                 'name'             => 'teams', // the method that defines the relationship in your Model
                 'entity'           => 'teams', // the method that defines the relationship in your Model
-                'attribute'        => 'division', // foreign key attribute that is shown to user
+                'attribute'        => 'divisionSeason', // foreign key attribute that is shown to user
                 'model'            => 'App\Models\Team', // foreign key model
                 'pivot'            => true, // on create&update, do you need to add/delete pivot table entries?]
             ],

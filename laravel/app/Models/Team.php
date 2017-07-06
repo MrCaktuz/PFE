@@ -61,17 +61,6 @@ class Team extends Model
         return $this -> belongsToMany('App\Models\Album', 'album_team');
     }
 
-
-    // public function photos()
-    // {
-    //     return $this->belongsToMany('App\Photo', 'photo_team');
-    // }
-
-    // public function games()
-    // {
-    //     return $this->hasMany('App\Game', 'team_id');
-    // }
-
     /*
     |--------------------------------------------------------------------------
     | SCOPES
@@ -91,13 +80,21 @@ class Team extends Model
     | ACCESORS
     |--------------------------------------------------------------------------
     */
+    public function getDivisionSeasonAttribute( $value )
+    {
+        $division = $this->division;
+        $season = $this->season;
+        $value = $division.' / '.$season;
+        return $value;
+    }
 
     /*
     |--------------------------------------------------------------------------
     | MUTATORS
     |--------------------------------------------------------------------------
     */
-    public function setPhotoAttribute( $value ) {
+    public function setPhotoAttribute( $value )
+    {
         $attribute_name = "photo";
         $disk = "public_folder";
         $destination_path = "uploads/teams";
