@@ -2,8 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\CrudTrait;
+use Illuminate\Database\Eloquent\Model;
 
 class Album extends Model
 {
@@ -78,6 +78,7 @@ class Album extends Model
         $attribute_name = "photos";
         $disk = "public_folder";
         $destination_path = "uploads/albums";
+        $album_name = $_POST['name'];
         foreach ( $value as $file ) {
             // 0. Generate new size file
             $image = \Image::make( $file );
@@ -88,8 +89,8 @@ class Album extends Model
             $new_file_name_350 = md5( $file -> getClientOriginalName() . time() ).'_350.'.$file->getClientOriginalExtension();
             
             // 2. Move new files to the correct path
-            $file_path = $destination_path . '/' . $new_file_name;
-            $file_path_350 = $destination_path . '/' . $new_file_name_350;
+            $file_path = $destination_path . '/' . $album_name . '/' . $new_file_name;
+            $file_path_350 = $destination_path . '/' . $album_name . '/' . $new_file_name_350;
             \Storage::disk( $disk )->put( $file_path, $image -> stream() );
             \Storage::disk( $disk )->put( $file_path_350, $image_350 -> stream() );
             
