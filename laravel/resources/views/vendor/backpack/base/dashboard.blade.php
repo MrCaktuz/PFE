@@ -24,7 +24,7 @@
             <?php $auth = Auth::user()->hasRole('Web Communication'); ?>
             <div class="panel panel-default <?php echo ($auth == 1) ? 'hidden' : 'col-md-4'; ?> col-sm-12">
               <div class="panel-body">
-                Vous pouvez facilement ajouter, modifier, supprimer tous les matchs du club en un clic.
+                Vous pouvez facilement ajouter, modifier, supprimer tous les matchs du club.
               </div>
               <div class="panel-body text-center">
                 <a class="btn btn-primary col-md-12" href="/admin/game"><i class="fa fa-calendar"></i> <span>Gérer les matchs</span></a>
@@ -32,7 +32,7 @@
             </div>
             <div class="panel panel-default <?php echo ($auth == 1) ? 'col-md-6' : 'col-md-4'; ?> col-sm-12">
               <div class="panel-body">
-                Vous pouvez facilement ajouter, modifier, supprimer les événements du club en un clic.
+                Vous pouvez facilement ajouter, modifier, supprimer les événements du club.
               </div>
               <div class="panel-body text-center">
                 <a class="btn btn-primary col-md-12" href=""><i class="fa fa-newspaper-o"></i> <span>Gérer les événements</span></a>
@@ -40,7 +40,7 @@
             </div>
              <div class="panel panel-default <?php echo ($auth == 1) ? 'col-md-6' : 'col-md-4'; ?> col-sm-12">
               <div class="panel-body">
-                Vous pouvez facilement ajouter, modifier, supprimer tous les albums du club en un clic.
+                Vous pouvez facilement ajouter, modifier, supprimer tous les albums du club.
               </div>
               <div class="panel-body text-center">
                 <a class="btn btn-primary col-md-12" href="/admin/album"><i class="fa fa-image"></i> <span>Gérer les albums</span></a>
