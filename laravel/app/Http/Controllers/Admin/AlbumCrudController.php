@@ -77,6 +77,9 @@ class AlbumCrudController extends CrudController
                'model'     => "App\Models\Album", // foreign key model
             ],
         ] );
+
+        // ------ CRUD BUTTONS
+        $this->crud->addButtonFromModelFunction('line', 'Aperçu', 'showAlbumButton', 'end');
     }
 
     public function store(StoreRequest $request)

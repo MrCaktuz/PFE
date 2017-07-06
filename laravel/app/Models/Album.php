@@ -34,6 +34,17 @@ class Album extends Model
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
+    public function getAlbumID()
+    {
+        $albumID = $this->id;
+        return $albumID;
+    }
+    public function showAlbumButton()
+    {
+        $albumID = $this->getAlbumID();
+        $htmlCode = '<a class="btn btn-default btn-xs" href="/album/' . $albumID . '" target="_blanc"><i class="fa fa-eye"></i> Aperçu</a>';
+        return $htmlCode;
+    }
 
     /*
     |--------------------------------------------------------------------------
