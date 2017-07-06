@@ -35,7 +35,7 @@ class PagesRequest extends \Backpack\CRUD\app\Http\Requests\CrudRequest
     public function rules()
     {
         return [
-            'value' => 'required|min:5|max:255|NotIn:php,ruby',
+            'value' => 'required|max:255|NotIn:php,ruby',
         ];
     }
 

@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Auth;
+use Input;
 use App\Http\Requests\Request;
 
 class TeamRequest extends \Backpack\CRUD\app\Http\Requests\CrudRequest
@@ -34,8 +35,9 @@ class TeamRequest extends \Backpack\CRUD\app\Http\Requests\CrudRequest
      */
     public function rules()
     {
+        $request = Input::all();
         return [
-            'division' => 'Required|min:5|max:255',
+            'division' => 'Required|max:50|unique:teams,division,NULL,NULL,season,'.$request['season'],
             'season' => 'Required',
             'coach_id' => 'Required',
             'users' => 'Required'

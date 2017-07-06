@@ -35,8 +35,8 @@ class SponsorRequest extends \Backpack\CRUD\app\Http\Requests\CrudRequest
     public function rules()
     {
         return [
-            'name' => 'Required|min:5|max:255',
-            'url' => 'Required',
+            'name' => 'Required|max:80',
+            'url' => 'Required|url',
             'image' => 'Required',
         ];
     }

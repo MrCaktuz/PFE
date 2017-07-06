@@ -31,14 +31,14 @@ class CoachingCrudController extends CrudController
         // ------ CRUD FIELDS
         $this->crud->addFields( [
             [
-                'label' => 'Titre',
+                'label' => 'Titre *',
                 'name' => 'title',
                 'attributes' => [
                     'placeholder' => "Fiche de préparation d'entrainements",
                  ],
             ],
             [
-                'label' => 'Description',
+                'label' => 'Description *',
                 'name' => 'description',
                 'attributes' => [
                     'placeholder' => 'Un petit text descriptif',
@@ -56,7 +56,7 @@ class CoachingCrudController extends CrudController
                 'label' => 'Site partagé',
                 'name' => 'site',
                 'attributes' => [
-                    'placeholder' => 'htt://www.rbcciney.be',
+                    'placeholder' => 'http://exemple.be',
                  ],
             ],
             [

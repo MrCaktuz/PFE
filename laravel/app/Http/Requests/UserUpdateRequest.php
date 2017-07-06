@@ -35,16 +35,16 @@ class UserUpdateRequest extends \Backpack\CRUD\app\Http\Requests\CrudRequest {
     public function rules()
     {
         return [
-            'name'      => 'Required|min:5|max:80|NotIn:php,ruby',
+            'name'      => 'Required|max:80|NotIn:php,ruby',
             'email'     => 'Required|Email',
             'civility'=> 'NotIn:php,ruby',
             'birthday'=> 'NotIn:php,ruby',
             'birth_location'=> 'NotIn:php,ruby',
-            'phone'=> 'Numeric',
+            'phone'=> 'Numeric|nullable',
             // 'photo'=> '',
             'job'=> 'NotIn:php,ruby',
             'address'=> 'NotIn:php,ruby',
-            'postal_code'=> 'Numeric',
+            'postal_code'=> 'Numeric|nullable',
             'city'=> 'NotIn:php,ruby',
             'family_id'=> 'Required',
             'jersey_nbr'=> 'integer',

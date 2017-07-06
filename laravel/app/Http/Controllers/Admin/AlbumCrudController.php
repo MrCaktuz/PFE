@@ -53,7 +53,7 @@ class AlbumCrudController extends CrudController
         );
         $this->crud->addField(
             [
-                'label' => 'Photos *',
+                'label' => 'Photos * (en format jpg, jpeg ou png)',
                 'name' => 'photos',
                 'type' => 'upload_multiple',
                 'upload' => true,

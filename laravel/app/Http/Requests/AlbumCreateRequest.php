@@ -36,7 +36,7 @@ class AlbumCreateRequest extends \Backpack\CRUD\app\Http\Requests\CrudRequest
     {
         return [
             'name' => 'Required|min:5|max:255|Unique:albums',
-            'photos' => 'Required',
+            // 'photos[]' => '',
         ];
     }
 

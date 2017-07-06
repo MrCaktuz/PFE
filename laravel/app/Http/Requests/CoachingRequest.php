@@ -35,9 +35,9 @@ class CoachingRequest extends \Backpack\CRUD\app\Http\Requests\CrudRequest
     public function rules()
     {
         return [
-            'title' => 'Required|min:5|max:255|NotIn:php,ruby',
+            'title' => 'Required|max:255|NotIn:php,ruby',
             'description' => 'Required|NotIn:php,ruby',
-            'site' => 'Url',
+            'site' => 'Url|nullable',
             'file' => '',
         ];
     }

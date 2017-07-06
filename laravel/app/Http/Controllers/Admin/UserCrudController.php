@@ -62,7 +62,7 @@ class UserCrudController extends CrudController {
 		);
 		$this->crud->addField(
 			[
-				'label' => 'Mot de passe *',
+				'label' => 'Mot de passe * (min 8 caractères)',
 				'type' => 'password',
 				'name' => 'password',
 			],

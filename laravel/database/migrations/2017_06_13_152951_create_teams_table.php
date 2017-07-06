@@ -15,6 +15,7 @@ class CreateTeamsTable extends Migration {
 			$table->string('season');
 			$table->string('photo')->nullable();
 			$table->timestamps();
+			$table->unique(array('division', 'season'));
 		});
 	}
 

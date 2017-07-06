@@ -35,7 +35,7 @@ class DownloadRequest extends \Backpack\CRUD\app\Http\Requests\CrudRequest
     public function rules()
     {
         return [
-            'title' => 'Required|min:5|max:255',
+            'title' => 'Required|max:255',
             'url' => 'Required',
         ];
     }

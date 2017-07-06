@@ -15,6 +15,7 @@
 	CRUD::resource('game', 'GameCrudController');
 	CRUD::resource('album', 'AlbumCrudController');
 	CRUD::resource('sponsor', 'SponsorCrudController');
+	CRUD::resource('coaching', 'CoachingCrudController');
 	
 	CRUD::resource('setting', 'SettingCrudController');
 	CRUD::resource('rule', 'RuleCrudController');

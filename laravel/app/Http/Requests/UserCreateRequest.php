@@ -36,10 +36,10 @@ class UserCreateRequest extends \Backpack\CRUD\app\Http\Requests\CrudRequest
     public function rules()
     {
         return [
-            'name'=> 'Required|min:5|max:80|NotIn:php,ruby',
+            'name'=> 'Required|max:80|NotIn:php,ruby',
             'email'=> 'Required|Email|Unique:users',
-            'password'=>'Required|AlphaNum|Between:4,8|Confirmed',
-            'password_confirmation'=>'Required|AlphaNum|Between:4,8',
+            'password'=>'Required|AlphaNum|min:8|Confirmed',
+            // 'password_confirmation'=>'Required|AlphaNum|Min:8',
             // 'civility'=> 'NotIn:php,ruby',
             // 'birthday'=> 'NotIn:php,ruby',
             // 'birth_location'=> 'NotIn:php,ruby',

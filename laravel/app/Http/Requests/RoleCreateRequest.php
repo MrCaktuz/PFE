@@ -35,7 +35,7 @@ class RoleCreateRequest extends \Backpack\CRUD\app\Http\Requests\CrudRequest
     public function rules()
     {
         return [
-            'title' => 'Required|min:5|max:255|Unique:roles',
+            'title' => 'Required|max:50|Unique:roles',
         ];
     }
 
