@@ -1,109 +1,97 @@
-<div class="mainNav" role="navigation">
-	<a class="mainNav__link mainNav__link--logo" href="/" title="Retour à l'accueil">Logo</a>
-	<div class="mainNav__burgerButton" title="Ouvrir le menu">
-		Menu
-		<span class="icon-bar"></span>
-		<span class="icon-bar"></span>
-		<span class="icon-bar"></span>
-		<span class="icon-bar"></span>
+
+<div class="nav" role="navigation">
+	<a class="logo" href="/" title="Retour à l'accueil">Logo</a>
+	<div class="burgerButton">
+		<a class="" href="#" title="Ouvrir le menu">
+			Menu
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</a>
 	</div>
-	<ul class="mainNav__list">
-		<li class="mainNav__elt{{ Request::is('/') ? ' active' : '' }}">
-			<a class="mainNav__link" href="/" title="Retour à l'accueil">
-				Accueil
-			</a>
-		</li>
-		<li class="mainNav__elt mainNav__dropdown{{ Request::is('/conseil') || Request::is('/trainer') || Request::is('/team') || Request::is('/rules') ? ' active' : '' }}">
-				<span class="mainNav__dropdownButton">Club</span>
-				<ul class="mainNav__subList mainNav__subList--club">
-					<li class="mainNav__elt">
-						<a href="/conseil" title="Voir notre conseil d'administration" class="mainNav__link mainNav__link--admin">
-							Administration
-						</a>
-					</li>
-					<li class="mainNav__elt">
-						<a href="/trainer" title="Voir nos entraineur" class="mainNav__link mainNav__link--trainer">
-							Entraineur
-						</a>
-					</li>
-					<li class="mainNav__elt">
-						<a href="/team" title="Voir nos équipes" class="mainNav__link mainNav__link--team">
-							Équipes
-						</a>
-					</li>
-					<li class="mainNav__elt">
-						<a href="/rules" title="Voir notre règlement" class="mainNav__link mainNav__link--rule">
-							Règlement
-						</a>
-					</li>
-				</ul>
-		</li>
-		<li class="mainNav__elt{{ Request::is('/calendar') ? ' active' : '' }}">
-			<a class="mainNav__link " href="/calendar" title="Voir notre calendrier">
-				Calendrier
-			</a>
-		</li>
-		<li class="mainNav__elt mainNav__dropdown{{ Request::is('/album') || Request::is('/download') ? ' active' : '' }}">
-			<span class="mainNav__dropdownButton">Multimédia</span>
-			<ul class="mainNav__subList mainNav__subList--multimedia">
-				<li class="mainNav__elt">
-					<a href="/album" title="Voir nos albums photo" class="mainNav__link mainNav__link--album">
-						Albums&nbsp;photo
-					</a>
-				</li>
-				<li class="mainNav__elt">
-					<a href="/download" title="Voir nos fichier à télécharger" class="mainNav__link mainNav__link--download">
-						Téléchargements
-					</a>
-				</li>
-			</ul>
-		</li>
-		<li class="mainNav__elt{{ Request::is('/calendar') ? ' active' : '' }}">
-			<a class="mainNav__link " href="/complexe" title="Voir notre complexe sportif">
-				Complexe
-			</a>
-		</li>
-		@if (Auth::check())
-			@foreach( Auth::user()->roles as $role )
-				@if( $role->title == "Entraineur" )
-					<li class="mainNav__elt{{ Request::is('/coach') ? ' active' : '' }}">
-						<a class="mainNav__link " href="/coach" title="Voir la page réservé au coach">
-							Coaching
-						</a>
-					</li>
-				@endif
-			@endforeach
-		@endif
-		<li class="mainNav__elt{{ Request::is('/contact') ? ' active' : '' }}">
-			<a class="mainNav__link " href="/contact" title="Nous contacter">
-				Contact
-			</a>
-		</li>
-		@if (Auth::guest())
-			<li class="mainNav__elt mainNav__elt--auth mainNav__elt--login">
-				<a class="mainNav__link" href="/login" title="Se connecter">
-					Se&nbsp;connecter
-				</a>
+	<nav>
+		<ul class="nav-menu">
+			<li class="nav-item{{ Request::is('/conseil') || Request::is('/') || Request::is('/home') ? ' active' : '' }}">
+				<a class="" href="/" title="Retour à l'accueil">Accueil</a>
 			</li>
-		@else
-			<li class="mainNav__elt mainNav__elt--auth  mainNav__dropdown">
-				<span class="mainNav__dropdownButton">{{ Auth::user()->name }}</span>
-				<ul class="mainNav__subList mainNav__subList--auth mainNav__subList--multimedia">
-					<li class="mainNav__elt">
-						<a href="/user/{{ Auth::user()->id }}" title="Voir mon profil" class="mainNav__link mainNav__link--profil">
-							Mon&nbsp;profil
-						</a>
-					</li>
-					<li class="mainNav__elt">
-						<a href="/logout" onclick="event.preventDefault();document.getElementById('logout-form').submit();" title="Se déconnecter" class="mainNav__link mainNav__link--logout">
-							Se&nbsp;déconnecter
-						</a>
-						<form id="logout-form" action="/logout" method="POST" style="display: none;">
-                        	{{ csrf_field() }}
-                        </form>
-					</li>
-				</ul>
+			<li class="nav-item{{ Request::is('/conseil') || Request::is('/trainer') || Request::is('/team') || Request::is('/rules') ? ' active' : '' }}">
+				<a class="dropdown" href="#" title="Voir les liens de la rubrique club">Club</a>
+				<div class="sub-nav">
+	                <ul class="sub-nav-group">
+	                    <li class="sub-nav-item">
+	                    	<a class="icon icon-admin" href="/conseil" title="Voir notre conseil d'administration">Administration</a>
+	                    </li>
+	                    <li class="sub-nav-item">
+	                    	<a class="icon icon-trainer" href="/trainer" title="Voir nos entraineur">Entraineurs</a>
+	                    </li>
+	                    <li class="sub-nav-item">
+	                    	<a class="icon icon-team" href="/team" title="Voir nos équipes">Équipes</a>
+	                    </li>
+	                    <li class="sub-nav-item">
+	                    	<a class="icon icon-rule" href="/rule" title="Voir notre règlement">Règlement</a>
+	                    </li>
+	                </ul>
+	            </div>
 			</li>
-		@endif
-	</ul>
+			<li class="nav-item{{ Request::is('/calendar') ? ' active' : '' }}">
+				<a class="" href="/calendar" title="Voir notre calendrier">Calendrier</a>
+			</li>
+
+			<li class="nav-item{{ Request::is('/album') || Request::is('/download') ? ' active' : '' }}">
+				<a class="dropdown" href="#" title="Voir les liens de la rubrique multimédia">Multimédia</a>
+				<div class="sub-nav">
+	                <ul class="sub-nav-group">
+	                    <li class="sub-nav-item">
+	                    	<a class="icon icon-album" href="/conseil" title="Voir nos albums photo">Albums&nbsp;photo</a>
+	                    </li>
+	                    <li class="sub-nav-item">
+	                    	<a class="icon icon-download" href="/download" title="Voir nos fichiers à télécharger">Téléchargements</a>
+	                    </li>
+	                </ul>
+	            </div>
+			</li>
+			<li class="nav-item{{ Request::is('/calendar') ? ' active' : '' }}">
+				<a class="" href="/complexe" title="Voir notre complexe sportif">Complexe</a>
+			</li>
+			@if (Auth::check())
+				@foreach( Auth::user()->roles as $role )
+					@if( $role->title == "Entraineur" )
+						<li class="nav-item{{ Request::is('/coach') ? ' active' : '' }}">
+							<a class="" href="/coach" title="Voir la page réservé au coach">Coaching</a>
+						</li>
+					@endif
+				@endforeach
+			@endif
+			<li class="nav-item{{ Request::is('/contact') ? ' active' : '' }}">
+				<a class="" href="/contact" title="Nous contacter">Contact</a>
+			</li>
+			@if (Auth::guest())
+				<li class="nav-item nav-item-footer nav-item-auth">
+					<a class="icon icon-login" href="/login" title="Se connecter">Se&nbsp;connecter</a>
+				</li>
+			@else
+				<?php
+					$userID = Auth::user()->id;
+					$userRequest = '/user/'.$userID;
+				?>
+				<li class="nav-item nav-item-auth">
+					<a class="dropdown" href="#" title="Voir les liens de la rubrique profil">{{ Auth::user()->shortName( Auth::user() ) }}</a>
+					<div class="sub-nav">
+		                <ul class="sub-nav-group">
+		                    <li class="sub-nav-item{{ Request::is($userRequest) ? ' active' : '' }}">
+		                    	<a class="icon icon-profil" href="{{$userRequest}}" title="Voir mon profil">Mon&nbsp;profil</a>
+		                    </li>
+		                    <li class="sub-nav-item nav-item-footer nav-item-footer-logout">
+		                    	<a class="icon icon-logout" href="/logout" onclick="event.preventDefault();document.getElementById('logout-form').submit();" title="Se déconnecter">Se&nbsp;Déconnecter</a>
+		                    	<form id="logout-form" action="/logout" method="POST" style="display: none;">
+		                        	{{ csrf_field() }}
+		                        </form>
+		                    </li>
+		                </ul>
+		            </div>
+				</li>
+			@endif
+		</ul>
+	</nav>
 </div>

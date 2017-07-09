@@ -1,0 +1,30 @@
+/*
+ *	Description:    Stylesheet for logo objects
+ *	File:    		_logo.scss
+ *	Version:        1.0 - 08/07/2017
+ *	Author :        Mucht - claessens.mathieu@gmail.com
+*/
+
+.logo{
+	@include font-size( 0 );
+	position: absolute;
+	top: .5rem;
+	left: 50%;
+	display: block;
+	width: 5.1rem;
+	height: 4rem;
+	background-image: url($logoDarkPath);
+	background-position: center;
+	background-size: contain;
+	background-repeat: no-repeat;
+	transform: translateX(-50%);
+}
+
+.mobile .logo, .desktop .logo{
+	left: .5rem;
+	transform: translateX(0);
+}
+.desktop .logo{
+	width: 7.5rem;
+	height: 6rem;
+}

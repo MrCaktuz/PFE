@@ -15,9 +15,6 @@ class User extends Authenticatable
 	use CrudTrait;
     use Notifiable;
 
-
-
-
     /*
 	|--------------------------------------------------------------------------
 	| GLOBAL VARIABLES
@@ -76,6 +73,14 @@ class User extends Authenticatable
     public function getShowButton()
     {
         return '<a class="btn btn-default btn-xs" href="'.$this->getUserLink().'" target="_blank"><i class="fa fa-eye"></i> Aperçu</a>';
+    }
+    public function shortName( User $user )
+    {
+        $name = $user->name;
+        $splitName = preg_split( '/ /', $name );
+        $lastEltPosition = count( $splitName ) - 1;
+        $shortName = $splitName[ $lastEltPosition ];
+        return $shortName;
     }
 
 	/*
@@ -156,7 +161,7 @@ class User extends Authenticatable
             \Storage::disk( $disk )->put( $destination_path . '/' . $filename . '_25x25.jpg', $image25x25 -> stream() );
 
             // 3. Save the path to the database
-            $this -> attributes[ $attribute_name ] = $destination_path . '/' . $filename;
+            $this -> attributes[ $attribute_name ] = $destination_path . '/' . $filename . '.jpg';
 
         }
     }

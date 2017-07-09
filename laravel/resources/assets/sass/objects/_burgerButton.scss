@@ -1,0 +1,84 @@
+/*
+ *	Description:    Stylesheet for burger button objects
+ *	File:    		_burgerButton.scss
+ *	Version:        1.0 - 08/07/2017
+ *	Author :        Mucht - claessens.mathieu@gmail.com
+*/
+
+// ******** No JS burger button ********
+.burgerButton{
+	position: absolute;
+	top: 6rem;
+	left: 1.8rem;
+	font-weight: $light;
+	a{
+		color: $primaryDark;
+		cursor: default;
+		&:visited{
+			color: $primaryDark;
+		}
+	}
+}
+
+// ******** Mobile burger button ********
+.mobile .burgerButton{
+	overflow: hidden;
+	@include font-size(0);
+	top: 1.25rem;
+	right: 1.25rem;
+	left: auto;
+	width: 3rem;
+	height: 2.5rem;
+	padding-top: .5rem;
+	text-align: right;
+	color: $primaryDark;
+	z-index: 1;
+	transform: rotate(0deg);
+	transition: $transBurgerButton;
+	cursor: pointer;
+	.icon-bar{
+		display: block;
+		position: absolute;
+		height: .4rem;
+		width: 100%;
+		background: $primary;
+		border-radius: .2rem;
+		opacity: 1;
+		left: 0rem;
+		transform: rotate(0deg);
+		transition: $transBurgerSpan;
+		&:nth-child(1) {
+			top: 0;
+		}
+		&:nth-child(2), &:nth-child(3) {
+			top: 1rem;
+		}
+		&:nth-child(4) {
+			top: 2rem;
+		}
+	}
+	&.nav-open{
+		.icon-bar{
+			&:nth-child(1) {
+				top: 18px;
+				width: 0%;
+				left: 50%;
+			}
+			&:nth-child(2) {
+				transform: rotate(45deg);
+			}
+			&:nth-child(3) {
+				transform: rotate(-45deg);
+			}
+			&:nth-child(4) {
+				top: 18px;
+				width: 0%;
+				left: 50%;
+			}
+		}
+	}
+}
+// ******** Desktop burger button ********
+.desktop .burgerButton{
+	display: none;
+}

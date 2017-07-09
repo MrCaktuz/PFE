@@ -22,6 +22,7 @@ $success: #43ac6a;
 
 // ******** Backgrounds ********
 $whiteTrans: rgba( 255, 255, 255, 0.9 );
+$navFilter: rgba( 0, 0, 0, 0.5 );
 
 // ******** Borders ********
 $errorsBorder: #b1240c;
@@ -31,12 +32,16 @@ $successBorder: #3c9a5f;
 $mainShadow: .1rem .1rem .1rem 0 rgba( 155, 155, 155, .3 );
 $navShadow: -.1rem .1rem .1rem 0 rgba( 155, 155, 155, .3 );
 $dropdownShadow: 0 0 .1rem 0 rgba( 155, 155, 155, .3 ) inset;
+
 // ******** Transitions ********
 $mainTrans: all .25s ease-in-out;
 $transBurgerButton: all .3s ease-in-out;
 $transNavList: transform .4s ease .25s, opacity .4s ease 0s;
 $transNavListOpen: transform .4s ease, opacity .4s ease .25s;
+$transNavFilter: transform .4s ease .25s, background-color .4s ease 0s;
+$transNavFilterOpen: transform .4s ease, background-color .4s ease .25s;
 $transBurgerSpan: all .25s ease-in-out;
+
 // ******** Fonts ********
 $fontStack: 'Source Sans Pro', sans-serif;
 $bold: 700;
