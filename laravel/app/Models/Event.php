@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\CrudTrait;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 
 class Event extends Model
 {
@@ -19,7 +20,7 @@ class Event extends Model
     protected $primaryKey = 'id';
     // public $timestamps = false;
     // protected $guarded = ['id'];
-    protected $fillable = [ 'title', 'description', 'photo' ];
+    protected $fillable = [ 'title', 'date', 'description', 'photo' ];
     // protected $hidden = [];
     // protected $dates = [];
 
@@ -40,6 +41,19 @@ class Event extends Model
     | SCOPES
     |--------------------------------------------------------------------------
     */
+    /**
+     * The "booting" method of the model.
+     *
+     * @return void
+     */
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::addGlobalScope( 'ordered', function( Builder $builder ) {
+            $builder->orderBy( 'date' );
+        } );
+    }
 
     /*
     |--------------------------------------------------------------------------

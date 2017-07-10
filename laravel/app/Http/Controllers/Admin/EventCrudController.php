@@ -39,6 +39,14 @@ class EventCrudController extends CrudController
             'both'
         );
         $this->crud->addField(
+            [
+                'label' => 'Date de l\'événement *',
+                'name' => 'date',
+                'type' => 'date',
+            ],
+            'both'
+        );
+        $this->crud->addField(
             [   // CKEditor
                 'label' => 'Description *',
                 'type' => 'ckeditor',
@@ -66,6 +74,11 @@ class EventCrudController extends CrudController
             [
                 'label' => "Titre de l'événement",
                 'name' => 'title',
+            ],
+            [
+                'label' => 'Date de l\'événement',
+                'name' => 'date',
+                'type' => 'date',
             ],
             [
                 'label' => "Description de l'événement",

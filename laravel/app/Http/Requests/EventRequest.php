@@ -36,8 +36,8 @@ class EventRequest extends \Backpack\CRUD\app\Http\Requests\CrudRequest
     {
         return [
             'title' => 'Required|min:5|max:255|NotIn:php,ruby',
+            'date' => 'Required',
             'description' => 'Required|NotIn:php,ruby',
-            // 'photo' => 'Required',
         ];
     }
 
