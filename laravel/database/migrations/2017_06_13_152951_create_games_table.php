@@ -12,7 +12,7 @@ class CreateGamesTable extends Migration {
 			$table->integer('team_id')->unsigned()->nullable();
 			$table->string('game_id');
 			$table->date('date');
-			$table->string('time');
+			$table->time('time');
 			$table->time('appointment')->nullable();
 			$table->string('host');
 			$table->string('visitor');

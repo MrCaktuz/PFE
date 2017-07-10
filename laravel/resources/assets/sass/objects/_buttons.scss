@@ -16,27 +16,27 @@
 	text-transform: uppercase;
 	border: .1rem solid $transparent;
 	transition: $mainTrans;
-	&__wrap{
+	&-wrap{
 		position: relative;
 		display: block;
 		width: 100%;
-		&--center{
+		&-center{
 			text-align: center;
 		}
-		&--left{
+		&-left{
 			text-align: left;
 		}
-		&--right{
+		&-right{
 			text-align: right;
 		}
 	}
-	&--primary{
+	&-primary{
 		color: $white;
 		background-color: $secondary;
 		border: .1rem solid $secondaryDark;
 	}
-	&--secondary{
-		color: $black;
+	&-secondary{
+		color: $secondaryDark;
 		background-color: $transparent;
 		border: .1rem solid $secondaryDark;
 	}

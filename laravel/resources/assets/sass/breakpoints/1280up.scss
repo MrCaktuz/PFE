@@ -5,34 +5,9 @@
  *	Author :        Mucht - claessens.mathieu@gmail.com
 */
 
-// ******** Main Navigation ********
-.mainNav{
-	&__elt{
-		&:hover::before{
-			transform: scaleY( 1 );
-			background-color: $primaryDark;
-		}
-		&--login{
-			&:hover{
-				background-color: $secondary;
-			}
-		}
-	}
-	&__dropdown{
-		&:hover > .mainNav__subList{
-			transform: scaleY( 1 );
-			opacity: 1;
-		}
-		&:hover .mainNav__dropdownButton::after{
-			transform-origin: center;
-			transform: rotateX( 180deg );
-		}
-	}
-	&__subList{
-		&:hover::before{
-			transform: scale(1, 1);
-		}
-	}
+// ******** Home banner ********
+.banner{
+	height: 35rem;
 }
 
 // ******** Buttons ********

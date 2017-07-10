@@ -5,6 +5,20 @@
  *  Author :        Mucht - claessens.mathieu@gmail.com
 */
 
+// ******** Home banner ********
+.banner{
+	height: 20rem;
+
+	&-img{
+		display: block;
+	}
+	&-title{
+		position: absolute;
+		left: 0;
+		bottom: 0;
+	}
+}
+
 // ******** Footer ********
 .footer{
 	text-align: center;

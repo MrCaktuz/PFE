@@ -1,0 +1,113 @@
+/*
+ *	Description:    stylesheet for game card elements
+ *	File:    		_gameCard.scss
+ *	Version:        1.0 - 10/07/2017
+ *	Author :        Mucht - claessens.mathieu@gmail.com
+*/
+
+.gameCard{
+	position: relative;
+	display: block;
+	width: 100%;
+	min-width: 28.8rem;
+	max-width: 40rem;
+	margin-bottom: 2rem;
+	border: .1rem solid $gameCardBorder;
+	&::before{
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 40%;
+		display: block;
+		width: 0;
+		height: 100%;
+		border-left: .1rem solid $gameCardBorder;
+	}
+	&-container{
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		width: 100%;
+	}
+	&-header{
+		position: relative;
+		text-align: center;
+		z-index: 1;
+	}
+	&-title{
+		@include font-size(1.8);
+		padding: 1rem;
+		color: $primaryDark;
+		background-color: $gameCardHeader;
+	}
+	&-body{
+		display: flex;
+		align-items: center;
+		border-top: .1rem solid $gameCardBorder;
+	}
+	&-date{
+		display: block;
+		width: 40%;
+		padding: 1.5rem;
+		text-align: center; 
+	}
+	&-day{
+		@include font-size(1.4);
+		font-weight: $semiBold;
+		color: $greyDark;
+		margin: 0;
+	}
+	&-time{
+		@include font-size(2.5);
+		margin: 0;
+		color: $primaryDark;
+		font-weight: $bold;
+	}
+	&-appointment{
+		@include font-size(1.4);
+		color: $greyDark;
+		span{
+			display: block;
+		}
+	}
+	&-teams{
+		width: 60%;
+		// border-left: .1rem solid $gameCardBorder;
+	}
+	&-host{
+		position: relative;
+		border-bottom: .1rem solid $gameCardBorder;
+		padding: 1.5rem 3.5rem 1.5rem 1.5rem;
+	}
+	&-hostName{
+		@include font-size(1.6);
+		margin-bottom: 1rem;
+		color: $primaryDark;
+		font-weight: $bold;
+	}
+	&-hostAddress{
+		@include font-size(1.2);
+		margin: 0;
+		color: $greySemiDark;
+	}
+	&-icon{
+		position: absolute;
+		top: 1rem;
+		right: 1rem;
+		display: block;
+		width: 1.4rem;
+		height: 2rem;
+		background-image: url(/img/icons/location-icon-blue.png);
+		background-position: center;
+		background-size: contain;
+		background-repeat: no-repeat;
+	}
+	&-visitor{
+		padding: 1.5rem;
+	}
+	&-visitorName{
+		@include font-size(1.6);
+		margin-bottom: 1rem;
+		font-weight: $bold;
+	}
+}

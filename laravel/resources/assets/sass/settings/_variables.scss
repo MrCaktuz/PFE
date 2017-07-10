@@ -13,6 +13,7 @@ $secondaryDark: #DC6C11;
 $black: #323335;
 $white: #FFFFFF;
 $grey: #F4F4F4;
+$greySemiDark: #757575;
 $greyDark: #6D6D6D;
 $blue: #F5F8FA;
 $blueDark: #DCE5EB;
@@ -21,16 +22,21 @@ $errors: #D0011B;
 $success: #43ac6a;
 
 // ******** Backgrounds ********
-$whiteTrans: rgba( 255, 255, 255, 0.9 );
+$whiteTrans: rgba( 255, 255, 255, 0.8 );
 $navFilter: rgba( 0, 0, 0, 0.5 );
+$gameCardHeader: $blue;
 
 // ******** Borders ********
 $errorsBorder: #b1240c;
 $successBorder: #3c9a5f;
+$sectionBorder: #D9D9D9;
+$boxBorder: #D8E5EC;
+$gameCardBorder: $blueDark;
 
 // ******** Shadows ********
 $mainShadow: .1rem .1rem .1rem 0 rgba( 155, 155, 155, .3 );
 $navShadow: -.1rem .1rem .1rem 0 rgba( 155, 155, 155, .3 );
+$subNavShadow: 0 .1rem .1rem 0 rgba( 155, 155, 155, .3 );
 $dropdownShadow: 0 0 .1rem 0 rgba( 155, 155, 155, .3 ) inset;
 
 // ******** Transitions ********

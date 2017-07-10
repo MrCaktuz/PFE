@@ -1,7 +1,7 @@
 id;key;name;value;description
-1;address;Adresse;Rue Saint-Quentin, 10b 5590 Ciney;Adresse postale du Royal Basket Club de Ciney.
+1;address;Adresse;Rue Saint-Quentin,10b,5590,Ciney;Adresse postale du Royal Basket Club de Ciney. Format de l'adresse : rue,numéro,code postal,ville (pour une question d'accessibilité)
 2;contact_email;Email par défaut;info@rbcciney.be;Adresse email par défaut de tous les formulaire du site.
-3;contact_cc;Emails supplémentaires;"basket.ciney@skynet.be;jean-luc.merelle@mil.be";Adresse email (séparé par un point virgule) mis en copie des email envoyé du site.
+3;contact_cc;Emails supplémentaires;basket.ciney@skynet.be,jean-luc.merelle@mil.be;Adresse email (séparé par une virgule) mis en copie des email envoyé du site.
 4;facebook;Lien Facebook;https://www.facebook.com/rbcciney/;Lien vers la page Facebook du Royal Basket Club de Ciney
 5;insta;Lien Instagram;;Lien vers la page Instagram du Royal Basket Club de Ciney
 6;twitter;Lien Twitter;;Lien vers la page Twitter du Royal Basket Club de Ciney

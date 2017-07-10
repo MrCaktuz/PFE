@@ -4,10 +4,14 @@
  *	Version:        1.0 - ***
  *	Author :        Mucht - claessens.mathieu@gmail.com
 */
+// ******** Home banner ********
+.banner{
+	height: 23rem;
+}
 
-// ******** Admin ********
-.adminAside{
-	display: block;
+// ******** Game card ********
+.gameCard{
+	width: 47.5%;
 }
 
 // ******** Buttons ********

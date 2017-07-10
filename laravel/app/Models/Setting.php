@@ -17,7 +17,7 @@ class Setting extends Model
 
     protected $table = 'settings';
     protected $primaryKey = 'id';
-    // public $timestamps = false;
+    public $timestamps = false;
     // protected $guarded = ['id'];
     protected $fillable = [
         'value'

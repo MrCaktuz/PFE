@@ -1,0 +1,43 @@
+/*
+ *	Description:    Main style for the section element
+ *	File:    		_section.scss
+ *	Version:        1.0 - 09/07/2017
+ *	Author :        Mucht - claessens.mathieu@gmail.com
+*/
+
+.section{
+	margin-bottom: 4rem;
+	.section-title{
+		@include font-size(3);
+		padding: 3rem;
+		text-align: center;	
+		font-weight: $bold;
+		color: $primaryDark;
+		background-color: $grey;
+		border-top: .2rem solid $sectionBorder;
+	}
+	.section-icon{
+		display: inline-block;
+		width: 4rem;
+		height: 2rem;
+		margin-right: 1rem;
+		background-position: center right;
+		background-size: contain;
+		background-repeat: no-repeat;
+		&-games{
+			background-image: url(/img/icons/calendar-icon-blue.png);
+		}
+		&-news{
+			background-image: url(/img/icons/news-icon-blue.png);
+		}
+		&-sponsor{
+			background-image: url(/img/icons/sponsor-icon-blue.png);
+		}
+		&-galery{
+			background-image: url(/img/icons/galery-icon-blue.png);
+		}
+	}
+	.section-content{
+		padding: 4rem 5%;
+	}
+}

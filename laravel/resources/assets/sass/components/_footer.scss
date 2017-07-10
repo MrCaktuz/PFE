@@ -11,7 +11,6 @@
 	padding: 2rem;
 	color: $white;
 	background-color: $primary;
-	z-index: -1;
 	&::before{
 		content: "";
 		position: absolute;
@@ -90,6 +89,7 @@
 		display: block;
 		width: 100%;
 		margin-top: 2rem;
+		font-weight: $light;
 		text-align: center;
 	}
 }
@@ -99,7 +99,7 @@
 	display: block;
 	margin-top: 1em;
 	&__link{
-		font-weight: bold;
+		font-weight: $semiBold;
 		color: $white;
 	}
 }
