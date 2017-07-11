@@ -9,8 +9,8 @@
 	height: 23rem;
 }
 
-// ******** Game card ********
-.gameCard{
+// ******** Global class flex ********
+.flex-elt{
 	width: 47.5%;
 }
 
@@ -20,6 +20,9 @@
 	width: auto;
 	&:last-child{
 		margin-right: 0;
+	}
+	& + .button{
+		margin-left: 2rem;
 	}
 }
 

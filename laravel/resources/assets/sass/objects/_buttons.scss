@@ -9,17 +9,21 @@
 	@include font-size( 1.2 )
 	display: block;
 	width: 100%;
-	max-width: 48rem;
-	margin: 0 2rem 2rem 0;
+	max-width: 40rem;
+	margin: 0 auto;
 	padding: 1rem 2rem;
 	text-align: center;
 	text-transform: uppercase;
 	border: .1rem solid $transparent;
 	transition: $mainTrans;
+	& + .button{
+		margin-top: 2rem;
+	}
 	&-wrap{
 		position: relative;
 		display: block;
 		width: 100%;
+		padding: 0 5%;
 		&-center{
 			text-align: center;
 		}

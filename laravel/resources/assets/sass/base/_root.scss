@@ -60,6 +60,22 @@ a{
 .pageWrap{
     padding: 0 2rem 2rem;
 }
+// ******** Global class flex ********
+.flex{
+    &-wrap{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: 100%;
+    }
+    &-elt{
+        display: block;
+        width: 100%;
+        min-width: 28.8rem;
+        max-width: 40rem;
+    }
+}
+
 
 // ******** Box sizing ********
 html {

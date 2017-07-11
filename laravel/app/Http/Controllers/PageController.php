@@ -6,12 +6,15 @@ use DB;
 use App\User;
 use Carbon\Carbon;
 use App\Models\Game;
+use App\Models\Event;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
     public function home()
     {
+        // ******** Get current date ********
+        $dateNow = Carbon::now();
         // ******** Get the title ********
         $DB_title = DB::table('home') -> select('value') -> where('key', 'title') -> get();
         $title = $DB_title[0]->value;
@@ -27,12 +30,13 @@ class PageController extends Controller
         $imgSrc = $img;
         $imgSrcset = $imgName.'_1280.'.$imgExt.' 1280w,'.$imgName.'_980.'.$imgExt.' 980w,'.$imgName.'_640.'.$imgExt.' 640w';
         // ******** Get next matchs ********
-        $date = Carbon::now();
         $nextGames = new Game;
-        $nextGames = $nextGames -> getNextGames($date, 6);
-        // var_dump($nextGames);
+        $nextGames = $nextGames -> getNextGames($dateNow, 6);
+        // ******** Get next events ********
+        $nextEvents = new Event;
+        $nextEvents = $nextEvents -> getNextEvents($dateNow, 6);
 
-        return view('home', compact('title', 'slogan', 'imgSrc', 'imgSrcset', 'nextGames'));
+        return view('home', compact('title', 'slogan', 'imgSrc', 'imgSrcset', 'nextGames', 'nextEvents'));
     }
     public function connected( User $user )
     {

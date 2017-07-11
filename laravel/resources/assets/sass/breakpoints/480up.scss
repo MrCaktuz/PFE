@@ -5,11 +5,9 @@
  *  Author :        Mucht - claessens.mathieu@gmail.com
 */
 
-// ******** Game cards ********
-.gameCard{
-	&-container{
-		justify-content: space-around;
-	}
+// ******** flex-wrap ********
+.flex-wrap{
+	justify-content: space-around;
 }
 // ******** Buttons ********
 .button{

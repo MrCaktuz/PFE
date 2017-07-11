@@ -24,6 +24,18 @@
 	width: 30%;
 }
 
+// ******** Event Card ********
+.eventCard{
+	&:hover{
+		.eventCard-header{
+			transform: translateY(-416%);
+		}
+		.eventCard-img{
+			transform: translateY(-100%);
+		}
+	}
+}
+
 // ******** idCard ********
 .idCard{
 	&__wrap{
