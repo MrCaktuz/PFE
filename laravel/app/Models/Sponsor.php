@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use DB;
 use Backpack\CRUD\CrudTrait;
+use Illuminate\Database\Eloquent\Model;
 
 class Sponsor extends Model
 {
@@ -30,6 +31,20 @@ class Sponsor extends Model
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
+    public function getAllSponsors()
+    {
+        $sponsors = DB::table('sponsors') -> get();
+        foreach( $sponsors as $sponsor ){
+            // ******** Get the image srcset ********
+            $img = $sponsor->image;
+            $imgSplited = preg_split( '/\./', $img );
+            $imgName = $imgSplited[0];
+            $imgExt = $imgSplited[1];
+            $sponsor->srcset = $imgName.'_200.'.$imgExt.' 200w';
+        }
+
+        return $sponsors;
+    }
 
     /*
     |--------------------------------------------------------------------------
@@ -72,16 +87,14 @@ class Sponsor extends Model
         if ( starts_with( $value, 'data:image' ) ) {
             // 0. Make the original image size & others
             $image = \Image::make( $value );
-            $image500 = \Image::make( $value )->widen( 500 );
-            $image250 = \Image::make( $value )->widen( 250 );
+            $image200 = \Image::make( $value )->widen( 200 );
 
             // 1. Generate a filename.
             $filename = md5( $value.time() );
 
             // 2. Store the image original on disk.
             \Storage::disk( $disk )->put( $destination_path . '/' . $filename . '.jpg', $image -> stream() );
-            \Storage::disk( $disk )->put( $destination_path . '/' . $filename . '_500x500.jpg', $image500 -> stream() );
-            \Storage::disk( $disk )->put( $destination_path . '/' . $filename . '_250x250.jpg', $image250 -> stream() );
+            \Storage::disk( $disk )->put( $destination_path . '/' . $filename . '_200.jpg', $image200 -> stream() );
 
             // 3. Save the path to the database
             $this -> attributes[ $attribute_name ] = $destination_path . '/' . $filename . '.jpg';

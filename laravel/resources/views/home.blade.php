@@ -10,7 +10,7 @@
         <h2 class="section-title"><span class="section-icon section-icon-games"></span>Matchs à venir</h2>
         <div class="section-content flex-wrap">
             @foreach($nextGames as $game)
-                <div class="gameCard flex-elt">
+                <div class="gameCard">
                     <div class="gameCard-header">
                         <p class="gameCard-title">{{$game->team_id}}</p>
                     </div>
@@ -48,7 +48,7 @@
         <h2 class="section-title"><span class="section-icon section-icon-news"></span>Actualité du club</h2>
         <div class="section-content flex-wrap">
             @foreach($nextEvents as $event)
-                <div class="eventCard flex-elt">
+                <div class="eventCard">
                     <img class="eventCard-img" src="{{$event->photo}}" srcset="{{$event->srcset}}" alt="Photo illustrant l'événement">
                     <a class="eventCard-header" href="/event/{{$event->id}}" title="Lien vers la page de l'événement">
                         <div class="eventCard-icon">
@@ -69,8 +69,12 @@
     </section>
     <section class="section">
         <h2 class="section-title"><span class="section-icon section-icon-sponsor"></span>Nos partenaires</h2>
-        <div class="section-content">
-            
+        <div class="section-content flex-wrap sponsor-wrap">
+            @foreach($sponsors as $sponsor)
+                <a class="sponsor" href="{{$sponsor->url}}" target="_blanc" title="Accéder au site du partenaire">
+                    <img class="sponsor-img" src="{{$sponsor->image}}" srcset="{{$sponsor->srcset}}" alt="{{$sponsor->name}}">
+                </a>
+            @endforeach
         </div>
     </section>
     <section class="section">

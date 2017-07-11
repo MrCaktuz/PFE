@@ -7,6 +7,7 @@ use App\User;
 use Carbon\Carbon;
 use App\Models\Game;
 use App\Models\Event;
+use App\Models\Sponsor;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -35,8 +36,11 @@ class PageController extends Controller
         // ******** Get next events ********
         $nextEvents = new Event;
         $nextEvents = $nextEvents -> getNextEvents($dateNow, 6);
+        // ******** Get all sponsors ********
+        $sponsors = new Sponsor;
+        $sponsors = $sponsors -> getAllSponsors();
 
-        return view('home', compact('title', 'slogan', 'imgSrc', 'imgSrcset', 'nextGames', 'nextEvents'));
+        return view('home', compact('title', 'slogan', 'imgSrc', 'imgSrcset', 'nextGames', 'nextEvents', 'sponsors'));
     }
     public function connected( User $user )
     {

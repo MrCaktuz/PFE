@@ -7,6 +7,10 @@
 
 .eventCard{
 	position: relative;
+	display: block;
+    width: 100%;
+    min-width: 28.8rem;
+    max-width: 40rem;
 	margin-bottom: 2rem;
 	padding-bottom: 6.4rem;
 	color: $white;

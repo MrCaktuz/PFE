@@ -65,14 +65,8 @@ a{
     &-wrap{
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-between;
+        justify-content: space-around;
         width: 100%;
-    }
-    &-elt{
-        display: block;
-        width: 100%;
-        min-width: 28.8rem;
-        max-width: 40rem;
     }
 }
 

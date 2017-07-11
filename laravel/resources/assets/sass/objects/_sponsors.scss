@@ -1,0 +1,27 @@
+/*
+ *	Description:    stylesheet for sponsors
+ *	File:    		_sponsors.scss
+ *	Version:        1.0 - 11/07/2017
+ *	Author :        Mucht - claessens.mathieu@gmail.com
+*/
+
+.sponsor{
+	display: block;
+	width: 21.25%;
+	min-width: 20rem;
+	min-width: 25rem;
+	margin-bottom: 2rem;
+	& + .sponsor{
+		margin-left: 2rem;
+	}
+	&-wrap{
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+		overflow-x: scroll;
+    	overflow-y: hidden;
+	}
+	&-img{
+		width: 100%;
+		height: auto;
+	}
+}
