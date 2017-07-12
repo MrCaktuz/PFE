@@ -1,0 +1,46 @@
+/*
+ *	Description:    stylesheet for album cards elements
+ *	File:    		_albumCard.scss
+ *	Version:        1.0 - 12/07/2017
+ *	Author :        Mucht - claessens.mathieu@gmail.com
+*/
+
+.albumCard{
+	&-wrap{
+		position: relative;
+		display: block;
+		width: 100%;
+	    max-width: 40rem;
+	    margin-bottom: 2rem;
+		background-color: $primary;
+	}
+	&-img{
+		position: relative;
+		display: block;
+		width: 100%;
+		height: auto;
+	}
+	&-title{
+		position: relative;
+		@include font-size(1.8);
+		padding: 1.5rem;
+		font-weight: $bold;
+		text-align: center;
+		line-height: 1.6;
+		color: $white;
+		background-color: $primary;
+	    transition: $mainTrans;
+	    z-index: 1;
+	}
+	&-link{
+		@include font-size(1.6);
+		position: absolute;
+		bottom: 1rem;
+		display: block;
+		width: 100%;
+		color: $white;
+		font-weight: $light;
+		text-transform: uppercase;
+		text-align: center;
+	}
+}

@@ -7,6 +7,7 @@ use App\User;
 use Carbon\Carbon;
 use App\Models\Game;
 use App\Models\Event;
+use App\Models\Album;
 use App\Models\Sponsor;
 use Illuminate\Http\Request;
 
@@ -39,8 +40,11 @@ class PageController extends Controller
         // ******** Get all sponsors ********
         $sponsors = new Sponsor;
         $sponsors = $sponsors -> getAllSponsors();
+        // ******** Get last albums ********
+        $album = new Album;
+        $albums = $album -> getLastAlbums(3);
 
-        return view('home', compact('title', 'slogan', 'imgSrc', 'imgSrcset', 'nextGames', 'nextEvents', 'sponsors'));
+        return view('home', compact('title', 'slogan', 'imgSrc', 'imgSrcset', 'nextGames', 'nextEvents', 'sponsors', 'albums'));
     }
     public function connected( User $user )
     {

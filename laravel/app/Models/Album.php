@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use DB;
 use Backpack\CRUD\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
 
@@ -44,6 +45,31 @@ class Album extends Model
         $albumID = $this->getAlbumID();
         $htmlCode = '<a class="btn btn-default btn-xs" href="/album/' . $albumID . '" target="_blanc"><i class="fa fa-eye"></i> Aperçu</a>';
         return $htmlCode;
+    }
+    public function getLastAlbums($count)
+    {
+        $lastAlbums = DB::table('albums') -> orderby('created_at', 'DSC') -> limit($count) -> get();
+        // ******** Convert string into array ********
+        foreach ($lastAlbums as $album) {
+            $photos = $album->photos;
+            $photos = str_replace( '[', '', $photos );
+            $photos = str_replace( ']', '', $photos );
+            $photos = str_replace( '"', '', $photos );
+            $photosSplited = preg_split( '/, /', $photos );
+            $aPhotosSrc = [];
+            $aPhotosSrcset = [];
+            for ($i=0; $i < count($photosSplited); $i++) { 
+                if (($i % 2) == 0) {
+                    array_push( $aPhotosSrc, $photosSplited[$i]);
+                } else{
+                    array_push( $aPhotosSrcset, $photosSplited[$i].' 350w');
+                }
+            }
+            $album->src = $aPhotosSrc;
+            $album->srcset = $aPhotosSrcset;
+        }
+
+        return $lastAlbums;
     }
 
     /*

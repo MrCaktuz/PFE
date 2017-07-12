@@ -36,6 +36,15 @@
 	}
 }
 
+// ******** Album Card ********
+.albumCard{
+	&-wrap:hover{
+		& .albumCard-title{
+			transform: translateY(-4.5rem);
+		}
+	}
+}
+
 // ******** idCard ********
 .idCard{
 	&__wrap{

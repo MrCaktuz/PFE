@@ -19,6 +19,14 @@
 	width: 47.5%;
 }
 
+// ******** Album Card ********
+.albumCard{
+	&-wrap{
+		width: 30%;
+		margin-bottom: 0;
+	}
+}
+
 // ******** Buttons ********
 .button{
 	display: inline-block;
