@@ -19,6 +19,16 @@
 	}
 }
 
+// ******** ID cards ********
+.idCard{
+	&-photo{
+		width: 30%;
+	}
+	&-content{
+		width: 60%;
+	}
+}
+
 // ******** Footer ********
 .footer{
 	text-align: center;

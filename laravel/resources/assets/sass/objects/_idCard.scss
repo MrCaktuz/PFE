@@ -8,51 +8,93 @@
 .idCard{
 	position: relative;
 	display: flex;
-	min-width: 25rem;
-	max-width: 48rem;
-	border: .1rem solid $blueDark;
-	margin: 0 auto 2rem;
-	&__photo{
-		width: 30%;
-		height: 30%;
-	}
-	&__content{
+	align-items: flex-start;
+    width: 100%;
+    min-width: 28.8rem;
+    max-width: 60rem;
+	margin-bottom: 2rem;
+	background-color: $blue;
+	border: .1rem solid $gameCardBorder;
+	transition: $mainTrans;
+	&-photo{
 		display: block;
-		width: 70%;
-		padding: 1rem;
-		word-wrap: break-word;
+		width: 32%;
+		height: auto;
 	}
-	&__title{
-		@include font-size( 1.6 );
-		font-weight: $bold;
-		margin-bottom: .8em;
+	&-content{
+		display: inline-block;
+		width: 68%;
+		padding: 1.5rem;
+		color: $black;
+		transition: $mainTrans;
 	}
-	&__subTitle{
-		@include font-size( 1.4 );
-		font-weight: $semiBold;
-		margin-bottom: .5em;
-	}
-	&__phone{
+	&-title{
+		@include font-size(2);
 		margin-bottom: .5rem;
+		font-weight: $bold;
 	}
-	&__mail, &__phone{
-		@include font-size( 1.4 );
+	&-subTitle{
+		@include font-size(1.4);
+		margin-bottom: 0;
+		font-weight: $semiBold;
+	}
+	&-roles{
+		margin-bottom: 1rem;
+	}
+	&-phone, &-mail, &-role{
+		@include font-size(1.2);
+		line-height: 1.6;
+		margin-bottom: 0;
+	}
+	&-phone, &-mail{
 		display: block;
-		font-weight: $regular;
-		color: $primaryDark;
+		&:before{
+			content: '';
+			display: inline-block;
+			width: 1rem;
+			height: 1rem;
+			margin-right: .5rem;
+			background-position: center;
+			background-size: contain;
+			background-repeat: no-repeat;
+		}
 	}
-	&__link{
+	&-role{
+		display: inline-block;
+		&:after{
+			content: ',';
+			padding-right: .3rem;
+		}
+		&:last-child:after{
+			content: '';
+		}
+	}
+	&-phone{
+		&:before{
+			background-image: url(/img/icons/phone-icon-black.png);
+		}
+	}
+	&-mail{
+		&:before{
+			position: relative;
+			top: .2rem;
+			background-image: url("/img/icons/mail-icon-black.png");
+		}
+	}
+	&-link{
 		@include font-size( 1.2 );
 		position: absolute;
 		left: 0;
 		bottom: 0;
 		display: block;
-		width: 30%;
+		width: 32%;
 		padding: 1rem 0;
 		font-weight: $regular;
 		text-align: center;
 		color: $secondaryDark;
 		background-color: $whiteTrans;
+		opacity: 0;
+		transition: $mainTrans;
 		&::before{
 			content: '';
 			position: relative;

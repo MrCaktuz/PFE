@@ -1,11 +1,11 @@
 @extends('partials.layout')
 @section('content')
 
-<header class="banner">
-    <img class="banner-img" src="{{$imgSrc}}" srcset="{{$imgSrcset}}" alt="Photo du club">
-    <h1 class="banner-title">{{$title}}<span class="banner-slogan">, {{$slogan}}</span></h1>
-</header>
 <div class="container">
+    <header class="banner">
+        <img class="banner-img" src="{{$imgSrc}}" srcset="{{$imgSrcset}}" alt="Photo du club">
+        <h1 class="banner-title">{{$title}}<span class="banner-slogan">, {{$slogan}}</span></h1>
+    </header>
     <section class="section">
         <h2 class="section-title"><span class="section-icon section-icon-games"></span>Matchs à venir</h2>
         <div class="section-content flex-wrap">
@@ -25,10 +25,10 @@
                         <div class="gameCard-teams">
                             <div class="gameCard-host">
                                 <p class="gameCard-hostName">{{$game->host}}</p>
-                                @if($game->host == 'RBC Ciney')
+                                {{-- @if($game->host == 'RBC Ciney')
                                     <p class="gameCard-hostAddress">{{$addressStreet}}, {{$addressNumber}}</p>
                                     <p class="gameCard-hostAddress">{{$addressPostalCode}} {{$addressCity}}</p>
-                                @endif
+                                @endif --}}
                                 <span class="gameCard-icon"></span>
                             </div>
                             <div class="gameCard-visitor">

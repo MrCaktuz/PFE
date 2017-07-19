@@ -46,6 +46,20 @@ class PageController extends Controller
 
         return view('home', compact('title', 'slogan', 'imgSrc', 'imgSrcset', 'nextGames', 'nextEvents', 'sponsors', 'albums'));
     }
+    public function comity()
+    {
+        // ******** Get the introductions ********
+        $DB_sloganCA = DB::table('comity') -> select('value') -> where('key', 'intro_ca') -> get();
+        $sloganCA = $DB_sloganCA[0]->value;
+        $DB_sloganACA = DB::table('comity') -> select('value') -> where('key', 'intro_aca') -> get();
+        $sloganACA = $DB_sloganACA[0]->value;
+        // ******** Get all CA members ********
+        $user = new User;
+        $membersCA = $user -> getCAmembers();
+        $membersACA = $user -> getACAmembers();
+
+        return view('comity', compact('sloganCA', 'sloganACA', 'membersCA', 'membersACA'));
+    }
     public function connected( User $user )
     {
     	return view( 'connected' );

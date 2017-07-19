@@ -10,6 +10,37 @@
 	height: 35rem;
 }
 
+// ******** Game card ********
+.gameCard{
+	width: 30%;
+	margin-right: 2rem;
+	&:nth-child(3n+0){
+		margin-right: 0;
+	}
+}
+
+// ******** Game card ********
+.eventCard{
+	width: 30%;
+	margin-right: 2rem;
+	&:nth-child(3n+0){
+		margin-right: 0;
+	}
+	&:hover .eventCard-header {
+	    transform: translateY(-355%);
+	}
+}
+
+// ******** ID Card ********
+.idCard{
+	&-photo{
+		width: 32%;
+	}
+	&-content{
+		width: 68%;
+	}
+}
+
 // ******** Buttons ********
 .button{
 	&:hover{

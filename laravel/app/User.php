@@ -2,6 +2,7 @@
 
 namespace App;
 
+use DB;
 use Request;
 use Backpack\CRUD\CrudTrait;
 use Illuminate\Notifications\Notifiable;
@@ -81,6 +82,27 @@ class User extends Authenticatable
         $lastEltPosition = count( $splitName ) - 1;
         $shortName = $splitName[ $lastEltPosition ];
         return $shortName;
+    }
+
+    public function getCAmembers()
+    {
+        $members = [];
+        // ******** Get Président ********
+        $president = DB::table( 'users' ) -> leftjoin( 'role_user','role_user.user_id','=','users.id' ) -> leftjoin( 'roles', 'role_user.role_id', '=', 'roles.id' ) -> where( 'roles.title', '=', 'Président' ) -> get();
+        array_push($members, $president);
+        
+        return $members;
+    }
+
+    public function getACAmembers()
+    {
+        $members = DB::table( 'users' ) -> leftjoin( 'role_user','role_user.user_id','=','users.id' ) -> leftjoin( 'roles', 'role_user.role_id', '=', 'roles.id' ) -> where( 'roles.title', '=', 'Assistant CA' ) -> get();
+        foreach($members as $member){
+            $roles = DB::table('roles') -> select('title') -> leftjoin('role_user', 'role_user.role_id', '=', 'roles.id') -> leftjoin('users', 'role_user.user_id', '=', 'users.id' ) -> where('users.id', '=', $member->user_id ) -> get();
+            $member->roles = $roles;
+        }
+
+        return $members;
     }
 
 	/*

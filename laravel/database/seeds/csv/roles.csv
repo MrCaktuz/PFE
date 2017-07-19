@@ -6,9 +6,11 @@ id;title
 5;Secrétaire
 6;Manager
 7;Trésorier
-8;Membre
+8;Membre CA
 9;Joueur
 10;Entraineur
 11;Pôle Communication
 12;Pôle Financier
 13;Pôle Sportif
+14;Assistant CA
+15;Membre

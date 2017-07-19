@@ -12,18 +12,28 @@
 // ******** Game card ********
 .gameCard{
 	width: 47.5%;
+	&:nth-child(2n+1){
+		margin-right: 2rem;
+	}
 }
 
 // ******** Event card ********
 .eventCard{
 	width: 47.5%;
+	&:nth-child(2n+1){
+		margin-right: 2rem;
+	}
 }
 
 // ******** Album Card ********
 .albumCard{
 	&-wrap{
 		width: 30%;
+		margin-right: 2rem;
 		margin-bottom: 0;
+	}
+	&:nth-child(3n+0){
+		margin-right: 0;
 	}
 }
 

@@ -21,11 +21,12 @@
 
 // ******** Game card ********
 .gameCard{
-	width: 30%;
+	width: 100%;
 }
 
 // ******** Event Card ********
 .eventCard{
+	width: 100%;
 	&:hover{
 		.eventCard-header{
 			transform: translateY(-416%);
@@ -47,7 +48,34 @@
 
 // ******** idCard ********
 .idCard{
-	&__wrap{
-		@include grid( 2, 3% );
+	width: 48%;
+	&:nth-child(2n+1){
+		margin-right: 2rem;
+	}
+	&:hover{
+		background-color: $primary;
+		border-color: $primaryDark;
+		.idCard-content{
+			color: $white;
+		}
+		.idCard-link{
+			opacity: 1;
+		}
+		.idCard-phone{
+			&:before{
+				background-image: url(/img/icons/phone-icon-white.png);
+			}
+		}
+		.idCard-mail{
+			&:before{
+				background-image: url("/img/icons/mail-icon-white.png");
+			}
+		}
+	}
+	&-photo{
+		width: 42%;
+	}
+	&-content{
+		width: 58%;
 	}
 }
