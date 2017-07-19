@@ -4,3 +4,10 @@
  *	Version:        1.0 - ***
  *	Author :        Mucht - claessens.mathieu@gmail.com
 */
+
+// ******** ID Card ********
+.idCard{
+	&-photo, &-link{
+		width: 32%;
+	}
+}

@@ -37,6 +37,11 @@
 	}
 }
 
+// ******** ID Card ********
+.idCard{
+	margin-left: 0;
+}
+
 // ******** Buttons ********
 .button{
 	display: inline-block;
@@ -47,9 +52,4 @@
 	& + .button{
 		margin-left: 2rem;
 	}
-}
-
-// ******** diCard ********
-.idCard{
-	margin-left: 0;
 }

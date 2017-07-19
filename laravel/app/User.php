@@ -124,6 +124,15 @@ class User extends Authenticatable
         return $members;
     }
 
+    public function getAllTrainers()
+    {
+        $trainers = DB::table( 'users' ) -> select('users.*') -> join( 'teams','teams.coach_id','=','users.id' ) -> groupBy('coach_id') -> get();
+        foreach($trainers as $trainer){
+            $trainer->teams = DB::table( 'teams' ) -> select('division') -> join( 'users','users.id','=','teams.coach_id' ) -> where( 'teams.coach_id', '=', $trainer->id ) -> get();
+        }
+        return $trainers;
+    }
+
 	/*
 	|--------------------------------------------------------------------------
 	| SCOPES

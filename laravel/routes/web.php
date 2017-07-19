@@ -14,6 +14,7 @@
 // ******** Front end routes ********
 Route::get( '/', 'PageController@home' );
 Route::get( '/conseil-administration', 'PageController@comity' );
+Route::get( '/entraineurs', 'PageController@trainer' );
 // Route::get( 'user/{user}', 'UserController@show' )->name('profil');
 // Route::get( '/contact', 'PageController@contact' )->name('contact');
 // Route::get( 'role/', 'RoleController@index' );

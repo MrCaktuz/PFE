@@ -23,19 +23,19 @@
 	                    	<a class="icon icon-admin" href="/conseil-administration" title="Voir notre conseil d'administration">Administration</a>
 	                    </li>
 	                    <li class="sub-nav-item">
-	                    	<a class="icon icon-trainer" href="/trainer" title="Voir nos entraineur">Entraineurs</a>
+	                    	<a class="icon icon-trainer" href="/entraineurs" title="Voir nos entraineur">Entraineurs</a>
 	                    </li>
 	                    <li class="sub-nav-item">
-	                    	<a class="icon icon-team" href="/team" title="Voir nos équipes">Équipes</a>
+	                    	<a class="icon icon-team" href="/equipes" title="Voir nos équipes">Équipes</a>
 	                    </li>
 	                    <li class="sub-nav-item">
-	                    	<a class="icon icon-rule" href="/rule" title="Voir notre règlement">Règlement</a>
+	                    	<a class="icon icon-rule" href="/regles" title="Voir notre règlement">Règlement</a>
 	                    </li>
 	                </ul>
 	            </div>
 			</li>
 			<li class="nav-item{{ Request::is('/calendar') ? ' active' : '' }}">
-				<a class="" href="/calendar" title="Voir notre calendrier">Calendrier</a>
+				<a class="" href="/calendrier" title="Voir notre calendrier">Calendrier</a>
 			</li>
 
 			<li class="nav-item{{ Request::is('/album') || Request::is('/download') ? ' active' : '' }}">
@@ -43,10 +43,10 @@
 				<div class="sub-nav">
 	                <ul class="sub-nav-group">
 	                    <li class="sub-nav-item">
-	                    	<a class="icon icon-album" href="/conseil" title="Voir nos albums photo">Albums&nbsp;photo</a>
+	                    	<a class="icon icon-album" href="/albums" title="Voir nos albums photo">Albums&nbsp;photo</a>
 	                    </li>
 	                    <li class="sub-nav-item">
-	                    	<a class="icon icon-download" href="/download" title="Voir nos fichiers à télécharger">Téléchargements</a>
+	                    	<a class="icon icon-download" href="/telechargements" title="Voir nos fichiers à télécharger">Téléchargements</a>
 	                    </li>
 	                </ul>
 	            </div>

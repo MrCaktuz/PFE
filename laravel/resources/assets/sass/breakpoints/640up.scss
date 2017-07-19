@@ -21,11 +21,8 @@
 
 // ******** ID cards ********
 .idCard{
-	&-photo{
+	&-photo, &-link{
 		width: 30%;
-	}
-	&-content{
-		width: 60%;
 	}
 }
 

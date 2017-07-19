@@ -20,6 +20,10 @@
 	}
 	&-mail, &-phone, &-role{
 		@include font-size( 1.4 );
+		&:before{
+			width: 1.5rem;
+			height: 1.5rem;
+		}
 	}
 }
 

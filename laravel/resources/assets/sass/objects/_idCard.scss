@@ -19,11 +19,12 @@
 	&-photo{
 		display: block;
 		width: 32%;
+		max-width: 20rem;
 		height: auto;
 	}
 	&-content{
 		display: inline-block;
-		width: 68%;
+		width: 100%;
 		padding: 1.5rem;
 		color: $black;
 		transition: $mainTrans;
@@ -88,6 +89,7 @@
 		bottom: 0;
 		display: block;
 		width: 32%;
+		max-width: 20rem;
 		padding: 1rem 0;
 		font-weight: $regular;
 		text-align: center;

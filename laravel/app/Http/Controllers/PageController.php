@@ -60,6 +60,17 @@ class PageController extends Controller
 
         return view('comity', compact('sloganCA', 'sloganACA', 'membersCA', 'membersACA'));
     }
+    public function trainer()
+    {
+        // ******** Get the introduction ********
+        $DB_intro = DB::table('trainer') -> select('value') -> where('key', 'intro') -> get();
+        $intro = $DB_intro[0]->value;
+        // ******** Get all trainers ********
+        $user = new User;
+        $trainers = $user -> getAllTrainers();
+
+        return view('trainer', compact('intro', 'trainers'));
+    }
     public function connected( User $user )
     {
     	return view( 'connected' );

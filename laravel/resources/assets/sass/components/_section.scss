@@ -43,14 +43,20 @@
 		&-ca{
 			background-image: url(/img/icons/admin-icon-blue.png);
 		}
+		&-trainer{
+			background-image: url(/img/icons/trainer-icon-blue.png);
+		}
 	}
 	.section-intro{
 		@include font-size(2);
 		display: block;
 		width: 100%;
 		max-width: 30em;
-		margin: 0 auto 2rem;
+		margin: 0 auto 4rem;
 		text-align: center;
+		p{
+			margin-bottom: 0.5rem;
+		}
 	}
 	.section-content{
 		padding: 4rem 5%;
