@@ -20,7 +20,7 @@
 				<div class="sub-nav">
 	                <ul class="sub-nav-group">
 	                    <li class="sub-nav-item">
-	                    	<a class="icon icon-admin" href="/conseil" title="Voir notre conseil d'administration">Administration</a>
+	                    	<a class="icon icon-admin" href="/conseil-administration" title="Voir notre conseil d'administration">Administration</a>
 	                    </li>
 	                    <li class="sub-nav-item">
 	                    	<a class="icon icon-trainer" href="/trainer" title="Voir nos entraineur">Entraineurs</a>
