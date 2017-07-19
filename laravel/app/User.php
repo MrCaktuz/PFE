@@ -89,14 +89,33 @@ class User extends Authenticatable
         $members = [];
         // ******** Get Président ********
         $president = DB::table( 'users' ) -> leftjoin( 'role_user','role_user.user_id','=','users.id' ) -> leftjoin( 'roles', 'role_user.role_id', '=', 'roles.id' ) -> where( 'roles.title', '=', 'Président' ) -> get();
-        array_push($members, $president);
-        
+        array_push($members, $president[0]);
+        // ******** Get Secretary ********
+        $secretary = DB::table( 'users' ) -> leftjoin( 'role_user','role_user.user_id','=','users.id' ) -> leftjoin( 'roles', 'role_user.role_id', '=', 'roles.id' ) -> where( 'roles.title', '=', 'Secrétaire' ) -> get();
+        array_push($members, $secretary[0]);
+        // ******** Get Manager ********
+        $manager = DB::table( 'users' ) -> leftjoin( 'role_user','role_user.user_id','=','users.id' ) -> leftjoin( 'roles', 'role_user.role_id', '=', 'roles.id' ) -> where( 'roles.title', '=', 'Manager' ) -> get();
+        array_push($members, $manager[0]);
+        // ******** Get Treasurer ********
+        $treasurer = DB::table( 'users' ) -> leftjoin( 'role_user','role_user.user_id','=','users.id' ) -> leftjoin( 'roles', 'role_user.role_id', '=', 'roles.id' ) -> where( 'roles.title', '=', 'Trésorier' ) -> get();
+        array_push($members, $treasurer[0]);
+        // ******** Get CA members ********
+        $caMembers = DB::table( 'users' ) -> leftjoin( 'role_user','role_user.user_id','=','users.id' ) -> leftjoin( 'roles', 'role_user.role_id', '=', 'roles.id' ) -> where( 'roles.title', '=', 'Membre CA' ) -> get();
+        foreach ($caMembers as $caMember) {
+            array_push($members, $caMember);
+        }
+        // ******** Get associated roles for each member ********
+        foreach($members as $member){
+            $roles = DB::table('roles') -> select('title') -> leftjoin('role_user', 'role_user.role_id', '=', 'roles.id') -> leftjoin('users', 'role_user.user_id', '=', 'users.id' ) -> where('users.id', '=', $member->user_id ) -> orderby('title') -> get();
+            $member->roles = $roles;
+        }
+
         return $members;
     }
 
     public function getACAmembers()
     {
-        $members = DB::table( 'users' ) -> leftjoin( 'role_user','role_user.user_id','=','users.id' ) -> leftjoin( 'roles', 'role_user.role_id', '=', 'roles.id' ) -> where( 'roles.title', '=', 'Assistant CA' ) -> get();
+        $members = DB::table( 'users' ) -> leftjoin( 'role_user','role_user.user_id','=','users.id' ) -> leftjoin( 'roles', 'role_user.role_id', '=', 'roles.id' ) -> where( 'roles.title', '=', 'Assistant CA' ) -> orderby('title') -> get();
         foreach($members as $member){
             $roles = DB::table('roles') -> select('title') -> leftjoin('role_user', 'role_user.role_id', '=', 'roles.id') -> leftjoin('users', 'role_user.user_id', '=', 'users.id' ) -> where('users.id', '=', $member->user_id ) -> get();
             $member->roles = $roles;
