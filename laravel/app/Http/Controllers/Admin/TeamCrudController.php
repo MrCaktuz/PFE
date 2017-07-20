@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Admin;
 use DB;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 // VALIDATION: change the requests to match your own file names if you need form validation
-use App\Http\Requests\TeamRequest as StoreRequest;
-use App\Http\Requests\TeamRequest as UpdateRequest;
+use App\Http\Requests\TeamCreateRequest as StoreRequest;
+use App\Http\Requests\TeamUpdateRequest as UpdateRequest;
 
 class TeamCrudController extends CrudController
 {

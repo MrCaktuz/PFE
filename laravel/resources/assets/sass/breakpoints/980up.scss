@@ -39,10 +39,17 @@
 
 // ******** Album Card ********
 .albumCard{
-	&-wrap:hover{
-		& .albumCard-title{
-			transform: translateY(-4.5rem);
+	&-wrap{
+		width: 30%;
+		margin-right: 2rem;
+		&:hover{
+			& .albumCard-title{
+				transform: translateY(-4.5rem);
+			}
 		}
+	}
+	&:nth-child(3n+0){
+		margin-right: 0;
 	}
 }
 

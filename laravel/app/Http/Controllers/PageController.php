@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use DB;
 use App\User;
 use Carbon\Carbon;
+use App\Models\Team;
 use App\Models\Game;
 use App\Models\Event;
 use App\Models\Album;
@@ -70,6 +71,16 @@ class PageController extends Controller
         $trainers = $user -> getAllTrainers();
 
         return view('trainer', compact('intro', 'trainers'));
+    }
+    public function teams()
+    {
+        $team = new Team;
+        // ******** Get current season ********
+        $currentSeason = $team->getCurrentSeason();
+        // ******** Get all teams form current season ********
+        $teams = $team->getTeamsFromCurrentSeason($currentSeason);
+
+        return view('team/index', compact('teams', 'currentSeason'));
     }
     public function connected( User $user )
     {

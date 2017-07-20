@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use DB;
 use Backpack\CRUD\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
@@ -31,6 +32,32 @@ class Team extends Model
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
+    public function getCurrentSeason()
+    {
+        $db_currentSeason = DB::table('teams') -> select('season') -> groupBy('season') -> get();
+        $seasons = [];
+        foreach ($db_currentSeason as $season) {
+            array_push($seasons, $season->season);
+        }
+        $currentSeason = max($seasons);
+
+        return $currentSeason;
+    }
+    public function getTeamsFromCurrentSeason($currentSeason)
+    {
+        $teams = DB::table('teams') -> where('season', '=', $currentSeason) -> get();
+        foreach ($teams as $team) {
+            if ($team->photo) {
+                $team->src = $team->photo . '.jpg';
+                $team->srcset = $team->photo.'_480.jpg 480w, '.$team->photo . '_768.jpg 768w, '.$team->photo . '_980.jpg 980w, '.$team->photo . '_1280.jpg 1280w';
+            } else {
+                $team->src = 'img/default-team/team.jpg';
+                $team->srcset = 'img/default-team/team_480.jpg 480w, img/default-team/team_768.jpg 768w, img/default-team/team_980.jpg 980w, img/default-team/team_1280.jpg 1280w';
+            }
+        }
+
+        return $teams;
+    }
 
     /*
     |--------------------------------------------------------------------------

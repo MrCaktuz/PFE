@@ -15,6 +15,7 @@
 Route::get( '/', 'PageController@home' );
 Route::get( '/conseil-administration', 'PageController@comity' );
 Route::get( '/entraineurs', 'PageController@trainer' );
+Route::get( '/equipes', 'PageController@teams' );
 // Route::get( 'user/{user}', 'UserController@show' )->name('profil');
 // Route::get( '/contact', 'PageController@contact' )->name('contact');
 // Route::get( 'role/', 'RoleController@index' );

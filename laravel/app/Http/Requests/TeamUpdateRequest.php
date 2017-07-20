@@ -1,0 +1,70 @@
+<?php
+
+namespace App\Http\Requests;
+
+use Auth;
+use Input;
+use App\Http\Requests\Request;
+
+class TeamUpdateRequest extends \Backpack\CRUD\app\Http\Requests\CrudRequest
+{
+    /**
+     * Determine if the user is authorized to make this request.
+     *
+     * @return bool
+     */
+    public function authorize()
+    {
+        // only allow access if the user logged in is web master or developer
+        if( Auth::user()->hasRole( 'Web Developer' ) ) {
+            $authorised = true;
+        } elseif ( Auth::user()->hasRole( 'Web Master' ) ) {
+            $authorised = true;
+        } elseif ( Auth::user()->hasRole( 'Web Communication' ) ) {
+            $authorised = false;
+        } else {
+            $authorised = false;
+        }
+        return $authorised;
+    }
+
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array
+     */
+    public function rules()
+    {
+        $request = Input::all();
+        return [
+            'division' => 'Required|max:50',
+            'season' => 'Required',
+            'coach_id' => 'Required',
+            'users' => 'Required'
+        ];
+    }
+
+    /**
+     * Get the validation attributes that apply to the request.
+     *
+     * @return array
+     */
+    public function attributes()
+    {
+        return [
+            //
+        ];
+    }
+
+    /**
+     * Get the validation messages that apply to the request.
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            //
+        ];
+    }
+}
