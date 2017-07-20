@@ -1,7 +1,6 @@
 @extends('partials.layout')
 @section('content')
 
-<h1 class="sr-only">Conseil d'administration et assistants</h1>
 <div class="container">
     <section class="section">
         <h1 class="section-title"><span class="section-icon section-icon-team"></span>Découvrez nos équipes</h1>

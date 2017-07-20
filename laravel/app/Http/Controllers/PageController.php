@@ -47,32 +47,8 @@ class PageController extends Controller
 
         return view('home', compact('title', 'slogan', 'imgSrc', 'imgSrcset', 'nextGames', 'nextEvents', 'sponsors', 'albums'));
     }
-    public function comity()
-    {
-        // ******** Get the introductions ********
-        $DB_sloganCA = DB::table('comity') -> select('value') -> where('key', 'intro_ca') -> get();
-        $sloganCA = $DB_sloganCA[0]->value;
-        $DB_sloganACA = DB::table('comity') -> select('value') -> where('key', 'intro_aca') -> get();
-        $sloganACA = $DB_sloganACA[0]->value;
-        // ******** Get all CA members ********
-        $user = new User;
-        $membersCA = $user -> getCAmembers();
-        $membersACA = $user -> getACAmembers();
 
-        return view('comity', compact('sloganCA', 'sloganACA', 'membersCA', 'membersACA'));
-    }
-    public function trainer()
-    {
-        // ******** Get the introduction ********
-        $DB_intro = DB::table('trainer') -> select('value') -> where('key', 'intro') -> get();
-        $intro = $DB_intro[0]->value;
-        // ******** Get all trainers ********
-        $user = new User;
-        $trainers = $user -> getAllTrainers();
-
-        return view('trainer', compact('intro', 'trainers'));
-    }
-    public function teams()
+    public function rules()
     {
         $team = new Team;
         // ******** Get current season ********
@@ -80,16 +56,19 @@ class PageController extends Controller
         // ******** Get all teams form current season ********
         $teams = $team->getTeamsFromCurrentSeason($currentSeason);
 
-        return view('team/index', compact('teams', 'currentSeason'));
+        return view('rules', compact('teams', 'currentSeason'));
     }
+
     public function connected( User $user )
     {
     	return view( 'connected' );
     }
+
     public function reseted( User $user )
     {
         return view( 'reseted' );
     }
+
     public function mailsent( User $user )
     {
         return view( 'mailsent' );
