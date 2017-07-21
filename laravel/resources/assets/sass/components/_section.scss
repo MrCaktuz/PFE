@@ -55,6 +55,9 @@
 		&-team{
 			background-image: url(/img/icons/team-icon-blue.png);
 		}
+		&-rule{
+			background-image: url(/img/icons/rules-icon-blue.png);
+		}
 	}
 	.section-intro{
 		@include font-size(2);

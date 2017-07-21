@@ -50,13 +50,9 @@ class PageController extends Controller
 
     public function rules()
     {
-        $team = new Team;
-        // ******** Get current season ********
-        $currentSeason = $team->getCurrentSeason();
-        // ******** Get all teams form current season ********
-        $teams = $team->getTeamsFromCurrentSeason($currentSeason);
-
-        return view('rules', compact('teams', 'currentSeason'));
+        // ******** Get the title ********
+        $rules = DB::table('rules') -> get();
+        return view('rules', compact('rules'));
     }
 
     public function connected( User $user )

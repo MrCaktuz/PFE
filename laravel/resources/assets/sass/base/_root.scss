@@ -68,6 +68,9 @@ a{
         justify-content: center;
         width: 100%;
     }
+    &-reverse{
+        flex-direction: row-reverse;
+    }
 }
 
 // ******** Global class icon ********

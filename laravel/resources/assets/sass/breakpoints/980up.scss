@@ -86,3 +86,10 @@
 		width: 35%;
 	}
 }
+
+// ******** inner nav ********
+.inner-nav{
+	&-link:hover{
+		background-color: $white;
+	}
+}

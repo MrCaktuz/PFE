@@ -1,0 +1,47 @@
+/*
+ *	Description:    Stylesheet for rules page
+ *	File:    		_rules.scss
+ *	Version:        1.0 - 21/07/2017
+ *	Author :        Mucht - claessens.mathieu@gmail.com
+*/
+
+.rules{
+	@include font-size(1.6);
+	width: 100%;
+	max-width: 35em;
+	line-height: 1.6;
+	.rule{
+		padding-top: 4rem;
+		&-title{
+			@include font-size(2.5);
+			margin-bottom: 2rem;
+			color: $primaryDark;
+			font-weight: $bold;
+		}
+		&-body{
+			h3{
+				@include font-size(2.5);
+				margin: 1.5rem 0 1rem 0;
+				color: $secondaryDark;
+				font-weight: $regular;
+			}
+			ul{
+				margin: 0 0 1em 1.5em;
+			}
+			li{
+				list-style: disc;
+			}
+			strong{
+				font-weight: $bold;
+			}
+			i{
+				font-style: italic;
+			}
+			blockquote{
+				margin-bottom: 1em;
+				padding-left: 1em;
+				border-left: .5rem solid $blueDark;
+			}
+		}
+	}
+}
