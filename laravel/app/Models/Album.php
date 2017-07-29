@@ -72,6 +72,39 @@ class Album extends Model
         return $lastAlbums;
     }
 
+    public function getAllbumsFromCurrentSeason($currentSeason)
+    {
+        // ******** Split date of current season ********
+        $currentSeasonSplited = preg_split( '/ - /', $currentSeason );
+        $seasonStart = $currentSeasonSplited[0];
+        $seasonEnd = $currentSeasonSplited[1];
+        // ******** Get limiting dates ********
+        $beginingDate = $seasonStart.'-08-01';
+        $endingDate = $seasonEnd.'-05-31';
+        // ******** Get albums from current season ********
+        $albums = DB::table('albums') -> whereBetween('created_at', array($beginingDate, $endingDate)) -> get();
+        // ******** Convert string into array ********
+        foreach ($albums as $album) {
+            $photos = $album->photos;
+            $photos = str_replace( '[', '', $photos );
+            $photos = str_replace( ']', '', $photos );
+            $photos = str_replace( '"', '', $photos );
+            $photosSplited = preg_split( '/, /', $photos );
+            $aPhotosSrc = [];
+            $aPhotosSrcset = [];
+            for ($i=0; $i < count($photosSplited); $i++) { 
+                if (($i % 2) == 0) {
+                    array_push( $aPhotosSrc, $photosSplited[$i]);
+                } else{
+                    array_push( $aPhotosSrcset, $photosSplited[$i].' 350w');
+                }
+            }
+            $album->src = $aPhotosSrc;
+            $album->srcset = $aPhotosSrcset;
+        }
+        return $albums;
+    }
+
     /*
     |--------------------------------------------------------------------------
     | RELATIONS
