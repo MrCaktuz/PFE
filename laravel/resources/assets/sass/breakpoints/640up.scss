@@ -26,6 +26,16 @@
 	}
 }
 
+// ******** Album ********
+.album{
+	&-photo{
+		width: 45%;
+		&:nth-child(2n+1){
+			margin-right: 2rem;
+		}
+	}
+}
+
 // ******** Footer ********
 .footer{
 	text-align: center;

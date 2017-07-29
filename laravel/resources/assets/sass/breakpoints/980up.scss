@@ -37,19 +37,28 @@
 	}
 }
 
-// ******** Album Card ********
-.albumCard{
-	&-wrap{
+// ******** Albums ********
+.album{
+	&-photo{
 		width: 30%;
 		margin-right: 2rem;
-		&:hover{
-			& .albumCard-title{
-				transform: translateY(-4.5rem);
-			}
+		&:nth-child(3n+0){
+			margin-right: 0;
 		}
 	}
-	&:nth-child(3n+0){
-		margin-right: 0;
+	&Card{
+		&-wrap{
+			width: 30%;
+			margin-right: 2rem;
+			&:hover{
+				& .albumCard-title{
+					transform: translateY(-4.5rem);
+				}
+			}
+		}
+		&:nth-child(3n+0){
+			margin-right: 0;
+		}
 	}
 }
 

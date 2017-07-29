@@ -8,8 +8,8 @@
         <div class="section-content flex-wrap">
         @foreach($albums as $album)
             <div class="albumCard-wrap">
-                <a class="albumCard" href="/album/{{$album->id}}" title="Accéder ">
-                    <img class="albumCard-img" src="{{$album->src[0]}}" srcset="{{$album->srcset[0]}}" alt="{{$album->name}}">
+                <a class="albumCard" href="/albums/{{$album->id}}" title="Accéder ">
+                    <img class="albumCard-img" src="{{URL::to('/').'/'.$album->src[0]}}" srcset="{{URL::to('/').'/'.$album->srcset[0]}}" alt="{{$album->name}}">
                     <h3 class="albumCard-title">{{$album->name}}</h3>
                 </a>
                 <div class="albumCard-link">

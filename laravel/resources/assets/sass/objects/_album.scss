@@ -1,0 +1,19 @@
+/*
+ *	Description:    stylesheet for albums
+ *	File:    		_album.scss
+ *	Version:        1.0 - 29/07/2017
+ *	Author :        Mucht - claessens.mathieu@gmail.com
+*/
+
+.album{
+	&-wrap{
+		text-align: center;
+	}
+	&-photo{
+		display: inline-block;
+		width: 100%;
+		height: auto;
+		margin-bottom: 2rem;
+		vertical-align: top;
+	}
+}

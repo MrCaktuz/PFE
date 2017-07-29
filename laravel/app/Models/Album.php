@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use DB;
+use App\Models\Album;
 use Backpack\CRUD\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
 
@@ -46,44 +47,8 @@ class Album extends Model
         $htmlCode = '<a class="btn btn-default btn-xs" href="/album/' . $albumID . '" target="_blanc"><i class="fa fa-eye"></i> Aperçu</a>';
         return $htmlCode;
     }
-    public function getLastAlbums($count)
+    public function convertPhotosValueToArray($albums)
     {
-        $lastAlbums = DB::table('albums') -> orderby('created_at', 'DSC') -> limit($count) -> get();
-        // ******** Convert string into array ********
-        foreach ($lastAlbums as $album) {
-            $photos = $album->photos;
-            $photos = str_replace( '[', '', $photos );
-            $photos = str_replace( ']', '', $photos );
-            $photos = str_replace( '"', '', $photos );
-            $photosSplited = preg_split( '/, /', $photos );
-            $aPhotosSrc = [];
-            $aPhotosSrcset = [];
-            for ($i=0; $i < count($photosSplited); $i++) { 
-                if (($i % 2) == 0) {
-                    array_push( $aPhotosSrc, $photosSplited[$i]);
-                } else{
-                    array_push( $aPhotosSrcset, $photosSplited[$i].' 350w');
-                }
-            }
-            $album->src = $aPhotosSrc;
-            $album->srcset = $aPhotosSrcset;
-        }
-
-        return $lastAlbums;
-    }
-
-    public function getAllbumsFromCurrentSeason($currentSeason)
-    {
-        // ******** Split date of current season ********
-        $currentSeasonSplited = preg_split( '/ - /', $currentSeason );
-        $seasonStart = $currentSeasonSplited[0];
-        $seasonEnd = $currentSeasonSplited[1];
-        // ******** Get limiting dates ********
-        $beginingDate = $seasonStart.'-08-01';
-        $endingDate = $seasonEnd.'-05-31';
-        // ******** Get albums from current season ********
-        $albums = DB::table('albums') -> whereBetween('created_at', array($beginingDate, $endingDate)) -> get();
-        // ******** Convert string into array ********
         foreach ($albums as $album) {
             $photos = $album->photos;
             $photos = str_replace( '[', '', $photos );
@@ -102,6 +67,34 @@ class Album extends Model
             $album->src = $aPhotosSrc;
             $album->srcset = $aPhotosSrcset;
         }
+
+        return $albums;
+    }
+    public function getLastAlbums($count)
+    {
+        $lastAlbums = DB::table('albums') -> orderby('created_at', 'DSC') -> limit($count) -> get();
+        // ******** Convert string into array ********
+        $album = new Album;
+        $lastAlbums = $album->convertPhotosValueToArray($lastAlbums);
+
+        return $lastAlbums;
+    }
+
+    public function getAllbumsFromCurrentSeason($currentSeason)
+    {
+        // ******** Split date of current season ********
+        $currentSeasonSplited = preg_split( '/ - /', $currentSeason );
+        $seasonStart = $currentSeasonSplited[0];
+        $seasonEnd = $currentSeasonSplited[1];
+        // ******** Get limiting dates ********
+        $beginingDate = $seasonStart.'-08-01';
+        $endingDate = $seasonEnd.'-05-31';
+        // ******** Get albums from current season ********
+        $albums = DB::table('albums') -> whereBetween('created_at', array($beginingDate, $endingDate)) -> get();
+        // ******** Convert string into array ********
+        $album = new Album;
+        $albums = $album->convertPhotosValueToArray($albums);
+
         return $albums;
     }
 
