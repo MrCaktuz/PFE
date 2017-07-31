@@ -81,7 +81,7 @@ class TeamController extends Controller
         $players = $team->getPlayers($team->id);        
         // ******** Get team related albums ********
         $album = new Album;
-        $albums = $album->getLastAlbums(3, $team->id);
+        $albums = $album->getLastAlbums(NULL, $team->id);
     
         return view('team/show', compact('team', 'games', 'results', 'coach', 'assistant', 'practices', 'players', 'albums'));
     }

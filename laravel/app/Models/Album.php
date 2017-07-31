@@ -73,10 +73,18 @@ class Album extends Model
     }
     public function getLastAlbums($count, $teamID)
     {
-        if ($teamID != NULL) {
-            $lastAlbums = DB::table('albums') -> orderby('created_at', 'DSC') -> limit($count) -> get();
+        if ($teamID == NULL) {
+            if ($count != NULL) {
+                $lastAlbums = DB::table('albums') -> orderby('created_at', 'DSC') -> limit($count) -> get();
+            } else {
+                $lastAlbums = DB::table('albums') -> orderby('created_at', 'DSC') -> get();
+            }
         } else {
-            $lastAlbums = DB::table('albums') -> leftjoin('album_team', 'album_team.album_id', '=', 'albums.id') -> where('album_team.team_id', '=', $teamID) -> orderby('created_at', 'DSC') -> limit($count) -> get();
+            if ($count != NULL) {
+                $lastAlbums = DB::table('albums') -> leftjoin('album_team', 'album_team.album_id', '=', 'albums.id') -> where('album_team.team_id', '=', $teamID) -> orderby('created_at', 'DSC') -> limit($count) -> get();
+            } else {
+                $lastAlbums = DB::table('albums') -> leftjoin('album_team', 'album_team.album_id', '=', 'albums.id') -> where('album_team.team_id', '=', $teamID) -> orderby('created_at', 'DSC') -> get();
+            }
         }
         // ******** Convert string into array ********
         $album = new Album;
