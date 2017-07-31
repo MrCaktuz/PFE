@@ -20,11 +20,11 @@ Route::get( '/equipes/{team}', 'TeamController@show' );
 Route::get( '/regles', 'PageController@rules' );
 Route::get( '/albums', 'AlbumController@index' );
 Route::get( '/albums/{album}', 'AlbumController@show' );
-// Route::get( 'user/{user}', 'UserController@show' )->name('profil');
+Route::get( 'user/{user}', 'UserController@show' )->name('profil');
 // Route::get( '/contact', 'PageController@contact' )->name('contact');
 // Route::get( 'role/', 'RoleController@index' );
 // Route::get( 'role/{role}', 'RoleController@show' );
 
 // ******** Auth ********
 Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'PageController@home')->name('home');

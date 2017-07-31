@@ -43,7 +43,7 @@ class PageController extends Controller
         $sponsors = $sponsors -> getAllSponsors();
         // ******** Get last albums ********
         $album = new Album;
-        $albums = $album -> getLastAlbums(3);
+        $albums = $album -> getLastAlbums(3,'');
 
         return view('home', compact('title', 'slogan', 'imgSrc', 'imgSrcset', 'nextGames', 'nextEvents', 'sponsors', 'albums'));
     }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use DB;
 use App\User;
+use App\Models\Tool;
 use App\Models\Role;
 use Illuminate\Http\Request;
 
@@ -17,6 +18,18 @@ class UserController extends Controller
 
     public function show( User $user )
     {
+        $tools = new Tool;
+        // ******** Get formated birthday ********
+        $user->birthday = $tools->getFormatedDate($user->birthday);
+        // ******** Get photo src ********
+        $user->src = $user->getPhotoSrc($user->photo);
+        // ******** Get photo srcset ********
+        $user->srcset = $user->getPhotoSrcset($user->photo);
+        // ******** Get family ********
+        $user->family = $user->getFamily($user->family_id);
+        // ******** Get teams coached ********
+        $user->teams = $user->getTeamCoached($user->id);
+
         return view('user.show', compact('user'));
     }
 

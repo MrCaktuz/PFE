@@ -36,6 +36,22 @@
 	}
 }
 
+// ******** Profil ********
+.profil{
+	display: flex;
+	flex-wrap: wrap;
+	max-width: 64rem;
+	&-head{
+	}
+	&-photo{
+		width: 50%;
+		margin-right: 2rem;
+	}
+	&-body{
+		width: 50%;
+	}
+}
+
 // ******** Footer ********
 .footer{
 	text-align: center;

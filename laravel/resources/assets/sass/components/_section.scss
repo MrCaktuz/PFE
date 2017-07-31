@@ -67,6 +67,9 @@
 		&-result{
 			background-image: url(/img/icons/result-icon-blue.png);
 		}
+		&-profil{
+			background-image: url(/img/icons/profil-icon-blue.png);
+		}
 	}
 	&-intro{
 		@include font-size(2);

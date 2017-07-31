@@ -12,7 +12,7 @@
             <div class="flex-wrap">
                 @foreach($membersCA as $member)
                     <a class="idCard" href="/users/{{$member->user_id}}" title="Voir le profil de {{$member->name}}">
-                        <img src="{{$member->photo}}" alt="photo de profil" class="idCard-photo">
+                        <img src="{{$member->photo}}" srcset="" alt="photo de profil" class="idCard-photo">
                         <div class="idCard-content">
                             <p class="idCard-title">{{$member->name}}</p>
                             <p class="idCard-subTitle"><?php echo (count($member->roles) <= 1) ? 'Role :' : 'Roles :'; ?></p>

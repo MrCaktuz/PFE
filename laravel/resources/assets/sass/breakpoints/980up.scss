@@ -130,6 +130,34 @@
 	}
 }
 
+// ******** Profil ********
+.profil{
+	max-width: 98rem;
+	&-photo{
+		width: 30%;
+	}
+	&-body{
+		display: flex;
+		width: 65%;
+		flex-wrap: wrap;
+	}
+	&-sub-section{
+		width: 45%;
+		&:nth-child(2n+1){
+			margin-right: 2rem;
+		}
+	}
+}
+
+// ******** Buttons ********
+.button{
+	&:hover{
+		color: $white;
+		background-color: $primary;
+		border-color: $primaryDark;
+	}
+}
+
 // ******** inner nav ********
 .inner-nav{
 	&-link:hover{

@@ -3,7 +3,9 @@
 namespace App;
 
 use DB;
+use URL;
 use Request;
+use App\Models\Team;
 use Backpack\CRUD\CrudTrait;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Builder;
@@ -133,6 +135,46 @@ class User extends Authenticatable
         return $trainers;
     }
 
+    public function getPhotoSrc( $src )
+    {
+        $shortName = $this->shortName($this);
+        if ($src == null) {
+            $src = 'http://api.adorable.io/avatars/250/'.$shortName.'.png';
+        }
+
+        return $src;
+    }
+
+    public function getPhotoSrcset($src)
+    {
+        $shortName = $this->shortName($this);
+        if ($src) {
+            $srcNoExt = str_replace(".jpg", "", $src);
+            $srcset = $srcNoExt.'_25x25.jpg 25w, '.$srcNoExt.'_50x50.jpg 50w, '.$srcNoExt.'_125x125.jpg 125w, '.$srcNoExt.'_250x250.jpg 250w';
+        } else {
+            $srcset = 'http://api.adorable.io/avatars/25/'.$shortName.'.png 25w, http://api.adorable.io/avatars/50/'.$shortName.'.png 50w, http://api.adorable.io/avatars/125/'.$shortName.'.png 125w, http://api.adorable.io/avatars/250/'.$shortName.'.png 250w';
+        }
+
+        return $srcset;
+    }
+
+    public function getFamily($id)
+    {
+        $family = DB::table('families') -> where('id', '=', $id) -> get();
+        $familyName = $family[0]->name;
+
+        return $familyName;
+    }
+
+    public function getTeamCoached($id)
+    {
+        $team = new Team;
+        $currentSeason = $team->getCurrentSeason();
+        $teams = DB::table('teams') -> select('division') -> where('coach_id', '=', $id) -> where('season', '=', $currentSeason) -> get();
+
+        return $teams;
+    }
+
 	/*
 	|--------------------------------------------------------------------------
 	| SCOPES
@@ -177,7 +219,8 @@ class User extends Authenticatable
 	| MUTATORS
 	|--------------------------------------------------------------------------
 	*/
-	public function setPhotoAttribute( $value ) {
+	public function setPhotoAttribute( $value )
+    {
         $attribute_name = "photo";
         $disk = "public_folder";
         $destination_path = "uploads/users";
@@ -211,7 +254,7 @@ class User extends Authenticatable
             \Storage::disk( $disk )->put( $destination_path . '/' . $filename . '_25x25.jpg', $image25x25 -> stream() );
 
             // 3. Save the path to the database
-            $this -> attributes[ $attribute_name ] = $destination_path . '/' . $filename . '.jpg';
+            $this -> attributes[ $attribute_name ] = URL::to('/').'/'.$destination_path . '/' . $filename . '.jpg';
 
         }
     }
