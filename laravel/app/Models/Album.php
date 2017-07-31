@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use DB;
+use URL;
 use App\Models\Album;
 use Backpack\CRUD\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
@@ -59,9 +60,9 @@ class Album extends Model
             $aPhotosSrcset = [];
             for ($i=0; $i < count($photosSplited); $i++) { 
                 if (($i % 2) == 0) {
-                    array_push( $aPhotosSrc, $photosSplited[$i]);
+                    array_push( $aPhotosSrc, URL::to('/').'/'.$photosSplited[$i]);
                 } else{
-                    array_push( $aPhotosSrcset, $photosSplited[$i].' 350w');
+                    array_push( $aPhotosSrcset, URL::to('/').'/'.$photosSplited[$i].' 350w');
                 }
             }
             $album->src = $aPhotosSrc;
@@ -70,9 +71,13 @@ class Album extends Model
 
         return $albums;
     }
-    public function getLastAlbums($count)
+    public function getLastAlbums($count, $teamID)
     {
-        $lastAlbums = DB::table('albums') -> orderby('created_at', 'DSC') -> limit($count) -> get();
+        if ($teamID != NULL) {
+            $lastAlbums = DB::table('albums') -> orderby('created_at', 'DSC') -> limit($count) -> get();
+        } else {
+            $lastAlbums = DB::table('albums') -> leftjoin('album_team', 'album_team.album_id', '=', 'albums.id') -> where('album_team.team_id', '=', $teamID) -> orderby('created_at', 'DSC') -> limit($count) -> get();
+        }
         // ******** Convert string into array ********
         $album = new Album;
         $lastAlbums = $album->convertPhotosValueToArray($lastAlbums);

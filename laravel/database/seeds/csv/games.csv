@@ -1,10 +1,10 @@
 id;team_id;game_id;date;day_id;time;host;visitor;location;score;appointment
-1;40;152011;2017-09-02;1;10:00;RBC Ciney;BC Fraire-Philippeville;Salle du RBC Ciney;0 - 0;
-2;40;152012;2017-09-09;2;10:30;BC Fraire-Philippeville;RBC Ciney;Salle du BC Fraire-philippeville;0 - 0;
-3;40;152013;2017-09-16;3;10:00;RBC Ciney;BC Fraire-Philippeville;Salle du RBC Ciney;0 - 0;
-4;40;152014;2017-09-23;4;10:30;BC Fraire-Philippeville;RBC Ciney;Salle du BC Fraire-philippeville;0 - 0;
-5;40;152015;2017-09-30;5;10:00;RBC Ciney;BC Fraire-Philippeville;Salle du RBC Ciney;0 - 0;
-6;39;152016;2017-10-07;6;10:30;BC Fraire-Philippeville;RBC Ciney;Salle du BC Fraire-philippeville;0 - 0;
-7;39;152017;2017-10-14;7;10:00;RBC Ciney;BC Fraire-Philippeville;Salle du RBC Ciney;0 - 0;
-8;39;152018;2017-10-21;8;10:30;BC Fraire-Philippeville;RBC Ciney;Salle du BC Fraire-philippeville;0 - 0;
-9;39;152019;2017-10-28;9;10:00;RBC Ciney;BC Fraire-Philippeville;Salle du RBC Ciney;0 - 0;
+1;29;152011;2017-07-02;1;10:00;RBC Ciney;BC Fraire-Philippeville;Salle du RBC Ciney;64 - 43;09:15
+2;29;152012;2017-09-09;2;10:30;BC Fraire-Philippeville;RBC Ciney;Salle du BC Fraire-philippeville;0 - 0;09:45
+3;29;152013;2017-09-16;3;10:00;RBC Ciney;BC Fraire-Philippeville;Salle du RBC Ciney;0 - 0;09:15
+4;29;152014;2017-07-23;4;10:30;BC Fraire-Philippeville;RBC Ciney;Salle du BC Fraire-philippeville;70 - 69;09:45
+5;29;152015;2017-09-30;5;10:00;RBC Ciney;BC Fraire-Philippeville;Salle du RBC Ciney;0 - 0;09:15
+6;29;152016;2017-10-07;6;10:30;BC Fraire-Philippeville;RBC Ciney;Salle du BC Fraire-philippeville;0 - 0;09:45
+7;29;152017;2017-10-14;7;10:00;RBC Ciney;BC Fraire-Philippeville;Salle du RBC Ciney;0 - 0;09:15
+8;29;152018;2017-06-21;8;10:30;BC Fraire-Philippeville;RBC Ciney;Salle du BC Fraire-philippeville;123 - 142;09:45
+9;29;152019;2017-10-28;9;10:00;RBC Ciney;BC Fraire-Philippeville;Salle du RBC Ciney;0 - 0;09:15

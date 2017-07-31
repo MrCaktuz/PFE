@@ -12,39 +12,38 @@
 @import "tools/utils";
 
 // 3. Generic - Style de remise à zéro (reset, normalize…)
-@import "generic/meyerReset";
 @import "generic/boxSizing";
-@import "generic/screenReader";
 @import "generic/flexbox";
+@import "generic/meyerReset";
+@import "generic/screenReader";
 
 // 4. Base - Éléments bruts
 @import "base/root";
 
 // 5. Objects - Éléments de design
-@import "objects/logo";
-@import "objects/burgerButton";
-@import "objects/banner";
-@import "objects/form";
-@import "objects/boxes";
-@import "objects/feedback";
-@import "objects/buttons";
-@import "objects/idCard";
-@import "objects/gameCard";
-@import "objects/eventCard";
-@import "objects/sponsors";
-@import "objects/albumCard";
 @import "objects/album";
-@import "objects/rules";
+@import "objects/albumCard";
+@import "objects/banner";
+@import "objects/boxes";
+@import "objects/burgerButton";
+@import "objects/buttons";
+@import "objects/eventCard";
+@import "objects/feedback";
+@import "objects/form";
+@import "objects/gameCard";
+@import "objects/idCard";
 @import "objects/innerNav";
-// @import "objects/scoreCard";
+@import "objects/logo";
+@import "objects/resultCard";
+@import "objects/rules";
+@import "objects/sponsors";
+@import "objects/table";
+@import "objects/team";
 
 // 6. Components - Design des composants
+@import "components/footer";
 @import "components/mainNav";
 @import "components/section";
-// @import "components/innerNav";
-// @import "components/header";
-// @import "components/sections";
-@import "components/footer";
 
 // 7. Responsive design (Taille en px / 16 = em)
 @media screen and (min-width: 30em){

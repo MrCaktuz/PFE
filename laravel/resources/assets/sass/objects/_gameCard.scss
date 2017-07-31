@@ -31,7 +31,8 @@
 	&-title{
 		@include font-size(1.8);
 		padding: 1rem;
-		color: $primaryDark;
+		color: $black;
+		font-weight: $semiBold;
 		background-color: $gameCardHeader;
 	}
 	&-body{

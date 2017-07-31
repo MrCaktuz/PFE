@@ -5,9 +5,23 @@
  *	Author :        Mucht - claessens.mathieu@gmail.com
 */
 
+// ******** Banner ********
+.banner{
+	height: 40rem;
+}
+
 // ******** ID Card ********
 .idCard{
 	&-photo, &-link{
 		width: 32%;
 	}
 }
+
+// ******** Section ********
+.section{
+	&-content{
+	    max-width: 144rem;
+	    margin: 0 auto;
+	}
+}
+

@@ -7,10 +7,10 @@
 
 .section{
 	margin-bottom: 4rem;
-	&:first-child .section-title{
+	&:first-child &-title{
 		border-top: 0;
 	}
-	.section-title{
+	&-title{
 		@include font-size(3);
 		padding: 3rem;
 		line-height: 1.6;
@@ -20,13 +20,19 @@
 		background-color: $grey;
 		border-top: .2rem solid $sectionBorder;
 	}
-	.section-sub-title{
+	&-sub-title{
 		@include font-size(3);
 		padding-top: 2rem;
 		color: $primaryDark;
 		text-align: center;
 	}
-	.section-icon{
+	&-no-content{
+		@include font-size(2);
+		padding: 1rem 1.5rem;
+		color: $black;
+		border: .1rem solid $blueDark;
+	}
+	&-icon{
 		display: inline-block;
 		width: 4rem;
 		height: 2rem;
@@ -58,8 +64,11 @@
 		&-rule{
 			background-image: url(/img/icons/rules-icon-blue.png);
 		}
+		&-result{
+			background-image: url(/img/icons/result-icon-blue.png);
+		}
 	}
-	.section-intro{
+	&-intro{
 		@include font-size(2);
 		display: block;
 		width: 100%;
@@ -70,7 +79,12 @@
 			margin-bottom: 0.5rem;
 		}
 	}
-	.section-content{
+	&-content{
 		padding: 4rem 5%;
+	}
+	&-col{
+		width: 100%;
+		max-width: 60rem;
+		margin-bottom: 4rem;
 	}
 }

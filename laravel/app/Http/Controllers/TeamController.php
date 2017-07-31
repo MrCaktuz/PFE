@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
+use App\Models\Game;
 use App\Models\Team;
+use App\Models\Album;
 use Illuminate\Http\Request;
 
 class TeamController extends Controller
@@ -50,9 +53,31 @@ class TeamController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+     public function show(Team $team, Game $game)
     {
-        //
+        // ******** Get current date ********
+        $currentDate = Carbon::now();
+        // ******** Get formated photo src & srcset ********
+        $team->getPhotoSrcAndSrcset($team);
+        // ******** Get team's next games ********
+        $games = $game->getNextGames($currentDate, $team->id, 6);
+        // ******** Get results ********
+        $results = $game->getResults($currentDate, $team->id);
+        // ******** Get effectif ********
+        $coach = $team->getCoach($team->coach_id);
+        $coach = $coach[0];
+        $assistant = $team->getAssistant($team->assistant_id);
+        if (count($assistant) != 0) {
+            $assistant = $assistant[0];
+        } else {
+            $assistant = null;
+        }
+        $players = $team->getPlayers($team->id);
+        // ******** Get team related albums ********
+        $album = new Album;
+        $albums = $album->getLastAlbums(3, $team->id);
+    
+        return view('team/show', compact('team', 'games', 'results', 'coach', 'assistant', 'players', 'albums'));
     }
 
     /**

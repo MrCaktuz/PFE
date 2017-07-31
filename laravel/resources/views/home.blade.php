@@ -2,9 +2,9 @@
 @section('content')
 
 <div class="container">
-    <header class="banner">
-        <img class="banner-img" src="{{$imgSrc}}" srcset="{{$imgSrcset}}" alt="Photo du club">
-        <h1 class="banner-title">{{$title}}<span class="banner-slogan">, {{$slogan}}</span></h1>
+    <header class="home-banner">
+        <img class="home-banner-img" src="{{$imgSrc}}" srcset="{{$imgSrcset}}" alt="Photo du club">
+        <h1 class="home-banner-title">{{$title}}<span class="home-banner-slogan">, {{$slogan}}</span></h1>
     </header>
     <section class="section">
         <h2 class="section-title"><span class="section-icon section-icon-games"></span>Matchs à venir</h2>
@@ -25,10 +25,10 @@
                         <div class="gameCard-teams">
                             <div class="gameCard-host">
                                 <p class="gameCard-hostName">{{$game->host}}</p>
-                                {{-- @if($game->host == 'RBC Ciney')
+                                @if($game->host == 'RBC Ciney')
                                     <p class="gameCard-hostAddress">{{$addressStreet}}, {{$addressNumber}}</p>
                                     <p class="gameCard-hostAddress">{{$addressPostalCode}} {{$addressCity}}</p>
-                                @endif --}}
+                                @endif
                                 <span class="gameCard-icon"></span>
                             </div>
                             <div class="gameCard-visitor">
@@ -82,7 +82,7 @@
         <div class="section-content flex-wrap">
         @foreach($albums as $album)
             <div class="albumCard-wrap">
-                <a class="albumCard" href="/album/{{$album->id}}" title="Accéder ">
+                <a class="albumCard" href="/albums/{{$album->id}}" title="Accéder ">
                     <img class="albumCard-img" src="{{$album->src[0]}}" srcset="{{$album->srcset[0]}}" alt="{{$album->name}}">
                     <h3 class="albumCard-title">{{$album->name}}</h3>
                 </a>

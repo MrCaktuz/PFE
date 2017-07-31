@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use DB;
+use URL;
+use App\Models\Team;
 use Backpack\CRUD\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
@@ -45,18 +47,45 @@ class Team extends Model
     }
     public function getTeamsFromCurrentSeason($currentSeason)
     {
+        $teamModel = new Team;
         $teams = DB::table('teams') -> where('season', '=', $currentSeason) -> get();
         foreach ($teams as $team) {
-            if ($team->photo) {
-                $team->src = $team->photo . '.jpg';
-                $team->srcset = $team->photo.'_480.jpg 480w, '.$team->photo . '_768.jpg 768w, '.$team->photo . '_980.jpg 980w, '.$team->photo . '_1280.jpg 1280w';
-            } else {
-                $team->src = 'img/default-team/team.jpg';
-                $team->srcset = 'img/default-team/team_480.jpg 480w, img/default-team/team_768.jpg 768w, img/default-team/team_980.jpg 980w, img/default-team/team_1280.jpg 1280w';
-            }
+            $teamModel->getPhotoSrcAndSrcset($team);
         }
 
         return $teams;
+    }
+
+    public function getPhotoSrcAndSrcset($team)
+    {
+        if ($team->photo) {
+            $team->src = URL::to('/').'/'.$team->photo . '.jpg';
+            $team->srcset = URL::to('/').'/'.$team->photo.'_480.jpg 480w, '.URL::to('/').'/'.$team->photo . '_768.jpg 768w, '.URL::to('/').'/'.$team->photo . '_980.jpg 980w, '.URL::to('/').'/'.$team->photo . '_1280.jpg 1280w';
+        } else {
+            $team->src = URL::to('/').'/img/default-team/team.jpg';
+            $team->srcset = URL::to('/').'/img/default-team/team_480.jpg 480w, '.URL::to('/').'/img/default-team/team_768.jpg 768w, '.URL::to('/').'/img/default-team/team_980.jpg 980w, '.URL::to('/').'/img/default-team/team_1280.jpg 1280w';
+        }
+        $team->default = URL::to('/').'/img/default-team/team.jpg';
+
+        return $team;
+    }
+
+    public function getPlayers($teamID)
+    {
+        $players = DB::table('users') -> leftjoin('team_user', 'team_user.user_id', '=', 'users.id') -> leftjoin('teams', 'team_user.team_id', '=', 'teams.id') -> where('teams.id', '=', $teamID) -> get();
+        return $players;
+    }
+
+    public function getCoach($coachID)
+    {
+        $coach = DB::table('users') -> where('id', '=', $coachID) -> get();
+        return $coach;
+    }
+
+    public function getAssistant($assistantID)
+    {
+        $assistant = DB::table('users') -> where('id', '=', $assistantID) -> get();
+        return $assistant;
     }
 
     /*

@@ -16,6 +16,7 @@ Route::get( '/', 'PageController@home' );
 Route::get( '/conseil-administration', 'UserController@comity' );
 Route::get( '/entraineurs', 'UserController@trainer' );
 Route::get( '/equipes', 'TeamController@index' );
+Route::get( '/equipes/{team}', 'TeamController@show' );
 Route::get( '/regles', 'PageController@rules' );
 Route::get( '/albums', 'AlbumController@index' );
 Route::get( '/albums/{album}', 'AlbumController@show' );

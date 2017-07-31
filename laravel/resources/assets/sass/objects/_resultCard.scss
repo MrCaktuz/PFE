@@ -1,0 +1,68 @@
+/*
+ *	Description:    stylesheet for result card elements
+ *	File:    		_resultCard.scss
+ *	Version:        1.0 - 30/07/2017
+ *	Author :        Mucht - claessens.mathieu@gmail.com
+*/
+
+.resultCard{
+	position: relative;
+	display: block;
+    width: 100%;
+    min-width: 28.8rem;
+    max-width: 40rem;
+	margin-bottom: 2rem;
+	border: .1rem solid $gameCardBorder;
+	&::before{
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 50%;
+		display: block;
+		width: 0;
+		height: 100%;
+		border-left: .1rem solid $gameCardBorder;
+	}
+	&-header{
+		position: relative;
+		text-align: center;
+		z-index: 1;
+	}
+	&-title{
+		@include font-size(1.8);
+		padding: 1rem;
+		color: $black;
+		font-weight: $semiBold;
+		background-color: $gameCardHeader;
+		border-bottom: .1rem solid $gameCardBorder;
+	}
+	&-sub-title{
+		@include font-size(1.6);
+		padding: 1rem;
+		color: $greyDark;
+		background-color: $white;
+		border-bottom: .1rem solid $gameCardBorder;
+	}
+	&-body{
+		display: flex;
+		align-items: center;
+	}
+	&-host, &-visitor{
+		display: block;
+		width: 50%;
+		padding: 1.5rem;
+		text-align: center;
+	}
+	&-division{
+		@include font-size(1.6);
+		margin-bottom: 1rem;
+		color: $greyDark;
+	}
+	&-score{
+		@include font-size(2.5);
+		color: $greyDark;
+		&-won{
+			color: $secondaryDark;
+		}
+	}
+}

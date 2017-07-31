@@ -1,0 +1,101 @@
+/*
+ *	Description:    Stylesheet for tables
+ *	File:    		_table.scss
+ *	Version:        1.0 - 30/07/2017
+ *	Author :        Mucht - claessens.mathieu@gmail.com
+*/
+
+.table{
+	@include font-size(0);
+	display: block;
+	width: 100%;
+	min-width: 28.8rem;
+	max-width: 60rem;
+	&-title{
+		@include font-size(2);
+		display: block;
+		width: 100%;
+		padding: 1rem 1.5rem;
+		text-align: center;
+		font-weight: $semiBold;
+		color: $black;
+		background-color: $blue;
+		border-bottom: .1rem solid $blueDark;
+	}
+	&-body{
+		display: block;
+		width: 100%;
+	}
+	&-row{
+		position: relative;
+		display: block;
+		width: 100%;
+		transition: $mainTrans;
+		&:nth-child(2n){
+			background-color: $blue;
+		}
+	}
+	&-head-data{
+		font-weight: $semiBold;
+	}
+	&-data{
+		@include font-size(1.8);
+		display: inline-block;
+		width: 32%;
+		padding: 1.5rem;
+		text-align: center;
+		transition: $delayTrans;
+	}
+	
+	&-players{
+		.table{
+			&-data{
+				width: 30%;
+				padding: 1.5rem;
+				overflow: hidden;
+				text-align: right;
+			}
+			&-head-data{
+				width: 70%;
+				padding: 0;
+				text-align: left;
+				transition: $mainTrans;
+			}
+			&-link{
+				display: block;
+				padding: 1.5rem;
+				color: $black;
+			}
+			&-more-infos{
+				@include font-size(1.8);
+				position: absolute;
+				top: 0;
+				right: 0;
+				display: block;
+				width: 30%;
+				padding: 1.5rem;
+				color: $white;
+				text-align: right;
+				text-transform: uppercase;
+				font-weight: $light;
+				transition: $mainTrans;
+				opacity: 0;
+				&::after{
+					content: '';
+					position: relative;
+					top: .3rem;
+					left: 1rem;
+					display: inline-block;
+					width: 1.8rem;
+					height: 1.8rem;
+					background-image: url( "/img/icons/arrowDropDown-white.png" );
+					background-position: 0 0;
+					background-size: contain;
+					background-repeat: no-repeat;
+					transform-origine: center;
+					transform: rotate(-90deg);
+				}
+			}
+		}
+	}
+}

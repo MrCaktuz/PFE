@@ -8,7 +8,7 @@
         <div class="section-content flex-wrap">
             @foreach($teams as $team)
                 <div class="albumCard-wrap">
-                    <a class="albumCard" href="/album/{{$team->id}}" title="Accéder à la page dédié à l'équipe {{$team->division}} de la saison {{$team->season}}">
+                    <a class="albumCard" href="/equipes/{{$team->id}}" title="Accéder à la page dédié à l'équipe {{$team->division}} de la saison {{$team->season}}">
                         <img class="albumCard-img" src="{{$team->src}}" srcset="{{$team->srcset}}" alt="{{$team->division}}">
                         <h3 class="albumCard-title">{{$team->division}}</h3>
                     </a>

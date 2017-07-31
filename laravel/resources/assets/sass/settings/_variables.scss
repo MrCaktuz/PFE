@@ -41,6 +41,7 @@ $dropdownShadow: 0 0 .1rem 0 rgba( 155, 155, 155, .3 ) inset;
 
 // ******** Transitions ********
 $mainTrans: all .25s ease-in-out;
+$delayTrans: all .25s ease-in-out .25s;
 $transBurgerButton: all .3s ease-in-out;
 $transNavList: transform .4s ease .25s, opacity .4s ease 0s;
 $transNavListOpen: transform .4s ease, opacity .4s ease .25s;

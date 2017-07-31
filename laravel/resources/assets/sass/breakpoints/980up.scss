@@ -13,6 +13,10 @@
 		}
 	}
 }
+// ******** Section ********
+.section-col{
+	
+}
 
 // ******** Home banner ********
 .banner{
@@ -21,6 +25,11 @@
 
 // ******** Game card ********
 .gameCard{
+	width: 100%;
+}
+
+// ******** Game card ********
+.resultCard{
 	width: 100%;
 }
 
@@ -63,6 +72,9 @@
 }
 
 // ******** idCard ********
+.section-col .idCard{
+	width: 100%;
+}
 .idCard{
 	width: 48%;
 	&:nth-child(2n+1){
@@ -93,6 +105,28 @@
 	}
 	&-link{
 		width: 35%;
+	}
+}
+
+// ******** Tables ********
+.table{
+	&-players{
+		.table-row{
+			&:hover{
+				background-color: $primary;
+				.table-data{
+					color: $transparent;
+					transition: $mainTrans;
+				}
+				.table-link{
+					color: $white;
+				}
+				.table-more-infos{
+					opacity: 1;
+					transition: $delayTrans;
+				}
+			}
+		}
 	}
 }
 

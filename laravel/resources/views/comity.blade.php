@@ -11,7 +11,7 @@
             </div>
             <div class="flex-wrap">
                 @foreach($membersCA as $member)
-                    <a class="idCard" href="/user/{{$member->user_id}}" title="Voir le profil de {{$member->name}}">
+                    <a class="idCard" href="/users/{{$member->user_id}}" title="Voir le profil de {{$member->name}}">
                         <img src="{{$member->photo}}" alt="photo de profil" class="idCard-photo">
                         <div class="idCard-content">
                             <p class="idCard-title">{{$member->name}}</p>

@@ -34,7 +34,7 @@ class PageController extends Controller
         $imgSrcset = $imgName.'_1280.'.$imgExt.' 1280w,'.$imgName.'_980.'.$imgExt.' 980w,'.$imgName.'_640.'.$imgExt.' 640w';
         // ******** Get next matchs ********
         $nextGames = new Game;
-        $nextGames = $nextGames -> getNextGames($dateNow, 6);
+        $nextGames = $nextGames -> getNextGames($dateNow, '', 6);
         // ******** Get next events ********
         $nextEvents = new Event;
         $nextEvents = $nextEvents -> getNextEvents($dateNow, 6);

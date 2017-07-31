@@ -17,6 +17,24 @@
 	}
 }
 
+// ******** Game card ********
+.resultCard{
+	width: 47.5%;
+	&:nth-child(2n+1){
+		margin-right: 2rem;
+	}
+}
+
+// ******** Section ********
+.section{
+	&-col{
+		width: 48%;
+		& + .section-col{
+			margin-left: 2rem;
+		}
+	}	
+}
+
 // ******** Event card ********
 .eventCard{
 	width: 47.5%;
