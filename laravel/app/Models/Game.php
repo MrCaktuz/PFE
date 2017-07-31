@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use DB;
+use App\Models\Tool;
 use Carbon\Carbon;
 use Backpack\CRUD\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
@@ -25,8 +26,6 @@ class Game extends Model
     protected $fillable = [
         'team_id', 'division', 'game_id', 'date', 'time', 'appointment', 'host', 'visitor', 'score', 'duty', 'day_id', 'location',
     ];
-    // protected $hidden = [];
-    // protected $dates = [];
 
     /*
     |--------------------------------------------------------------------------
@@ -46,16 +45,17 @@ class Game extends Model
             $games->noGame = "Il n'y a plus de match.";
         } else{
             $games->noGame = false;
+            $tools = new Tool;
             foreach( $games as $game ){
                 // ******** Replace team_id by the team division ********
                 $game->team_id = $this->getTeamDivisionFromTeamID($game->team_id);
                 // ******** Format the date ********
-                $game->date = $this->getFormatedDate($game->date);
+                $game->date = $tools->getFormatedDate($game->date);
                 // ******** Formate the game time ********
-                $game->time = $this->getFormatedTime($game->time);
+                $game->time = $tools->getFormatedTime($game->time);
                 // ******** Format the appointment time ********
                 if ($game->appointment !== null) {
-                    $game->appointment = $this->getFormatedTime($game->appointment);
+                    $game->appointment = $tools->getFormatedTime($game->appointment);
                 }
             }
         }
@@ -75,14 +75,15 @@ class Game extends Model
             $results->noResult = "Il n'y a pas encore de résultat disponible.";
         } else{
             $results->noResult = false;
+            $tools = new Tool;
             foreach( $results as $result ){
                 // ******** Replace team_id by the team division ********
                 $result->team_id = $this->getTeamDivisionFromTeamID($result->team_id);
                 // ******** Format the date ********
-                $result->date = $this->getFormatedDate($result->date);
+                $result->date = $tools->getFormatedDate($result->date);
                 // ******** Format the appointment time ********
                 if ($result->appointment !== null) {
-                    $result->appointment = $this->getFormatedTime($result->appointment);
+                    $result->appointment = $tools->getFormatedTime($result->appointment);
                 }
                 // ******** Format score ********
                 $score = $result->score;
@@ -101,29 +102,6 @@ class Game extends Model
         $teamDivision = $DB_teamDivision[0]->division;
 
         return $teamDivision;
-    }
-    public function getFormatedDate($date)
-    {
-        $dateSplited = preg_split( '/-/', $date );
-        $months = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'];
-        $dateYear = $dateSplited[0];
-        $dateMonth = $months[intval($dateSplited[1])-1];
-        $dateDay = $dateSplited[2];
-        $dateFormated = $dateDay.' '.$dateMonth.' '.$dateYear;
-        $date = $dateFormated;
-
-        return $date;
-    }
-
-    public function getFormatedTime($time)
-    {
-        $grossTime = $time;
-        $timeSplited = preg_split('/:/', $grossTime);
-        $timeHour = $timeSplited[0];
-        $timeMinute = $timeSplited[1];
-        $timeFormated = $timeHour.'h'.$timeMinute;
-
-        return $timeFormated;
     }
 
     /*

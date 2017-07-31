@@ -116,6 +116,10 @@ class Team extends Model
     {
         return $this -> belongsToMany('App\Models\Album', 'album_team');
     }
+    public function practices()
+    {
+        return $this -> hasMany('App\Models\Practice', 'team_id', 'id');
+    }
 
     /*
     |--------------------------------------------------------------------------

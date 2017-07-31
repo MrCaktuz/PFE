@@ -123,16 +123,13 @@
                                 <th class="table-data table-head-data">Heure</th>
                                 <th class="table-data table-head-data">Salle</th>
                             </tr>
-                            <tr class="table-row">
-                                <td class="table-data">Mercredi</td>
-                                <td class="table-data">20h30</td>
-                                <td class="table-data">Petite salle</td>
-                            </tr>
-                            <tr class="table-row">
-                                <td class="table-data">Vendredi</td>
-                                <td class="table-data">21h00</td>
-                                <td class="table-data">Grande salle</td>
-                            </tr>
+                            @foreach($practices as $practice)
+                                <tr class="table-row">
+                                    <td class="table-data">{{$practice->day}}</td>
+                                    <td class="table-data">{{$practice->time}}</td>
+                                    <td class="table-data">{{$practice->location}}</td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

@@ -12,6 +12,7 @@
 	CRUD::resource('event', 'EventCrudController');
 	CRUD::resource('download', 'DownloadCrudController');
 	CRUD::resource('team', 'TeamCrudController');
+	CRUD::resource('practice', 'PracticeCrudController');
 	CRUD::resource('game', 'GameCrudController');
 	CRUD::resource('album', 'AlbumCrudController');
 	CRUD::resource('sponsor', 'SponsorCrudController');

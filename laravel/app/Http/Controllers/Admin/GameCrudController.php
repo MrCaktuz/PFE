@@ -36,7 +36,7 @@ class GameCrudController extends CrudController
                 'type'             => 'select',
                 'name'             => 'team_id', // the method that defines the relationship in your Model
                 'entity'           => 'team', // the method that defines the relationship in your Model
-                'attribute'        => 'division', // foreign key attribute that is shown to user
+                'attribute'        => 'divisionSeason', // foreign key attribute that is shown to user
                 'model'            => "App\Models\Team", // foreign key model
             ],
             'both'
