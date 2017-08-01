@@ -10,6 +10,7 @@
 	CRUD::resource('family', 'FamilyCrudController');
 	CRUD::resource('role', 'RoleCrudController');
 	CRUD::resource('event', 'EventCrudController');
+	CRUD::resource('activity', 'ActivityCrudController');
 	CRUD::resource('download', 'DownloadCrudController');
 	CRUD::resource('team', 'TeamCrudController');
 	CRUD::resource('practice', 'PracticeCrudController');

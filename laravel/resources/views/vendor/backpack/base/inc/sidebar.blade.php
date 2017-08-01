@@ -36,6 +36,7 @@
           @endif
           @if ( Auth::user()->hasRole('Web Developer') || Auth::user()->hasRole('Web Master') || Auth::user()->hasRole('Web Communication') )
             <li><a href="{{ url('admin/event') }}"><i class="fa fa-newspaper-o"></i> <span>Événements</span></a></li>
+            <li><a href="{{ url('admin/activity') }}"><i class="fa fa-th-large"></i> <span>Activités</span></a></li>
             <li><a href="{{ url('admin/album') }}"><i class="fa fa-image"></i> <span>Albums</span></a></li>
           @endif
           @if ( Auth::user()->hasRole('Web Developer') || Auth::user()->hasRole('Web Master') )
