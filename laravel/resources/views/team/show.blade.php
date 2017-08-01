@@ -135,17 +135,17 @@
                 </div>
             </div>
             <div class="section-col">
-                <table class="table table-players">
-                        <caption class="table-title">Joueurs</caption>
-                        <tbody class="table-body">
-                            @foreach($players as $player)
-                                <tr class="table-row">
-                                    <td class="table-data table-head-data"><a class="table-link" href="/users/{{$player->id}}" title="Voir le profil de {{$player->name}}">{{$player->name}}<span class="table-more-infos">Plus d'infos</span></a></td>
-                                    <td class="table-data">N° {{$player->jersey_nbr}}</td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                <table class="table table-linked">
+                    <caption class="table-title">Joueurs</caption>
+                    <tbody class="table-body">
+                        @foreach($players as $player)
+                            <tr class="table-row">
+                                <td class="table-data table-head-data"><a class="table-link" href="/users/{{$player->id}}" title="Voir le profil de {{$player->name}}">{{$player->name}}<span class="table-more table-more-infos">Plus d'infos</span></a></td>
+                                <td class="table-data">N° {{$player->jersey_nbr}}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
         </div>
     </section>

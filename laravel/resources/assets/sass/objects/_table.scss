@@ -46,8 +46,7 @@
 		text-align: center;
 		transition: $delayTrans;
 	}
-	
-	&-players{
+	&-linked{
 		.table{
 			&-data{
 				width: 30%;
@@ -59,42 +58,63 @@
 				width: 70%;
 				padding: 0;
 				text-align: left;
+				font-weight: $regular;
 				transition: $mainTrans;
 			}
 			&-link{
 				display: block;
 				padding: 1.5rem;
 				color: $black;
-			}
-			&-more-infos{
-				@include font-size(1.8);
-				position: absolute;
-				top: 0;
-				right: 0;
-				display: block;
-				width: 30%;
-				padding: 1.5rem;
-				color: $white;
-				text-align: right;
-				text-transform: uppercase;
-				font-weight: $light;
 				transition: $mainTrans;
-				opacity: 0;
-				&::after{
-					content: '';
-					position: relative;
-					top: .3rem;
-					left: 1rem;
-					display: inline-block;
-					width: 1.8rem;
-					height: 1.8rem;
-					background-image: url( "/img/icons/arrowDropDown-white.png" );
-					background-position: 0 0;
-					background-size: contain;
-					background-repeat: no-repeat;
-					transform-origine: center;
-					transform: rotate(-90deg);
-				}
+			}
+		}
+	}
+	&-download{
+		margin: 0 auto;
+	}
+	&-more{
+		@include font-size(1.8);
+		position: absolute;
+		top: 0;
+		right: 0;
+		display: block;
+		width: 30%;
+		padding: 1.5rem;
+		color: $white;
+		text-align: right;
+		text-transform: uppercase;
+		font-weight: $semiBold;
+		transition: $mainTrans;
+		opacity: 0;
+		&::after{
+			content: '';
+			position: relative;
+			top: .3rem;
+			left: 1rem;
+			display: inline-block;
+			width: 1.8rem;
+			height: 1.8rem;
+			background-position: 0 0;
+			background-size: contain;
+			background-repeat: no-repeat;
+		}
+		&-infos{
+			&::after{				
+				background-image: url( "/img/icons/arrowDropDown-white.png" );
+				transform-origine: center;
+				transform: rotate(-90deg);
+			}
+		}
+		&-download{
+			opacity: 1;
+			color: $black;
+			transition: $mainTrans;
+			&::after{
+				top: 0;
+				background-image: url( "/img/icons/download-icon-white.png" );
+				transform: scaleX(0);
+				transform-origin: left;
+				transition: $mainTrans;
 			}
 		}
 	}

@@ -13,10 +13,6 @@
 		}
 	}
 }
-// ******** Section ********
-.section-col{
-	
-}
 
 // ******** Home banner ********
 .banner{
@@ -110,7 +106,7 @@
 
 // ******** Tables ********
 .table{
-	&-players{
+	&-linked{
 		.table-row{
 			&:hover{
 				background-color: $primary;
@@ -121,9 +117,20 @@
 				.table-link{
 					color: $white;
 				}
-				.table-more-infos{
-					opacity: 1;
-					transition: $delayTrans;
+			}
+		}
+	}
+	&-row:hover{
+		.table-more{
+			opacity: 1;
+			transition: $delayTrans;
+			&-download{
+				color: $white;
+				transform: translateX(-1.5rem);
+				transition: $mainTrans;
+				&:after{
+					transform: scaleX(1);
+					transition: $mainTrans;
 				}
 			}
 		}
