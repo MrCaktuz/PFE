@@ -19,7 +19,7 @@
 	}
 }
 
-// ******** Game card ********
+// ******** result card ********
 .resultCard{
 	width: 30%;
 	margin-right: 2rem;
@@ -28,7 +28,7 @@
 	}
 }
 
-// ******** Game card ********
+// ******** Event card ********
 .eventCard{
 	width: 30%;
 	margin-right: 2rem;
@@ -54,6 +54,15 @@
 			width: 1.5rem;
 			height: 1.5rem;
 		}
+	}
+}
+
+// ******** Activity card ********
+.activityCard{
+	width: 30%;
+	margin-right: 2rem;
+	&:nth-child(3n+0){
+		margin-right: 0;
 	}
 }
 

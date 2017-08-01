@@ -63,12 +63,20 @@ class Game extends Model
         return $games;
     }
 
-    public function getResults($date, $id)
+    public function getResults($date, $id, $limit)
     {
         if ($id != NULL) {
-            $results = DB::table('games') -> where('date','<', $date) -> where('team_id', '=', $id) -> orderby('date', 'DSC') -> get();
+            if ($limit != NULL) {
+                $results = DB::table('games') -> where('date','<', $date) -> where('team_id', '=', $id) -> orderby('date', 'DSC') -> limit($limit) -> get();
+            } else {
+                $results = DB::table('games') -> where('date','<', $date) -> where('team_id', '=', $id) -> orderby('date', 'DSC') -> get();
+            }
         } else {
-            $results = DB::table('games') -> where('date','<', $date) -> orderby('date', 'DSC') -> get();
+            if ($limit != NULL) {
+                $results = DB::table('games') -> where('date','<', $date) -> orderby('date', 'DSC') -> limit($limit) -> get();
+            } else {
+                $results = DB::table('games') -> where('date','<', $date) -> orderby('date', 'DSC') -> get();
+            }
         }
         // ******** Check if there is content ********
         if (count($results) == null) {

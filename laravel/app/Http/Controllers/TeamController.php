@@ -63,7 +63,7 @@ class TeamController extends Controller
         // ******** Get team's next games ********
         $games = $game->getNextGames($currentDate, $team->id, 6);
         // ******** Get results ********
-        $results = $game->getResults($currentDate, $team->id);
+        $results = $game->getResults($currentDate, $team->id, '');
         // ******** Get Coach ********
         $coach = $team->getCoach($team->coach_id);
         $coach = $coach[0];

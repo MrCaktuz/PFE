@@ -10,6 +10,7 @@ use App\Models\Game;
 use App\Models\Event;
 use App\Models\Album;
 use App\Models\Sponsor;
+use App\Models\Activity;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -43,16 +44,32 @@ class PageController extends Controller
         $sponsors = $sponsors -> getAllSponsors();
         // ******** Get last albums ********
         $album = new Album;
-        $albums = $album -> getLastAlbums(3,'');
+        $albums = $album -> getLastAlbums(3, '');
 
         return view('home', compact('title', 'slogan', 'imgSrc', 'imgSrcset', 'nextGames', 'nextEvents', 'sponsors', 'albums'));
     }
 
     public function rules()
     {
+        return view('rules', compact('rules'));
+    }
+
+    public function calendar()
+    {
+        // ******** Get current date ********
+        $dateNow = Carbon::now();
         // ******** Get the title ********
         $rules = DB::table('rules') -> get();
-        return view('rules', compact('rules'));
+        // ******** Get next matchs ********
+        $game = new Game;
+        $games = $game -> getNextGames($dateNow, '', 6);
+        // ******** Get results ********
+        $results = $game->getResults($dateNow, '', 6);
+        // ******** Get activities ********
+        $activity = new Activity;
+        $activities = $activity->getActivities($dateNow);
+
+        return view('calendar', compact('games', 'results', 'activities'));
     }
 
     public function connected( User $user )

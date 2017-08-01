@@ -1,0 +1,61 @@
+/*
+ *	Description:    Stylesheet for the activites elements
+ *	File:    		_activityCard.scss
+ *	Version:        1.0 - 01/08/2017
+ *	Author :        Mucht - claessens.mathieu@gmail.com
+*/
+
+.activityCard{
+	position: relative;
+	display: flex;
+	align-items: center;
+	width: 100%;
+	min-width: 28.8rem;
+	max-width: 40rem;
+	margin-top: 2rem;
+	border: .1rem solid $blueDark;
+	&:before{
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 8.8rem;
+		display: block;
+		width: 0;
+		height: 100%;
+		border-left: .1rem solid $blueDark;
+	}
+	&-date{
+		position: relative;
+		padding: 0 1.5rem;
+		margin-bottom: 2rem;
+		color: $primary;
+		text-align: center;
+		font-weight: $bold;
+	}
+	&-day{
+		@include font-size(5.5);
+		display: block;
+	}
+	&-month{
+		@include font-size(2.5);
+		position: absolute;
+		bottom: -1rem;
+	    left: 50%;
+		display: block;
+	    transform: translateX(-50%);
+	}
+	&-content{
+		padding: 1.5rem;
+	}
+	&-title{
+		@include font-size(1.8);
+		margin-bottom: .5rem;
+		font-weight: $bold;
+	}
+	&-duty{
+		@include font-size(1.6);
+		color: $greyDark;
+		font-weight: $light;
+		margin: 0;
+	}
+}

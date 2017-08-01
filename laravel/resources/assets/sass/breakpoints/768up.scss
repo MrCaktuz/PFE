@@ -59,6 +59,17 @@
 	margin-left: 0;
 }
 
+// ******** Activity card ********
+.activityCard{
+	width: 45%;
+	&:nth-child(2n+1){
+		margin-right: 2rem;
+	}
+	&:last-child{
+		margin-right: 0;
+	}
+}
+
 // ******** Buttons ********
 .button{
 	display: inline-block;
