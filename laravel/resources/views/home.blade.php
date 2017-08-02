@@ -50,7 +50,7 @@
             @foreach($nextEvents as $event)
                 <div class="eventCard">
                     <img class="eventCard-img" src="{{$event->photo}}" srcset="{{$event->srcset}}" alt="Photo illustrant l'événement">
-                    <a class="eventCard-header" href="/event/{{$event->id}}" title="Lien vers la page de l'événement">
+                    <a class="eventCard-header" href="/evenements/{{$event->id}}" title="Lien vers la page de l'événement">
                         <div class="eventCard-icon">
                             <img src="/img/icons/news-icon-white.png" alt="icon" width="20" height="20">
                         </div>
@@ -61,7 +61,7 @@
                         <p>Pour avoir plus d'info sur cette événement, rendez-vous sur la page qui lui est dédiée via le lien ci-dessous</p>
                     </div>
                     <div class="eventCard-more button-wrap button-wrap-center">
-                        <a href="/event/{{$event->id}}" class="button button-primary" title="Lien vers la page de l'événement">Plus d'infos</a>
+                        <a href="/evenements/{{$event->id}}" class="button button-primary" title="Lien vers la page de l'événement">Plus d'infos</a>
                     </div>
                 </div>
             @endforeach

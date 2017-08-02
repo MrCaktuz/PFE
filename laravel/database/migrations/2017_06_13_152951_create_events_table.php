@@ -13,6 +13,8 @@ class CreateEventsTable extends Migration {
 			$table->text('description');
 			$table->string('photo')->nullable();
 			$table->string('date');
+			$table->string('reservation');
+			$table->string('location');
 			$table->timestamps();
 		});
 	}

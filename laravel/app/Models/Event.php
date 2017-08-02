@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use DB;
+use URL;
 use Backpack\CRUD\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
@@ -21,7 +22,7 @@ class Event extends Model
     protected $primaryKey = 'id';
     // public $timestamps = false;
     // protected $guarded = ['id'];
-    protected $fillable = [ 'title', 'date', 'description', 'photo' ];
+    protected $fillable = [ 'title', 'date', 'location', 'reservation', 'description', 'photo' ];
     // protected $hidden = [];
     // protected $dates = [];
 
@@ -52,6 +53,19 @@ class Event extends Model
             $event->srcset = $imgName.'_300.'.$imgExt.' 300w,'.$imgName.'_480.'.$imgExt.' 480w';
         }
         return $events;
+    }
+
+    public function getPhotoSrcAndSrcset($event)
+    {
+        if ($event->photo) {
+            $event->src = URL::to('/').'/'.$event->photo . '.jpg';
+            $event->srcset = URL::to('/').'/'.$event->photo.'_480.jpg 480w, '.URL::to('/').'/'.$event->photo . '_300.jpg 300w';
+        } else {
+            $event->src = URL::to('/').'/img/default-event/event.jpg';
+            $event->srcset = URL::to('/').'/img/default-event/event_480.jpg 480w, '.URL::to('/').'/img/default-event/event_300.jpg 300w';
+        }
+
+        return $event;
     }
 
     /*
@@ -120,7 +134,7 @@ class Event extends Model
             \Storage::disk( $disk )->put( $destination_path . '/' . $filename . '_480.jpg', $image480 -> stream() );
 
             // 3. Save the path to the database
-            $this -> attributes[ $attribute_name ] = $destination_path . '/' . $filename . '.jpg';
+            $this -> attributes[ $attribute_name ] = $destination_path . '/' . $filename;
 
         }
     }

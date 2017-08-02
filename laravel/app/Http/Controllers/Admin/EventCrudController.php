@@ -47,6 +47,20 @@ class EventCrudController extends CrudController
             'both'
         );
         $this->crud->addField(
+            [
+                'label' => 'Lieu de l\'évenement *',
+                'name' => 'location',
+            ],
+            'both'
+        );
+        $this->crud->addField(
+            [
+                'label' => 'Réservation *',
+                'name' => 'reservation',
+            ],
+            'both'
+        );
+        $this->crud->addField(
             [   // CKEditor
                 'label' => 'Description *',
                 'type' => 'ckeditor',
@@ -79,6 +93,14 @@ class EventCrudController extends CrudController
                 'label' => 'Date de l\'événement',
                 'name' => 'date',
                 'type' => 'date',
+            ],
+            [
+                'label' => 'Lieu de l\'événement',
+                'name' => 'location',
+            ],
+            [
+                'label' => 'Reservation',
+                'name' => 'reservation',
             ],
             [
                 'label' => "Description de l'événement",

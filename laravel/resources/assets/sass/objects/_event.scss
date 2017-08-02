@@ -1,9 +1,34 @@
 /*
- *	Description:    stylesheet for event card elements
- *	File:    		_eventCard.scss
+ *	Description:    stylesheet for event elements
+ *	File:    		_event.scss
  *	Version:        1.0 - 11/07/2017
  *	Author :        Mucht - claessens.mathieu@gmail.com
 */
+.event{
+	&-photo{
+		display: block;
+		width: 100%;
+		margin-bottom: 2rem;
+		img{
+			display: block;
+			width: 100%;
+			height: auto;
+		}
+	}
+	&-body{
+		@include font-size(1.8);
+		h3{
+			margin: 1rem 0 .5rem;
+			font-weight: $semiBold;
+			color: $secondaryDark;
+		}
+		li{
+			margin-bottom: .5rem;
+			list-style: disc;
+			list-style-position: inside;
+		}
+	}
+}
 
 .eventCard{
 	position: relative;

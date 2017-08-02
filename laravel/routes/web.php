@@ -24,6 +24,7 @@ Route::get( '/user/{user}', 'UserController@show' )->name('profil');
 Route::get( '/telechargements', 'DownloadController@index' )->name('telechargements');
 Route::get( '/telechargements/{download}', 'DownloadController@show' );
 Route::get( '/calendrier', 'PageController@calendar' );
+Route::get( '/evenements/{event}', 'EventController@show' );
 // Route::get( '/contact', 'PageController@contact' )->name('contact');
 // Route::get( 'role/', 'RoleController@index' );
 // Route::get( 'role/{role}', 'RoleController@show' );
