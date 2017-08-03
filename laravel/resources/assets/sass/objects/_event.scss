@@ -5,9 +5,11 @@
  *	Author :        Mucht - claessens.mathieu@gmail.com
 */
 .event{
+	@include font-size(1.8);
 	&-photo{
 		display: block;
 		width: 100%;
+		max-width: 30em;
 		margin-bottom: 2rem;
 		img{
 			display: block;
@@ -16,16 +18,28 @@
 		}
 	}
 	&-body{
-		@include font-size(1.8);
+		max-width: 30em;
 		h3{
 			margin: 1rem 0 .5rem;
 			font-weight: $semiBold;
 			color: $secondaryDark;
+			&:first-child{
+				margin-top: 0;
+			}
 		}
 		li{
 			margin-bottom: .5rem;
 			list-style: disc;
 			list-style-position: inside;
+		}
+	}
+	&-sub-section{
+		display: inline-block;
+		width: 45%;
+		margin-top: 1rem;
+		vertical-align: top;
+		&:nth-child(2n){
+			margin-right: 2rem;
 		}
 	}
 }

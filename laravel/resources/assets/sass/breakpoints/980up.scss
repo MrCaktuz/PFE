@@ -30,14 +30,23 @@
 }
 
 // ******** Event Card ********
-.eventCard{
-	width: 100%;
-	&:hover{
-		.eventCard-header{
-			transform: translateY(-416%);
-		}
-		.eventCard-img{
-			transform: translateY(-100%);
+.event{
+	&-photo{
+		width: 45%;
+		margin-right: 2rem;
+	}
+	&-body{
+		width: 50%;
+	}
+	&Card{
+		width: 100%;
+		&:hover{
+			.eventCard-header{
+				transform: translateY(-416%);
+			}
+			.eventCard-img{
+				transform: translateY(-100%);
+			}
 		}
 	}
 }
