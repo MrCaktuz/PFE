@@ -45,12 +45,8 @@ class Event extends Model
             $dateYear = $dateSplited[0];
             $dateFormated = $dateDay.' '.$dateMonth.' '.$dateYear;
             $event->date = $dateFormated;
-            // ******** Get the image srcset ********
-            $img = $event->photo;
-            $imgSplited = preg_split( '/\./', $img );
-            $imgName = $imgSplited[0];
-            $imgExt = $imgSplited[1];
-            $event->srcset = $imgName.'_300.'.$imgExt.' 300w,'.$imgName.'_480.'.$imgExt.' 480w';
+            // ******** Get src & srcset ********
+            $this->getPhotoSrcAndSrcset($event);
         }
         return $events;
     }

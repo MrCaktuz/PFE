@@ -77,7 +77,7 @@ class User extends Authenticatable
     {
         return '<a class="btn btn-default btn-xs" href="'.$this->getUserLink().'" target="_blank"><i class="fa fa-eye"></i> Aperçu</a>';
     }
-    public function shortName( User $user )
+    public function shortName( $user )
     {
         $name = $user->name;
         $splitName = preg_split( '/ /', $name );
@@ -110,6 +110,8 @@ class User extends Authenticatable
         foreach($members as $member){
             $roles = DB::table('roles') -> select('title') -> leftjoin('role_user', 'role_user.role_id', '=', 'roles.id') -> leftjoin('users', 'role_user.user_id', '=', 'users.id' ) -> where('users.id', '=', $member->user_id ) -> orderby('title') -> get();
             $member->roles = $roles;
+            $member->src = $this->getPhotoSrc($member);
+            $member->srcset = $this->getPhotoSrcset($member);
         }
 
         return $members;
@@ -121,6 +123,8 @@ class User extends Authenticatable
         foreach($members as $member){
             $roles = DB::table('roles') -> select('title') -> leftjoin('role_user', 'role_user.role_id', '=', 'roles.id') -> leftjoin('users', 'role_user.user_id', '=', 'users.id' ) -> where('users.id', '=', $member->user_id ) -> get();
             $member->roles = $roles;
+            $member->src = $this->getPhotoSrc($member);
+            $member->srcset = $this->getPhotoSrcset($member);
         }
 
         return $members;
@@ -131,25 +135,29 @@ class User extends Authenticatable
         $trainers = DB::table( 'users' ) -> select('users.*') -> join( 'teams','teams.coach_id','=','users.id' ) -> groupBy('coach_id') -> get();
         foreach($trainers as $trainer){
             $trainer->teams = DB::table( 'teams' ) -> select('division') -> join( 'users','users.id','=','teams.coach_id' ) -> where( 'teams.coach_id', '=', $trainer->id ) -> get();
+            $trainer->src = $this->getPhotoSrc($trainer);
+            $trainer->srcset = $this->getPhotoSrcset($trainer);
         }
         return $trainers;
     }
 
-    public function getPhotoSrc( $src )
+    public function getPhotoSrc( $user )
     {
-        $shortName = $this->shortName($this);
-        if ($src == null) {
+        $shortName = $this->shortName($user);
+        if ($user->photo == null) {
             $src = 'http://api.adorable.io/avatars/250/'.$shortName.'.png';
+        } else {
+            $src = $user->photo;
         }
 
         return $src;
     }
 
-    public function getPhotoSrcset($src)
+    public function getPhotoSrcset($user)
     {
-        $shortName = $this->shortName($this);
-        if ($src) {
-            $srcNoExt = str_replace(".jpg", "", $src);
+        $shortName = $this->shortName($user);
+        if ($user->photo) {
+            $srcNoExt = str_replace(".jpg", "", $user->photo);
             $srcset = $srcNoExt.'_25x25.jpg 25w, '.$srcNoExt.'_50x50.jpg 50w, '.$srcNoExt.'_125x125.jpg 125w, '.$srcNoExt.'_250x250.jpg 250w';
         } else {
             $srcset = 'http://api.adorable.io/avatars/25/'.$shortName.'.png 25w, http://api.adorable.io/avatars/50/'.$shortName.'.png 50w, http://api.adorable.io/avatars/125/'.$shortName.'.png 125w, http://api.adorable.io/avatars/250/'.$shortName.'.png 250w';

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use DB;
 use App\User;
 use Carbon\Carbon;
+use App\Models\Rule;
 use App\Models\Team;
 use App\Models\Game;
 use App\Models\Event;
@@ -49,8 +50,9 @@ class PageController extends Controller
         return view('home', compact('title', 'slogan', 'imgSrc', 'imgSrcset', 'nextGames', 'nextEvents', 'sponsors', 'albums'));
     }
 
-    public function rules()
+    public function rules(Rule $rule)
     {
+        $rules = $rule->all();
         return view('rules', compact('rules'));
     }
 

@@ -49,7 +49,7 @@
         <div class="section-content flex-wrap">
             @foreach($nextEvents as $event)
                 <div class="eventCard">
-                    <img class="eventCard-img" src="{{$event->photo}}" srcset="{{$event->srcset}}" alt="Photo illustrant l'événement">
+                    <img class="eventCard-img" src="{{$event->src}}" srcset="{{$event->srcset}}" alt="Photo illustrant l'événement">
                     <a class="eventCard-header" href="/evenements/{{$event->id}}" title="Lien vers la page de l'événement">
                         <div class="eventCard-icon">
                             <img src="/img/icons/news-icon-white.png" alt="icon" width="20" height="20">

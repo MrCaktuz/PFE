@@ -11,7 +11,7 @@
             <div class="flex-wrap">
                 @foreach($trainers as $trainer)
                     <a class="idCard" href="/user/{{$trainer->id}}" title="Voir le profil de {{$trainer->name}}">
-                        <img src="{{$trainer->photo}}" alt="photo de profil" class="idCard-photo">
+                        <img src="{{$trainer->src}}" srcset="{{$trainer->srcset}}" alt="photo de profil" class="idCard-photo">
                         <div class="idCard-content">
                             <p class="idCard-title">{{$trainer->name}}</p>
                             <p class="idCard-subTitle"><?php echo (count($trainer->teams) <= 1) ? 'Équipe :' : 'Équipes :'; ?></p>
