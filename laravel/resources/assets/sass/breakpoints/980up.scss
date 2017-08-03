@@ -42,7 +42,8 @@
 		width: 100%;
 		&:hover{
 			.eventCard-header{
-				transform: translateY(-416%);
+				top: 0;
+				transform: translateY(0);
 			}
 			.eventCard-img{
 				transform: translateY(-100%);
