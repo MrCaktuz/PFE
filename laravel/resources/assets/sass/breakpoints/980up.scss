@@ -166,6 +166,19 @@
 	}
 }
 
+// ******** Coaching ********
+.coaching{
+	&-box{
+		width: 45%;
+		&:nth-child(2n+1){
+			margin-right: 2rem;
+		}
+		&:last-child{
+			margin-right: 0;
+		}
+	}
+}
+
 // ******** Buttons ********
 .button{
 	&:hover{

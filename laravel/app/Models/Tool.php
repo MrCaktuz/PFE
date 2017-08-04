@@ -31,6 +31,20 @@ class Tool extends Model
         return $date;
     }
 
+    public function getFormatedDateFromTimestamps($date)
+    {
+        $dateSplited = preg_split( '/ /', $date );
+        $dateSplited = preg_split( '/-/', $dateSplited[0] );
+        $months = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'];
+        $dateYear = $dateSplited[0];
+        $dateMonth = $months[intval($dateSplited[1])-1];
+        $dateDay = $dateSplited[2];
+        $dateFormated = $dateDay.' '.$dateMonth.' '.$dateYear;
+        $date = $dateFormated;
+
+        return $date;
+    }
+
     public function getFormatedDateForActivities($date)
     {
         $dateSplited = preg_split( '/-/', $date );

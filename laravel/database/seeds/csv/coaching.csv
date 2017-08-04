@@ -1,4 +1,4 @@
-id;title;description;user_id;site;file
-1;Fiche de préparation d’entrainement;J'ai eut l'occasion de personnaliser des fiches de préparation d'entrainement. Si ça peut aider un coach ou deux, les voici.;28;;uploads/Fichiers/BasketballPrepa.pdf
-2;Vidéos bonne à prendre;J’ai trouvé une chaine youtube avec pas mal de bon trucs.;5;https://www.youtube.com/channel/UCkZGAmNvhcasFuc9r_-f8KQ?sub_confirmation=1;uploads/Fichiers/BasketballPrepa.pdf
-3;Site internet Coach Bob;J’ai trouvé un petit site bien pratique avec plein de bonnes idées;12;https://basketballcoachbob.wordpress.com/;
+id;title;description;user_id;site;file;created_at
+1;Fiche de préparation d’entrainement;J'ai eut l'occasion de personnaliser des fiches de préparation d'entrainement. Si ça peut aider un coach ou deux, les voici.;28;;uploads/coaching/BasketballPrepa.pdf;2017-09-10 00:00:00
+2;Vidéos bonne à prendre;J’ai trouvé une chaine youtube avec pas mal de bon trucs.;5;https://www.youtube.com/channel/UCkZGAmNvhcasFuc9r_-f8KQ?sub_confirmation=1;uploads/coaching/BasketballPrepa.pdf;2017-09-10 00:00:00
+3;Site internet Coach Bob;J’ai trouvé un petit site bien pratique avec plein de bonnes idées;12;https://basketballcoachbob.wordpress.com/;;2017-09-10 00:00:00

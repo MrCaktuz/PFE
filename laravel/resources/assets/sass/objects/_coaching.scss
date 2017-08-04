@@ -1,0 +1,69 @@
+/*
+ *	Description:    Stylesheep for coaching files
+ *	File:    		_coaching.scss
+ *	Version:        1.0 - 04/08/2017
+ *	Author :        Mucht - claessens.mathieu@gmail.com
+*/
+
+.coaching{
+	&-box{
+		@include font-size(1.8);
+		display: block;
+		width: 100%;
+		max-width: 30em;
+		margin-bottom: 2rem;
+		border: .1rem solid $blueDark;
+	}
+	&-head{
+		position: relative;
+		padding: .5rem 1.5rem;
+		line-height: 1.6;
+		font-weight: $semiBold;
+		text-align: center;
+		background-color: $blue;
+		border-bottom: .1rem solid $blueDark;
+	}
+	&-deletable{
+		margin-right: 3rem;
+	}
+	&-delete{
+		@include font-size(0);
+		position: absolute;
+		top: 1.2rem;
+		right: 1.2rem;
+		&:before{
+			content: "";
+			display: block;
+			width: 1.5rem;
+			height: 1.5rem;
+			background-position: center right;
+			background-size: contain;
+			background-repeat: no-repeat;
+			background-image: url(/img/icons/delete-icon.png);
+		}
+	}
+	&-body{
+		padding: 1.5rem;
+	}
+	&-date{
+		@include font-size(1.6);
+		margin-bottom: 0;
+		color: $greyDark;
+		float: left;
+	}
+	&-author{
+		@include font-size(1.6);
+		color: $greyDark;
+		float: right;
+	}
+	&-links{
+		padding: 1.5rem;
+		clear: both;
+	}
+	&-site{
+
+	}
+	&-file{
+
+	}
+}

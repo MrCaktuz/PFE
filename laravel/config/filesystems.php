@@ -73,6 +73,11 @@ return [
             'root' => public_path('uploads'),
         ],
 
+        'coaching' => [
+            'driver' => 'local',
+            'root' => public_path('uploads/coaching'),
+        ],
+
         // used for Backpack/BackupManager
         'backups' => [
             'driver' => 'local',

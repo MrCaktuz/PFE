@@ -58,7 +58,7 @@
 				@foreach( Auth::user()->roles as $role )
 					@if( $role->title == "Entraineur" )
 						<li class="nav-item{{ Request::is('/coach') ? ' active' : '' }}">
-							<a class="" href="/coach" title="Voir la page réservé au coach">Coaching</a>
+							<a class="" href="/coaching" title="Voir la page réservé au coach">Coaching</a>
 						</li>
 					@endif
 				@endforeach

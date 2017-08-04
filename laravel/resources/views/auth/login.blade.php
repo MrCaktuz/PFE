@@ -2,39 +2,39 @@
 
 @section('content')
 <div class="container">
-    <div class="box box--light">
+    <div class="box box-light">
         <p>Entrez votre adresse e-mail et votre mot de passe dans le formulaire ci-dessous pour vous connecter.</p>
     </div>
-    <form class="form form--center" role="form" method="POST" action="/login">
+    <form class="form form-center" role="form" method="POST" action="/login">
         {{ csrf_field() }}
         @if (count($errors) > 0)
-            <ul class="form__feedback form__feedback--errors">
+            <ul class="form_feedback form-feedback-errors">
                 @foreach ($errors->all() as $error)
                     <li>{!! $error !!}</li>
                 @endforeach
             </ul>
         @endif
-        <fieldset class="form__fieldset">
-            <label for="email" class="sr-only form__label">Adresse e-Mail</label>
-            <input id="email" type="email" class="form__input{{-- {{ $errors->has('email') ? ' form__input--error' : '' }} --}}" placeholder="Adresse e-mail" name="email" value="{{ old('email') }}" required autofocus>            
+        <fieldset class="form-fieldset">
+            <label for="email" class="sr-only form-label">Adresse e-Mail</label>
+            <input id="email" type="email" class="form-input{{-- {{ $errors->has('email') ? ' form-input--error' : '' }} --}}" placeholder="Adresse e-mail" name="email" value="{{ old('email') }}" required autofocus>            
         </fieldset>
 
-        <fieldset class="form__fieldset">
-            <label for="password" class="sr-only form__label">Mot de passe</label>
-            <input id="password" type="password" class="form__input" placeholder="Mot de passe" name="password" required>
+        <fieldset class="form-fieldset">
+            <label for="password" class="sr-only form-label">Mot de passe</label>
+            <input id="password" type="password" class="form-input" placeholder="Mot de passe" name="password" required>
         </fieldset>
 
-        <fieldset class="form__fieldset">
-            <label class="form__label">
-                <input class="form__input--check" type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Se souvenir de moi
+        <fieldset class="form-fieldset">
+            <label class="form-label">
+                <input class="form-input-check" type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Se souvenir de moi
             </label>
         </fieldset>
 
-        <fieldset class="form__fieldset button__wrap--center">
-            <button type="submit" class="form__input form__input--submit button button--primary">
+        <fieldset class="form-fieldset button-wrap-center">
+            <button type="submit" class="form-input form-input-submit button button-primary">
                 Connection
             </button>
-            <a class="form__reset" href="{{ route('password.request') }}">
+            <a class="form-reset" href="{{ route('password.request') }}">
                 Oublié votre mot de passe?
             </a>
         </fieldset>

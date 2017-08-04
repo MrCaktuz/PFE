@@ -70,6 +70,15 @@
 		&-profil{
 			background-image: url(/img/icons/profil-icon-blue.png);
 		}
+		&-coaching{
+			background-image: url(/img/icons/coaching-icon-blue.png);
+		}
+		&-download{
+			background-image: url(/img/icons/download-icon-blue.png);
+		}
+		&-upload{
+			background-image: url(/img/icons/upload-icon-blue.png);
+		}
 	}
 	&-intro{
 		@include font-size(2);

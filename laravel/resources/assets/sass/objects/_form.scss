@@ -12,17 +12,20 @@
 	max-width: 55rem;
 	padding: 0 0 4rem;
 	color: $black;
-	&--center{
+	&-center{
 		margin: 0 auto;
 	}
-	&__fieldset{
+	&-fieldset{
 		margin-bottom: 2rem;
+		&-float{
+			float: left;
+		}
 	}
-	&__label{
+	&-label{
 		@include font-size( 1.6 );
 		cursor: pointer;
 	}
-	&__input{
+	&-input{
 		@include font-size( 1.6 );
 		display: block;
 		width: 100%;
@@ -36,39 +39,43 @@
 			border-color: $blueDark;
 			background-color: $blue;
 		}
-		&--submit{
+		&-submit{
 			padding: 1rem 2rem;
+			border: .1rem solid $secondaryDark;
 			&:focus{
 				background-color: $primary;
 				border-color: $primaryDark;
 			}
 		}
-		&--error{
+		&-error{
 			border-color: $errors;
 			&:focus{
 				border-color: $errors;
 			}
 		}
 	}
-	& .form__input--check{
+	&-textarea{
+    	resize: vertical;
+	}
+	& .form-input-check{
 		display: inline-block;
 		margin-right: 1rem;
 	}
-	&__reset{
+	&-reset{
 		display: block;
 		margin-top: 1rem;
 		text-align: center;
 		color: $primary;
 	}
-	&__feedback{
+	&-feedback{
 	    font-family: $fontStack;
 	    margin-bottom: 2rem;
-		&--errors{
+		&-errors{
 			padding: 1rem;
 			border: .1rem solid $errors;
 			color: $errors;
 		}
-		&--success{
+		&-success{
 
 		}
 	}
