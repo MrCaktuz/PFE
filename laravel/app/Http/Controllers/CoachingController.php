@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use DB;
 use URL;
+use Auth;
 use Storage;
 use App\Models\Tool;
 use App\Models\Coaching;
@@ -12,11 +13,21 @@ use Illuminate\Http\Request;
 class CoachingController extends Controller
 {
     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index( Coaching $coaching)
+    public function index(Coaching $coaching)
     {
         // ******** Get All files ********
         $shared = $coaching->all();

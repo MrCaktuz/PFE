@@ -2,9 +2,9 @@
 @section('content')
 
 <div class="container">
-    <header class="home-banner">
-        <img class="home-banner-img" src="{{$imgSrc}}" srcset="{{$imgSrcset}}" alt="Photo du club">
-        <h1 class="home-banner-title">{{$title}}<span class="home-banner-slogan">, {{$slogan}}</span></h1>
+    <header class="banner">
+        <img class="banner-img" src="{{$imgSrc}}" srcset="{{$imgSrcset}}" alt="Photo du club">
+        <h1 class="banner-title">{{$title}}<span class="home-banner-slogan">, {{$slogan}}</span></h1>
     </header>
     <section class="section">
         <h2 class="section-title"><span class="section-icon section-icon-games"></span>Matchs à venir</h2>

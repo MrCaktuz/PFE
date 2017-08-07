@@ -179,6 +179,19 @@
 	}
 }
 
+// ******** Contact elements ********
+.contact{
+	display: flex;
+	flex-direction: row-reverse;
+	&-intro{
+
+		width: 45%;
+	}
+	&-form{
+		width: 45%;
+	}
+}
+
 // ******** Buttons ********
 .button{
 	&:hover{

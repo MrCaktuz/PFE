@@ -76,7 +76,9 @@
 			color: $errors;
 		}
 		&-success{
-
+			float: left;
+			margin-right: 2rem;
+			color: $success;
 		}
 	}
 }

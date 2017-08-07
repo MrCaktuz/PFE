@@ -20,7 +20,12 @@
 // 4. Base - Éléments bruts
 @import "base/root";
 
-// 5. Objects - Éléments de design
+// 5. Components - Design des composants
+@import "components/footer";
+@import "components/mainNav";
+@import "components/section";
+
+// 6. Objects - Éléments de design
 @import "objects/activityCard";
 @import "objects/album";
 @import "objects/albumCard";
@@ -29,6 +34,7 @@
 @import "objects/burgerButton";
 @import "objects/buttons";
 @import "objects/coaching";
+@import "objects/contact";
 @import "objects/event";
 @import "objects/feedback";
 @import "objects/form";
@@ -42,11 +48,6 @@
 @import "objects/sponsors";
 @import "objects/table";
 @import "objects/team";
-
-// 6. Components - Design des composants
-@import "components/footer";
-@import "components/mainNav";
-@import "components/section";
 
 // 7. Responsive design (Taille en px / 16 = em)
 @media screen and (min-width: 30em){

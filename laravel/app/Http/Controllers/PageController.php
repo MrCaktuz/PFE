@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use DB;
+use URL;
 use App\User;
 use Carbon\Carbon;
 use App\Models\Rule;
@@ -13,6 +14,7 @@ use App\Models\Album;
 use App\Models\Sponsor;
 use App\Models\Activity;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class PageController extends Controller
 {
@@ -72,6 +74,41 @@ class PageController extends Controller
         $activities = $activity->getActivities($dateNow);
 
         return view('calendar', compact('games', 'results', 'activities'));
+    }
+
+    public function contact( )
+    {
+        // ******** Get the introduction ********
+        $DB_intro = DB::table('contact') -> select('value') -> where('key', 'intro') -> get();
+        $intro = $DB_intro[0]->value;
+
+        return view( 'contact', compact('intro') );
+    }
+
+    public function contactForm( Request $request )
+    {
+        $this -> validate( $request, [
+            'name' => 'Required|max:255|NotIn:php,ruby',
+            'msg' => 'Required|NotIn:php,ruby',
+            'obj' => 'Required|NotIn:php,ruby',
+            'email' => 'Required|Email',
+        ] );
+        // ******** Set data ********
+        $name = $_POST['name'];
+        $email = $_POST['email'];
+        $object = $_POST['obj'];
+        $message = $_POST['msg'];
+        // ******** Get the contact email on every view ********
+        $DB_contactEmail = DB::table('settings') -> select('value') -> where('key', 'contact_email') -> get();
+        $contactEmail = $DB_contactEmail[0]->value;
+        // ******** Get the contact email on every view ********
+        $DB_contactCC = DB::table('settings') -> select('value') -> where('key', 'contact_cc') -> get();
+        $contactCC = $DB_contactCC[0]->value;
+        // ******** Send the e-mail ********
+        $headers = 'FROM: ' . $name . '<' . $email . '>';
+        mail( $contactEmail, $object.' - Formulaire de contact', $message, $headers );
+
+        return Redirect::route('contact')->with('success', 'Votre message à bien été envoyé. Merci!');
     }
 
     public function connected( User $user )

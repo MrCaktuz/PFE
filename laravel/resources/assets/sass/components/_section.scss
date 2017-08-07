@@ -79,6 +79,9 @@
 		&-upload{
 			background-image: url(/img/icons/upload-icon-blue.png);
 		}
+		&-contact{
+			background-image: url(/img/icons/mail-icon-blue.png);
+		}
 	}
 	&-intro{
 		@include font-size(2);
@@ -99,5 +102,8 @@
 		width: 100%;
 		max-width: 60rem;
 		margin-bottom: 4rem;
+	}
+	&-contact{
+		margin-bottom: 0;
 	}
 }

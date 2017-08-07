@@ -1,0 +1,63 @@
+/*
+ *	Description:    Stylesheet for contact page elements
+ *	File:    		_contact.scss
+ *	Version:        1.0 - 06/08/2017
+ *	Author :        Mucht - claessens.mathieu@gmail.com
+*/
+
+.contact{
+	&-intro{
+		max-width: 55rem;
+		text-align: left;
+	}
+	&-link{
+		position: relative;
+		margin-bottom: 1rem;
+		padding-left: 3rem;
+		color: $black;
+		font-weight: $semiBold;
+		&::before{
+			content: "";
+			position: absolute;
+			top: .2rem;
+			left: 0;
+			display: block;
+			width: 2rem;
+			height: 2rem;
+			margin-right: .5rem;
+			background-position: center;
+			background-size: contain;
+			background-repeat: no-repeat;
+		}
+	}
+	&-mail{
+		&:before{
+			background-image: url("/img/icons/mail-icon-black.png");
+		}
+	}
+	&-address{
+		display: block;
+		max-width: 25rem;
+		margin-left: 0;
+		&::before{
+			background-image: url("/img/icons/location-icon-black.png");
+		}
+		&-line{
+			display: inline-block;
+			margin-bottom: 0;
+		}
+	}
+	.contact-form{
+		margin: 0 auto;
+		padding-bottom: 0;
+	}
+	&-gmap{
+		max-height: 30rem;
+		&-link{
+			img{
+				width: 100%;
+				height: auto;
+			}
+		}
+	}
+}

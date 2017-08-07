@@ -12,7 +12,7 @@
 */
 
 // ******** Front end routes ********
-Route::get( '/', 'PageController@home' );
+Route::get( '/', 'PageController@home' )->name('home');
 Route::get( '/albums', 'AlbumController@index' );
 Route::get( '/albums/{album}', 'AlbumController@show' );
 Route::get( '/calendrier', 'PageController@calendar' );
@@ -23,7 +23,8 @@ Route::get( '/coaching/{coaching}', 'CoachingController@show' );
 Route::get( '/coaching/{coaching}/confirm', 'CoachingController@confirm' );
 Route::delete( '/coaching/{coaching}/destroy', 'CoachingController@destroy' );
 Route::get( '/conseil-administration', 'UserController@comity' );
-// Route::get( '/contact', 'PageController@contact' );
+Route::get( '/contact', 'PageController@contact' )->name('contact');
+Route::post( '/contact', 'PageController@contactForm' );
 Route::get( '/entraineurs', 'UserController@trainer' );
 Route::get( '/equipes', 'TeamController@index' );
 Route::get( '/equipes/{team}', 'TeamController@show' );
