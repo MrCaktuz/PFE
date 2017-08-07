@@ -29,23 +29,23 @@
 
 // ******** Footer ********
 .footer{
-	&__wrap{
+	&-wrap{
 		position: relative;
 		max-width: 45rem;
 		margin: 0 auto;
 	}
-	&__contact{
+	&-contact{
 		width: 100%;
 		margin-bottom: 10rem;
 	}
-	&__bloc{
+	&-bloc{
 		display: inline-block;
 		width: auto;
 		&:last-of-type{
 			float: right;
 		}
 	}
-	&__logo{
+	&-logo{
 		bottom: 5.5rem;
 	}
 	.signature{

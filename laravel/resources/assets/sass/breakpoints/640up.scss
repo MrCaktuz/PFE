@@ -55,24 +55,24 @@
 // ******** Footer ********
 .footer{
 	text-align: center;
-	&__wrap{
+	&-wrap{
 		display: inline-block;
 		max-width: 100%;
 		text-align: left;
 	}
-	&__contact{
+	&-contact{
 		display: flex;
 		align-items: center;
 		width: auto;
 		margin-bottom: 2rem;
 	}
-	&__logo{
+	&-logo{
 		position: inherit;
 		bottom: auto;
 	    left: auto;
 	    transform: translateX( 0 );
 	}
-	&__bloc{
+	&-bloc{
 		margin: 0 3rem 0 0;
 		&:last-of-type{
 			float: none;

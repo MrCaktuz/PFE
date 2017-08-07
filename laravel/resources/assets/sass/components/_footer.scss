@@ -21,7 +21,7 @@
 		height: 0.2rem;
 		background-color: $primaryDark;
 	}
-	&__contact{
+	&-contact{
 		display: block;
 		width: 11.36em;
 		margin: 0 auto 12rem;
@@ -29,11 +29,11 @@
 			color: $white;
 		}
 	}
-	&__bloc{
+	&-bloc{
 		display: block;
 		
 	}
-	&__info{
+	&-info{
 		position: relative;
 		margin-bottom: 1rem;
 		padding-left: 3rem;
@@ -49,28 +49,28 @@
 			background-size: contain;
 			background-repeat: no-repeat;
 		}
-		&--address{
+		&-address{
 			min-width: 11.35em;
 			&::before{
 				background-image: url("/img/icons/location-icon-white.png");
 			}
 		}
-		&--mail{
+		&-mail{
 			margin-bottom: 1rem !important;
 			&::before{
 				background-image: url("/img/icons/mail-icon-white.png");
 			}
 		}
-		&--facebook{
+		&-facebook{
 			&::before{
 				background-image: url("/img/icons/fb-icon-white.png");
 			}
 		}
-		&--line{
+		&-line{
 			margin-bottom: 0;
 		}
 	}
-	&__logo{
+	&-logo{
 		@include font-size( 0 );
 		position: absolute;
 	    bottom: 7.5rem;
@@ -84,7 +84,7 @@
 		background-size: contain;
 		background-repeat: no-repeat;
 	}
-	&__copy{
+	&-copy{
 		@include font-size( 1.2 );
 		display: block;
 		width: 100%;
@@ -98,7 +98,7 @@
 .signature{
 	display: block;
 	margin-top: 1em;
-	&__link{
+	&-link{
 		font-weight: $semiBold;
 		color: $white;
 	}
