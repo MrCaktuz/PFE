@@ -62,8 +62,6 @@ class PageController extends Controller
     {
         // ******** Get current date ********
         $dateNow = Carbon::now();
-        // ******** Get the title ********
-        $rules = DB::table('rules') -> get();
         // ******** Get next matchs ********
         $game = new Game;
         $games = $game -> getNextGames($dateNow, '', 6);
@@ -111,9 +109,31 @@ class PageController extends Controller
         return Redirect::route('contact')->with('success', 'Votre message à bien été envoyé. Merci!');
     }
 
-    public function connected( User $user )
+    public function complexe()
     {
-    	return view( 'connected' );
+        // ******** Get data from DB ********
+        $DB_complexe = DB::table('complexe') -> select('name', 'value') -> get();
+        // ******** Get intro ********
+        $intro = $DB_complexe[0]->value;
+        // ******** Get details ********
+        $details = $DB_complexe[1]->value;
+        // ******** get tarif by hour ********
+        $hr_small = $DB_complexe[2];
+        $hr_big = $DB_complexe[3];
+        $hr_bar = $DB_complexe[4];
+        // ******** get tarif by day ********
+        $dr_small = $DB_complexe[5];
+        $dr_big = $DB_complexe[6];
+        $dr_bar = $DB_complexe[7];
+        $dr_bar_funeral = $DB_complexe[8];
+        $dr_bar_kitchen = $DB_complexe[9];
+        $dr_bar_kitchen_small = $DB_complexe[10];
+        $dr_bar_kitchen_private = $DB_complexe[11];
+        // ******** Get complexe album ********
+        $album = new Album;
+        $albumComplexe = $album->getComplexeAlbum();
+
+        return view( 'complexe', compact('albumComplexe', 'intro', 'details', 'hr_small', 'hr_big', 'hr_bar', 'dr_small', 'dr_big', 'dr_bar', 'dr_bar_funeral', 'dr_bar_kitchen', 'dr_bar_kitchen_small', 'dr_bar_kitchen_private') );
     }
 
     public function reseted( User $user )

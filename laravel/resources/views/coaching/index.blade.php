@@ -52,7 +52,7 @@
                 </fieldset>
 
                 <fieldset class="form-fieldset">
-                    <label for="password" class="sr-only form-label">Description</label>
+                    <label for="description" class="sr-only form-label">Description</label>
                     <textarea type="text" name="description" id="description" placeholder="Description courte ici" value="" class="form-input form-textarea" rows="3" cols="30" required>{{ old( 'description' ) }}</textarea>
                 </fieldset>
 

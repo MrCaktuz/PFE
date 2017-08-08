@@ -1,10 +1,9 @@
 @extends('partials.layout')
 @section('content')
 
-<h1 class="sr-only">Contactez-nous</h1>
 <div class="container">
-    <section class="section section-contact">
-        <h2 class="section-title"><span class="section-icon section-icon-contact"></span>Contactez-nous</h2>
+    <div class="section section-contact">
+        <h1 class="section-title"><span class="section-icon section-icon-contact"></span>Contactez-nous</h1>
         <div class="section-content contact">
         	<div class="section-intro contact-intro">
                 <p>{{$intro}}</p>
@@ -53,12 +52,12 @@
                 </fieldset>
             </form>
         </div>
-        <div class="contact-gmap">
-        	<a href="https://www.google.be/maps/place/Rue+Saint-Quentin+10,+5590+Ciney/@50.2993422,5.0960162,17z/data=!3m1!4b1!4m5!3m4!1s0x47c1b9e9c372d78b:0x81fa797516745527!8m2!3d50.2993422!4d5.0982049" class="gmap-link" title="Lien vers la google map" target="_blanc">
-        		<img src="/img/gmap.jpg" srcset="/img/gmap_1280.jpg 1280w, /img/gmap_980.jpg 980w, /img/gmap_768.jpg 768w, /img/gmap_640.jpg 640w, /img/gmap_480.jpg 480w, /img/gmap_320.jpg 320w, " alt="Photo de la Google map">
-        	</a>
-        </div>
-    </section>
+    </div>
+    <div class="contact-gmap">
+        <a href="https://www.google.be/maps/place/Rue+Saint-Quentin+10,+5590+Ciney/@50.2993422,5.0960162,17z/data=!3m1!4b1!4m5!3m4!1s0x47c1b9e9c372d78b:0x81fa797516745527!8m2!3d50.2993422!4d5.0982049" class="gmap-link" title="Lien vers la google map" target="_blanc">
+            <img src="/img/gmap.jpg" srcset="/img/gmap_1280.jpg 1280w, /img/gmap_980.jpg 980w, /img/gmap_768.jpg 768w, /img/gmap_640.jpg 640w, /img/gmap_480.jpg 480w, /img/gmap_320.jpg 320w, " alt="Photo de la Google map">
+        </a>
+    </div>
 </div>
 @endsection
 

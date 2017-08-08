@@ -192,6 +192,30 @@
 	}
 }
 
+// ******** Complexe ********
+.complexe{
+	display: flex;
+	flex-wrap: wrap-reverse;
+	flex-direction: row-reverse;
+	justify-content: center;
+	&-tables{
+		display: block;
+		width: 45%;
+		margin-right: 2rem;
+	}
+	&-intro{
+		display: block;
+		width: 45%;
+		margin: 0;
+	}
+	&-album{
+		display: block;
+		width: 100%;
+		margin-top: 0;
+		margin-bottom: 4rem;
+	}
+}
+
 // ******** Buttons ********
 .button{
 	&:hover{

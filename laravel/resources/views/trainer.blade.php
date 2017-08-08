@@ -2,7 +2,7 @@
 @section('content')
 
 <div class="container">
-    <section class="section">
+    <div class="section">
         <h1 class="section-title"><span class="section-icon section-icon-trainer"></span>Nos entraineurs</h1>
         <div class="section-content">
             <div class="section-intro">
@@ -28,7 +28,7 @@
                 @endforeach
             </div>
         </div>
-    </section>
+    </div>
 </div>
 
 @endsection

@@ -11,7 +11,7 @@ class CreateComplexeTable extends Migration {
 			$table->increments('id');
 			$table->string('key');
 			$table->string('name');
-			$table->string('value')->nullable();
+			$table->text('value')->nullable();
 			$table->string('description')->nullable();
 			$table->timestamps();
 		});

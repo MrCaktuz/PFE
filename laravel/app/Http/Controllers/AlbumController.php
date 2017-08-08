@@ -20,7 +20,7 @@ class AlbumController extends Controller
         $currentSeason = $team->getCurrentSeason();
         // ******** Get albums ********
         $album = new Album;
-        $albums = $album->getAllbumsFromCurrentSeason($currentSeason);
+        $albums = $album->getAlbumsFromCurrentSeason($currentSeason);
 
         return view('album/index', compact('albums', 'currentSeason'));
     }

@@ -16,6 +16,7 @@
 		margin: 0 auto;
 	}
 	&-fieldset{
+		position: relative;
 		margin-bottom: 2rem;
 		&-float{
 			float: left;
@@ -23,7 +24,11 @@
 	}
 	&-label{
 		@include font-size( 1.6 );
+		padding-left: 1rem;
 		cursor: pointer;
+		&-photo{
+			padding-left: 0;
+		}
 	}
 	&-input{
 		@include font-size( 1.6 );
@@ -38,6 +43,9 @@
 		&:focus{
 			border-color: $blueDark;
 			background-color: $blue;
+		}
+		&-float{
+			float: right;
 		}
 		&-submit{
 			padding: 1rem 2rem;

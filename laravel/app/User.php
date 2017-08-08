@@ -23,7 +23,6 @@ class User extends Authenticatable
 	| GLOBAL VARIABLES
 	|--------------------------------------------------------------------------
 	*/
-
 	protected $table = 'users';
 	// protected $primaryKey = 'id';
 	// protected $guarded = [];
@@ -237,7 +236,6 @@ class User extends Authenticatable
         if ( $value == null ) {
             // delete the image from disk
             \Storage::disk( $disk ) -> delete( $this -> photo );
-
             // set null in the database column
             $this -> attributes[ $attribute_name ] = null;
     	}

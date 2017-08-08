@@ -7,7 +7,7 @@
 		    	</a>
 				<a class="footer-logo" href="/" title="Retour à l'accueil">Logo</a>
 				<div class="footer-bloc">
-					<p class="footer-info-line"><a class="footer-info footer-info-mail" href="mailto:{{$contactEmail}}?cc={{$contactCC}}" itemprop="email">{{$contactEmail}}</a></p>
+					<p class="footer-info-line"><a class="footer-info footer-info-mail" href="mailto:{{$contactEmail}}?cc={{$contactCC}}" title="Envoyer un e-mail à cette adresse" itemprop="email">{{$contactEmail}}</a></p>
 					<p class="footer-info-line"><a class="footer-info footer-info-facebook" href="{{$facebook}}" target="_blanc" title="Notre page facebook">Nous suivre</a></p>
 				</div>
 	    	</div>

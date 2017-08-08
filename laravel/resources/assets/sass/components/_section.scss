@@ -82,6 +82,9 @@
 		&-contact{
 			background-image: url(/img/icons/mail-icon-blue.png);
 		}
+		&-complexe{
+			background-image: url(/img/icons/home-icon-blue.png);
+		}
 	}
 	&-intro{
 		@include font-size(2);

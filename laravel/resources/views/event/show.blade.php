@@ -3,8 +3,8 @@
 
 <h1 class="sr-only">Événement</h1>
 <div class="container">
-    <section class="section">
-        <h2 class="section-title"><span class="section-icon section-icon-news"></span>{{$event->title}}</h2>
+    <div class="section">
+        <h1 class="section-title"><span class="section-icon section-icon-news"></span>{{$event->title}}</h1>
         <div class="section-content event flex-wrap">
         	<div class="event-photo">
 	        	<img src="{{$event->src}}" srcset="{{$event->srcset}}" alt="Photo de l'event">
@@ -25,7 +25,7 @@
         		</div>
 		    </div>
         </div>
-    </section>
+    </div>
 </div>
 
 @endsection

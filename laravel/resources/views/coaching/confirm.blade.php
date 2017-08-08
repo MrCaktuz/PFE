@@ -1,10 +1,9 @@
 @extends('partials.layout')
 @section('content')
 
-<h1 class="sr-only">Coaching</h1>
 <div class="container">
-    <section class="section">
-        <h2 class="section-title"><span class="section-icon section-icon-coaching"></span>Espace coaching</h2>
+    <div class="section">
+        <h1 class="section-title"><span class="section-icon section-icon-coaching"></span>Espace coaching</h1>
         <div class="section-content">
         	<div class="section-intro">
                 <p>Êtes-vous sûr de vouloir supprimer le fichier "{{$coaching->title}}" ?</p>   
@@ -18,7 +17,7 @@
                 </div>
             </form>
         </div>
-    </section>
+    </div>
 </div>
 
 @endsection

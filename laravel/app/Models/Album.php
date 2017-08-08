@@ -93,7 +93,7 @@ class Album extends Model
         return $lastAlbums;
     }
 
-    public function getAllbumsFromCurrentSeason($currentSeason)
+    public function getAlbumsFromCurrentSeason($currentSeason)
     {
         // ******** Split date of current season ********
         $currentSeasonSplited = preg_split( '/ - /', $currentSeason );
@@ -109,6 +109,29 @@ class Album extends Model
         $albums = $album->convertPhotosValueToArray($albums);
 
         return $albums;
+    }
+
+    public function getComplexeAlbum()
+    {
+        // ******** Get complexe album ********
+        $album = DB::table('albums') -> where('name', '=', 'Complexe') -> get();
+        // // ******** Convert string into array ********
+        $photos = $album[0]->photos;
+        $photos = str_replace( '[', '', $photos );
+        $photos = str_replace( ']', '', $photos );
+        $photos = str_replace( '"', '', $photos );
+        $photosSplited = preg_split( '/, /', $photos );
+        $photos = [];
+        $j = 0;
+        for ($i=0; $i < count($photosSplited)-1; $i++) {
+            $photos[$j] = [$photosSplited[$i], $photosSplited[$i+1]];
+            $i += 1;
+            $j++;
+        }
+        $album[0]->photos = $photos;
+        $album = $album[0];
+
+        return $album;
     }
 
     /*

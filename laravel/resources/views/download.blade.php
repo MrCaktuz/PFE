@@ -1,10 +1,9 @@
 @extends('partials.layout')
 @section('content')
 
-<h1 class="sr-only">Fichiers à télécharger</h1>
 <div class="container">
-    <section class="section">
-        <h2 class="section-title"><span class="section-icon section-icon-download"></span>Fichier à télécharger</h2>
+    <div class="section">
+        <h1 class="section-title"><span class="section-icon section-icon-download"></span>Fichier à télécharger</h1>
         <div class="section-content">
 	        <div class="section-intro">
                 {!!$intro!!}
@@ -20,7 +19,7 @@
                 </tbody>
             </table>
         </div>
-    </section>
+    </div>
 </div>
 
 @endsection

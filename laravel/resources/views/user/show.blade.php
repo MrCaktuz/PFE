@@ -1,15 +1,16 @@
 @extends('partials.layout')
 @section('content')
 
-<h1 class="sr-only">Profil</h1>
 <div class="container">
-    <section class="section">
-    	<?php if(Auth::user()->id == $user->id) {
+    <div class="section">
+    	<?php if(Auth::guest()) {
+    		$validated = false;
+    	} elseif(Auth::user()->id == $user->id) {
     		$validated = true;
     	} else {
     		$validated = false;
-    	} ?>
-        <h2 class="section-title"><span class="section-icon section-icon-profil"></span><?php echo $validated ? 'Mon profil' : 'Profil'; ?></h2>
+    	}?>
+        <h1 class="section-title"><span class="section-icon section-icon-profil"></span><?php echo $validated ? 'Mon profil' : 'Profil'; ?></h1>
         <div class="section-content profil">
         	<div class="profil-head">
         		<p class="profil-name">{{$user->name}}</p>
@@ -67,7 +68,7 @@
 		    	<?php endif; ?>
 		    </div>
         </div>
-    </section>
+    </div>
 </div>
 
 @endsection

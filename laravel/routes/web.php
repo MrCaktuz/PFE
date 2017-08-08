@@ -33,6 +33,8 @@ Route::get( '/regles', 'PageController@rules' );
 Route::get( '/telechargements', 'DownloadController@index' )->name('telechargements');
 Route::get( '/telechargements/{download}', 'DownloadController@show' );
 Route::get( '/user/{user}', 'UserController@show' )->name('profil');
+Route::post( '/user/{user}', 'UserController@update' );
+Route::get( '/user/{user}/edit', 'UserController@edit' );
 
 // ******** Auth ********
 Auth::routes();
