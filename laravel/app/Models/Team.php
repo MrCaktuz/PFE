@@ -4,6 +4,7 @@ namespace App\Models;
 
 use DB;
 use URL;
+use App\User;
 use App\Models\Team;
 use Backpack\CRUD\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
@@ -78,13 +79,27 @@ class Team extends Model
 
     public function getCoach($coachID)
     {
+        $user = new User;
         $coach = DB::table('users') -> where('id', '=', $coachID) -> get();
+        $coach = $coach[0];
+        $coach->src = $user->getPhotoSrc($coach);
+        $coach->srcset = $user->getPhotoSrcset($coach);
+
         return $coach;
     }
 
     public function getAssistant($assistantID)
     {
+        $user = new User;
         $assistant = DB::table('users') -> where('id', '=', $assistantID) -> get();
+        if (count($assistant) != 0) {
+            $assistant = $assistant[0];
+            $assistant->src = $user->getPhotoSrc($assistant);
+            $assistant->srcset = $user->getPhotoSrcset($assistant);
+        } else {
+            $assistant = null;
+        }
+
         return $assistant;
     }
 
