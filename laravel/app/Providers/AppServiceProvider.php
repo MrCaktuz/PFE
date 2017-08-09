@@ -15,6 +15,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        // ******** Get page title on every view ********
+        $title = "";
+        View::share('pageTitle', $title);
         // ******** Get the address on every view ********
         $DB_address = DB::table('settings') -> select('value') -> where('key', 'address') -> get();
         $address = $DB_address[0]->value;

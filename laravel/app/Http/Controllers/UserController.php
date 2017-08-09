@@ -14,15 +14,11 @@ use Backpack\CRUD\app\Http\Controllers\CrudController;
 
 class UserController extends Controller
 {
-	public function index()
-	{
-        $users = User::all();
-		return view('user.index', compact( 'users' ));
-	}
-
     public function show(User $user)
     {
         $tools = new Tool;
+        // ******** Page title ********
+        $pageTitle = $user->name;
         // ******** Get formated birthday ********
         $user->birthday = $tools->getFormatedDate($user->birthday);
         // ******** Get photo src ********
@@ -34,21 +30,24 @@ class UserController extends Controller
         // ******** Get teams coached ********
         $user->teams = $user->getTeamCoached($user->id);
 
-        return view('user.show', compact('user'));
+        return view('user.show', compact('pageTitle', 'user'));
     }
 
     public function edit(User $user)
     {
+        // ******** Page title ********
+        $pageTitle = "Profil modification";
         // ******** Get photo src ********
         $user->src = $user->getPhotoSrc($user);
         // ******** Get photo srcset ********
         $user->srcset = $user->getPhotoSrcset($user);
 
-        return view('user.edit', compact('user'));
+        return view('user.edit', compact('pageTitle', 'user'));
     }
 
     public function update(Request $request, User $user)
     {
+        // ******** Validation ********
         $this -> validate( $request, [
             'name'             => 'Required|max:80|NotIn:php,ruby',
             'email'            => 'Required|Email',
@@ -85,12 +84,14 @@ class UserController extends Controller
         // $user->photo = URL::to('/').'/uploads/users/'.$fileName.'.jpg';
         // ******** Update data ********
         $user->update();
-        
+
         return redirect() -> route( 'profil', [ 'id' => $user->id ] );
     }
 
     public function Trainer()
     {
+        // ******** Page title ********
+        $pageTitle = "Entraineurs";
         // ******** Get the introduction ********
         $DB_intro = DB::table('trainer') -> select('value') -> where('key', 'intro') -> get();
         $intro = $DB_intro[0]->value;
@@ -98,11 +99,13 @@ class UserController extends Controller
         $user = new User;
         $trainers = $user -> getAllTrainers();
 
-        return view('trainer', compact('intro', 'trainers'));
+        return view('trainer', compact('pageTitle', 'intro', 'trainers'));
     }
 
     public function comity()
     {
+        // ******** Page title ********
+        $pageTitle = "Conseil d'administration";
         // ******** Get the introductions ********
         $DB_sloganCA = DB::table('comity') -> select('value') -> where('key', 'intro_ca') -> get();
         $sloganCA = $DB_sloganCA[0]->value;
@@ -113,6 +116,6 @@ class UserController extends Controller
         $membersCA = $user -> getCAmembers();
         $membersACA = $user -> getACAmembers();
 
-        return view('comity', compact('sloganCA', 'sloganACA', 'membersCA', 'membersACA'));
+        return view('comity', compact('pageTitle', 'sloganCA', 'sloganACA', 'membersCA', 'membersACA'));
     }
 }

@@ -17,13 +17,15 @@ class DownloadController extends Controller
      */
     public function index()
     {
+        // ******** Page title ********
+        $pageTitle = "Téléchargements";
         // ******** Get the introduction ********
         $DB_intro = DB::table('downloadPage') -> select('value') -> where('key', 'intro') -> get();
         $intro = $DB_intro[0]->value;
         // ******** Get files list ********
         $files = Download::all();
 
-        return view('download', compact( 'intro', 'files' ));
+        return view('download', compact('pageTitle', 'intro', 'files'));
     }
 
     /**

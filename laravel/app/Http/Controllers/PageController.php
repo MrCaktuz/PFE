@@ -20,6 +20,8 @@ class PageController extends Controller
 {
     public function home()
     {
+        // ******** Page title ********
+        $pageTitle = "Accueil";
         // ******** Get current date ********
         $dateNow = Carbon::now();
         // ******** Get the title ********
@@ -49,17 +51,22 @@ class PageController extends Controller
         $album = new Album;
         $albums = $album -> getLastAlbums(3, '');
 
-        return view('home', compact('title', 'slogan', 'imgSrc', 'imgSrcset', 'nextGames', 'nextEvents', 'sponsors', 'albums'));
+        return view('home', compact('pageTitle', 'title', 'slogan', 'imgSrc', 'imgSrcset', 'nextGames', 'nextEvents', 'sponsors', 'albums'));
     }
 
     public function rules(Rule $rule)
     {
+        // ******** Page title ********
+        $pageTitle = "Règlement";
         $rules = $rule->all();
-        return view('rules', compact('rules'));
+
+        return view('rules', compact('pageTitle', 'rules'));
     }
 
     public function calendar()
     {
+        // ******** Page title ********
+        $pageTitle = "Calendrier";
         // ******** Get current date ********
         $dateNow = Carbon::now();
         // ******** Get next matchs ********
@@ -71,16 +78,18 @@ class PageController extends Controller
         $activity = new Activity;
         $activities = $activity->getActivities($dateNow);
 
-        return view('calendar', compact('games', 'results', 'activities'));
+        return view('calendar', compact('pageTitle', 'games', 'results', 'activities'));
     }
 
     public function contact( )
     {
+        // ******** Page title ********
+        $pageTitle = "Contact";
         // ******** Get the introduction ********
         $DB_intro = DB::table('contact') -> select('value') -> where('key', 'intro') -> get();
         $intro = $DB_intro[0]->value;
 
-        return view( 'contact', compact('intro') );
+        return view( 'contact', compact('pageTitle', 'intro') );
     }
 
     public function contactForm( Request $request )
@@ -111,6 +120,8 @@ class PageController extends Controller
 
     public function complexe()
     {
+        // ******** Page title ********
+        $pageTitle = "Complexe sportif";
         // ******** Get data from DB ********
         $DB_complexe = DB::table('complexe') -> select('name', 'value') -> get();
         // ******** Get intro ********
@@ -133,7 +144,7 @@ class PageController extends Controller
         $album = new Album;
         $albumComplexe = $album->getComplexeAlbum();
 
-        return view( 'complexe', compact('albumComplexe', 'intro', 'details', 'hr_small', 'hr_big', 'hr_bar', 'dr_small', 'dr_big', 'dr_bar', 'dr_bar_funeral', 'dr_bar_kitchen', 'dr_bar_kitchen_small', 'dr_bar_kitchen_private') );
+        return view( 'complexe', compact('pageTitle', 'albumComplexe', 'intro', 'details', 'hr_small', 'hr_big', 'hr_bar', 'dr_small', 'dr_big', 'dr_bar', 'dr_bar_funeral', 'dr_bar_kitchen', 'dr_bar_kitchen_small', 'dr_bar_kitchen_private') );
     }
 
     public function reseted( User $user )

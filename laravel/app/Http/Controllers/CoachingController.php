@@ -29,6 +29,8 @@ class CoachingController extends Controller
      */
     public function index(Coaching $coaching)
     {
+        // ******** Page title ********
+        $pageTitle = "Coaching";
         // ******** Get All files ********
         $shared = $coaching->all();
         $tools = new Tool;
@@ -41,7 +43,7 @@ class CoachingController extends Controller
         $DB_intro = DB::table('coachingPage') -> select('value') -> where('key', 'intro') -> orderBy('created_at', 'DSC') -> get();
         $intro = $DB_intro[0]->value;
 
-        return view('coaching.index', compact('shared', 'intro'));
+        return view('coaching.index', compact('pageTitle', 'shared', 'intro'));
     }
 
     public function show(Coaching $coaching)
@@ -99,6 +101,8 @@ class CoachingController extends Controller
 
      public function confirm(Coaching $coaching)
     {
-        return view('coaching.confirm', compact('coaching'));
+        // ******** Page title ********
+        $pageTitle = "Coaching";
+        return view('coaching.confirm', compact('pageTitle', 'coaching'));
     }
 }

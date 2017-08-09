@@ -18,34 +18,15 @@ class TeamController extends Controller
      */
     public function index()
     {
+        // ******** Page title ********
+        $pageTitle = "Équipes";
         $team = new Team;
         // ******** Get current season ********
         $currentSeason = $team->getCurrentSeason();
         // ******** Get all teams form current season ********
         $teams = $team->getTeamsFromCurrentSeason($currentSeason);
 
-        return view('team/index', compact('teams', 'currentSeason'));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+        return view('team/index', compact('pageTitle', 'teams', 'currentSeason'));
     }
 
     /**
@@ -56,6 +37,8 @@ class TeamController extends Controller
      */
      public function show(Team $team, Game $game)
     {
+        // ******** Page title ********
+        $pageTitle = $team->division;
         // ******** Get current date ********
         $currentDate = Carbon::now();
         // ******** Get formated photo src & srcset ********
@@ -66,14 +49,8 @@ class TeamController extends Controller
         $results = $game->getResults($currentDate, $team->id, '');
         // ******** Get Coach ********
         $coach = $team->getCoach($team->coach_id);
-        $coach = $coach[0];
         // ******** Get assistant ********
         $assistant = $team->getAssistant($team->assistant_id);
-        if (count($assistant) != 0) {
-            $assistant = $assistant[0];
-        } else {
-            $assistant = null;
-        }
         // ******** Get practices ********
         $practice = new Practice;
         $practices = $practice->getPracticesFromTeamID($team->id);
@@ -83,40 +60,6 @@ class TeamController extends Controller
         $album = new Album;
         $albums = $album->getLastAlbums(NULL, $team->id);
     
-        return view('team/show', compact('team', 'games', 'results', 'coach', 'assistant', 'practices', 'players', 'albums'));
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        return view('team/show', compact('pageTitle', 'team', 'games', 'results', 'coach', 'assistant', 'practices', 'players', 'albums'));
     }
 }

@@ -16,12 +16,14 @@ class EventController extends Controller
      */
     public function show(Event $event)
     {
+        // ******** Page title ********
+        $pageTitle = $event->title;
         // ******** Get src & srcset ********
         $event->getPhotoSrcAndSrcset($event);
         // ******** Get formated date ********
         $tools = new Tool;
         $event->date = $tools->getFormatedDate($event->date);
 
-        return view('event/show', compact('event'));
+        return view('event/show', compact('pageTitle', 'event'));
     }
 }

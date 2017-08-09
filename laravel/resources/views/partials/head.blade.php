@@ -24,6 +24,6 @@
 	<link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#105885">
 	<meta name="theme-color" content="#f58020">		
 
-    <title>{{ config('app.name', 'RBC Ciney') }}</title>
+    <title>{{($pageTitle != null) ? $pageTitle : 'Connexion' }} - {{ config('app.name', 'RBC Ciney') }}</title>
 </head>
 <body>
