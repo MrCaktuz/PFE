@@ -32,7 +32,7 @@
 
         <fieldset class="form-fieldset button-wrap-center">
             <button type="submit" class="form-input form-input-submit button button-primary">
-                Connection
+                Connexion
             </button>
             <a class="form-reset" href="{{ route('password.request') }}">
                 Oublié votre mot de passe?

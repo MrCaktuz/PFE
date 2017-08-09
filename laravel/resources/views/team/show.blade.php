@@ -60,9 +60,6 @@
                 <div class="resultCard">
                     <div class="resultCard-header">
                         <div class="resultCard-title">
-                            <p>{{$result->team_id}}</p>
-                        </div>
-                        <div class="resultCard-sub-title">
                             <p>{{$result->date}}</p>
                         </div>
                     </div>
@@ -92,8 +89,8 @@
         <h2 class="section-title"><span class="section-icon section-icon-team"></span>Effectif</h2>
         <div class="section-content flex-wrap">
             <div class="section-col">
-                <a class="idCard" href="/users/{{$coach->id}}" title="Voir le profil de {{$coach->name}}">
-                    <img src="{{$coach->photo}}" alt="photo de profil" class="idCard-photo">
+                <a class="idCard" href="/userz/{{$coach->id}}" title="Voir le profil de {{$coach->name}}">
+                    <img src="{{$coach->src}}" srcset="{{$coach->srcset}}" alt="photo de profil" class="idCard-photo">
                     <div class="idCard-content">
                         <p class="idCard-title">Entraineur</p>
                         <p class="idCard-subTitle">{{$coach->name}}</p>
@@ -103,8 +100,8 @@
                     <p class="idCard-link">Plus d'infos</p>
                 </a>
                 @if($assistant != null)
-                    <a class="idCard" href="/users/{{$assistant->id}}" title="Voir le profil de {{$assistant->name}}">
-                        <img src="{{$assistant->photo}}" alt="photo de profil" class="idCard-photo">
+                    <a class="idCard" href="/userz/{{$assistant->id}}" title="Voir le profil de {{$assistant->name}}">
+                        <img src="{{$assistant->src}}" srcset="{{$assistant->srcset}}" alt="photo de profil" class="idCard-photo">
                         <div class="idCard-content">
                             <p class="idCard-title">Assistant</p>
                             <p class="idCard-subTitle">{{$assistant->name}}</p>
@@ -140,7 +137,7 @@
                     <tbody class="table-body">
                         @foreach($players as $player)
                             <tr class="table-row">
-                                <td class="table-data table-head-data"><a class="table-link" href="/users/{{$player->id}}" title="Voir le profil de {{$player->name}}">{{$player->name}}<span class="table-more table-more-infos">Plus d'infos</span></a></td>
+                                <td class="table-data table-head-data"><a class="table-link" href="/user/{{$player->id}}" title="Voir le profil de {{$player->name}}">{{$player->name}}<span class="table-more table-more-infos">Plus d'infos</span></a></td>
                                 <td class="table-data">N° {{$player->jersey_nbr}}</td>
                             </tr>
                         @endforeach
