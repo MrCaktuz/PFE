@@ -1,0 +1,50 @@
+/*
+ *	Description:    Stylesheet for the google map
+ *	File:    		_gmap.scss
+ *	Version:        1.0 - 10/08/2017
+ *	Author :        Mucht - claessens.mathieu@gmail.com
+*/
+
+.gmap{
+	max-height: 30rem;
+	&-link{
+		img{
+			width: 100%;
+			height: auto;
+		}
+	}
+}
+.navigate{
+    float: right;
+    margin-top: 0.5rem;
+    &-link{
+        text-align: center;
+        color: $primary;
+    }
+    &-icon{
+        display: block;
+        width: 3rem;
+        height: 3rem;
+        margin: 0 1.6rem;
+        background-image: url( 'https://maps.gstatic.com/mapfiles/embed/images/entity11_hdpi.png' );
+        background-position: 0 1023px;
+    }
+}
+.google-maps-link a{
+    color: $primary;
+}
+.place-card{
+    width: 28.5rem;
+    padding: 1rem;
+}
+.place-desc-large{
+    float: left;
+    width: 20rem;
+}
+.place-name{
+    @include font-size(1.4);
+    font-weight: $bold;
+}
+.address{
+    margin-top: 0.6rem;
+}

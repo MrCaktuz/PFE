@@ -22,6 +22,7 @@
 
 // 5. Components - Design des composants
 @import "components/footer";
+@import "components/lightbox";
 @import "components/mainNav";
 @import "components/section";
 
@@ -40,9 +41,11 @@
 @import "objects/feedback";
 @import "objects/form";
 @import "objects/gameCard";
+@import "objects/gmap";
 @import "objects/idCard";
 @import "objects/innerNav";
 @import "objects/logo";
+@import "objects/masonry";
 @import "objects/profil";
 @import "objects/resultCard";
 @import "objects/rules";

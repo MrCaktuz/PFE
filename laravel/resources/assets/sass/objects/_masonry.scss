@@ -1,0 +1,16 @@
+/*
+ *	Description:    stylesheet for masonry elements
+ *	File:    		_masonry.scss
+ *	Version:        1.0 - 11/08/2017
+ *	Author :        Mucht - claessens.mathieu@gmail.com
+*/
+
+.masonry{
+	&-item{
+		width: 46%;
+		margin-bottom: 4%;
+		&:nth-child(2n+1){
+			margin-right: 4%;
+		}
+	}
+}

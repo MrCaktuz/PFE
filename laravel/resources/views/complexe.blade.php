@@ -74,14 +74,16 @@
 				<div class="complexe-album-flex">
 	        		<?php $i = 1; ?>
 			        @foreach($albumComplexe->photos as $photo)
-			            <img class="complexe-photo" src="{{URL::to('/').'/'.$photo[0]}}" srcset="{{URL::to('/').'/'.$photo[1]}}" alt="photo {{$i}} du complexe sportif">
-			            <?php $i++ ?>
+	                    <a class="complexe-photo" href="/{{$photo[0]}}" data-lightbox="complexe sportif" title="Agrandir l'image">
+				            <img  src="{{URL::to('/').'/'.$photo[0]}}" srcset="{{URL::to('/').'/'.$photo[1]}}" alt="photo {{$i}} du complexe sportif">
+				            <?php $i++ ?>
+				        </a>
 			        @endforeach
 		        </div>
         	</div>
         </div>
     </div>
-    <div class="contact-gmap">
+    <div class="gmap" id="gmap">
         <a href="https://www.google.be/maps/place/Rue+Saint-Quentin+10,+5590+Ciney/@50.2993422,5.0960162,17z/data=!3m1!4b1!4m5!3m4!1s0x47c1b9e9c372d78b:0x81fa797516745527!8m2!3d50.2993422!4d5.0982049" class="gmap-link" title="Lien vers la google map" target="_blanc">
             <img src="/img/gmap.jpg" srcset="/img/gmap_1280.jpg 1280w, /img/gmap_980.jpg 980w, /img/gmap_768.jpg 768w, /img/gmap_640.jpg 640w, /img/gmap_480.jpg 480w, /img/gmap_320.jpg 320w, " alt="Photo de la Google map">
         </a>

@@ -177,13 +177,14 @@ class Album extends Model
         $attribute_name = "photos";
         $disk = "public_folder";
         $destination_path = "uploads/albums";
-        $album_name = $_POST['name'];
+        $album_originalName = $_POST['name'];
         foreach ( $value as $file ) {
             // 0. Generate new size file
             $image = \Image::make( $file );
             $image_350 = \Image::make( $file ) -> widen( 350 );
             
-            // 1. Generate new file names
+            // 1. Generate new file names & album name
+            $album_name = md5( $album_originalName . time() );
             $new_file_name = md5( $file -> getClientOriginalName() . time() ).'.'.$file->getClientOriginalExtension();
             $new_file_name_350 = md5( $file -> getClientOriginalName() . time() ).'_350.'.$file->getClientOriginalExtension();
             

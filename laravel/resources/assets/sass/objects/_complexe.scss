@@ -26,10 +26,12 @@
 	}
 	&-photo{
 		display: block;
-		width: 20rem;
-		height: auto;
 		& + .complexe-photo{
 			margin-left: 2rem;
+		}
+		& img{
+			width: 20rem;
+			height: auto;
 		}
 	}
 }
