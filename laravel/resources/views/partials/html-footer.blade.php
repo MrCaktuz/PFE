@@ -5,6 +5,8 @@
     <script type="text/javascript" src="{{ URL::asset('js/masonry.min.js') }}"></script>
         {{-- Lightbox --}}
     <script type="text/javascript" src="{{ URL::asset('js/lightbox.min.js') }}"></script>
+        {{-- Slick --}}
+    <script type="text/javascript" src="{{ URL::asset('js/slick.min.js') }}"></script>
         {{-- Google Map API --}}
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbilrse-oRJzOiAfr4enUru0D6l9XBnM4"></script>
         {{-- Accessible Mega Menu --}}

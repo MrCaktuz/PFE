@@ -107,4 +107,34 @@ jQuery(document).ready(function($) {
 		itemSelector: '.masonry-item',
 		percentPosition: true
 	});
+
+	// ******** Slick (slider) ********
+		// Remove default class if JS enable
+	$('.sponsor-wrap').removeClass('flex-wrap');
+	$('.sponsor-wrap').removeClass('sponsor-wrap');
+	$('.sponsor').removeClass('sponsor');
+	$('.sponsor-img').removeClass('sponsor-img');
+		// Initiate Slick
+	$('.sponsor-slider').slick({
+		dots: false,
+		centerMode: true,
+		slidesToShow: 3,
+		slidesToScroll: 1,
+		autoplay: true,
+		autoplaySpeed: 3000,
+		responsive: [
+			{
+				breakpoint: 640,
+				settings: {
+					slidesToShow: 2
+				}
+			},
+			{
+				breakpoint: 480,
+				settings: {
+					slidesToShow: 1
+				}
+			}
+		]
+	});
 } );

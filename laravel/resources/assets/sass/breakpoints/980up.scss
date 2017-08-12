@@ -231,3 +231,10 @@
 		background-color: $white;
 	}
 }
+
+// ******** Slick ********
+.slick-arrow{
+    &:hover{
+        background-color: $grey;
+    }
+}

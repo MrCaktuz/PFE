@@ -69,7 +69,7 @@
     </section>
     <section class="section">
         <h2 class="section-title"><span class="section-icon section-icon-sponsor"></span>Nos partenaires</h2>
-        <div class="section-content flex-wrap sponsor-wrap">
+        <div class="section-content flex-wrap sponsor-slider sponsor-wrap">
             @foreach($sponsors as $sponsor)
                 <a class="sponsor" href="{{$sponsor->url}}" target="_blanc" title="Accéder au site du partenaire">
                     <img class="sponsor-img" src="{{$sponsor->image}}" srcset="{{$sponsor->srcset}}" alt="{{$sponsor->name}}">
