@@ -71,7 +71,7 @@
 		        </div>
 			</div>
 			<div class="complexe-album">
-				<div class="complexe-album-flex">
+				<div class="complexe-album-flex complexe-slider">
 	        		<?php $i = 1; ?>
 			        @foreach($albumComplexe->photos as $photo)
 	                    <a class="complexe-photo" href="/{{$photo[0]}}" data-lightbox="complexe sportif" title="Agrandir l'image">

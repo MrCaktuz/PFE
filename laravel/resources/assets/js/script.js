@@ -114,7 +114,8 @@ jQuery(document).ready(function($) {
 	$('.sponsor-wrap').removeClass('sponsor-wrap');
 	$('.sponsor').removeClass('sponsor');
 	$('.sponsor-img').removeClass('sponsor-img');
-		// Initiate Slick
+	$('.complexe-album-flex').removeClass('complexe-album-flex');
+		// Initiate Slick for sponsors
 	$('.sponsor-slider').slick({
 		dots: false,
 		centerMode: true,
@@ -136,5 +137,14 @@ jQuery(document).ready(function($) {
 				}
 			}
 		]
+	});
+		// Initiate Slick for complexe
+	$('.complexe-slider').slick({
+		dots: false,
+		infinite: true,
+		speed: 300,
+		slidesToShow: 1,
+		centerMode: true,
+		variableWidth: true
 	});
 } );
