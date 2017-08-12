@@ -6,11 +6,6 @@
 */
 
 // ******** From http://lokeshdhakar.com/projects/lightbox2/ ********
-body:after {
-  content: url(../img/icons/close-icon.png) url(../img/icons/loading-icon.gif) url(../img/icons/prev-icon.png) url(../img/icons/next-icon.png);
-  display: none;
-}
-
 body.lb-disable-scrolling {
   overflow: hidden;
 }
@@ -42,7 +37,6 @@ body.lb-disable-scrolling {
   max-width: inherit;
   max-height: none;
   border-radius: 3px;
-
   /* Image border */
   border: 4px solid $white;
 }
@@ -116,36 +110,24 @@ body.lb-disable-scrolling {
   width: 34%;
   left: 0;
   float: left;
-  background: url(../img/icons/prev-icon.png) 5% 48% no-repeat;
+  background: url(../img/icons/prev-icon.png) 5% 48%/2rem no-repeat;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
-  opacity: 0;
   -webkit-transition: opacity 0.6s;
   -moz-transition: opacity 0.6s;
   -o-transition: opacity 0.6s;
   transition: opacity 0.6s;
-}
-
-.lb-nav a.lb-prev:hover {
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
-  opacity: 1;
 }
 
 .lb-nav a.lb-next {
   width: 64%;
   right: 0;
   float: right;
-  background: url(../img/icons/next-icon.png) 95% 48% no-repeat;
+  background: url(../img/icons/next-icon.png) 95% 48%/2rem no-repeat;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
-  opacity: 0;
   -webkit-transition: opacity 0.6s;
   -moz-transition: opacity 0.6s;
   -o-transition: opacity 0.6s;
   transition: opacity 0.6s;
-}
-
-.lb-nav a.lb-next:hover {
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
-  opacity: 1;
 }
 
 .lb-dataContainer {
@@ -169,7 +151,7 @@ body.lb-disable-scrolling {
 
 .lb-data {
   padding: 0 4px;
-  color: #ccc;
+  color: $grey;
 }
 
 .lb-data .lb-details {
@@ -186,7 +168,7 @@ body.lb-disable-scrolling {
 }
 
 .lb-data .lb-caption a {
-  color: #4ae;
+  color: $primary;
 }
 
 .lb-data .lb-number {
@@ -194,28 +176,21 @@ body.lb-disable-scrolling {
   clear: left;
   padding-bottom: 1em;
   font-size: 12px;
-  color: #999999;
+  color: $grey;
 }
 
 .lb-data .lb-close {
   display: block;
   float: right;
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
   background: url(../img/icons/close-icon.png) top right no-repeat;
   background-size: cover;
   text-align: right;
   outline: none;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
-  opacity: 0.7;
   -webkit-transition: opacity 0.2s;
   -moz-transition: opacity 0.2s;
   -o-transition: opacity 0.2s;
   transition: opacity 0.2s;
-}
-
-.lb-data .lb-close:hover {
-  cursor: pointer;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
-  opacity: 1;
 }
