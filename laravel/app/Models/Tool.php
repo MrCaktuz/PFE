@@ -5,6 +5,7 @@ namespace App\Models;
 use Request;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
+use DOMDocument;      
 
 class Tool extends Model
 {
@@ -65,7 +66,7 @@ class Tool extends Model
         foreach ( Request::segments() as $segment ) {
             if ( is_numeric( $segment ) || empty( $segment ) ) {
                  continue;
-            }            
+            }    
             $class .= ! empty( $class ) ? "-" . $segment : 'page-'.$segment;
             array_push( $body_classes, $class );
         }

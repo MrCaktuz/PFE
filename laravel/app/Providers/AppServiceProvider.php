@@ -57,9 +57,10 @@ class AppServiceProvider extends ServiceProvider
         $twitter = $DB_twitter[0]->value;
         View::share('twitter', $twitter);
 
-        // ******** Get model Tool on every view ********
+        // ******** Get body class on every view ********
         $tool = new Tool;
-        View::share('tool', $tool);
+        $bodyClass = $tool->getBodyClass();
+        View::share('bodyClass', $bodyClass);
     }
 
     /**

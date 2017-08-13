@@ -62,192 +62,200 @@ jQuery(document).ready(function($) {
     });
 
 	// ******** Google map ********
-	function initialize() {
-		$('.gmap').css( "height", "30rem" );
-		$('.gmap-link').remove();
-        var myLatlng = new google.maps.LatLng(50.299342,5.098205),
-            centermap = new google.maps.LatLng(50.299942,5.098205),
-            mapOptions = {
-                zoom: 15,
-                center: centermap,
-                mapTypeControl: false,
-                disableDefaultUI: false,
-                scrollwheel : false,
-                streetViewControl : false,
-            },
-            map = new google.maps.Map(document.getElementById('gmap'), mapOptions),
-            marker = new google.maps.Marker({
-                position: myLatlng,
-                map: map,
-                icon: 'http://rbcciney.dev/img/icons/gmap-icon.png'
-            }),
-            infowindow = new google.maps.InfoWindow();
+	if ($('body').hasClass('page-contact') || $('body').hasClass('page-complexe')) {
+		function initialize() {
+			$('.gmap').css( "height", "30rem" );
+			$('.gmap-link').remove();
+	        var myLatlng = new google.maps.LatLng(50.299342,5.098205),
+	            centermap = new google.maps.LatLng(50.299942,5.098205),
+	            mapOptions = {
+	                zoom: 15,
+	                center: centermap,
+	                mapTypeControl: false,
+	                disableDefaultUI: false,
+	                scrollwheel : false,
+	                streetViewControl : false,
+	            },
+	            map = new google.maps.Map(document.getElementById('gmap'), mapOptions),
+	            marker = new google.maps.Marker({
+	                position: myLatlng,
+	                map: map,
+	                icon: 'http://rbcciney.dev/img/icons/gmap-icon.png'
+	            }),
+	            infowindow = new google.maps.InfoWindow();
 
-        google.maps.event.addDomListener(window, 'resize', function() {
-            map.setCenter(centermap);
-        });
-        google.maps.event.addListener(map, 'idle', function(e) {
-            // Prevents card from being added more than once (i.e. when page is resized and google maps re-renders)
-            if ( $( ".place-card" ).length === 0 ) {
-                $(".gm-style").append('<div style="position: absolute; right: 0px; top: 0px;"> <div style="margin: 10px; padding: 1px; -webkit-box-shadow: rgba(0, 0, 0, 0.298039) 0px 1px 4px -1px; box-shadow: rgba(0, 0, 0, 0.298039) 0px 1px 4px -1px; border-radius: 2px; background-color: white;"> <div> <div class="place-card place-card-large"> <div class="place-desc-large"> <div class="place-name">RBC Ciney</div><div class="address">Rue Saint-Quentin 10, 5590 Ciney</div></div><div class="navigate"> <div class="navigate"> <a class="navigate-link" href="https://www.google.be/maps/dir//Rue+Saint-Quentin+10,+5590+Ciney/@50.2993422,5.0960162,17z/data=!4m16!1m7!3m6!1s0x47c1b9e9c372d78b:0x81fa797516745527!2sRue+Saint-Quentin+10,+5590+Ciney!3b1!8m2!3d50.2993422!4d5.0982049!4m7!1m0!1m5!1m1!1s0x47c1b9e9c372d78b:0x81fa797516745527!2m2!1d5.0982049!2d50.2993422" target="_blank"> <div class="icon navigate-icon"></div><div class="navigate-text"> Itinéraires </div></a> </div></div><div class="google-maps-link"> <a href="https://www.google.be/maps/place/Rue+Saint-Quentin+10,+5590+Ciney/@50.2993422,5.0960162,17z/data=!3m1!4b1!4m5!3m4!1s0x47c1b9e9c372d78b:0x81fa797516745527!8m2!3d50.2993422!4d5.0982049" target="_blank">Agrandir le plan</a> </div></div><div class="time-to-location-privacy-exp" style="display:none"> <div class="only-visible-to-you-exp"> Visible only to you. </div><a class="learn-more-exp" target="_blank">Learn more</a> </div></div></div></div></div>');
-            }
-        });
-    }
-    if(document.getElementById('gmap')){
-        google.maps.event.addDomListener(window, 'load', initialize);
-    }
+	        google.maps.event.addDomListener(window, 'resize', function() {
+	            map.setCenter(centermap);
+	        });
+	        google.maps.event.addListener(map, 'idle', function(e) {
+	            // Prevents card from being added more than once (i.e. when page is resized and google maps re-renders)
+	            if ( $( ".place-card" ).length === 0 ) {
+	                $(".gm-style").append('<div style="position: absolute; right: 0px; top: 0px;"> <div style="margin: 10px; padding: 1px; -webkit-box-shadow: rgba(0, 0, 0, 0.298039) 0px 1px 4px -1px; box-shadow: rgba(0, 0, 0, 0.298039) 0px 1px 4px -1px; border-radius: 2px; background-color: white;"> <div> <div class="place-card place-card-large"> <div class="place-desc-large"> <div class="place-name">RBC Ciney</div><div class="address">Rue Saint-Quentin 10, 5590 Ciney</div></div><div class="navigate"> <div class="navigate"> <a class="navigate-link" href="https://www.google.be/maps/dir//Rue+Saint-Quentin+10,+5590+Ciney/@50.2993422,5.0960162,17z/data=!4m16!1m7!3m6!1s0x47c1b9e9c372d78b:0x81fa797516745527!2sRue+Saint-Quentin+10,+5590+Ciney!3b1!8m2!3d50.2993422!4d5.0982049!4m7!1m0!1m5!1m1!1s0x47c1b9e9c372d78b:0x81fa797516745527!2m2!1d5.0982049!2d50.2993422" target="_blank"> <div class="icon navigate-icon"></div><div class="navigate-text"> Itinéraires </div></a> </div></div><div class="google-maps-link"> <a href="https://www.google.be/maps/place/Rue+Saint-Quentin+10,+5590+Ciney/@50.2993422,5.0960162,17z/data=!3m1!4b1!4m5!3m4!1s0x47c1b9e9c372d78b:0x81fa797516745527!8m2!3d50.2993422!4d5.0982049" target="_blank">Agrandir le plan</a> </div></div><div class="time-to-location-privacy-exp" style="display:none"> <div class="only-visible-to-you-exp"> Visible only to you. </div><a class="learn-more-exp" target="_blank">Learn more</a> </div></div></div></div></div>');
+	            }
+	        });
+	    }
+	    if(document.getElementById('gmap')){
+	        google.maps.event.addDomListener(window, 'load', initialize);
+	    }
+	}
 	
 	// ******** Masonry ********
+	if ($('body').hasClass('page-albums')) {
 		// Remove default class if JS enable
-	$('.album-wrap').removeClass('album-wrap');
-	$('.album-photo').removeClass('album-photo');
+		$('.album-wrap').removeClass('album-wrap');
+		$('.album-photo').removeClass('album-photo');
 		// Initiate Masonry
-	$('.masonry').masonry({
-		// Options
-		itemSelector: '.masonry-item',
-		percentPosition: true
-	});
+		$('.masonry').masonry({
+			// Options
+			itemSelector: '.masonry-item',
+			percentPosition: true
+		});
+	}
 
 	// ******** Slick (slider) ********
+	if ($('body').hasClass('page-complexe') || $('body').hasClass('')) {
 		// Remove default class if JS enable
-	$('.sponsor-wrap').removeClass('flex-wrap');
-	$('.sponsor-wrap').removeClass('sponsor-wrap');
-	$('.sponsor').removeClass('sponsor');
-	$('.sponsor-img').removeClass('sponsor-img');
-	$('.complexe-album-flex').removeClass('complexe-album-flex');
+		$('.sponsor-wrap').removeClass('flex-wrap');
+		$('.sponsor-wrap').removeClass('sponsor-wrap');
+		$('.sponsor').removeClass('sponsor');
+		$('.sponsor-img').removeClass('sponsor-img');
+		$('.complexe-album-flex').removeClass('complexe-album-flex');
 		// Initiate Slick for sponsors
-	$('.sponsor-slider').slick({
-		dots: false,
-		centerMode: true,
-		slidesToShow: 3,
-		slidesToScroll: 1,
-		autoplay: true,
-		autoplaySpeed: 3000,
-		responsive: [
-			{
-				breakpoint: 640,
-				settings: {
-					slidesToShow: 2
+		$('.sponsor-slider').slick({
+			dots: false,
+			centerMode: true,
+			slidesToShow: 3,
+			slidesToScroll: 1,
+			autoplay: true,
+			autoplaySpeed: 3000,
+			responsive: [
+				{
+					breakpoint: 640,
+					settings: {
+						slidesToShow: 2
+					}
+				},
+				{
+					breakpoint: 480,
+					settings: {
+						slidesToShow: 1
+					}
 				}
-			},
-			{
-				breakpoint: 480,
-				settings: {
-					slidesToShow: 1
-				}
-			}
-		]
-	});
+			]
+		});
 		// Initiate Slick for complexe
-	$('.complexe-slider').slick({
-		dots: false,
-		infinite: true,
-		speed: 300,
-		slidesToShow: 1,
-		centerMode: true,
-		variableWidth: true
-	});
+		$('.complexe-slider').slick({
+			dots: false,
+			infinite: true,
+			speed: 300,
+			slidesToShow: 1,
+			centerMode: true,
+			variableWidth: true
+		});
+	}
 
 	// ******** Navigation interne ********
-	function currentNavbarPosition(el){
-        var y = $(window).scrollTop(), // Position of the scroll
-	        avp = el.parent().offset().top, // Vertical position of the article container
-	        ah = el.parent().height(), // Height of article container
-	        navh = el.height(); // Height of navbar container
-        if(y >= avp - 20 ) {
-           if(y > (avp + ah - navh - elTop - 20 )) { // Si le scroll atteint la fin de l'article moins la hauteur de la nav
-                el.removeClass('fix-aside');
-                el.addClass('fix-aside-bottom');
-                el.css('top', (ah - navh + 45)+'px');
-            } else {
-                el.addClass('fix-aside');
-                el.removeClass('fix-aside-bottom');
-                el.css('top','');
-            }
-        } else {
-            el.removeClass('fix-aside');
-        };
-    }
+	if ($('.page-regles')) {
+		function currentNavbarPosition(el){
+	        var y = $(window).scrollTop(), // Position of the scroll
+		        avp = el.parent().offset().top, // Vertical position of the article container
+		        ah = el.parent().height(), // Height of article container
+		        navh = el.height(); // Height of navbar container
+	        if(y >= avp - 20 ) {
+	           if(y > (avp + ah - navh - elTop - 20 )) { // Si le scroll atteint la fin de l'article moins la hauteur de la nav
+	                el.removeClass('fix-aside');
+	                el.addClass('fix-aside-bottom');
+	                el.css('top', (ah - navh + 45)+'px');
+	            } else {
+	                el.addClass('fix-aside');
+	                el.removeClass('fix-aside-bottom');
+	                el.css('top','');
+	            }
+	        } else {
+	            el.removeClass('fix-aside');
+	        };
+	    }
 
-    function navbarScroll(el) {
-        el = $(el);
-        elTop = el.position().top;
-        currentNavbarPosition(el);
-        $(window).resize(function () {
-            currentNavbarPosition(el);
-        });
-        $(window).scroll(function () {
-            currentNavbarPosition(el);
-        });
-    }
+	    function navbarScroll(el) {
+	        el = $(el);
+	        elTop = el.position().top;
+	        currentNavbarPosition(el);
+	        $(window).resize(function () {
+	            currentNavbarPosition(el);
+	        });
+	        $(window).scroll(function () {
+	            currentNavbarPosition(el);
+	        });
+	    }
 
-    if(document.querySelector('.inner-nav')){
-        navbarScroll('.inner-nav');
+	    if(document.querySelector('.inner-nav')){
+	        navbarScroll('.inner-nav');
 
-        var $root = $('html, body'),
-            pageHeight = $( window ).innerHeight(),
-            maxHeightValue = pageHeight - 160,
-            maxHeightString = 'max-height: ' + maxHeightValue + 'px';
+	        var $root = $('html, body'),
+	            pageHeight = $( window ).innerHeight(),
+	            maxHeightValue = pageHeight - 160,
+	            maxHeightString = 'max-height: ' + maxHeightValue + 'px';
 
-        $( '.inner-nav-list' ).attr( 'style', maxHeightString );
+	        $( '.inner-nav-list' ).attr( 'style', maxHeightString );
 
-        $( window ).resize( function(){
-            pageHeight = $( window ).innerHeight(),
-            maxHeightValue = pageHeight - 160,
-            maxHeightString = 'max-height: ' + maxHeightValue + 'px';
-            $( '.inner-nav-list' ).attr( 'style', maxHeightString );
-        } );
+	        $( window ).resize( function(){
+	            pageHeight = $( window ).innerHeight(),
+	            maxHeightValue = pageHeight - 160,
+	            maxHeightString = 'max-height: ' + maxHeightValue + 'px';
+	            $( '.inner-nav-list' ).attr( 'style', maxHeightString );
+	        } );
 
-        // Update class active on scroll
-        var aSectionID = [];
-        	// get sections ID
-        $( '.inner-nav-link' ).each( function(){
-            var iSectionID = $( this ).attr( 'href' ).replace( '#', '' );
-            aSectionID.push( iSectionID );
-        } );
-        for (var i = 0; i < aSectionID.length; i++) {
-            var iOffsetDown = 100,
-                iOffsetUp = $( '#' + aSectionID[i] ).outerHeight()*-0.5;
-          	// Update class active on the way down
-            waypoint = new Waypoint({
-                element: document.getElementById( aSectionID[i] ),
-                handler: function( direction ) {
-                    if (direction == 'down') {
-                        var test =  '.link-' + this.element.id;
-                        $('.inner-nav-link-active').removeClass( 'inner-nav-link-active' );
-                        $(test).addClass( 'inner-nav-link-active' );
-                    }
-                },
-                offset: iOffsetDown
-            });
-          	// Update class active on the way up
-            waypoint = new Waypoint({
-                element: document.getElementById( aSectionID[i] ),
-                handler: function( direction ) {
-                    if (direction == 'up') {
-                        var test =  '.link-' + this.element.id;
-                        $('.inner-nav-link-active').removeClass( 'inner-nav-link-active' );
-                        $( test ).addClass( 'inner-nav-link-active' );
-                    }
-                },
-                offset: iOffsetUp
-            });
-        }
+	        // Update class active on scroll
+	        var aSectionID = [];
+	        	// get sections ID
+	        $( '.inner-nav-link' ).each( function(){
+	            var iSectionID = $( this ).attr( 'href' ).replace( '#', '' );
+	            aSectionID.push( iSectionID );
+	        } );
+	        for (var i = 0; i < aSectionID.length; i++) {
+	            var iOffsetDown = 100,
+	                iOffsetUp = $( '#' + aSectionID[i] ).outerHeight()*-0.5;
+	          	// Update class active on the way down
+	            waypoint = new Waypoint({
+	                element: document.getElementById( aSectionID[i] ),
+	                handler: function( direction ) {
+	                    if (direction == 'down') {
+	                        var test =  '.link-' + this.element.id;
+	                        $('.inner-nav-link-active').removeClass( 'inner-nav-link-active' );
+	                        $(test).addClass( 'inner-nav-link-active' );
+	                    }
+	                },
+	                offset: iOffsetDown
+	            });
+	          	// Update class active on the way up
+	            waypoint = new Waypoint({
+	                element: document.getElementById( aSectionID[i] ),
+	                handler: function( direction ) {
+	                    if (direction == 'up') {
+	                        var test =  '.link-' + this.element.id;
+	                        $('.inner-nav-link-active').removeClass( 'inner-nav-link-active' );
+	                        $( test ).addClass( 'inner-nav-link-active' );
+	                    }
+	                },
+	                offset: iOffsetUp
+	            });
+	        }
 
-        //Add active class on click
-        $( '.inner-nav-link' ).click( function(){
-            $( '.inner-nav-link' ).removeClass( 'inner-nav-link-active' )
-            $( this ).addClass( 'inner-nav-link-active' );
-        } );
+	        //Add active class on click
+	        $( '.inner-nav-link' ).click( function(){
+	            $( '.inner-nav-link' ).removeClass( 'inner-nav-link-active' )
+	            $( this ).addClass( 'inner-nav-link-active' );
+	        } );
 
-        // Smooth scroll
-        $('.inner-nav-link').click(function() {
-            var href = $.attr(this, 'href');
-            $root.stop().animate({ scrollTop: $(href).offset().top
-            }, 500, function () {
-                window.location.hash = href;
-            });
-            return false;
-        });
-    }
+	        // Smooth scroll
+	        $('.inner-nav-link').click(function() {
+	            var href = $.attr(this, 'href');
+	            $root.stop().animate({ scrollTop: $(href).offset().top
+	            }, 500, function () {
+	                window.location.hash = href;
+	            });
+	            return false;
+	        });
+	    }
+	}
 } );
