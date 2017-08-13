@@ -11,7 +11,9 @@
 	max-width: 35em;
 	line-height: 1.6;
 	.rule{
-		padding-top: 4rem;
+		& + .rule{
+			padding-top: 4rem;
+		}
 		&-title{
 			@include font-size(2.5);
 			margin-bottom: 2rem;

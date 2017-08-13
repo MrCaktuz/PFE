@@ -147,4 +147,107 @@ jQuery(document).ready(function($) {
 		centerMode: true,
 		variableWidth: true
 	});
+
+	// ******** Navigation interne ********
+	function currentNavbarPosition(el){
+        var y = $(window).scrollTop(), // Position of the scroll
+	        avp = el.parent().offset().top, // Vertical position of the article container
+	        ah = el.parent().height(), // Height of article container
+	        navh = el.height(); // Height of navbar container
+        if(y >= avp - 20 ) {
+           if(y > (avp + ah - navh - elTop - 20 )) { // Si le scroll atteint la fin de l'article moins la hauteur de la nav
+                el.removeClass('fix-aside');
+                el.addClass('fix-aside-bottom');
+                el.css('top', (ah - navh + 45)+'px');
+            } else {
+                el.addClass('fix-aside');
+                el.removeClass('fix-aside-bottom');
+                el.css('top','');
+            }
+        } else {
+            el.removeClass('fix-aside');
+        };
+    }
+
+    function navbarScroll(el) {
+        el = $(el);
+        elTop = el.position().top;
+        currentNavbarPosition(el);
+        $(window).resize(function () {
+            currentNavbarPosition(el);
+        });
+        $(window).scroll(function () {
+            currentNavbarPosition(el);
+        });
+    }
+
+    if(document.querySelector('.inner-nav')){
+        navbarScroll('.inner-nav');
+
+        var $root = $('html, body'),
+            pageHeight = $( window ).innerHeight(),
+            maxHeightValue = pageHeight - 160,
+            maxHeightString = 'max-height: ' + maxHeightValue + 'px';
+
+        $( '.inner-nav-list' ).attr( 'style', maxHeightString );
+
+        $( window ).resize( function(){
+            pageHeight = $( window ).innerHeight(),
+            maxHeightValue = pageHeight - 160,
+            maxHeightString = 'max-height: ' + maxHeightValue + 'px';
+            $( '.inner-nav-list' ).attr( 'style', maxHeightString );
+        } );
+
+        // Update class active on scroll
+        var aSectionID = [];
+        	// get sections ID
+        $( '.inner-nav-link' ).each( function(){
+            var iSectionID = $( this ).attr( 'href' ).replace( '#', '' );
+            aSectionID.push( iSectionID );
+        } );
+        for (var i = 0; i < aSectionID.length; i++) {
+            var iOffsetDown = 100,
+                iOffsetUp = $( '#' + aSectionID[i] ).outerHeight()*-0.5;
+          	// Update class active on the way down
+            waypoint = new Waypoint({
+                element: document.getElementById( aSectionID[i] ),
+                handler: function( direction ) {
+                    if (direction == 'down') {
+                        var test =  '.link-' + this.element.id;
+                        $('.inner-nav-link-active').removeClass( 'inner-nav-link-active' );
+                        $(test).addClass( 'inner-nav-link-active' );
+                    }
+                },
+                offset: iOffsetDown
+            });
+          	// Update class active on the way up
+            waypoint = new Waypoint({
+                element: document.getElementById( aSectionID[i] ),
+                handler: function( direction ) {
+                    if (direction == 'up') {
+                        var test =  '.link-' + this.element.id;
+                        $('.inner-nav-link-active').removeClass( 'inner-nav-link-active' );
+                        $( test ).addClass( 'inner-nav-link-active' );
+                    }
+                },
+                offset: iOffsetUp
+            });
+        }
+
+        //Add active class on click
+        $( '.inner-nav-link' ).click( function(){
+            $( '.inner-nav-link' ).removeClass( 'inner-nav-link-active' )
+            $( this ).addClass( 'inner-nav-link-active' );
+        } );
+
+        // Smooth scroll
+        $('.inner-nav-link').click(function() {
+            var href = $.attr(this, 'href');
+            $root.stop().animate({ scrollTop: $(href).offset().top
+            }, 500, function () {
+                window.location.hash = href;
+            });
+            return false;
+        });
+    }
 } );

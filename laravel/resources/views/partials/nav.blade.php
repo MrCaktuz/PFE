@@ -25,10 +25,10 @@
 	                    <li class="sub-nav-item{{Request::is('entraineurs') ? ' active' : ''}}">
 	                    	<a class="icon icon-trainer" href="/entraineurs" title="Voir nos entraineur">Entraineurs</a>
 	                    </li>
-	                    <li class="sub-nav-item{{Request::is('/equipes') ? ' active' : ''}}">
+	                    <li class="sub-nav-item{{Request::is('equipes') ? ' active' : ''}}">
 	                    	<a class="icon icon-team" href="/equipes" title="Voir nos équipes">Équipes</a>
 	                    </li>
-	                    <li class="sub-nav-item{{Request::is('/regles') ? ' active' : ''}}">
+	                    <li class="sub-nav-item{{Request::is('regles') ? ' active' : ''}}">
 	                    	<a class="icon icon-rule" href="/regles" title="Voir notre règlement">Règlement</a>
 	                    </li>
 	                </ul>
