@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use DB;
+use App\Models\Tool;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -55,7 +56,10 @@ class AppServiceProvider extends ServiceProvider
         $DB_twitter = DB::table('settings') -> select('value') -> where('key', 'twitter') -> get();
         $twitter = $DB_twitter[0]->value;
         View::share('twitter', $twitter);
-        
+
+        // ******** Get model Tool on every view ********
+        $tool = new Tool;
+        View::share('tool', $tool);
     }
 
     /**

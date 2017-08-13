@@ -3,7 +3,7 @@
 
 <h1 class="sr-only">Calendrier du club</h1>
 <div class="container">
-    <section class="section">
+    <section class="section" id="games">
         <h2 class="section-title"><span class="section-icon section-icon-games"></span>Prochain matchs</h2>
         <div class="section-content flex-wrap">
         	@foreach($games as $game)
@@ -37,7 +37,7 @@
             @endforeach
         </div>
     </section>
-    <section class="section">
+    <section class="section" id="scores">
         <h2 class="section-title"><span class="section-icon section-icon-result"></span>Résultats</h2>
         <div class="section-content flex-wrap">
         	@if($results->noResult)

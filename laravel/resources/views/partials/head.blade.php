@@ -26,4 +26,4 @@
 
     <title>{{($pageTitle != null) ? $pageTitle : 'Connexion' }} - {{ config('app.name', 'RBC Ciney') }}</title>
 </head>
-<body>
+<body class="{{ $tool->getBodyClass() }}">

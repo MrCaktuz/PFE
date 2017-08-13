@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Request;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 
@@ -54,5 +55,21 @@ class Tool extends Model
         $date = [$dateDay, $dateMonth];
 
         return $date;
+    }
+
+    public function getBodyClass()
+    {
+        $body_classes = [];
+        $class = "";
+
+        foreach ( Request::segments() as $segment ) {
+            if ( is_numeric( $segment ) || empty( $segment ) ) {
+                 continue;
+            }            
+            $class .= ! empty( $class ) ? "-" . $segment : 'page-'.$segment;
+            array_push( $body_classes, $class );
+        }
+
+        return ! empty( $body_classes ) ? implode( ' ', $body_classes ) : NULL;
     }
 }

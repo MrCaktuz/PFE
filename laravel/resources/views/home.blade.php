@@ -40,8 +40,8 @@
             @endforeach
         </div>
         <div class="button-wrap button-wrap-center">
-            <a href="/calendar#games" class="button button-primary" title="Accéder à la page calendrier sur la section matchs">Voir tous nos matchs</a>
-            <a href="/calendar#scores" class="button button-secondary" title="Accéder à la page calendrier sur la section résultats">Voir nos résultats</a>
+            <a href="/calendrier#games" class="button button-primary" title="Accéder à la page calendrier sur la section matchs">Voir tous nos matchs</a>
+            <a href="/calendrier#scores" class="button button-secondary" title="Accéder à la page calendrier sur la section résultats">Voir nos résultats</a>
         </div>
     </section>
     <section class="section">
