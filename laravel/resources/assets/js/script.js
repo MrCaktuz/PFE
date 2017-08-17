@@ -113,7 +113,7 @@ jQuery(document).ready(function($) {
 	}
 
 	// ******** Slick (slider) ********
-	if ($('body').hasClass('page-complexe') || $('body').hasClass('')) {
+	if ($('body').hasClass('page-complexe') || $('body').hasClass('page-home')) {
 		// Remove default class if JS enable
 		$('.sponsor-wrap').removeClass('flex-wrap');
 		$('.sponsor-wrap').removeClass('sponsor-wrap');
@@ -257,5 +257,13 @@ jQuery(document).ready(function($) {
 	            return false;
 	        });
 	    }
+	}
+
+	// ******** Update "show more" buttons ********
+    if ( $( 'body' ).hasClass( 'page-home' ) || $( 'body' ).hasClass( 'page-calendrier' ) || $( 'body' ).hasClass( 'page-equipes' ) ) {
+    	$(".gameCard-wrap a[rel='next']").html('Match suivant').addClass('button button-more button-more-next');
+    	$(".gameCard-wrap a[rel='prev']").html('Match précédent').addClass('button button-more button-more-prev');
+    	$(".resultCard-wrap a[rel='prev']").html('Résultat plus récent').addClass('button button-more button-more-prev');
+        $(".resultCard-wrap a[rel='next']").html('Anciens résultats').addClass('button button-more button-more-next');
 	}
 } );

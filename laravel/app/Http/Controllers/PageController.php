@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Redirect;
 
 class PageController extends Controller
 {
-    public function home()
+    public function home(Request $request)
     {
         // ******** Page title ********
         $pageTitle = "Accueil";
@@ -39,8 +39,8 @@ class PageController extends Controller
         $imgSrc = $img;
         $imgSrcset = $imgName.'_1280.'.$imgExt.' 1280w,'.$imgName.'_980.'.$imgExt.' 980w,'.$imgName.'_640.'.$imgExt.' 640w';
         // ******** Get next matchs ********
-        $nextGames = new Game;
-        $nextGames = $nextGames -> getNextGames($dateNow, '', 6);
+        $game = new Game;
+        $games = $game -> getNextGames($dateNow, null);
         // ******** Get next events ********
         $nextEvents = new Event;
         $nextEvents = $nextEvents -> getNextEvents($dateNow, 6);
@@ -50,8 +50,12 @@ class PageController extends Controller
         // ******** Get last albums ********
         $album = new Album;
         $albums = $album -> getLastAlbums(3, '');
+        // ******** Ajax ********
+        if ($request->ajax()) {
+            return view('ajax.games', ['games' => $games])->render();  
+        }
 
-        return view('home', compact('pageTitle', 'title', 'slogan', 'imgSrc', 'imgSrcset', 'nextGames', 'nextEvents', 'sponsors', 'albums'));
+        return view('home', compact('pageTitle', 'title', 'slogan', 'imgSrc', 'imgSrcset', 'games', 'nextEvents', 'sponsors', 'albums'));
     }
 
     public function rules(Rule $rule)
@@ -63,7 +67,7 @@ class PageController extends Controller
         return view('rules', compact('pageTitle', 'rules'));
     }
 
-    public function calendar()
+    public function calendar(Request $request)
     {
         // ******** Page title ********
         $pageTitle = "Calendrier";
@@ -71,12 +75,21 @@ class PageController extends Controller
         $dateNow = Carbon::now();
         // ******** Get next matchs ********
         $game = new Game;
-        $games = $game -> getNextGames($dateNow, '', 6);
+        $games = $game -> getNextGames($dateNow, null);
         // ******** Get results ********
         $results = $game->getResults($dateNow, '', 6);
         // ******** Get activities ********
         $activity = new Activity;
         $activities = $activity->getActivities($dateNow);
+        // ******** Ajax ********
+        if ($request->ajax()) {
+            $input = $request->input();
+            if (array_key_exists ('games', $input)) {
+                return view('ajax.team-games', ['games' => $games])->render();
+            } else if (array_key_exists ('results', $input)) {
+                return view('ajax.team-results', ['results' => $results])->render();
+            }
+        }
 
         return view('calendar', compact('pageTitle', 'games', 'results', 'activities'));
     }
@@ -145,6 +158,21 @@ class PageController extends Controller
         $albumComplexe = $album->getComplexeAlbum();
 
         return view( 'complexe', compact('pageTitle', 'albumComplexe', 'intro', 'details', 'hr_small', 'hr_big', 'hr_bar', 'dr_small', 'dr_big', 'dr_bar', 'dr_bar_funeral', 'dr_bar_kitchen', 'dr_bar_kitchen_small', 'dr_bar_kitchen_private') );
+    }
+
+    public function moreGames( Game $game)
+    {
+        global $post;
+        $date = Carbon::now();
+        $offset = $_POST[ 'offset' ];
+        $limit = 3;
+        $games = $game->getNextGames($date, '', $limit, $offset);
+        if (count($games) != 0){
+            include( view( '/ajax/moreGames', compact('games') ) );
+        } else {
+            return false;
+        }
+        die();
     }
 
     public function reseted( User $user )

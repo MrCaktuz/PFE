@@ -1,0 +1,27 @@
+/*
+ *	Description:    Stylesheet for the pagination elements
+ *	File:    		_pagination.scss
+ *	Version:        1.0 - 16/08/2017
+ *	Author :        Mucht - claessens.mathieu@gmail.com
+*/
+
+.pagination{
+	display: block;
+	width: 100%;
+	text-align: center;
+	.disabled{
+		display: none;
+	}
+	&-loading{
+		position: absolute;
+		bottom: 0;
+		padding: 2.5rem;
+		width: 100%;
+		text-align: center;
+		background-color: $white;
+		&-icon{
+			width: 3rem;
+			height: auto;
+		}
+	}
+}

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Input;
 use Carbon\Carbon;
 use App\Models\Game;
 use App\Models\Team;
@@ -35,7 +36,7 @@ class TeamController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-     public function show(Team $team, Game $game)
+     public function show(Team $team, Game $game, Request $request)
     {
         // ******** Page title ********
         $pageTitle = $team->division;
@@ -44,7 +45,7 @@ class TeamController extends Controller
         // ******** Get formated photo src & srcset ********
         $team->getPhotoSrcAndSrcset($team);
         // ******** Get team's next games ********
-        $games = $game->getNextGames($currentDate, $team->id, 6);
+        $games = $game->getNextGames($currentDate, $team->id);
         // ******** Get results ********
         $results = $game->getResults($currentDate, $team->id, '');
         // ******** Get Coach ********
@@ -59,7 +60,16 @@ class TeamController extends Controller
         // ******** Get team related albums ********
         $album = new Album;
         $albums = $album->getLastAlbums(NULL, $team->id);
-    
-        return view('team/show', compact('pageTitle', 'team', 'games', 'results', 'coach', 'assistant', 'practices', 'players', 'albums'));
+        // ******** Ajax ********
+        if ($request->ajax()) {
+            $input = $request->input();
+            if (array_key_exists ('games', $input)) {
+                return view('ajax.team-games', ['games' => $games])->render();
+            } else if (array_key_exists ('results', $input)) {
+                return view('ajax.team-results', ['results' => $results])->render();
+            }
+        }
+
+        return view('team/show', compact('pageTitle', 'team', 'games', 'results', 'coach', 'assistant', 'practices', 'players', 'albums', 'request'));
     }
 }

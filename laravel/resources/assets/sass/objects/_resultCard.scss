@@ -23,6 +23,9 @@
 		height: 100%;
 		border-left: .1rem solid $gameCardBorder;
 	}
+	&-wrap{
+		position: relative;
+	}
 	&-header{
 		position: relative;
 		text-align: center;

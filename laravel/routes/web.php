@@ -36,6 +36,7 @@ Route::get( '/user/{user}', 'UserController@show' )->name('profil');
 Route::post( '/user/{user}', 'UserController@update' );
 Route::get( '/user/{user}/edit', 'UserController@edit' );
 
+
 // ******** Auth ********
 Auth::routes();
 Route::get('/home', 'PageController@home')->name('home');

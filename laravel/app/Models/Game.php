@@ -32,13 +32,13 @@ class Game extends Model
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
-    public function getNextGames($date, $id, $limit)
+    public function getNextGames($date, $id)
     {
         // ******** Get the next games ********
         if ($id != NULL) {
-            $games = DB::table('games') -> where('date','>=', $date) -> where('team_id', '=', $id) -> orderby('date') -> limit($limit) -> get();
+            $games = DB::table('games') -> where('date','>=', $date) -> where('team_id', '=', $id) -> orderby('date') -> simplePaginate(6, ['*'], 'games');
         } else {
-            $games = DB::table('games') -> where('date','>=', $date) -> orderby('date') -> limit($limit) -> get();
+            $games = DB::table('games') -> where('date','>=', $date) -> orderby('date') -> simplePaginate(6, ['*'], 'games');
         }
         // ******** Check if there is content ********
         if (count($games) == null) {
@@ -63,20 +63,12 @@ class Game extends Model
         return $games;
     }
 
-    public function getResults($date, $id, $limit)
+    public function getResults($date, $id)
     {
         if ($id != NULL) {
-            if ($limit != NULL) {
-                $results = DB::table('games') -> where('date','<', $date) -> where('team_id', '=', $id) -> orderby('date', 'DSC') -> limit($limit) -> get();
-            } else {
-                $results = DB::table('games') -> where('date','<', $date) -> where('team_id', '=', $id) -> orderby('date', 'DSC') -> get();
-            }
+            $results = DB::table('games') -> where('date','<', $date) -> where('team_id', '=', $id) -> orderby('date', 'DSC') -> simplePaginate(3, ['*'], 'results');
         } else {
-            if ($limit != NULL) {
-                $results = DB::table('games') -> where('date','<', $date) -> orderby('date', 'DSC') -> limit($limit) -> get();
-            } else {
-                $results = DB::table('games') -> where('date','<', $date) -> orderby('date', 'DSC') -> get();
-            }
+            $results = DB::table('games') -> where('date','<', $date) -> orderby('date', 'DSC') -> simplePaginate(3, ['*'], 'results');
         }
         // ******** Check if there is content ********
         if (count($results) == null) {
@@ -111,7 +103,6 @@ class Game extends Model
 
         return $teamDivision;
     }
-
     /*
     |--------------------------------------------------------------------------
     | RELATIONS

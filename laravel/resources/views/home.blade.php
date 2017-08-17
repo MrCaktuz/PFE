@@ -8,38 +8,16 @@
     </header>
     <section class="section">
         <h2 class="section-title"><span class="section-icon section-icon-games"></span>Matchs à venir</h2>
-        <div class="section-content flex-wrap">
-            @foreach($nextGames as $game)
-                <div class="gameCard">
-                    <div class="gameCard-header">
-                        <p class="gameCard-title">{{$game->team_id}}</p>
-                    </div>
-                    <div class="gameCard-body">
-                        <div class="gameCard-date">
-                            <p class="gameCard-day">{{$game->date}}</p>
-                            <p class="gameCard-time">{{$game->time}}</p>
-                            @if($game->appointment)
-                                <p class="gameCard-appointment">Rendez-vous<span>{{$game->appointment}}</span></p>
-                            @endif
-                        </div>
-                        <div class="gameCard-teams">
-                            <div class="gameCard-host">
-                                <p class="gameCard-hostName">{{$game->host}}</p>
-                                @if($game->host == 'RBC Ciney')
-                                    <p class="gameCard-hostAddress">{{$addressStreet}}, {{$addressNumber}}</p>
-                                    <p class="gameCard-hostAddress">{{$addressPostalCode}} {{$addressCity}}</p>
-                                @endif
-                                <span class="gameCard-icon"></span>
-                            </div>
-                            <div class="gameCard-visitor">
-                                <p class="gameCard-visitorName">{{$game->visitor}}</p>
-                            </div>
-                        </div>
-                    </div>
+        <div class="section-content flex-wrap gameCard-wrap">
+            @if($games->noGame)
+                <div class="section-no-content">
+                    <p>{{$games->noGame}}</p>
                 </div>
-            @endforeach
+            @else
+                @include('ajax.team-games')
+            @endif
         </div>
-        <div class="button-wrap button-wrap-center">
+        <div class="button-wrap button-wrap-center">        
             <a href="/calendrier#games" class="button button-primary" title="Accéder à la page calendrier sur la section matchs">Voir tous nos matchs</a>
             <a href="/calendrier#scores" class="button button-secondary" title="Accéder à la page calendrier sur la section résultats">Voir nos résultats</a>
         </div>

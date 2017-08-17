@@ -10,7 +10,7 @@
         <script type="text/javascript" src="{{ URL::asset('js/lightbox.min.js') }}"></script>
     @endif
         {{-- Slick --}}
-    @if($bodyClass == 'page-complexe' || $bodyClass == NULL)
+    @if($bodyClass == 'page-complexe' || $bodyClass == 'page-home')
         <script type="text/javascript" src="{{ URL::asset('js/slick.min.js') }}"></script>
     @endif
         {{-- Waypoint --}}
@@ -25,6 +25,14 @@
     <script type="text/javascript" src="{{ URL::asset('js/jquery-accessibleMegaMenu.js') }}"></script>
         {{-- Personal --}}
     <script type="text/javascript" src="{{ URL::asset('js/script.js') }}"></script>
+       {{-- Ajax More Games --}}
+    @if($bodyClass == 'page-home' || $bodyClass == 'page-equipes' || $bodyClass == 'page-calendrier')
+        <script type="text/javascript" src="{{ URL::asset('js/ajax-games.js') }}"></script>
+    @endif
+        {{-- Ajax More Results --}}
+    @if($bodyClass == 'page-equipes' || $bodyClass == 'page-calendrier')
+        <script type="text/javascript" src="{{ URL::asset('js/ajax-results.js') }}"></script>
+    @endif
         {{-- Other --}}
     {{-- <script type="text/javascript" src="{{ asset('scripts/bootstrap.js') }}"></script> --}}
     {{-- <script type="text/javascript" src="{{ asset('scripts/app.js') }}"></script> --}}

@@ -223,6 +223,12 @@
 		background-color: $primary;
 		border-color: $primaryDark;
 	}
+	&-more{
+		&:hover{
+			color: $secondaryDark;
+			background-color: $transparent;
+		}
+	}
 }
 
 // ******** inner nav ********

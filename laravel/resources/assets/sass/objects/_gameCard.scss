@@ -13,6 +13,7 @@
     max-width: 40rem;
 	margin-bottom: 2rem;
 	border: .1rem solid $gameCardBorder;
+	transition: $mainTrans;
 	&::before{
 		content: "";
 		position: absolute;
@@ -22,6 +23,9 @@
 		width: 0;
 		height: 100%;
 		border-left: .1rem solid $gameCardBorder;
+	}
+	&-wrap{
+		position: relative;
 	}
 	&-header{
 		position: relative;
