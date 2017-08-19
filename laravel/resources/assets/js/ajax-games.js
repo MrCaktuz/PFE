@@ -8,7 +8,7 @@ $(function() {
     $('body').on('click', '.gameCard-wrap .pagination a', function(e) {
         e.preventDefault();
         $('.gameCard').css('opacity', '0');
-        $('.gameCard-wrap').append('<div class="pagination-loading"><img class="pagination-loading-icon" src="/img/icons/loading-icon.gif" alt=""></div>');
+        $('.gameCard-wrap').append('<div class="pagination-loading"><img class="pagination-loading-icon" src="/img/icons/loading-icon.gif" alt="Loading"></div>');
 
         var url = $(this).attr('href');  
         getGames(url);

@@ -63,6 +63,43 @@ class Game extends Model
         return $games;
     }
 
+    public function getFilteredGames($date, $id)
+    {
+        // ******** Get current date ********
+        $dateNow = Carbon::now();
+        // ******** Get the next games ********
+        if (($date != null) && ($id != null)) {
+            $games = DB::table('games') -> whereIn('date', $date) -> whereIn('team_id', $id) -> orderby('date') -> get();
+        } else if (($date == null) && ($id != null)) {
+            $games = DB::table('games') -> where('date', '>=', $dateNow) -> whereIn('team_id', $id) -> orderby('date') -> get();
+        } else if (($date != null) && ($id == null)) {
+            $games = DB::table('games') -> whereIn('date', $date) -> orderby('date') -> get();
+        } else {
+            $games = DB::table('games') -> where('date', '>=', $dateNow) -> orderby('date') -> get();
+        }
+        // ******** Check if there is content ********
+        if (count($games) == null) {
+            $games->noGame = "Il n'y a pas de match.";
+        } else{
+            $games->noGame = false;
+            $tools = new Tool;
+            foreach( $games as $game ){
+                // ******** Replace team_id by the team division ********
+                $game->team_id = $this->getTeamDivisionFromTeamID($game->team_id);
+                // ******** Format the date ********
+                $game->date = $tools->getFormatedDate($game->date);
+                // ******** Formate the game time ********
+                $game->time = $tools->getFormatedTime($game->time);
+                // ******** Format the appointment time ********
+                if ($game->appointment !== null) {
+                    $game->appointment = $tools->getFormatedTime($game->appointment);
+                }
+            }
+        }
+
+        return $games;
+    }
+
     public function getResults($date, $id)
     {
         if ($id != NULL) {

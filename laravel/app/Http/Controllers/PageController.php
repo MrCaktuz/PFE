@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use DB;
 use URL;
+use View;
+use Response;
 use App\User;
 use Carbon\Carbon;
 use App\Models\Rule;
@@ -40,7 +42,7 @@ class PageController extends Controller
         $imgSrcset = $imgName.'_1280.'.$imgExt.' 1280w,'.$imgName.'_980.'.$imgExt.' 980w,'.$imgName.'_640.'.$imgExt.' 640w';
         // ******** Get next matchs ********
         $game = new Game;
-        $games = $game -> getNextGames($dateNow, null);
+        $games = $game -> getNextGames($dateNow, '');
         // ******** Get next events ********
         $nextEvents = new Event;
         $nextEvents = $nextEvents -> getNextEvents($dateNow, 6);
@@ -50,12 +52,40 @@ class PageController extends Controller
         // ******** Get last albums ********
         $album = new Album;
         $albums = $album -> getLastAlbums(3, '');
+        // ******** Get filters teams ********
+        $team = new Team;
+        $currentSeason = $team -> getCurrentSeason();
+        $teamFilters = $team -> getTeamsFromCurrentSeason($currentSeason);
         // ******** Ajax ********
         if ($request->ajax()) {
-            return view('ajax.games', ['games' => $games])->render();  
+            return view('ajax.games', ['games' => $games])->render();
         }
 
-        return view('home', compact('pageTitle', 'title', 'slogan', 'imgSrc', 'imgSrcset', 'games', 'nextEvents', 'sponsors', 'albums'));
+        return view('home', compact('pageTitle', 'title', 'slogan', 'imgSrc', 'imgSrcset', 'games', 'teamFilters', 'nextEvents', 'sponsors', 'albums'));
+    }
+    public function homeFilters(Request $request)
+    {
+        $data = $request->data;
+        // ******** Get teams ID ********
+        if (isset($data['teams'])) {
+            $teamsID = $data['teams'];
+        }
+        // ******** Get teams ID ********
+        if (isset($data['dates'])) {
+            $dates = $data['dates'];
+        }
+        // ******** Get filtered matchs ********
+        $game = new Game;
+        if (isset($dates) && isset($teamsID)) {
+            $games = $game -> getFilteredGames($dates, $teamsID);
+        } else if (!isset($dates) && isset($teamsID)) {
+            $games = $game -> getFilteredGames(null, $teamsID);
+        } else if (isset($dates) && !isset($teamsID)) {
+            $games = $game -> getFilteredGames($dates, null);
+        }
+        $view = View::make('ajax.games') -> with('games', $games) -> render();
+        
+        return response()->json( array('success' => true, 'html' => $view) );
     }
 
     public function rules(Rule $rule)
@@ -85,9 +115,9 @@ class PageController extends Controller
         if ($request->ajax()) {
             $input = $request->input();
             if (array_key_exists ('games', $input)) {
-                return view('ajax.team-games', ['games' => $games])->render();
+                return view('ajax.games', ['games' => $games])->render();
             } else if (array_key_exists ('results', $input)) {
-                return view('ajax.team-results', ['results' => $results])->render();
+                return view('ajax.results', ['results' => $results])->render();
             }
         }
 

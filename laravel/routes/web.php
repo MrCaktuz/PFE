@@ -13,6 +13,7 @@
 
 // ******** Front end routes ********
 Route::get( '/', 'PageController@home' )->name('home');
+Route::post( '/', 'PageController@homeFilters' );
 Route::get( '/albums', 'AlbumController@index' );
 Route::get( '/albums/{album}', 'AlbumController@show' );
 Route::get( '/calendrier', 'PageController@calendar' );

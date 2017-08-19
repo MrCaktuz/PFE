@@ -18,13 +18,7 @@
     <section class="section" id="scores">
         <h2 class="section-title"><span class="section-icon section-icon-result"></span>Résultats</h2>
         <div class="section-content flex-wrap resultCard-wrap">
-        	@if($results->noResult)
-                <div class="section-no-content">
-                    <p>{{$results->noResult}}</p>
-                </div>
-            @else
-                @include('ajax.results')
-            @endif
+            @include('ajax.results')
         </div>
     </section>
     <section class="section">

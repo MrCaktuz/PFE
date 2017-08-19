@@ -8,7 +8,7 @@ $(function() {
     $('body').on('click', '.resultCard-wrap .pagination a', function(e) {
         e.preventDefault();
         $('.resultCard').css('opacity', '0');
-        $('.resultCard-wrap').append('<div class="pagination-loading"><img class="pagination-loading-icon" src="/img/icons/loading-icon.gif" alt=""></div>');
+        $('.resultCard-wrap').append('<div class="pagination-loading"><img class="pagination-loading-icon" src="/img/icons/loading-icon.gif" alt="Loading"></div>');
 
         var url = $(this).attr('href');  
         getResults(url);

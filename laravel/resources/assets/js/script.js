@@ -266,4 +266,13 @@ jQuery(document).ready(function($) {
     	$(".resultCard-wrap a[rel='prev']").html('Résultat plus récent').addClass('button button-more button-more-prev');
         $(".resultCard-wrap a[rel='next']").html('Anciens résultats').addClass('button button-more button-more-next');
 	}
+
+	// ******** Calendar ********
+    $('#mycalendar').monthly({
+    	mode: 'picker',
+    	weekStart: 'Mon',
+    	disablePast: true,
+    	stylePast: true
+    });
+    
 } );

@@ -23,11 +23,18 @@
     @endif
         {{-- Accessible Mega Menu --}}
     <script type="text/javascript" src="{{ URL::asset('js/jquery-accessibleMegaMenu.js') }}"></script>
+       {{-- Monthly --}}
+    @if($bodyClass == 'page-home' || $bodyClass == 'page-calendrier')
+        <script type="text/javascript" src="{{ URL::asset('js/monthly.js') }}"></script>
+    @endif
         {{-- Personal --}}
     <script type="text/javascript" src="{{ URL::asset('js/script.js') }}"></script>
        {{-- Ajax More Games --}}
     @if($bodyClass == 'page-home' || $bodyClass == 'page-equipes' || $bodyClass == 'page-calendrier')
+            {{-- More Games --}}
         <script type="text/javascript" src="{{ URL::asset('js/ajax-games.js') }}"></script>
+            {{-- More Games --}}
+        <script type="text/javascript" src="{{ URL::asset('js/ajax-filters.js') }}"></script>
     @endif
         {{-- Ajax More Results --}}
     @if($bodyClass == 'page-equipes' || $bodyClass == 'page-calendrier')

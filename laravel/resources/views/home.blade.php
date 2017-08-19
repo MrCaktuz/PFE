@@ -9,13 +9,26 @@
     <section class="section">
         <h2 class="section-title"><span class="section-icon section-icon-games"></span>Matchs à venir</h2>
         <div class="section-content flex-wrap gameCard-wrap">
-            @if($games->noGame)
-                <div class="section-no-content">
-                    <p>{{$games->noGame}}</p>
+            @include('ajax.games')
+        </div>
+        <div class="filters">
+            <div class="filters-calendar monthly" id="mycalendar">
+            </div>
+            <div class="filters-teams">
+                <div class="filters-teams-header">
+                    Filtrer par équipes
                 </div>
-            @else
-                @include('ajax.team-games')
-            @endif
+                <div class="filters-teams-body">
+                    @foreach($teamFilters as $team)
+                        <div class="filters-teams-team" data-teamID="{{$team->id}}">
+                            <p>{{$team->division}}</p>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+            <div class="button-wrap button-wrap-center">        
+                <a href="#" class="button button-primary filters-submit" title="Filtrer le contenu">Filtrer</a>
+            </div>
         </div>
         <div class="button-wrap button-wrap-center">        
             <a href="/calendrier#games" class="button button-primary" title="Accéder à la page calendrier sur la section matchs">Voir tous nos matchs</a>

@@ -14,13 +14,7 @@
     <section class="section">
         <h2 class="section-title"><span class="section-icon section-icon-games"></span>Prochains matchs</h2>
         <div class="section-content flex-wrap gameCard-wrap">
-            @if($games->noGame)
-                <div class="section-no-content">
-                    <p>{{$games->noGame}}</p>
-                </div>
-            @else
-                @include('ajax.team-games')
-            @endif
+            @include('ajax.team-games')
         </div>
     </section>
     <section class="section">

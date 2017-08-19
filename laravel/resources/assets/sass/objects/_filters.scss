@@ -1,0 +1,12 @@
+/*
+ *	Description:    Stylesheet for filters section
+ *	File:    		_filters.scss
+ *	Version:        1.0 - 18/08/2017
+ *	Author :        Mucht - claessens.mathieu@gmail.com
+*/
+
+.filters{
+	&-teams-team.selected{
+		background-color: red;
+	}
+}

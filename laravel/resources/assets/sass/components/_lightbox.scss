@@ -76,10 +76,13 @@ body.lb-disable-scrolling {
 
 .lb-cancel {
   display: block;
-  width: 32px;
-  height: 32px;
+  width: 3rem;
+  height: 3rem;
   margin: 0 auto;
-  background: url(../img/icons/loading-icon.gif) no-repeat;
+  background-image: url(/img/icons/loading-icon.gif);
+  background-position: center right;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .lb-nav {
