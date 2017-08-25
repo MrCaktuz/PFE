@@ -265,3 +265,19 @@
         background-color: $grey;
     }
 }
+
+// ******** filters ********
+.filters{
+	display: block;
+	&-target{
+		width: calc(100% - 30rem);
+	}
+	&-teams-team{
+		&:hover{
+			background-color: $blue;
+		}
+		&.selected:hover{
+			background-color: $white;
+		}
+	}
+}

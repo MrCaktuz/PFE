@@ -6,7 +6,7 @@
 */
 
 .filters{
-	// display: none;
+	display: none;
 	position: absolute;
 	right: 0;
 	top: 0;
@@ -21,7 +21,6 @@
 	}
 	&-target{
 		display: inline-block;
-		width: calc(100% - 30rem);
 		min-height: 75rem;
 	}
 	&-teams{

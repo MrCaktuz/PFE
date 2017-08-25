@@ -55,7 +55,18 @@
 		outline: 0;
 	}
 	&-day.selected{
-		border: .1rem solid $secondary;
+		position: relative;
+		&:after{
+			content:"";
+			position: absolute;
+			top: 5%;
+			left: 5%;
+			display: block;
+			width: 90%;
+			height: 90%;
+			border: .1rem solid $secondary;
+			border-radius: 50%;
+		}
 	}
 }
 
