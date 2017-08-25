@@ -6,7 +6,80 @@
 */
 
 .filters{
-	&-teams-team.selected{
-		background-color: red;
+	// display: none;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 30rem;
+	height: calc(100% + 4rem);
+	float: right;
+	background-color: $blue;
+	border-left: .1rem solid $blueDark;
+	padding: 4rem 2rem;
+	&-wrap{
+		position: relative;
 	}
+	&-target{
+		display: inline-block;
+		width: calc(100% - 30rem);
+		min-height: 75rem;
+	}
+	&-teams{
+		 width: 100%;
+		 margin: 2rem auto 2rem;
+		 &-header{
+		 	@include font-size(2.5);
+			padding: 1.5rem;
+			text-align: center;
+			font-weight: $semiBold;
+			color: $white;
+			background-color: $primary;
+		 }
+		 &-body{
+			max-height: 30rem;
+		 	overflow: auto;
+	    	background:
+	    		// Shadow covers
+	    		linear-gradient(white 30%, rgba(255,255,255,0)),
+	    		linear-gradient(rgba(255,255,255,0), white 70%) 0 100%,
+	    		// Shadows
+	    		radial-gradient(farthest-side at 50% 0, rgba(0,0,0,.2), rgba(0,0,0,0)),
+	    		radial-gradient(farthest-side at 50% 100%, rgba(0,0,0,.2), rgba(0,0,0,0)) 0 100%;
+	    	background-repeat: no-repeat;
+	    	background-color: white;
+	    	background-size: 100% 40px, 100% 40px, 100% 14px, 100% 14px;
+	    		// Opera doesn't support this in the shorthand
+	    	background-attachment: local, local, scroll, scroll;
+		 }
+		&-team{
+			@include font-size(2);
+			display: block;
+			padding: 1.5rem;
+			line-height: 1.6;
+			color: $black;
+			border: .1rem solid $blueDark;
+			border-top: .1rem solid $transparent;
+			background-color: $white;
+			transition: $mainTrans;
+			&.selected{
+				position: relative;
+				background-color: $blue;
+				&:after{
+					content:"";
+					position: absolute;
+					top: 1.5rem;
+					right: 1.5rem;
+					display: block;
+					width: 2rem;
+					height: 3rem;
+					background-position: center right;
+					background-size: contain;
+					background-repeat: no-repeat;
+					background-image: url('/img/icons/checked-icon-orange.png');
+				}
+			}
+		}
+	}
+	
+	
 }

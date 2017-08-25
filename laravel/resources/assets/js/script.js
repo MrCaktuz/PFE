@@ -158,11 +158,12 @@ jQuery(document).ready(function($) {
 	if ($('.page-regles')) {
 		function currentNavbarPosition(el){
 	        var y = $(window).scrollTop(), // Position of the scroll
-		        avp = el.parent().offset().top, // Vertical position of the article container
-		        ah = el.parent().height(), // Height of article container
+		        avp = el.parent().offset().top, // Vertical position of the element container
+		        ah = el.parent().height(), // Height of element container
 		        navh = el.height(); // Height of navbar container
 	        if(y >= avp - 20 ) {
-	           if(y > (avp + ah - navh - elTop - 20 )) { // Si le scroll atteint la fin de l'article moins la hauteur de la nav
+	        	// if scroll position reach the end of the container with the element height as offset
+	            if(y > (avp + ah - navh - elTop - 20 )) {
 	                el.removeClass('fix-aside');
 	                el.addClass('fix-aside-bottom');
 	                el.css('top', (ah - navh + 45)+'px');
@@ -213,31 +214,23 @@ jQuery(document).ready(function($) {
 	            aSectionID.push( iSectionID );
 	        } );
 	        for (var i = 0; i < aSectionID.length; i++) {
-	            var iOffsetDown = 100,
+	            var iOffset = 0;
+	            	iOffsetDown = 100,
 	                iOffsetUp = $( '#' + aSectionID[i] ).outerHeight()*-0.5;
 	          	// Update class active on the way down
 	            waypoint = new Waypoint({
 	                element: document.getElementById( aSectionID[i] ),
 	                handler: function( direction ) {
+	                	var test =  '.link-' + this.element.id;
+                        $('.inner-nav-link-active').removeClass( 'inner-nav-link-active' );
+                        $( test ).addClass( 'inner-nav-link-active' );
 	                    if (direction == 'down') {
-	                        var test =  '.link-' + this.element.id;
-	                        $('.inner-nav-link-active').removeClass( 'inner-nav-link-active' );
-	                        $(test).addClass( 'inner-nav-link-active' );
+	                        iOffset = iOffsetDown;
+	                    } else if (direction == 'up') {
+	                        iOffset = iOffsetUp;
 	                    }
 	                },
-	                offset: iOffsetDown
-	            });
-	          	// Update class active on the way up
-	            waypoint = new Waypoint({
-	                element: document.getElementById( aSectionID[i] ),
-	                handler: function( direction ) {
-	                    if (direction == 'up') {
-	                        var test =  '.link-' + this.element.id;
-	                        $('.inner-nav-link-active').removeClass( 'inner-nav-link-active' );
-	                        $( test ).addClass( 'inner-nav-link-active' );
-	                    }
-	                },
-	                offset: iOffsetUp
+	                offset: iOffset
 	            });
 	        }
 

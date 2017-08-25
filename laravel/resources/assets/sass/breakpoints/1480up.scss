@@ -17,6 +17,15 @@
 	}
 }
 
+// ******** Game card ********
+.gameCard{
+	width: 30%;
+	margin-right: 2rem;
+	&:nth-child(3n+0){
+		margin-right: 0;
+	}
+}
+
 // ******** Section ********
 .section{
 	&-content{

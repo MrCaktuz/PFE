@@ -14,7 +14,6 @@ $(function() {
             team = $(this).attr('data-teamID');
             teamFilters.push(team);
         })
-        // console.log(teamFilters);
     });
     // ******** Get data from date filters ********
     var dateFilters = new Array();
@@ -41,7 +40,6 @@ $(function() {
             dateFilters.remove(date);
         }
         window.history.pushState('', '', '/?dates='+dateFilters);
-        // console.log(dateFilters);
     });
     
     // ******** Manage ajax ********
@@ -52,7 +50,6 @@ $(function() {
             token = $("meta[name='csrf-token']").attr('content'),
             teamFiltersLength = teamFilters.length,
             dateFiltersLength = dateFilters.length;
-        // console.log(data);
         if (data == null) {
             $(this).after('<div class="feedback-error"<p>Choisissez des filters avant de valider...</p></div>');
         } else {
@@ -61,10 +58,7 @@ $(function() {
                 url: url,
                 data: { '_token': token, 'data': data },
                 success: function(response) {
-                    // console.log("Success !!!");
-                    // console.log(response);
                     $('.gameCard-wrap').html(response.html);
-                    // console.log('Done !!!');
                 }
             })
         }
