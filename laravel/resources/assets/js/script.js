@@ -273,8 +273,9 @@ jQuery(document).ready(function($) {
     function displayFilters(width){
     	if (width >= 965) {
 	    	$('.filters').show();
+	    	$('.filters-target').css('width', 'calc(100% - 30rem)').css('min-height', '75rem');
 	    } else {
 	    	$('.filters').hide();
 	    }
-    } displayFilters();
+    } displayFilters(windowWidth);
 } );

@@ -4,7 +4,7 @@
 <h1 class="sr-only">Calendrier du club</h1>
 <div class="container">
     <section class="section" id="games">
-        <h2 class="section-title"><span class="section-icon section-icon-games"></span>Prochain matchs</h2>
+        <h2 class="section-title"><span class="section-icon section-icon-games"></span>Prochains matchs</h2>
         <div class="section-content flex-wrap gameCard-wrap">
         	@if($games->noGame)
                 <div class="section-no-content">
