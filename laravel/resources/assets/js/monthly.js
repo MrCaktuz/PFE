@@ -423,44 +423,44 @@ Monthly 2.2.1 by Kevin Thornbloom is licensed under a Creative Commons Attributi
 				$(parent + " .monthly-header-title").prepend('<a href="#" class="monthly-cal"></a>');
 			}
 		}
-		// // Get dates from URL
-		// function getQueryVariable(variable) {
-		// 	var query = window.location.search.substring(1);
-		// 	var vars = query.split("&");
-		// 	for (var i=0;i<vars.length;i++) {
-		// 		var pair = vars[i].split("=");
-		// 		if (pair[0] == variable) {
-		// 			return pair[1];
-		// 		}
-		// 	} 
-		// 	alert('Query Variable ' + variable + ' not found');
-		// 	}
-		// // check if dates from URL are shown
-		// function checkDatesFromUrl(){
-		// 	$('.monthly-day-pick').each(function(){
-		// 		var dataDate = $(this).data('date'),
-		// 			sDates = getQueryVariable("dates"),
-		// 			aDates = sDates.split(',');
+		// Get dates from URL
+		function getQueryVariable(variable) {
+			var query = window.location.search.substring(1);
+			var vars = query.split("&");
+			for (var i=0;i<vars.length;i++) {
+				var pair = vars[i].split("=");
+				if (pair[0] == variable) {
+					return pair[1];
+				}
+			} 
+			alert('Query Variable ' + variable + ' not found');
+			}
+		// check if dates from URL are shown
+		function checkDatesFromUrl(){
+			$('.monthly-day-pick').each(function(){
+				var dataDate = $(this).data('date'),
+					sDates = getQueryVariable("dates"),
+					aDates = sDates.split(',');
 				
-		// 		if (($.inArray(dataDate, aDates)) != -1) {
-		// 			$(this).addClass('selected');
-		// 		} else {
-		// 			$(this).removeClass('selected');
-		// 		}
-		// 	});
-		// }
+				if (($.inArray(dataDate, aDates)) != -1) {
+					$(this).addClass('selected');
+				} else {
+					$(this).removeClass('selected');
+				}
+			});
+		}
 		// Advance months
 		$(document.body).on("click", parent + " .monthly-next", function (event) {
 			event.preventDefault();
 			setNextMonth();
-			// checkDatesFromUrl();
+			checkDatesFromUrl();
 		});
 
 		// Go back in months
 		$(document.body).on("click", parent + " .monthly-prev", function (event) {
 			event.preventDefault();
 			setPreviousMonth();
-			// checkDatesFromUrl();
+			checkDatesFromUrl();
 		});
 
 		// Reset Month
