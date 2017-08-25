@@ -13,6 +13,7 @@ jQuery(document).ready(function($) {
 	$( window ).resize( function(){
 		windowWidth = $( window ).width();
 		responsiveNav(windowWidth);
+		displayFilters(windowWidth);
 	} );
 
 	// ******** Burger button ********
@@ -32,7 +33,7 @@ jQuery(document).ready(function($) {
 		$('.nav:first').removeClass('desktop').removeClass('mobile');
 		$('.burgerButton').removeClass('desktop').removeClass('mobile');
 		$('.nav-menu').removeClass('nav-menu-desktop');
-		if (width >= 980) {
+		if (width >= 965) {
 			$('.nav:first').addClass('desktop');
 			$('.nav-menu').addClass('nav-menu-desktop');
 		} else {
@@ -267,5 +268,13 @@ jQuery(document).ready(function($) {
     	disablePast: true,
     	stylePast: true
     });
-    
+
+    // ******** filters ********
+    function displayFilters(width){
+    	if (width >= 965) {
+	    	$('.filters').show();
+	    } else {
+	    	$('.filters').hide();
+	    }
+    } displayFilters();
 } );
