@@ -45,7 +45,7 @@ class Album extends Model
     public function showAlbumButton()
     {
         $albumID = $this->getAlbumID();
-        $htmlCode = '<a class="btn btn-default btn-xs" href="/album/' . $albumID . '" target="_blanc"><i class="fa fa-eye"></i> Aperçu</a>';
+        $htmlCode = '<a class="btn btn-default btn-xs" href="/albums/' . $albumID . '" target="_blanc"><i class="fa fa-eye"></i> Aperçu</a>';
         return $htmlCode;
     }
     public function convertPhotosValueToArray($albums)
@@ -178,13 +178,15 @@ class Album extends Model
         $disk = "public_folder";
         $destination_path = "uploads/albums";
         $album_originalName = $_POST['name'];
+        // ******** Generate unique album name ********
+        $album_name = md5( $album_originalName . time() );
+        
         foreach ( $value as $file ) {
             // 0. Generate new size file
             $image = \Image::make( $file );
             $image_350 = \Image::make( $file ) -> widen( 350 );
             
-            // 1. Generate new file names & album name
-            $album_name = md5( $album_originalName . time() );
+            // 1. Generate new file names
             $new_file_name = md5( $file -> getClientOriginalName() . time() ).'.'.$file->getClientOriginalExtension();
             $new_file_name_350 = md5( $file -> getClientOriginalName() . time() ).'_350.'.$file->getClientOriginalExtension();
             
