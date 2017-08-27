@@ -1,5 +1,5 @@
 id;key;name;value;description
 1;title;Titre;RBC Ciney;Titre de la page d’accueil du site du Royal Basket Club de Ciney.
 2;slogan;Slogan;passion, formation, éducation.;Slogan suivant le titre de la page d’accueil du site du Royal Basket Club de Ciney.
-3;img;Bannière;/uploads/Images/club.jpg;Image de bannière de la page d’accueil du site du Royal Basket Club de Ciney.
+3;img;Bannière;/uploads/images/club.jpg;Image de bannière de la page d’accueil du site du Royal Basket Club de Ciney.
 4;partner;Partenaires;1;Entrez 1 pour afficher la section des sponsors sur la page d’accueil. Entrez 0 pour ne pas l’afficher.

@@ -11,7 +11,7 @@ class CreateAlbumsTable extends Migration {
 			$table->increments('id');
 			$table->timestamps();
 			$table->string('name');
-			$table->json('photos');
+			$table->text('photos');
 		});
 	}
 

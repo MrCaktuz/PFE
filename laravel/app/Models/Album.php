@@ -55,7 +55,7 @@ class Album extends Model
             $photos = str_replace( '[', '', $photos );
             $photos = str_replace( ']', '', $photos );
             $photos = str_replace( '"', '', $photos );
-            $photosSplited = preg_split( '/, /', $photos );
+            $photosSplited = preg_split( '/,/', $photos );
             $aPhotosSrc = [];
             $aPhotosSrcset = [];
             for ($i=0; $i < count($photosSplited); $i++) { 
@@ -199,7 +199,7 @@ class Album extends Model
             // 3. Add the public path to the database
             $attribute_value[] = [ $file_path, $file_path_350 ];
         }
-        $this->attributes[$attribute_name] = json_encode($attribute_value);
+        $this->attributes[$attribute_name] = str_replace( '\\', '', json_encode($attribute_value) );
     }
     
 }

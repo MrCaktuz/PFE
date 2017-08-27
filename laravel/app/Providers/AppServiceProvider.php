@@ -3,7 +3,9 @@
 namespace App\Providers;
 
 use DB;
+use Schema;
 use App\Models\Tool;
+use IlluminateSupportFacadesSchema;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -16,6 +18,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        // ******** Setup the DB to export ********
+        Schema::defaultStringLength(191);
         // ******** Get page title on every view ********
         $title = "";
         View::share('pageTitle', $title);

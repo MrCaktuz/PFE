@@ -106,6 +106,13 @@ jQuery(document).ready(function($) {
 		$('.album-wrap').removeClass('album-wrap');
 		$('.album-photo').removeClass('album-photo');
 		// Initiate Masonry
+		$('img').load(function(){
+            $('.masonry').masonry({
+				// Options
+				itemSelector: '.masonry-item',
+				percentPosition: true
+			});
+        });
 		$('.masonry').masonry({
 			// Options
 			itemSelector: '.masonry-item',
@@ -262,12 +269,15 @@ jQuery(document).ready(function($) {
 	}
 
 	// ******** Calendar ********
-    $('#mycalendar').monthly({
-    	mode: 'picker',
-    	weekStart: 'Mon',
-    	disablePast: true,
-    	stylePast: true
-    });
+	if ( $( 'body' ).hasClass( 'page-home' ) ) {
+	    $('#mycalendar').monthly({
+	    	mode: 'picker',
+	    	weekStart: 'Mon',
+	    	disablePast: true,
+	    	stylePast: true
+	    });
+	}
+	
 
     // ******** filters ********
     function displayFilters(width){
