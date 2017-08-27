@@ -144,7 +144,7 @@ class User extends Authenticatable
     {
         $shortName = $this->shortName($user);
         if ($user->photo == null) {
-            $src = 'http://api.adorable.io/avatars/250/'.$shortName.'.png';
+            $src = '/img/default-profil/profilAvatar.jpg';
         } else {
             $src = $user->photo;
         }
@@ -159,7 +159,7 @@ class User extends Authenticatable
             $srcNoExt = str_replace(".jpg", "", $user->photo);
             $srcset = $srcNoExt.'_25x25.jpg 25w, '.$srcNoExt.'_50x50.jpg 50w, '.$srcNoExt.'_125x125.jpg 125w, '.$srcNoExt.'_250x250.jpg 250w';
         } else {
-            $srcset = 'http://api.adorable.io/avatars/25/'.$shortName.'.png 25w, http://api.adorable.io/avatars/50/'.$shortName.'.png 50w, http://api.adorable.io/avatars/125/'.$shortName.'.png 125w, http://api.adorable.io/avatars/250/'.$shortName.'.png 250w';
+            $srcset = '/img/default-profil/profilAvatar_125.jpg 125w, /img/default-profil/profilAvatar_50.jpg 50w';
         }
 
         return $srcset;
