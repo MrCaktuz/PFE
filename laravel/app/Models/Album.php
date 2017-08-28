@@ -120,7 +120,7 @@ class Album extends Model
         $photos = str_replace( '[', '', $photos );
         $photos = str_replace( ']', '', $photos );
         $photos = str_replace( '"', '', $photos );
-        $photosSplited = preg_split( '/, /', $photos );
+        $photosSplited = preg_split( '/,/', $photos );
         $photos = [];
         $j = 0;
         for ($i=0; $i < count($photosSplited)-1; $i++) {
