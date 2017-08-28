@@ -226,6 +226,14 @@ class User extends Authenticatable
 	| MUTATORS
 	|--------------------------------------------------------------------------
 	*/
+    public function setPasswordAttribute($value)
+    {
+        $attribute_name = "password";
+        $value = bcrypt($value);
+
+        $this -> attributes[ $attribute_name ] = $value;
+    }
+
 	public function setPhotoAttribute( $value )
     {
         $attribute_name = "photo";

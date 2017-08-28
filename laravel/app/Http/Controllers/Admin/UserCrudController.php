@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use DB;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
@@ -338,8 +339,8 @@ class UserCrudController extends CrudController {
 
 	public function store(StoreRequest $request)
 	{
-		return parent::storeCrud();
-	}
+        return parent::storeCrud();
+   	}
 
 	public function update(UpdateRequest $request)
 	{

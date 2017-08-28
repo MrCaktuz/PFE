@@ -17,7 +17,7 @@ class CreateUsersTable extends Migration {
 			$table->string('password');
 			$table->string('phone')->nullable();
 			$table->string('national_id')->nullable();
-			$table->string('photo')->nullable()->default('http://api.adorable.io/avatars/200/profilPic.png');
+			$table->string('photo')->nullable();
 			$table->string('job')->nullable();
 			$table->string('address')->nullable();
 			$table->mediumInteger('postal_code')->nullable();
