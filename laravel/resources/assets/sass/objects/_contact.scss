@@ -25,14 +25,13 @@
 			width: 2rem;
 			height: 2rem;
 			margin-right: .5rem;
-			background-position: center;
-			background-size: contain;
+			background-image: url("/img/icons/icons.png");
 			background-repeat: no-repeat;
 		}
 	}
 	&-mail{
 		&:before{
-			background-image: url("/img/icons/mail-icon-black.png");
+			background-position: -3.6rem -20.5rem;
 		}
 	}
 	&-address{
@@ -40,7 +39,7 @@
 		max-width: 25rem;
 		margin-left: 0;
 		&::before{
-			background-image: url("/img/icons/location-icon-black.png");
+			background-position: -3.6rem -18.4rem;
 		}
 		&-line{
 			display: inline-block;

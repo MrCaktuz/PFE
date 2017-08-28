@@ -130,25 +130,23 @@
         content: "";
         position: absolute;
         top: 50%;
-        left: 0;
-        width: 100%;
-        height: 6rem;
-        background-position: center;
-        background-size: 4rem;
+        left: 50%;
+        width: 4rem;
+        height: 4rem;
+        background-image: url('../img/icons/icons.png');
         background-repeat: no-repeat;
+        transform: translate(-50%, -50%);
     }
 }
 .slick-prev{
     left: 0;
     &::before{
-        background-image: url('../img/icons/arrowDropDown-blue.png');
-        transform: rotate(90deg) translateX(-50%);
+        background-position: -8.8rem -31.6rem;
     }
 }
 .slick-next{
     right: 0;
     &::before{
-        background-image: url('../img/icons/arrowDropDown-blue.png');
-        transform: rotate(-90deg) translateX(50%);
+        background-position: -8.8rem -35.7rem;
     }
 }

@@ -15,7 +15,7 @@
                         <img src="{{$member->src}}" srcset="{{$member->srcset}}" alt="photo de profil" class="idCard-photo">
                         <div class="idCard-content">
                             <p class="idCard-title">{{$member->name}}</p>
-                            <p class="idCard-subTitle"><?php echo (count($member->roles) <= 1) ? 'Role :' : 'Roles :'; ?></p>
+                            <p class="idCard-subTitle"><?php echo (count($member->roles) <= 1) ? 'Rôle :' : 'Rôles :'; ?></p>
                             <ul class="idCard-roles">
                                 @foreach($member->roles as $role)
                                     <li class="idCard-role">{{$role->title}}</li>
@@ -42,7 +42,7 @@
                         <img src="{{$member->src}}" srcset="{{$member->srcset}}" alt="photo de profil" class="idCard-photo">
                         <div class="idCard-content">
                             <p class="idCard-title">{{$member->name}}</p>
-                            <p class="idCard-subTitle"><?php echo (count($member->roles) <= 1) ? 'Role :' : 'Roles :'; ?></p>
+                            <p class="idCard-subTitle"><?php echo (count($member->roles) <= 1) ? 'Rôle :' : 'Rôles :'; ?></p>
                             <ul class="idCard-roles">
                                 @foreach($member->roles as $role)
                                     <li class="idCard-role">{{$role->title}}</li>

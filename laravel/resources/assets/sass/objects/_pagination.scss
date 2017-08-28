@@ -11,7 +11,6 @@
 	text-align: center;
 	a{
 		@include font-size(1.6);
-		position: relative;
 		color: $primaryDark;
 		font-weight: $semiBold;
 		border: 0;

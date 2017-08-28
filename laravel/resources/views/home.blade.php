@@ -40,7 +40,7 @@
         </div>
     </section>
     <section class="section">
-        <h2 class="section-title"><span class="section-icon section-icon-news"></span>Actualité du club</h2>
+        <h2 class="section-title"><span class="section-icon section-icon-news"></span>Actualités du club</h2>
         <div class="section-content flex-wrap">
             @foreach($nextEvents as $event)
                 <div class="eventCard">
@@ -73,7 +73,7 @@
         </div>
     </section>
     <section class="section">
-        <h2 class="section-title"><span class="section-icon section-icon-galery"></span>Nos derniers ablums photo</h2>
+        <h2 class="section-title"><span class="section-icon section-icon-galery"></span>Nos derniers ablums photos</h2>
         <div class="section-content flex-wrap">
         @foreach($albums as $album)
             <div class="albumCard-wrap">

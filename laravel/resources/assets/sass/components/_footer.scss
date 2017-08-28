@@ -45,25 +45,23 @@
 			display: block;
 			width: 2rem;
 			height: 2rem;
-			background-position: center;
-			background-size: contain;
+			background-image: url("/img/icons/icons.png");
 			background-repeat: no-repeat;
 		}
 		&-address{
 			min-width: 11.35em;
 			&::before{
-				background-image: url("/img/icons/location-icon-white.png");
+				background-position: -3.6rem -22.6rem;
 			}
 		}
 		&-mail{
-			margin-bottom: 1rem !important;
 			&::before{
-				background-image: url("/img/icons/mail-icon-white.png");
+				background-position: -3.6rem -24.7rem;
 			}
 		}
 		&-facebook{
 			&::before{
-				background-image: url("/img/icons/fb-icon-white.png");
+				background-position: -3.6rem -26.8rem;
 			}
 		}
 		&-line{
@@ -79,9 +77,8 @@
 		display: block;
 		width: 10rem;
 		height: 8rem;
-		background-image: url($logoLightPath);
-		background-position: center;
-		background-size: contain;
+		background-image: url($iconsPath);
+		background-position: -.1rem -47.9rem;
 		background-repeat: no-repeat;
 	}
 	&-copy{

@@ -3,7 +3,7 @@
 
 <div class="container">
     <div class="section">
-        <h1 class="section-title"><span class="section-icon section-icon-galery"></span>Nos ablums photo</h1>
+        <h1 class="section-title"><span class="section-icon section-icon-galery"></span>Nos ablums photos</h1>
         <h2 class="section-sub-title">Saison {{$currentSeason}}</h2>
         <div class="section-content flex-wrap">
         @foreach($albums as $album)

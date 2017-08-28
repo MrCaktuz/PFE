@@ -37,53 +37,52 @@
 		width: 4rem;
 		height: 2rem;
 		margin-right: 1rem;
-		background-position: center right;
-		background-size: contain;
+		background-image: url(/img/icons/icons.png);
 		background-repeat: no-repeat;
 		&-games{
-			background-image: url(/img/icons/calendar-icon-blue.png);
+			background-position: -8.8rem -.1rem;
 		}
 		&-news{
-			background-image: url(/img/icons/news-icon-blue.png);
+			background-position: -8.8rem -2.2rem;
 		}
 		&-sponsor{
-			background-image: url(/img/icons/sponsor-icon-blue.png);
+			background-position: -8.8rem -4.3rem;
 		}
 		&-galery{
-			background-image: url(/img/icons/galery-icon-blue.png);
+			background-position: -8.8rem -6.4rem;
 		}
 		&-ca{
-			background-image: url(/img/icons/admin-icon-blue.png);
+			background-position: -8.8rem -8.5rem;
 		}
 		&-trainer{
-			background-image: url(/img/icons/trainer-icon-blue.png);
+			background-position: -8.8rem -10.6rem;
 		}
 		&-team{
-			background-image: url(/img/icons/team-icon-blue.png);
+			background-position: -8.8rem -12.7rem;
 		}
 		&-rule{
-			background-image: url(/img/icons/rules-icon-blue.png);
+			background-position: -8.8rem -14.8rem;
 		}
 		&-result{
-			background-image: url(/img/icons/result-icon-blue.png);
+			background-position: -8.8rem -16.9rem;
 		}
 		&-profil{
-			background-image: url(/img/icons/profil-icon-blue.png);
+			background-position: -8.8rem -19rem;
 		}
 		&-coaching{
-			background-image: url(/img/icons/coaching-icon-blue.png);
+			background-position: -8.8rem -21.1rem;
 		}
 		&-download{
-			background-image: url(/img/icons/download-icon-blue.png);
+			background-position: -8.8rem -23.2rem;
 		}
 		&-upload{
-			background-image: url(/img/icons/upload-icon-blue.png);
+			background-position: -8.8rem -25.3rem;
 		}
 		&-contact{
-			background-image: url(/img/icons/mail-icon-blue.png);
+			background-position: -8.8rem -27.4rem;
 		}
 		&-complexe{
-			background-image: url(/img/icons/home-icon-blue.png);
+			background-position: -8.8rem -29.5rem;
 		}
 	}
 	&-intro{

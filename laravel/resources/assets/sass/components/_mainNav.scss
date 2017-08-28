@@ -128,9 +128,8 @@
 						width: 1.5rem;
 						height: 1.8rem;
 						margin-left: .5rem;
-						background-image: url(/img/icons/arrowDropDown-blue.png);
-						background-position: center;
-						background-size: contain;
+						background-image: url($iconsPath);
+						background-position: -.1rem -.1rem;
 						background-repeat: no-repeat;
 						transition: $transBurgerButton;
 					}
@@ -165,7 +164,8 @@
 			a.dropdown{
 				padding-left: 1.5rem;
 				&::after{
-					background-image: url(/img/icons/arrowDropDown-white.png);
+					background-image: url($iconsPath);
+					background-position: -.1rem -2rem;
 				}
 			}
 			.sub-nav{
@@ -233,34 +233,35 @@
 			width: 2rem;
 			height: 1.8rem;
 			margin-right: .5rem;
-			background-position: center;
-			background-size: contain;
+			background-image: url(/img/icons/icons.png);
 			background-repeat: no-repeat;
 		}
 		&-admin::after{
-			background-image: url(/img/icons/admin-icon-grey.png);
+			background-position: -3.6rem -.1rem;
 		}
 		&-trainer::after{
-			background-image: url(/img/icons/trainer-icon-grey.png);
+			background-position: -3.6rem -2rem;
 		}
 		&-team::after{
-			background-image: url(/img/icons/team-icon-grey.png);
+			background-position: -3.6rem -3.9rem;
 		}
 		&-rule::after{
-			background-image: url(/img/icons/rules-icon-grey.png);
+			background-position: -3.6rem -5.8rem;
 		}
 		&-album::after{
-			background-image: url(/img/icons/galery-icon-grey.png);
+			background-position: -3.6rem -7.7rem;
 		}
 		&-download::after{
-			background-image: url(/img/icons/download-icon-grey.png);
+			background-position: -3.6rem -9.6rem;
 		}
 		&-profil::after{
-			background-image: url(/img/icons/profil-icon-grey.png);
+			background-position: -3.6rem -11.5rem;
 		}
 		&-logout::after{
-			top: 25%;
-			background-image: url(/img/icons/logout-icon-grey.png);
+			background-position: -3.6rem -13.4rem;
+		}
+		&-login::after{
+			content: none;
 		}
 	}
 }

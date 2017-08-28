@@ -92,12 +92,12 @@
 		}
 		.idCard-phone{
 			&:before{
-				background-image: url(/img/icons/phone-icon-white.png);
+				background-position: -1.7rem -7.1rem;
 			}
 		}
 		.idCard-mail{
 			&:before{
-				background-image: url("/img/icons/mail-icon-white.png");
+				background-position: -1.7rem -5.5rem;
 			}
 		}
 	}
