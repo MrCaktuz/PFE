@@ -21,7 +21,9 @@
                                     <li class="idCard-role">{{$role->title}}</li>
                                 @endforeach
                             </ul>
-                            <p class="idCard-phone">{{$member->phone}}</p>
+                            @if ($member->phone)
+                                <p class="idCard-phone">{{$member->phone}}</p>
+                            @endif
                             <p class="idCard-mail">{{$member->email}}</p>
                         </div>
                         <p class="idCard-link">Plus d'infos</p>

@@ -23,7 +23,7 @@
 	                    	<a class="icon icon-admin" href="/conseil-administration" title="Voir notre conseil d'administration">Administration</a>
 	                    </li>
 	                    <li class="sub-nav-item{{Request::is('entraineurs') ? ' active' : ''}}">
-	                    	<a class="icon icon-trainer" href="/entraineurs" title="Voir nos entraineur">Entraineurs</a>
+	                    	<a class="icon icon-trainer" href="/entraineurs" title="Voir nos entraineur">Entraîneurs</a>
 	                    </li>
 	                    <li class="sub-nav-item{{Request::is('equipes') ? ' active' : ''}}">
 	                    	<a class="icon icon-team" href="/equipes" title="Voir nos équipes">Équipes</a>

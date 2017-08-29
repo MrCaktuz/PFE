@@ -262,9 +262,9 @@ jQuery(document).ready(function($) {
 
 	// ******** Update "show more" buttons ********
     if ( $( 'body' ).hasClass( 'page-home' ) || $( 'body' ).hasClass( 'page-calendrier' ) || $( 'body' ).hasClass( 'page-equipes' ) ) {
-    	$(".gameCard-wrap a[rel='next']").html('Match suivant').addClass('button button-more button-more-next');
-    	$(".gameCard-wrap a[rel='prev']").html('Match précédent').addClass('button button-more button-more-prev');
-    	$(".resultCard-wrap a[rel='prev']").html('Résultat plus récent').addClass('button button-more button-more-prev');
+    	$(".gameCard-wrap a[rel='next']").html('Matchs suivants').addClass('button button-more button-more-next');
+    	$(".gameCard-wrap a[rel='prev']").html('Matchs précédents').addClass('button button-more button-more-prev');
+    	$(".resultCard-wrap a[rel='prev']").html('Résultats plus récents').addClass('button button-more button-more-prev');
         $(".resultCard-wrap a[rel='next']").html('Anciens résultats').addClass('button button-more button-more-next');
 	}
 

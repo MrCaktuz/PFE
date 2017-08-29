@@ -14,7 +14,7 @@
         <div class="section-content profil">
         	<div class="profil-head">
         		<p class="profil-name">{{$user->name}}</p>
-        		<p class="profil-birth profil-data">{{$user->birthday}}</p>
+        		<p class="profil-birth profil-data"> Date de naissance : {{$user->birthday}}</p>
         	</div>
         	<div class="profil-photo">
 	        	<img src="{{$user->src}}" srcset="{{$user->srcset}}" alt="">

@@ -220,6 +220,13 @@ class User extends Authenticatable
 	| ACCESORS
 	|--------------------------------------------------------------------------
 	*/
+    public function getPhoneAttribute($value)
+    {
+        $valueSplited = str_split($value, 2);
+        $valueFormated = $valueSplited[0].$valueSplited[1].' '.$valueSplited[2].' '.$valueSplited[3].' '.$valueSplited[4];
+
+        return $valueFormated;
+    }
 
 	/*
 	|--------------------------------------------------------------------------

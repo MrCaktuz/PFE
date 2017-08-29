@@ -3,7 +3,7 @@
 
 <div class="container">
     <div class="section">
-        <h1 class="section-title"><span class="section-icon section-icon-trainer"></span>Nos entraineurs</h1>
+        <h1 class="section-title"><span class="section-icon section-icon-trainer"></span>Nos entraîneurs</h1>
         <div class="section-content">
             <div class="section-intro">
                 {!!$intro!!}
@@ -20,7 +20,9 @@
                                     <li class="idCard-role">{{$team->division}}</li>
                                 @endforeach
                             </ul>
-                            <p class="idCard-phone">{{$trainer->phone}}</p>
+                            @if ($trainer->phone)
+                                <p class="idCard-phone">{{$trainer->phone}}</p>
+                            @endif
                             <p class="idCard-mail">{{$trainer->email}}</p>
                         </div>
                         <p class="idCard-link">Plus d'infos</p>

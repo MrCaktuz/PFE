@@ -17,7 +17,7 @@
     <div class="row">
         @if ( Auth::user()->hasRole('Web Developer') || Auth::user()->hasRole('Web Master') || Auth::user()->hasRole('Web Communication') )
           <div class="jumbotron content-header">
-            <h2 class="text-center">Bienvenu {{ Auth::user()->name }},</h2>
+            <h2 class="text-center">Bienvenue {{ Auth::user()->name }},</h2>
             <p class="text-center">C'est ici que vous pouvez gérer le contenu du site du Royal Basket Club de Ciney.</p>
           </div>
           <div class="col-md-10 col-md-offset-1">
